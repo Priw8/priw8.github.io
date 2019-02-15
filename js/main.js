@@ -128,8 +128,7 @@ function initContent() {
 		let file = spl.pop();
 		let path = spl.join("/") + "/";
 		loadContent(path, file);
-	};
-	else loadContent(DEFAULT);
+	} else loadContent(DEFAULT);
 };
 
 function parseQuery() {
