@@ -85,6 +85,22 @@ function loadMd(txt, path, file) {
 	let html = MD.makeHtml(txt);
 	$content.innerHTML = html;
 	setActiveNavigation(path, file);
+	setWindowTitle(path, file);
+}
+
+function setWindowTitle(path, file) {
+	let group;
+	for (let i=0; i<INDEX.length; i++) {
+		group = INDEX[i];
+		if (group.path == path) break;
+	}
+	if (group.single) document.head.querySelector("title").innerText = group.name;
+	else {
+		for (let i=0; i<group.content.length; i++) {
+			let item = group.content[i];
+			if (item.url == file) document.head.querySelector("title").innerText = item.name;
+		}
+	}
 }
 
 function setActiveNavigation(path, file) {

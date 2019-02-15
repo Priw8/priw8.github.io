@@ -2,6 +2,7 @@ const INDEX =
 [
 	{
 		"groupName": "Home",
+		"name": "Priw8's Github page",
 		"single": true,
 		"path": "",
 		"type": "site",
