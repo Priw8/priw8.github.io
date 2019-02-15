@@ -25,14 +25,18 @@ function getNavigationEntry(data) {
 		html += "<div class='navigation-entry-list'>";
 		for (let i=0; i<data.content.length; i++) {
 			let item = data.content[i];
-			html += "<div class='navigation-entry-list-item' data-type='"+item.type+"' data-url='"+item.url+"'>"+item.name+"</div>";
+			html += "<div class='navigation-entry-list-item' "+getNavEntryDatasetString(item, data.path)+">"+item.name+"</div>";
 		};
 		html += "</div>";
 	} else {
-		html += "<div class='navigation-entry-name' data-type='"+data.type+"' data-url='"+data.url+"'>"+data.groupName+"</div>";
+		html += "<div class='navigation-entry-name' "+getNavEntryDatasetString(data, data.path)+">"+data.groupName+"</div>";
 	};
 	html += "</div>";
 	return html;
+}
+
+function getNavEntryDatasetString(item, path) {
+	return "data-type='"+item.type+"' data-url='"+item.url+"' data-path='"+path+"'";
 }
 
 function handleNavigation(e) {
@@ -46,7 +50,7 @@ function navigate(data) {
 		window.open(data.url);
 	};
 	if (data.type == "site") {
-		loadContent(data.url);
+		loadContent(data.path + data.url);
 	};
 }
 

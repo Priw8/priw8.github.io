@@ -3,12 +3,14 @@ const INDEX =
 	{
 		"groupName": "Home",
 		"single": true,
+		"path": "",
 		"type": "site",
 		"url": "index"
 	},
 
 	{
 		"groupName": "Patches",
+		"path": "patches/",
 		"content": [
 			{
 				"name": "Custom shottypes",
@@ -30,6 +32,7 @@ const INDEX =
 
 	{
 		"groupName": "Tools",
+		"path": null,
 		"content": [
 			{
 				"name": "Shottype editor",
@@ -41,6 +44,7 @@ const INDEX =
 
 	{
 		"groupName": "Links",
+		"path": null,
 		"content": [
 			{
 				"name": "My Github",
