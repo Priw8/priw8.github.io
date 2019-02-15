@@ -3,6 +3,7 @@ let MD = new showdown.Converter({
 });
 let $content = document.querySelector(".content-wrapper");
 let cache = {};
+let active = "";
 
 function initNavigation() {
 	let $nav = document.querySelector(".header-navigation");
@@ -50,22 +51,27 @@ function navigate(data) {
 }
 
 function loadContent(file) {
+	if (active && active == file) return;
+	active = file;
 	if (cache[file]) loadMd(cache[file]);
 	else {
 		let xhr = new XMLHttpRequest();
-		xhr.open("GET", "content/"+file);
+		xhr.open("GET", "content/"+file+".md");
 		xhr.onreadystatechange = function() {
 			if (this.readyState == 4) {
 				if (this.status == 200) {
 					loadMd(this.responseText);
 					cache[file] = this.responseText;
-				} else loadMd(ERROR);
+				} else {
+					loadMd(ERROR);
+					active = "";
+				};
 			}
 		};
 		xhr.send();
 	};
 	let query = buildQuery({
-		"s": file
+		"s": file.split(".")[0]
 	});
 	location.hash = query;
 }

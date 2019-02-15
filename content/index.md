@@ -1,5 +1,5 @@
 # Welcome!
-On this website, you can find various Touhou-related things I made. You can use tha navigation bar above to check different pages.
+On this website, you can find various Touhou-related things I made. You can use the navigation bar above to check different pages.
 
 #### Media and stuff:
 - [My Youtube](https://www.youtube.com/channel/UCfFHyEuaF-aVxz91x25aTpQ)

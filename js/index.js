@@ -4,7 +4,7 @@ const INDEX =
 		"groupName": "Home",
 		"single": true,
 		"type": "site",
-		"url": "default.md"
+		"url": "index"
 	},
 
 	{
@@ -13,17 +13,17 @@ const INDEX =
 			{
 				"name": "Custom shottypes",
 				"type": "site",
-				"url": "shottypes.md"
+				"url": "shottypes"
 			},
 			{
 				"name": "LoDDK",
 				"type": "site",
-				"url": "loddk.md"
+				"url": "loddk"
 			},
 			{
 				"name": "HSiFS nonspell practice",
 				"type": "site",
-				"url": "hsifs_nonprac.md"
+				"url": "hsifs_nonprac"
 			}
 		]
 	},
@@ -66,7 +66,7 @@ const INDEX =
 	}
 ]
 
-const DEFAULT = "default.md";
+const DEFAULT = "default";
 
 const ERROR = `
 # An error has occured when loading the page.
