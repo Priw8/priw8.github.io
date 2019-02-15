@@ -123,10 +123,12 @@ function setActiveNavigation(path, file) {
 
 function initContent() {
 	let query = parseQuery();
-	let spl = query.s.split("/");
-	let file = spl.pop();
-	let path = spl.join("/") + "/";
-	if (query.s) loadContent(path, file);
+	if (query.s) {
+		let spl = query.s.split("/");
+		let file = spl.pop();
+		let path = spl.join("/") + "/";
+		loadContent(path, file);
+	};
 	else loadContent(DEFAULT);
 };
 
