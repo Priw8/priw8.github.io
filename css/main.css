@@ -1,5 +1,7 @@
 body {
-	background: #1c2b20;
+	/*background: #1c2b20;*/
+	background-color: #101813;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%2325382a' fill-opacity='0.45'%3E%3Cpath fill-rule='evenodd' d='M0 0h40v40H0V0zm40 40h40v40H40V40zm0-40h2l-2 2V0zm0 4l4-4h2l-6 6V4zm0 4l8-8h2L40 10V8zm0 4L52 0h2L40 14v-2zm0 4L56 0h2L40 18v-2zm0 4L60 0h2L40 22v-2zm0 4L64 0h2L40 26v-2zm0 4L68 0h2L40 30v-2zm0 4L72 0h2L40 34v-2zm0 4L76 0h2L40 38v-2zm0 4L80 0v2L42 40h-2zm4 0L80 4v2L46 40h-2zm4 0L80 8v2L50 40h-2zm4 0l28-28v2L54 40h-2zm4 0l24-24v2L58 40h-2zm4 0l20-20v2L62 40h-2zm4 0l16-16v2L66 40h-2zm4 0l12-12v2L70 40h-2zm4 0l8-8v2l-6 6h-2zm4 0l4-4v2l-2 2h-2z'/%3E%3C/g%3E%3C/svg%3E");
 	color: #deeae1;
 }
 
@@ -9,23 +11,23 @@ a {
 
 .border-l {
 	width: 10%;
-    position: fixed;
-    height: 150%;
-    left: 0px;
-    top: 0px;
-    background: linear-gradient(to right, #00000070 , #00000000);
-    z-index: -1;
-    max-width: 120px;
+	position: fixed;
+	height: 150%;
+	left: 0px;
+	top: 0px;
+	background: linear-gradient(to right, #00000070 , #00000000);
+	z-index: -1;
+	max-width: 120px;
 }
 .border-r {
 	width: 10%;
-    position: fixed;
-    height: 150%;
-    right: 0px;
-    top: 0px;
-    background: linear-gradient(to left, #00000070, #00000000);
-    z-index: -1;
-    max-width: 120px;
+	position: fixed;
+	height: 150%;
+	right: 0px;
+	top: 0px;
+	background: linear-gradient(to left, #00000070, #00000000);
+	z-index: -1;
+	max-width: 120px;
 }
 
 .header-wrapper {
@@ -55,6 +57,10 @@ a {
 	float: left;
 	width: 100px;
 	height: 40px;
+	box-sizing: border-box;
+}
+.navigation-entry.active {
+	border-bottom: 1px darkgreen solid;
 }
 .navigation-entry:not(:first-child) {
 	border-left: 1px solid #023810;
@@ -80,6 +86,9 @@ a {
 	border-top: none;
 	margin-left: -1px;
 }
+.navigation-entry-list-item.active {
+	background: #223222;
+}
 .navigation-entry-list-item:hover {
 	background: #363636;
 }
@@ -90,12 +99,33 @@ a {
 
 .content-wrapper {
 	position: absolute;
-    width: 80%;
-    margin-left: 10%;
-    margin-top: 110px;
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 25px;
-    padding: 20px;
-    box-sizing: border-box;
-    margin-bottom: 100px;
+	width: 80%;
+	margin-left: 10%;
+	margin-top: 110px;
+	background: rgba(0, 0, 0, 0.4);
+	border-radius: 25px;
+	padding: 20px;
+	box-sizing: border-box;
+	margin-bottom: 100px;
+}
+
+/* some jank to make youtube videos resize */
+.yt-wrapper {
+	width: 100%;
+	max-width: 560px;
+	position: relative;
+}
+.yt-wrapper2 {
+	position: relative;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	padding-top: 56.25%;
+}
+.yt-wrapper iframe {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
 }

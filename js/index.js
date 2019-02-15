@@ -74,5 +74,6 @@ const DEFAULT = "default";
 
 const ERROR = `
 # An error has occured when loading the page.
+Try reloading using **CTRL+F5**, or **clearing browser cache** of this site.  
 If the problem persists, contact me on Discord: **Priw8#9873**.
 `;

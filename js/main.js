@@ -19,7 +19,7 @@ function initNavigation() {
 
 function getNavigationEntry(data) {
 	let html;
-	html = "<div class='navigation-entry'>";
+	html = "<div class='navigation-entry' data-path='"+data.path+"'>";
 	if (!data.single) {
 		html += "<div class='navigation-entry-name'>"+data.groupName+"</div>";
 		html += "<div class='navigation-entry-list'>";
@@ -50,24 +50,25 @@ function navigate(data) {
 		window.open(data.url);
 	};
 	if (data.type == "site") {
-		loadContent(data.path + data.url);
+		loadContent(data.path, data.url);
 	};
 }
 
-function loadContent(file) {
+function loadContent(path, file) {
 	if (active && active == file) return;
 	active = file;
-	if (cache[file]) loadMd(cache[file]);
+	let realPath = path+file;
+	if (cache[realPath]) loadMd(cache[realPath], path, file);
 	else {
 		let xhr = new XMLHttpRequest();
-		xhr.open("GET", "content/"+file+".md");
+		xhr.open("GET", "content/"+realPath+".md");
 		xhr.onreadystatechange = function() {
 			if (this.readyState == 4) {
 				if (this.status == 200) {
-					loadMd(this.responseText);
-					cache[file] = this.responseText;
+					loadMd(this.responseText, path, file);
+					cache[realPath] = this.responseText;
 				} else {
-					loadMd(ERROR);
+					loadMd(ERROR, path, file);
 					active = "";
 				};
 			}
@@ -75,19 +76,41 @@ function loadContent(file) {
 		xhr.send();
 	};
 	let query = buildQuery({
-		"s": file.split(".")[0]
+		"s": realPath
 	});
 	location.hash = query;
 }
 
-function loadMd(txt) {
+function loadMd(txt, path, file) {
 	let html = MD.makeHtml(txt);
 	$content.innerHTML = html;
+	setActiveNavigation(path, file);
+}
+
+function setActiveNavigation(path, file) {
+	let $active, $activeItem;
+
+	$active = document.querySelector(".navigation-entry.active");
+	if ($active != null) {
+		$active.classList.remove("active");
+		$activeItem = $active.querySelector(".active");
+		if ($activeItem != null) $activeItem.classList.remove("active");
+	};
+
+	$active = document.querySelector(".navigation-entry[data-path='"+path+"']");
+	if ($active != null) {
+		$active.classList.add("active");
+		$activeItem = $active.querySelector("[data-url='"+file+"']");
+		if ($activeItem != null) $activeItem.classList.add("active");
+	};
 }
 
 function initContent() {
 	let query = parseQuery();
-	if (query.s) loadContent(query.s);
+	let spl = query.s.split("/");
+	let file = spl.pop();
+	let path = spl.join("/") + "/";
+	if (query.s) loadContent(path, file);
 	else loadContent(DEFAULT);
 };
 
@@ -114,9 +137,23 @@ function buildQuery(query) {
 	return str;
 }
 
+function resize() {
+	if (screen.width < 600) {
+		document.querySelector("#viewport").setAttribute("content", "width=540px, user-scalable=no");
+	} else {
+		document.querySelector("#viewport").setAttribute("content", "width=device-width, user-scalable=no");
+	};
+};
+
+function initResize() {
+	window.onresize = resize;
+	resize();
+};
+
 function init() {
 	initNavigation();
 	initContent();
+	initResize();
 }
 
 init();
