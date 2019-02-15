@@ -138,7 +138,7 @@ function buildQuery(query) {
 }
 
 function resize() {
-	if (screen.width < 600) {
+	if (screen.width < 540) {
 		document.querySelector("#viewport").setAttribute("content", "width=540px, user-scalable=no");
 	} else {
 		document.querySelector("#viewport").setAttribute("content", "width=device-width, user-scalable=no");
