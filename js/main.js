@@ -68,7 +68,7 @@ function loadContent(path, file) {
 					loadMd(this.responseText, path, file);
 					cache[realPath] = this.responseText;
 				} else {
-					loadMd(ERROR, path, file);
+					loadMd(getErrorString(path, file), path, file);
 					active = "";
 				};
 			}
@@ -79,6 +79,31 @@ function loadContent(path, file) {
 		"s": realPath
 	});
 	location.hash = query;
+}
+
+function getErrorString(path, file) {
+	let str = ERROR;
+	str += "  \n  \n  **Requested path**: `"+path+"`";
+	str += "  \n  **Requested file**: `"+file+".md`";
+
+	let group = getGroupByPath(path);
+	if (group) {
+		str += "  \n  \n  You might be looking for one of the following pages:  \n"
+		let list = group.single ? [group] : group.content;
+		for (let i=0; i<list.length; i++) {
+			let entry = list[i];
+			let url = entry.type == "site" ? "#"+buildQuery({s: group.path + entry.url}) : entry.url;
+			str += "- `"+group.path+entry.url+"` - ["+entry.name+"]("+url+")  \n";
+		};
+	}
+	return str;
+}
+
+function getGroupByPath(path) {
+	for (let i=0; i<INDEX.length; i++) {
+		if (INDEX[i].path == path) return INDEX[i];
+	};
+	return null;
 }
 
 function loadMd(txt, path, file) {

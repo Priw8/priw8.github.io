@@ -4,7 +4,7 @@ const INDEX =
 		"groupName": "Home",
 		"name": "Priw8's Github page",
 		"single": true,
-		"path": "",
+		"path": "/",
 		"type": "site",
 		"url": "index"
 	},
