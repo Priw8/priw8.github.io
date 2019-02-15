@@ -141,7 +141,10 @@ function resize() {
 	if (screen.width < 540) {
 		document.querySelector("#viewport").setAttribute("content", "width=540px, user-scalable=no");
 	} else {
-		document.querySelector("#viewport").setAttribute("content", "width=device-width, user-scalable=no");
+		// make it actually usable with horizontal orientation
+		let w = "device-width";
+		if (screen.height < 450) w = "900px";
+		document.querySelector("#viewport").setAttribute("content", "width="+w+", user-scalable=no");
 	};
 };
 
