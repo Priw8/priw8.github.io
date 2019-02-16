@@ -93,7 +93,7 @@ function getErrorString(path, file) {
 		for (let i=0; i<list.length; i++) {
 			let entry = list[i];
 			let url = entry.type == "site" ? "#"+buildQuery({s: group.path + entry.url}) : entry.url;
-			str += "- `"+group.path+entry.url+"` - ["+entry.name+"]("+url+")  \n";
+			str += "- `"+group.path+entry.url+".md` - ["+entry.name+"]("+url+")  \n";
 		};
 	}
 	return str;
@@ -111,6 +111,11 @@ function loadMd(txt, path, file) {
 	$content.innerHTML = html;
 	setActiveNavigation(path, file);
 	setWindowTitle(path, file);
+	resetScroll();
+}
+
+function resetScroll() {
+	document.body.scrollTop = document.documentElement.scrollTop = 0;
 }
 
 function setWindowTitle(path, file) {
@@ -153,7 +158,7 @@ function initContent() {
 		let file = spl.pop();
 		let path = spl.join("/") + "/";
 		loadContent(path, file);
-	} else loadContent("", "index");
+	} else loadContent("/", "index");
 };
 
 function parseQuery() {
