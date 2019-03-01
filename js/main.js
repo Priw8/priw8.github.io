@@ -3,6 +3,7 @@ let MD = new showdown.Converter({
 });
 let $content = document.querySelector(".content-wrapper");
 let cache = {};
+let blog = [];
 let active = "";
 
 function initNavigation() {
@@ -52,6 +53,103 @@ function navigate(data) {
 	if (data.type == "site") {
 		loadContent(data.path, data.url);
 	};
+	if (data.type == "blog") {
+		loadBlog(data.path, data.url, 1);
+	};
+}
+
+function loadBlog(path, index, page) {
+	if (active && active == path) return;
+	active = path;
+	index = parseInt(index);
+	let start = Math.max(index - page*10, 0);
+	let end = index - (page-1)*10;
+	setupBlogContent(index, page, start, end);
+	for (let i=start; i<end; i++) {
+		let index = i;
+		getContent(path, index, function() {
+			loadOneBlogEntry(this.responseText, index);
+		}, function() {
+			loadOneBlogEntry(BLOG_ERROR, index);
+		});
+	}
+	let query = buildQuery({
+		"b": path,
+		"p": page
+	});
+	location.hash = query;
+	setActiveNavigation(path, "");
+	resetScroll();
+}
+
+function loadOneBlogEntry(txt, index) {
+	let html = MD.makeHtml(txt);
+	blog[index].$.innerHTML = html;
+	blog[index].loaded = true;
+	blog[index].$.style.opacity = "1.0";
+}
+
+function setupBlogContent(index, page, start, end) {
+	blog = blog.splice(0, blog.length);
+	let $div = document.createElement("div");
+	$div.classList.add("content");
+	$div.style.opacity = "0.0";
+	$content.innerHTML = "";
+	for (let i=index; i>=0; i--) {
+		blog[i] = {
+			$: $div.cloneNode(),
+			loaded: false
+		}
+	}
+	for (let i=end-1; i>=start; i--) {
+		$content.appendChild(blog[i].$);
+	}
+	let $pageNav = createBlogNavigation(index, parseInt(page));
+	$content.appendChild($pageNav);
+}
+
+function createBlogNavigation(index, page) {
+	let pages = Math.floor(index)/10 + 1;
+	let html = "";
+	for (let i=page-2; i<page+3; i++) {
+		if (i < 1 || i > pages) continue;
+		let active = i == page ? "active" : "";
+		html += "<div class='blog-navigation-entry "+active+"' data-page='"+i+"'>"+i+"</div>";
+	};
+	if (page - 2 > 1) html = "<div class='blog-navigation-entry' data-page='1'>1</div>..." + html;
+	if (page +2 < pages) html += "...<div class='blog-navigation-entry' data-page='"+pages+"'>"+pages+"</div>";
+	let $div = document.createElement("div");
+	$div.classList.add("blog-navigation-wrapper");
+	let $nav = document.createElement("div");
+	$nav.classList.add("blog-navigation");
+	$div.appendChild($nav);
+	$nav.innerHTML = html;
+	$nav.addEventListener("click", blogNavigationHandler);
+	return $div;
+}
+
+function blogNavigationHandler(e) {
+	let $targ = e.target;
+	if ($targ.dataset.page && !$targ.classList.contains("active")) {
+		let query = parseQuery();
+		let group = getGroupByPath(query.b);
+		loadBlog(group.path, group.url, $targ.dataset.page);
+	}
+}
+
+function getContent(path, file, clb, err) {
+	let xhr = new XMLHttpRequest();
+	xhr.open("GET", "content/"+path+file+".md");
+	xhr.onreadystatechange = function() {
+		if (this.readyState == 4) {
+			if (this.status == 200) {
+				clb.apply(this, arguments);
+			} else {
+				err.apply(this, arguments);
+			};
+		}
+	};
+	xhr.send();
 }
 
 function loadContent(path, file) {
@@ -60,20 +158,13 @@ function loadContent(path, file) {
 	let realPath = path+file;
 	if (cache[realPath]) loadMd(cache[realPath], path, file);
 	else {
-		let xhr = new XMLHttpRequest();
-		xhr.open("GET", "content/"+realPath+".md");
-		xhr.onreadystatechange = function() {
-			if (this.readyState == 4) {
-				if (this.status == 200) {
-					loadMd(this.responseText, path, file);
-					cache[realPath] = this.responseText;
-				} else {
-					loadMd(getErrorString(path, file), path, file);
-					active = "";
-				};
-			}
-		};
-		xhr.send();
+		getContent(path, file, function() {
+			loadMd(this.responseText, path, file);
+			cache[realPath] = this.responseText;
+		}, function() {
+			loadMd(getErrorString(path, file), path, file);
+			active = "";
+		})
 	};
 	let query = buildQuery({
 		"s": realPath
@@ -88,14 +179,18 @@ function getErrorString(path, file) {
 
 	let group = getGroupByPath(path);
 	if (group) {
-		str += "  \n  \n  You might be looking for one of the following pages:  \n"
-		let list = group.single ? [group] : group.content;
-		for (let i=0; i<list.length; i++) {
-			let entry = list[i];
-			let url = entry.type == "site" ? "#"+buildQuery({s: group.path + entry.url}) : entry.url;
-			str += "- `"+group.path+entry.url+".md` - ["+entry.name+"]("+url+")  \n";
+		if (group.type == "blog") {
+			str += "  \n  \n  You're trying to access a 'blog' type page by loading it as a 'site' page instead. Use [this link](#b="+group.path+"&p=1) to load it correctly.";
+		} else {
+			str += "  \n  \n  You might be looking for one of the following pages:  \n"
+			let list = group.single ? [group] : group.content;
+			for (let i=0; i<list.length; i++) {
+				let entry = list[i];
+				let url = entry.type == "site" ? "#"+buildQuery({s: group.path + entry.url}) : entry.url;
+				str += "- `"+group.path+entry.url+".md` - ["+entry.name+"]("+url+")  \n";
+			};
 		};
-	}
+	};
 	return str;
 }
 
@@ -108,7 +203,7 @@ function getGroupByPath(path) {
 
 function loadMd(txt, path, file) {
 	let html = MD.makeHtml(txt);
-	$content.innerHTML = html;
+	$content.innerHTML = "<div class='content'>"+ html + "</div>";
 	setActiveNavigation(path, file);
 	setWindowTitle(path, file);
 	resetScroll();
@@ -158,6 +253,9 @@ function initContent() {
 		let file = spl.pop();
 		let path = spl.join("/") + "/";
 		loadContent(path, file);
+	} else if (query.b) {
+		let group = getGroupByPath(query.b);
+		loadBlog(group.path, group.url, query.p);
 	} else loadContent("/", "index");
 };
 

@@ -101,12 +101,50 @@ a {
 	position: absolute;
 	width: 80%;
 	margin-left: 10%;
-	margin-top: 110px;
-	background: rgba(0, 0, 0, 0.4);
-	border-radius: 25px;
-	padding: 20px;
+	margin-top: 90px;
 	box-sizing: border-box;
 	margin-bottom: 100px;
+}
+
+.content-wrapper .content {
+	background: rgba(0, 0, 0, 0.4);
+	margin-top: 20px;
+	border-radius: 25px;
+	padding: 20px;
+	transition: opacity .2s ease;
+}
+
+.blog-navigation-wrapper {
+	text-align: center;
+}
+
+.blog-navigation {
+	display: inline-block;
+	background: rgba(0, 0, 0, 0.4);
+	margin-top: 10px;
+	border-radius: 25px;
+	text-align: center;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.blog-navigation-entry {
+	display: inline-block;
+	padding: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	background: rgba(255, 255, 255, 0.07);
+	border-radius: 8px;
+	margin: 2px;
+	cursor: pointer;
+}
+
+.blog-navigation-entry:hover {
+	background: rgba(255, 255, 255, 0.15);
+}
+
+.blog-navigation-entry.active {
+	background: rgba(255, 255, 255, 0.15);
 }
 
 /* some jank to make youtube videos resize */

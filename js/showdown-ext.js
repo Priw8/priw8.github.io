@@ -9,5 +9,10 @@ let ext = function() {
 		regex: /\[hr\]/g,
 		replace: "<hr>"
 	}
-	return [yt, hr];
+	let ts = {
+		type: "lang",
+		regex: /\[timestamp=(.*?)\]/g,
+		replace: "<div style='float: right'>$1</div>"
+	}
+	return [yt, hr, ts];
 }

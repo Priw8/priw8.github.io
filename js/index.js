@@ -10,6 +10,15 @@ const INDEX =
 	},
 
 	{
+		"groupName": "News",
+		"name": "News and stuff",
+		"single": true,
+		"path": "news/",
+		"type": "blog",
+		"url": 1
+	},
+
+	{
 		"groupName": "Patches",
 		"path": "patches/",
 		"content": [
@@ -76,5 +85,10 @@ const DEFAULT = "default";
 const ERROR = `
 # An error has occured when loading the page.
 Try reloading using **CTRL+F5**, or **clearing browser cache** of this site.  
+If the problem persists, contact me on Discord: **Priw8#9873**.
+`;
+
+const BLOG_ERROR = `
+### An error has occured when loading this content.
 If the problem persists, contact me on Discord: **Priw8#9873**.
 `;
