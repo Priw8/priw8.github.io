@@ -55,7 +55,7 @@ a {
 .navigation-entry {
 	font-family: sans-serif;
 	float: left;
-	width: 100px;
+	width: 80px;
 	height: 40px;
 	box-sizing: border-box;
 }
@@ -68,7 +68,10 @@ a {
 .navigation-entry:first-child {
 	border-bottom-left-radius: 15px;
 }
-.navigation-entry:not(.dummy):hover {
+.navigation-entry:last-child {
+	border-right: 1px solid #023810;
+}
+.navigation-entry:hover {
 	background: #222222
 }
 .navigation-entry:hover .navigation-entry-list {

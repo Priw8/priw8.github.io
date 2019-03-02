@@ -12,7 +12,6 @@ function initNavigation() {
 	for (let i=0; i<INDEX.length; i++) {
 		html += getNavigationEntry(INDEX[i]);
 	}
-	html += "<div class='navigation-entry dummy'></div>";
 	$nav.innerHTML = html;
 	$nav.addEventListener("click", handleNavigation);
 	window.addEventListener("hashchange", initContent, false);
@@ -67,8 +66,8 @@ function loadBlog(path, index, page) {
 	setupBlogContent(index, page, start, end);
 	for (let i=start; i<end; i++) {
 		let index = i;
-		getContent(path, index, function() {
-			loadOneBlogEntry(this.responseText, index);
+		getContent(path, index, function(txt) {
+			loadOneBlogEntry(txt, index);
 		}, function() {
 			loadOneBlogEntry(BLOG_ERROR, index);
 		});
@@ -138,12 +137,15 @@ function blogNavigationHandler(e) {
 }
 
 function getContent(path, file, clb, err) {
+	let realPath = path+file;
+	if (cache[realPath]) return clb(cache[realPath]);
 	let xhr = new XMLHttpRequest();
-	xhr.open("GET", "content/"+path+file+".md");
+	xhr.open("GET", "content/"+realPath+".md");
 	xhr.onreadystatechange = function() {
 		if (this.readyState == 4) {
 			if (this.status == 200) {
-				clb.apply(this, arguments);
+				clb(this.responseText);
+				cache[realPath] = this.responseText;
 			} else {
 				err.apply(this, arguments);
 			};
@@ -155,19 +157,14 @@ function getContent(path, file, clb, err) {
 function loadContent(path, file) {
 	if (active && active == file) return;
 	active = file;
-	let realPath = path+file;
-	if (cache[realPath]) loadMd(cache[realPath], path, file);
-	else {
-		getContent(path, file, function() {
-			loadMd(this.responseText, path, file);
-			cache[realPath] = this.responseText;
-		}, function() {
-			loadMd(getErrorString(path, file), path, file);
-			active = "";
-		})
-	};
+	getContent(path, file, function(txt) {
+		loadMd(txt, path, file);
+	}, function() {
+		loadMd(getErrorString(path, file), path, file);
+		active = "";
+	});
 	let query = buildQuery({
-		"s": realPath
+		"s": path+file
 	});
 	location.hash = query;
 }
