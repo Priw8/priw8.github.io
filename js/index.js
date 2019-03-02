@@ -15,7 +15,7 @@ const INDEX =
 		"single": true,
 		"path": "news/",
 		"type": "blog",
-		"url": 1
+		"url": 2
 	},
 
 	{
