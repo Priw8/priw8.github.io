@@ -78,6 +78,7 @@ function loadBlog(path, index, page) {
 	});
 	location.hash = query;
 	setActiveNavigation(path, "");
+	setWindowTitle(path, "");
 	resetScroll();
 }
 
