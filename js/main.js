@@ -5,6 +5,7 @@ let $content = document.querySelector(".content-wrapper");
 let cache = {};
 let blog = [];
 let active = "";
+let activePage = "";
 
 function initNavigation() {
 	let $nav = document.querySelector(".header-navigation");
@@ -58,11 +59,12 @@ function navigate(data) {
 }
 
 function loadBlog(path, index, page) {
-	if (active && active == path) return;
+	if (active && active == path && activePage == page) return;
 	active = path;
+	activePage = page;
 	index = parseInt(index);
-	let start = Math.max(index - page*10, 0);
-	let end = index - (page-1)*10;
+	let start = Math.max(index - page*MAX_ENTRIES, 0);
+	let end = index - (page-1)*MAX_ENTRIES;
 	setupBlogContent(index, page, start, end);
 	for (let i=start; i<end; i++) {
 		let index = i;
@@ -84,9 +86,16 @@ function loadBlog(path, index, page) {
 
 function loadOneBlogEntry(txt, index) {
 	let html = MD.makeHtml(txt);
+	html += "<a class='blog-entry-link' data-blogindex='"+index+"'>Standalone page</a>";
 	blog[index].$.innerHTML = html;
 	blog[index].loaded = true;
 	blog[index].$.style.opacity = "1.0";
+	blog[index].$.addEventListener("click", blogEntryLinkHandler);
+}
+
+function blogEntryLinkHandler(e) {
+	let $targ = e.target;
+	if ($targ.dataset["blogindex"]) loadContent(active, $targ.dataset["blogindex"]);
 }
 
 function setupBlogContent(index, page, start, end) {
@@ -109,7 +118,7 @@ function setupBlogContent(index, page, start, end) {
 }
 
 function createBlogNavigation(index, page) {
-	let pages = Math.floor(index)/10 + 1;
+	let pages = Math.floor(index)/MAX_ENTRIES + 1;
 	let html = "";
 	for (let i=page-2; i<page+3; i++) {
 		if (i < 1 || i > pages) continue;

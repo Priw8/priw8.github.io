@@ -9,6 +9,10 @@ a {
 	color: lightblue;
 }
 
+code {
+	background: #14442c;
+}
+
 .border-l {
 	width: 10%;
 	position: fixed;
@@ -148,6 +152,13 @@ a {
 
 .blog-navigation-entry.active {
 	background: rgba(255, 255, 255, 0.15);
+}
+
+.blog-entry-link {
+	float: right;
+	margin-top: -10px;
+	cursor: pointer;
+	text-decoration: underline;
 }
 
 /* some jank to make youtube videos resize */

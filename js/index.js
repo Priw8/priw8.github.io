@@ -15,7 +15,7 @@ const INDEX =
 		"single": true,
 		"path": "news/",
 		"type": "blog",
-		"url": 5
+		"url": 6
 	},
 
 	{
@@ -47,7 +47,12 @@ const INDEX =
 			{
 				"name": "Shottype editor",
 				"type": "href",
-				"url": "https://priw8.github.io/sht-webedit/"
+				"url": "/sht-webedit/"
+			},
+			{
+				"name": "th16 eclmap",
+				"type": "href",
+				"url": "/#s=news/5"
 			}
 		]
 	},
@@ -92,3 +97,5 @@ const BLOG_ERROR = `
 ### An error has occured when loading this content.
 If the problem persists, contact me on Discord: **Priw8#9873**.
 `;
+
+const MAX_ENTRIES = 5;
