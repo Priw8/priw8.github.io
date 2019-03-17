@@ -14,5 +14,10 @@ let ext = function() {
 		regex: /\[timestamp=(.*?)\]/g,
 		replace: "<div style='float: right'>$1</div>"
 	}
-	return [yt, hr, ts];
+	let img = {
+		type: "lang",
+		regex: /\[img=(.*?)\]/g,
+		replace: "<img src='$1'>"
+	}
+	return [yt, hr, ts, img];
 }
