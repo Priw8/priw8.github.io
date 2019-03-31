@@ -15,7 +15,8 @@ const INDEX =
 		"single": true,
 		"path": "news/",
 		"type": "blog",
-		"url": 7
+		"url": 7,
+		"max": 5
 	},
 
 	{
@@ -50,7 +51,7 @@ const INDEX =
 				"url": "/sht-webedit/"
 			},
 			{
-				"name": "th16 eclmap",
+				"name": "th13-16 eclmap",
 				"type": "href",
 				"url": "/#s=news/5"
 			}
@@ -97,5 +98,3 @@ const BLOG_ERROR = `
 ### An error has occured when loading this content.
 If the problem persists, contact me on Discord: **Priw8#9873**.
 `;
-
-const MAX_ENTRIES = 5;

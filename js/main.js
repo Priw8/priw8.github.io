@@ -54,18 +54,19 @@ function navigate(data) {
 		loadContent(data.path, data.url);
 	};
 	if (data.type == "blog") {
-		loadBlog(data.path, data.url, 1);
+		let group = getGroupByPath(data.path);
+		loadBlog(data.path, data.url, 1, group.max);
 	};
 }
 
-function loadBlog(path, index, page) {
+function loadBlog(path, index, page, max) {
 	if (active && active == path && activePage == page) return;
 	active = path;
 	activePage = page;
 	index = parseInt(index);
-	let start = Math.max(index - page*MAX_ENTRIES, 0);
-	let end = index - (page-1)*MAX_ENTRIES;
-	setupBlogContent(index, page, start, end);
+	let start = Math.max(index - page*max, 0);
+	let end = index - (page-1)*max;
+	setupBlogContent(index, page, start, end, max);
 	for (let i=start; i<end; i++) {
 		let index = i;
 		getContent(path, index, function(txt) {
@@ -98,7 +99,7 @@ function blogEntryLinkHandler(e) {
 	if ($targ.dataset["blogindex"]) loadContent(active, $targ.dataset["blogindex"]);
 }
 
-function setupBlogContent(index, page, start, end) {
+function setupBlogContent(index, page, start, end, max) {
 	blog = blog.splice(0, blog.length);
 	let $div = document.createElement("div");
 	$div.classList.add("content");
@@ -113,12 +114,12 @@ function setupBlogContent(index, page, start, end) {
 	for (let i=end-1; i>=start; i--) {
 		$content.appendChild(blog[i].$);
 	}
-	let $pageNav = createBlogNavigation(index, parseInt(page));
+	let $pageNav = createBlogNavigation(index, parseInt(page), max);
 	$content.appendChild($pageNav);
 }
 
-function createBlogNavigation(index, page) {
-	let pages = Math.floor(index)/MAX_ENTRIES + 1;
+function createBlogNavigation(index, page, max) {
+	let pages = Math.ceil(index/max);
 	let html = "";
 	for (let i=page-2; i<page+3; i++) {
 		if (i < 1 || i > pages) continue;
@@ -142,7 +143,7 @@ function blogNavigationHandler(e) {
 	if ($targ.dataset.page && !$targ.classList.contains("active")) {
 		let query = parseQuery();
 		let group = getGroupByPath(query.b);
-		loadBlog(group.path, group.url, $targ.dataset.page);
+		loadBlog(group.path, group.url, $targ.dataset.page, group.max);
 	}
 }
 
@@ -262,7 +263,7 @@ function initContent() {
 		loadContent(path, file);
 	} else if (query.b) {
 		let group = getGroupByPath(query.b);
-		loadBlog(group.path, group.url, query.p);
+		loadBlog(group.path, group.url, query.p, group.max);
 	} else loadContent("/", "index");
 };
 

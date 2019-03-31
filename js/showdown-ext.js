@@ -2,7 +2,7 @@ let ext = function() {
 	let yt = {
 		type: "lang",
 		regex: /\[yt\](.*?)\[\/yt\]/g,
-		replace: '<div class="yt-wrapper"><div class="yt-wrapper2"><iframe src="https://www.youtube.com/embed/$1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>'
+		replace: '<div class="fit-wrapper"><div class="fit-wrapper2 yt"><iframe src="https://www.youtube.com/embed/$1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>'
 	};
 	let hr = {
 		type: "lang",
@@ -17,7 +17,7 @@ let ext = function() {
 	let img = {
 		type: "lang",
 		regex: /\[img=(.*?)\]/g,
-		replace: "<img src='$1'>"
+		replace: '<div class="fit-wrapper"><div class="fit-wrapper2"><img src="$1"></div></div>'
 	}
 	return [yt, hr, ts, img];
 }
