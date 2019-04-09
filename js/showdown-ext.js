@@ -9,6 +9,11 @@ let ext = function() {
 		regex: /\[hr\]/g,
 		replace: "<hr>"
 	}
+	let br = {
+		type: "lang",
+		regex: /\[br\]/g,
+		replace: "<br>"
+	}
 	let ts = {
 		type: "lang",
 		regex: /\[timestamp=(.*?)\]/g,
@@ -16,8 +21,33 @@ let ext = function() {
 	}
 	let img = {
 		type: "lang",
-		regex: /\[img=(.*?)\]/g,
-		replace: '<div class="fit-wrapper"><div class="fit-wrapper2"><img src="$1"></div></div>'
+		regex: /\[img=(.*?), hratio=(.*?)\]/g,
+		replace: '<div class="fit-wrapper"><div class="fit-wrapper2" style="padding-top: $2%"><img style="cursor:pointer;" onclick="window.open(\'$1\')" src="$1"></div></div>'
 	}
-	return [yt, hr, ts, img];
+
+	let jank = document.createElement("textarea");
+	jank.classList.add("clipboard-jank");
+	let cnt = 0;
+	let code = {
+		type: "lang",
+		regex: /\[code\]([^]+?)\[\/code\]/g,
+		replace: function(match, content) {
+			// putting the content in data-clipboard-text didn't really work
+			let clip = jank.cloneNode();
+			clip.innerHTML = content;
+			clip.setAttribute("id", "clipboard"+cnt);
+			document.body.appendChild(clip);
+			return "<hljs>"+highlightCode(content)+"<span class='copy-btt' data-clipboard-action='copy' data-clipboard-target='#clipboard"+(cnt++)+"'>Copy</span></hljs>";
+		}
+	}
+
+	let title = {
+		type: "lang",
+		regex: /\[title=(.*?)\]\n/,
+		replace: function(match, content) {
+			setWindowTitleDirect(content);
+			return "";
+		}
+	}
+	return [yt, hr, br, ts, img, code, title];
 }

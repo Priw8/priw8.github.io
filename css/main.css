@@ -184,3 +184,40 @@ code {
 	top: 0px;
 	left: 0px;
 }
+
+hljs {
+	font-family: monospace;
+	border: 3px double #07440a;
+	display: inline-block;
+	padding: 5px;
+	background: #122300;
+	white-space: pre-wrap;
+	margin: 10px;
+}
+
+hljs .copy-btt {
+	opacity: 0.1;
+	background: white;
+	color: black;
+	padding: 3px;
+	border-radius: 5px;
+	border: 1px solid gray;
+	float: right;
+	transition: opacity .15s ease;
+	cursor: pointer;
+}
+
+hljs:hover .copy-btt {
+	opacity: 0.6;
+}
+
+hljs .copy-btt:hover {
+	opacity: 0.85;
+}
+
+.clipboard-jank {
+	opacity: 0;
+	position: absolute;
+	left: -999px;
+	top: -999px;
+}

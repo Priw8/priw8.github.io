@@ -55,24 +55,30 @@ function navigate(data) {
 	};
 	if (data.type == "blog") {
 		let group = getGroupByPath(data.path);
-		loadBlog(data.path, data.url, 1, group.max);
+		loadBlog(data.path, data.url, 1, group.max, group.reverse);
 	};
 }
 
-function loadBlog(path, index, page, max) {
+function loadBlog(path, index, page, max, reverse) {
 	if (active && active == path && activePage == page) return;
 	active = path;
 	activePage = page;
 	index = parseInt(index);
-	let start = Math.max(index - page*max, 0);
-	let end = index - (page-1)*max;
+	let start, end;
+	if (!reverse) {
+		start = Math.max(index - page*max, 0);
+		end = index - (page-1)*max;
+	} else {
+		start = (page-1)*max;
+		end = Math.min(page*max, index);
+	}
 	setupBlogContent(index, page, start, end, max);
 	for (let i=start; i<end; i++) {
 		let index = i;
 		getContent(path, index, function(txt) {
-			loadOneBlogEntry(txt, index);
+			loadOneBlogEntry(txt, index, max > 1);
 		}, function() {
-			loadOneBlogEntry(BLOG_ERROR, index);
+			loadOneBlogEntry(BLOG_ERROR, index, false);
 		});
 	}
 	let query = buildQuery({
@@ -85,9 +91,9 @@ function loadBlog(path, index, page, max) {
 	resetScroll();
 }
 
-function loadOneBlogEntry(txt, index) {
+function loadOneBlogEntry(txt, index, standaloneLink) {
 	let html = MD.makeHtml(txt);
-	html += "<a class='blog-entry-link' data-blogindex='"+index+"'>Standalone page</a>";
+	if (standaloneLink) html += "<a class='blog-entry-link' data-blogindex='"+index+"'>Standalone page</a>";
 	blog[index].$.innerHTML = html;
 	blog[index].loaded = true;
 	blog[index].$.style.opacity = "1.0";
@@ -143,7 +149,7 @@ function blogNavigationHandler(e) {
 	if ($targ.dataset.page && !$targ.classList.contains("active")) {
 		let query = parseQuery();
 		let group = getGroupByPath(query.b);
-		loadBlog(group.path, group.url, $targ.dataset.page, group.max);
+		loadBlog(group.path, group.url, $targ.dataset.page, group.max, group.reverse);
 	}
 }
 
@@ -210,10 +216,10 @@ function getGroupByPath(path) {
 }
 
 function loadMd(txt, path, file) {
+	setWindowTitle(path, file);
 	let html = MD.makeHtml(txt);
 	$content.innerHTML = "<div class='content'>"+ html + "</div>";
 	setActiveNavigation(path, file);
-	setWindowTitle(path, file);
 	resetScroll();
 }
 
@@ -234,6 +240,10 @@ function setWindowTitle(path, file) {
 			if (item.url == file) document.head.querySelector("title").innerText = item.name;
 		}
 	}
+}
+
+function setWindowTitleDirect(str) {
+	document.head.querySelector("title").innerText = str;
 }
 
 function setActiveNavigation(path, file) {
@@ -263,7 +273,7 @@ function initContent() {
 		loadContent(path, file);
 	} else if (query.b) {
 		let group = getGroupByPath(query.b);
-		loadBlog(group.path, group.url, query.p, group.max);
+		loadBlog(group.path, group.url, query.p, group.max, group.reverse);
 	} else loadContent("/", "index");
 };
 
@@ -290,6 +300,10 @@ function buildQuery(query) {
 	return str;
 }
 
+function highlightCode(content) {
+	return hljs.fixMarkup(hljs.highlight("cpp", content, true, false).value).replace(/_/g, "\\_").replace(/\*/g, "\\*");
+}
+
 function resize() {
 	if (screen.width < 540) {
 		document.querySelector("#viewport").setAttribute("content", "width=540px, user-scalable=no");
@@ -310,6 +324,10 @@ function init() {
 	initNavigation();
 	initContent();
 	initResize();
+	hljs.configure({
+		useBR: true
+	});
+	new ClipboardJS(".copy-btt");
 }
 
 init();
