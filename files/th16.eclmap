@@ -106,8 +106,8 @@ eclmap
 339 ? Anm_339
 340 ? Anm_340
 400 ? Move_pos
-401 ? Move_posNMTime
-402 ? Move_posNMRel
+401 ? Move_posTime
+402 ? Move_posRel
 403 ? Move_posRelTime
 404 ? Move_vel
 405 ? Move_velTime
@@ -141,8 +141,8 @@ eclmap
 433 ? Move_433
 434 ? Move_curve
 435 ? Move_curveRel
-436 ? Move_posTime
-437 ? Move_posRelTime
+436 ? Move_posAddTime
+437 ? Move_posAddRelTime
 438 ? Move_curveAdd
 439 ? Move_curveAddRel
 440 ? Move_angle
