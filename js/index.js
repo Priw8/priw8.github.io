@@ -37,9 +37,26 @@ const INDEX =
 				"name": "HSiFS nonspell practice",
 				"type": "site",
 				"url": "hsifs_nonprac"
+			},
+			{
+				"name": "Undefined Fantastic Four Seasons",
+				"type": "site",
+				"url": "uffs"
 			}
 		]
 	},
+
+	/*{
+		"groupName": "ECL",
+		"name": "ECL tutorial",
+		"single": true,
+		"path": "ecl-tutorial/",
+		"type": "blog",
+		"url": 3,
+		"max": 1,
+		"reverse": true
+	},*/
+	// soon
 
 	{
 		"groupName": "Tools",
