@@ -1,5 +1,5 @@
 # Undefined Fantastic Four Seasons
-#### latest version: 1.0b
+#### latest version: 1.0c
 
 [yt]b_qE58adw3M[/yt]  
 ##### From the README.txt file:  
@@ -20,4 +20,4 @@ Most of other assets that weren't already in HSiFS were taken directly from UFO,
 
 Download:
 1. Through thcrap (recommended, automatic updates!)
-2. prepatched version: [here](https://mega.nz/#!Qk5QkIYQ!GHXdFRZBa0aigIwG8FqEcWiE1jMTcNm8EeclKcvLUhQ) (1.0b)
+2. prepatched version: [here](https://mega.nz/#!R1R0UKJI!DgtiUScsxIz0OPBPa__3KIESZlsFoaqgRBmTGh7Qx1c) (1.0c)
