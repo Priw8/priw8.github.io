@@ -49,5 +49,69 @@ let ext = function() {
 			return "";
 		}
 	}
-	return [yt, hr, br, ts, img, code, title];
+
+	let c = {
+		type: "lang",
+		regex: /\[c=(.*?)\]([^]*?)\[\/c\]/g,
+		replace: "<span style='color: $1'>$2</span>"
+	}
+
+	let replaceId = 0;
+	let include = {
+		type: "lang",
+		regex: /\[include=(.*?)\]/g,
+		replace: function(match, include) {
+			let id = replaceId++;
+			getInclude(include, id);
+			return "<div id='included-content-"+id+"'>Loading...</div>";
+		}
+	}
+
+	let colors = {
+		10: "#fafca2",
+		11: "#adb0e6",
+		12: "lightgreen",
+		125: "orange",
+		128: "#40ffeb",
+		13: "lightblue",
+		14: "#cf943a",
+		143: "#ff9eb9",
+		15: "#f6d7ff",
+		16: "#63f863",
+		165: "violet",
+		17: "#ff6565"
+	}
+
+	let game = {
+		type: "lang",
+		regex: /\[game=([0-9]*?)\]([^]*?)\[\/game\]/g,
+		replace: function(match, game, txt) {
+			return "<span style='color: "+colors[game]+"'>"+txt+"</span>";
+		}
+	}
+
+	let rawGame = {
+		type: "lang",
+		regex: /%GAMECOLOR-([0-9]*?)%/g,
+		replace: function(match, game) {
+			return colors[game];
+		}
+	}
+
+	let vartable = {
+		type: "lang",
+		regex: /\[vartable\]/g,
+		replace: function() {
+			return generateVarTable()
+		}
+	}
+
+	let eclTooltips = {
+		type: "lang",
+		filter: function(text) {
+			return addTooltips(text);
+		}
+	}
+
+	return [yt, hr, br, ts, img, code, title, c, include, game, rawGame, vartable, eclTooltips];
 }

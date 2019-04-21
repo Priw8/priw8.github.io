@@ -1,17 +1,21 @@
 let MD = new showdown.Converter({
-	extensions: [ext]
+	extensions: [ext],
+	tables: true,
+	strikethrough: true
 });
 let $content = document.querySelector(".content-wrapper");
 let cache = {};
 let blog = [];
 let active = "";
 let activePage = "";
+let $tip = null;
+let $activeTipTarget = null;
 
 function initNavigation() {
 	let $nav = document.querySelector(".header-navigation");
 	let html = "";
 	for (let i=0; i<INDEX.length; i++) {
-		html += getNavigationEntry(INDEX[i]);
+		if (!INDEX[i].noItem) html += getNavigationEntry(INDEX[i]);
 	}
 	$nav.innerHTML = html;
 	$nav.addEventListener("click", handleNavigation);
@@ -37,7 +41,7 @@ function getNavigationEntry(data) {
 }
 
 function getNavEntryDatasetString(item, path) {
-	return "data-type='"+item.type+"' data-url='"+item.url+"' data-path='"+path+"'";
+	return "data-type='"+item.type+"' data-url='"+item.url+"' data-path='"+path+"' data-newtab='"+item.newTab+"'";
 }
 
 function handleNavigation(e) {
@@ -48,7 +52,11 @@ function handleNavigation(e) {
 
 function navigate(data) {
 	if (data.type == "href") {
-		window.open(data.url);
+		if (data.newtab == "true") {
+			window.open(data.url);
+		} else {
+			window.location.replace(data.url);
+		}
 	};
 	if (data.type == "site") {
 		loadContent(data.path, data.url);
@@ -153,9 +161,15 @@ function blogNavigationHandler(e) {
 	}
 }
 
-function getContent(path, file, clb, err) {
+function getContent(path, file, clb, err, forceDelay) {
 	let realPath = path+file;
-	if (cache[realPath]) return clb(cache[realPath]);
+	if (cache[realPath]) {
+		if (!forceDelay) {
+			return clb(cache[realPath]);
+		} else {
+			setTimeout(() => clb(cache[realPath]), 1);
+		}
+	};
 	let xhr = new XMLHttpRequest();
 	xhr.open("GET", "content/"+realPath+".md");
 	xhr.onreadystatechange = function() {
@@ -169,6 +183,21 @@ function getContent(path, file, clb, err) {
 		}
 	};
 	xhr.send();
+}
+
+function getInclude(realPath, id) {
+	// getIncludeTarget can't be here, because include target doesn't exist yet when this function is called
+	getContent(realPath, "", function(txt) {
+		let $target = getIncludeTarget(id);
+		$target.innerHTML = MD.makeHtml(txt);
+	}, function() {
+		let $target = getIncludeTarget(id);
+		$target.innerHTML = EMBED_LOAD_ERROR.replace("%code%", this.status);
+	}, true);
+}
+
+function getIncludeTarget(id) {
+	return document.querySelector("#included-content-"+id);
 }
 
 function loadContent(path, file) {
@@ -320,10 +349,50 @@ function initResize() {
 	resize();
 };
 
+function initTips() {
+	$tip = document.querySelector(".tip");
+	document.body.addEventListener("mouseover", tipIn);
+	document.body.addEventListener("mouseout", tipOut);
+}
+
+function tipIn(e) {
+	let [tip, $targ] = getTip(e.target);
+	if (tip) showTip(tip, $targ, e.target);
+}
+
+function showTip(tip, $targ, $realTarg) {
+	$activeTipTarget = $realTarg;
+	$tip.style.display = "block";
+	$tip.innerHTML = tip;
+	let tipRect = $tip.getBoundingClientRect();
+	let rect = $targ.getBoundingClientRect();
+	let top = rect.top - rect.height - tipRect.height + 13 + window.scrollY;
+	let left = rect.left + rect.width/2 - tipRect.width/2;
+	if (left < 0) left = 0;
+	let max = document.body.offsetWidth - tipRect.width;
+	if (left > max) left = max;
+	$tip.style.top = top + "px";
+	$tip.style.left = left + "px";
+}
+
+function tipOut(e) {
+	if (e.target == $activeTipTarget) {
+		$tip.style.display = "none";
+		$activeTipTarget = null;
+	}
+}
+
+function getTip($targ) {
+	if (!$targ) return ["", null];
+	if ($targ.dataset.tip) return [$targ.dataset.tip, $targ];
+	else return getTip($targ.parentElement);
+}
+
 function init() {
 	initNavigation();
 	initContent();
 	initResize();
+	initTips();
 	hljs.configure({
 		useBR: true
 	});

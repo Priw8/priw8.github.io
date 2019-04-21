@@ -47,16 +47,39 @@ const INDEX =
 	},
 
 	/*{
-		"groupName": "ECL",
+		"groupName": "ECL tutorial",
 		"name": "ECL tutorial",
 		"single": true,
 		"path": "ecl-tutorial/",
 		"type": "blog",
-		"url": 3,
+		"url": 4,
 		"max": 1,
-		"reverse": true
+		"reverse": true,
+		"noItem": true
 	},*/
 	// soon
+
+	{
+		"groupName": "ECL",
+		"path": "ecl/",
+		"content": [
+			/*{
+				"name": "ECL tutorial",
+				"type": "href",
+				"url": "/#b=ecl-tutorial/&p=1"
+			},*/
+			{
+				"name": "Enemy flag table",
+				"type": "site",
+				"url": "flags"
+			},
+			{
+				"name": "Variable table",
+				"type": "site",
+				"url": "vars"
+			}
+		]
+	},
 
 	{
 		"groupName": "Tools",
@@ -65,6 +88,7 @@ const INDEX =
 			{
 				"name": "Shottype editor",
 				"type": "href",
+				"newTab": true,
 				"url": "/sht-webedit/"
 			},
 			{
@@ -82,21 +106,25 @@ const INDEX =
 			{
 				"name": "My Github",
 				"type": "href",
+				"newTab": true,
 				"url": "https://github.com/Priw8"
 			},
 			{
 				"name": "My Youtube",
 				"type": "href",
+				"newTab": true,
 				"url": "https://www.youtube.com/channel/UCfFHyEuaF-aVxz91x25aTpQ"
 			},
 			{
 				"name": "My Twitch",
 				"type": "href",
+				"newTab": true,
 				"url": "https://www.twitch.tv/priw8"
 			},
 			{
 				"name": "Maribel's site",
 				"type": "href",
+				"newTab": true,
 				"url": "https://maribelhearn.github.io/"
 			}
 		]
@@ -114,4 +142,9 @@ If the problem persists, contact me on Discord: **Priw8#9873**.
 const BLOG_ERROR = `
 ### An error has occured when loading this content.
 If the problem persists, contact me on Discord: **Priw8#9873**.
+`;
+
+const EMBED_LOAD_ERROR = `
+Failed to load embedded content.  
+HTML status code: %code%
 `;

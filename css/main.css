@@ -11,6 +11,7 @@ a {
 
 code {
 	background: #14442c;
+	display: inline-block;
 }
 
 .border-l {
@@ -59,7 +60,7 @@ code {
 .navigation-entry {
 	font-family: sans-serif;
 	float: left;
-	width: 80px;
+	width: 71px;
 	height: 40px;
 	box-sizing: border-box;
 }
@@ -83,6 +84,8 @@ code {
 }
 .navigation-entry-name {
 	padding: 10px;
+	padding-left: 5px;
+	padding-right: 5px;
 	cursor: pointer;
 }
 .navigation-entry-list {
@@ -119,6 +122,7 @@ code {
 	border-radius: 25px;
 	padding: 20px;
 	transition: opacity .2s ease;
+	overflow-x: auto;
 }
 
 .blog-navigation-wrapper {
@@ -133,6 +137,7 @@ code {
 	text-align: center;
 	padding-left: 20px;
 	padding-right: 20px;
+	margin-bottom: 15px;
 }
 
 .blog-navigation-entry {
@@ -220,4 +225,23 @@ hljs .copy-btt:hover {
 	position: absolute;
 	left: -999px;
 	top: -999px;
+}
+
+table, th, td, tr {
+	border: 1px solid #135004;
+	border-collapse: collapse;
+	padding: 5px;
+}
+
+.tip {
+	position: absolute;
+	display: none;
+	padding-left: 7px;
+	padding-right: 7px;
+	border: 1px gray solid;
+	border-radius: 9px;
+	background: black;
+	max-width: 320px;
+	z-index: 100;
+	font-size: 14px;
 }
