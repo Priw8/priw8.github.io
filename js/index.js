@@ -77,6 +77,11 @@ const INDEX =
 				"name": "Variable table",
 				"type": "site",
 				"url": "vars"
+			},
+			{
+				"name": "th13-16 eclmap",
+				"type": "site",
+				"url": "eclmap-16"
 			}
 		]
 	},
@@ -90,11 +95,6 @@ const INDEX =
 				"type": "href",
 				"newTab": true,
 				"url": "/sht-webedit/"
-			},
-			{
-				"name": "th13-16 eclmap",
-				"type": "href",
-				"url": "/#s=news/5"
 			}
 		]
 	},

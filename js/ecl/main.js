@@ -35,6 +35,7 @@ function addTooltips(txt) {
 		if (expr.charAt(0) == "%" || expr.substring(0, 2) == "¨D") tip = getVarTip(expr);
 		else tip = getOpcodeTip(expr);
 		if (tip) {
+			tip = tip.replace(/_/g, "\\\\_");
 			tip = MD.makeHtml(tip).replace(/'/g, "&apos;");
 			txt = txt.replace(new RegExp("`"+expr+"`", "g"), "<span data-tip='"+tip+"'>`"+expr+"`</span>");
 		}
