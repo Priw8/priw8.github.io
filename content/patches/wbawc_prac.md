@@ -1,7 +1,8 @@
 # [game=17]Wily Beast and Weakest Creature[/game] demo practice patch
 ### Current progress: work not started (either demo not released or I'm still sleeping)
 
-I assume all practice options, including stage practice, won't be available in the demo.
+I assume all practice options, including stage practice, won't be available in the demo.  
+I also hope that thecl/thanm/thdat/thstd will work with WBaWC when I start working. If they won't, I guess I'll try to help implementing support for it\.\.\.  
 The TODO list:
 - create the basic UI in ECL... actually done already (in HSiFS, I'm assuming that porting it will be easy)
 - implement the UI into WBaWC
