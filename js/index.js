@@ -42,6 +42,11 @@ const INDEX =
 				"name": "Undefined Fantastic Four Seasons",
 				"type": "site",
 				"url": "uffs"
+			},
+			{
+				"name": "WBaWC demo practice patch",
+				"type": "site",
+				"url": "wbawc_prac"
 			}
 		]
 	},
