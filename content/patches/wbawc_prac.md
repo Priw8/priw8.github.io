@@ -1,5 +1,5 @@
 # [game=17]Wily Beast and Weakest Creature[/game] demo practice patch
-### Current progress: 1.0c finished: [download](https://mega.nz/#!FxAwUIJb!WUiIUG3AZsMyxqWJnio5ND-Ok6U9TeWkJBhD1XIoooI)
+### Current progress: 1.0d finished: [download](https://mega.nz/#!ttRUxCzR!_zPKswx-1WHaxzREmfDwy906BF8xWStpGTzi99wcUKo)
 [yt]UcyeHR2c6zg[/yt]  
 
 
