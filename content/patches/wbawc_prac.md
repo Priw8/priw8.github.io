@@ -1,5 +1,5 @@
 # [game=17]Wily Beast and Weakest Creature[/game] demo practice patch
-### Current progress: work not started (either demo not released or I'm still sleeping)
+### Current progress: working on 1.0a
 
 I assume all practice options, including stage practice, won't be available in the demo.  
 I also hope that thecl/thanm/thdat/thstd will work with WBaWC when I start working. If they won't, I guess I'll try to help implementing support for it\.\.\.  
