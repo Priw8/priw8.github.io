@@ -160,10 +160,10 @@ eclmap
 504 ? Move_limit
 505 ? Move_limitClear
 506 ? clearDrop
-507 ? addDrop
+507 ? addExtraDrop
 508 ? setDropArea
 509 ? dropItems
-510 ? addOneDrop
+510 ? setMainDrop
 511 ? setLife
 512 ? setBoss
 513 ? resetTimer
@@ -177,7 +177,7 @@ eclmap
 521 ? setTimeoutSub
 522 ? declareSpell2
 523 ? endSpell
-524 ? setSomethingBossName
+524 ? setChapter
 525 ? killOtherEnemies
 526 ? setEtProtectionRange
 527 ? setLifeMarker
