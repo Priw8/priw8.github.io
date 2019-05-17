@@ -267,7 +267,7 @@ eclmap
 637 ? Et_specialModeOnce
 638 ? Et_638
 639 ? Et_639
-640 ? Et_subForTransform
+640 ? Et_setExSub
 641 ? Et_641
 700 ? Laser_create
 701 ? Laser_setTiming
