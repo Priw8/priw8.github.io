@@ -93,7 +93,7 @@ const VARS = {
 	"-9909": 		[128,	"$",	"ro",	"l",	"UNKNOWN9",		"Unknown."],
 	"-9908": 		[13,	"$",	"ro",	"g",	"KILLABLE_ENM_COUNT","Amount of killable enemies alive (that is, doesn't include hitboxless/intangible enemies etc)."],
 	"-9907": 		[13,	"$",	"ro",	"g",	"SPELL_ID",		"Spellcard ID, used by spell practice. Unknown meaning in LoLK."],
-	"-9906": 		null,
+	"-9906": 		[15,	"$",	"ro",	"l",	"MIRROR",		"Mirror flag state, either 0 or 1. TODO: verify game version"],
 	"-9905": 		null,
 	"-9904": 		[15,	"$",	"ro",	"g",	"MISS_COUNT_GLOBAL","Amount of misses throughout the entire game."],
 	"-9903": 		[16,	"$",	"ro",	"g",	"SUBSEASON",	"Selected subseason (TODO: which season is which number?)"],

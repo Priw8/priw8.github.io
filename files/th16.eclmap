@@ -260,7 +260,7 @@ eclmap
 630 ? callSTD
 631 ? hideLife
 632 ? Et_specialMode
-633 ? Et_unknown633
+633 ? setExternalDmgFlag
 634 ? Et_unknown634
 635 ? Et_clearRadiusBigItem
 636 ? Et_clearRadiusMaxItem
@@ -392,5 +392,6 @@ eclmap
 -9909 $ UNKNOWN9
 -9908 $ KILLABLE_ENM_COUNT
 -9907 $ SPELL_ID
+-9906 $ MIRROR
 -9904 $ MISS_COUNT_GLOBAL
 -9903 $ SUBSEASON
