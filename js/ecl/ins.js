@@ -71,6 +71,14 @@ const INS = {
 		name: "Move_velNMRelTime",
 		description: "Change enemy's relative angle to %3 and relative speed to %4 in %1 frames using mode %2. Ignores the mirror flag."
 	},
+	502: {
+		number: 502,
+		game: 13,
+		args: "S",
+		argnames: ["n"],
+		name: "setFlag",
+		description: "Sets flag(s) according to %1. Refer to the flag table for exact values."
+	},
 	518: {
 		number: 518,
 		game: 13,
