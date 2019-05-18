@@ -87,6 +87,12 @@ const INDEX =
 				"name": "th13-16 eclmap",
 				"type": "site",
 				"url": "eclmap-16"
+			},
+			{
+				"name": "MERLIN",
+				"type": "href",
+				"newTab": true,
+				"url": "https://github.com/Priw8/merlin"
 			}
 		]
 	},
