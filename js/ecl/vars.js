@@ -11,7 +11,7 @@ const VARS = {
 	"-9991": 		[10,	"%",	"ro",	"g",	"PLAYER_X",		"Player's X position."],
 	"-9990": 		[10,	"%",	"ro",	"g",	"PLAYER_Y",		"Player's Y position."],
 	"-9989": 		[10,	"%",	"ro",	"l",	"ANGLE_PLAYER",	"Angle from the enemy to the player."],
-	"-9988": 		[10,	"$",	"ro",	"l",	"TIME",			"Time elapsed (TODO: check whether this is time since the enemy spawned or time in the current sub)"],
+	"-9988": 		[10,	"$",	"ro",	"l",	"TIME",			"Time elapsed since the enemy spawned, in frames."],
 	"-9987": 		[10,	"%",	"ro",	"g",	"RANDFS",		"Random float from -1.0f to 1.0f."],
 	"-9986": 		[10,	"$",	"ro",	"g",	"TIMEOUT",		"Set to 1 by the engine when a timeout occurs."],
 	"-9985": 		[10,	"$",	"rw",	"l",	"LOCAL1",		"Local integer variable, inherited by spawned enemies."],
@@ -40,7 +40,7 @@ const VARS = {
 	"-9962": 		[10,	"%",	"ro",	"g",	"BOSS_Y",		"Final Y position of the boss."],
 	"-9961": 		[10,	"$",	"ro",	"g",	"UNKNOWN61",	"Unknown variable."],
 	"-9960": 		[10,	"$",	"ro",	"g",	"RANK",			"TODO: check what this actually is."],
-	"-9959": 		[10,	"$",	"ro",	"g",	"DIFF",			"Difficulty (E=0, N=1, H=2, L=3, EX=4, O=5"],
+	"-9959": 		[10,	"$",	"ro",	"g",	"DIFF",			"Difficulty (E=0, N=1, H=2, L=3, EX=4, O=5)"],
 	"-9958": 		[10,	"%",	"ro",	"l",	"FINAL_ANGLE",	"Final angle of enemy's movement."],
 	"-9957": 		[10,	"$",	"ro",	"g",	"TRUE",			"Always set to 1?"],
 	"-9956": 		[10,	"%",	"ro",	"l",	"ABS_ANGLE_PLAYER","Angle to the player from enemy's absolute position."],
@@ -88,7 +88,7 @@ const VARS = {
 	"-9914": 		[125,	"$",	"ro",	"l",	"ID",			"ID of the enemy."],
 	"-9913": 		[125,	"$",	"ro",	"g",	"DS_PHOTOCOUNT","Used in Double Spoiler, amount of photos taken."],
 	"-9912": 		[125,	"$",	"ro",	"g",	"DS4",			"Used in Double Spoiler, unknown."],
-	"-9911": 		[125,	"%",	"ro",	"g",	"ANGLE_BOSS",	"Angle at which the boss moves (TODO: verify)"],
+	"-9911": 		[125,	"%",	"ro",	"g",	"ANGLE_BOSS",	"Angle at which the boss moves."],
 	"-9910": 		[125,	"$",	"ro",	"g",	"UNKNOWN10",	"Unknown."],
 	"-9909": 		[128,	"$",	"ro",	"l",	"UNKNOWN9",		"Unknown."],
 	"-9908": 		[13,	"$",	"ro",	"g",	"KILLABLE_ENM_COUNT","Amount of killable enemies alive (that is, doesn't include hitboxless/intangible enemies etc)."],
@@ -96,5 +96,5 @@ const VARS = {
 	"-9906": 		[15,	"$",	"ro",	"l",	"MIRROR",		"Mirror flag state, either 0 or 1. TODO: verify game version"],
 	"-9905": 		null,
 	"-9904": 		[15,	"$",	"ro",	"g",	"MISS_COUNT_GLOBAL","Amount of misses throughout the entire game."],
-	"-9903": 		[16,	"$",	"ro",	"g",	"SUBSEASON",	"Selected subseason (TODO: which season is which number?)"],
+	"-9903": 		[16,	"$",	"ro",	"g",	"SUBSEASON",	"Selected subseason. Spring = 0, summer = 1, autumn = 2, winter = 3, extra subseason = 4."]
 };
