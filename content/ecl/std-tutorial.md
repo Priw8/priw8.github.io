@@ -216,7 +216,7 @@ thecl generates automatic labels for `jump` instructions, but thstd doesn't. Thi
 After counting the bytes, you can notice that `ins_1(84, 0)` jumps right before `ins_2(0.0f, 600.0f, -20.0f);`.
 
 ### Background looping
-Obviously, the background can't be infinite. At some point, you either have to make the camera stop moving, or move it back. Otherwise, the player will end up in a dark void (or sometimes a bright void, depending on the fog color). Making the movement stop is rather simple (you can then also use `ins_12` to add a rotation effect, so that the background isn't completely static), but making a loop requires creating something that looks exactly like a part from earlier, and then jumping to the part from earlier when view looks exactly the same. In fact, the above example does that:  
+Obviously, the background can't be infinite. At some point, you either have to make the camera stop moving, or move it back. Otherwise, the player will end up in a dark void (or sometimes a bright void, depending on the fog color). Making the movement stop is rather simple (you can then also use `ins_12` to add a rotation effect, so that the background isn't completely static), but making a loop requires creating something that looks exactly like a part from earlier, and then jumping to the part from earlier when everything looks exactly the same. In fact, the example below (and well, all examples above) does that:  
 [code]    FACE: 256 43 510 0
     FACE: 256 -223 743 0
     FACE: 256 210 762 0
