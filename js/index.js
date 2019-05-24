@@ -65,7 +65,7 @@ const INDEX =
 	// soon
 
 	{
-		"groupName": "ECL",
+		"groupName": "Modding",
 		"path": "ecl/",
 		"content": [
 			/*{
@@ -84,9 +84,19 @@ const INDEX =
 				"url": "vars"
 			},
 			{
-				"name": "th13-16 eclmap",
+				"name": "th13-17 eclmap",
 				"type": "site",
 				"url": "eclmap-16"
+			},
+			{
+				"name": "STD tutorial",
+				"type": "site",
+				"url": "std-tutorial"
+			},
+			{
+				"name": "STD instruction table",
+				"type": "site",
+				"url": "std-ins"
 			},
 			{
 				"name": "MERLIN",

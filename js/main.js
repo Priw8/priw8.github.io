@@ -229,8 +229,13 @@ function getErrorString(path, file) {
 			let list = group.single ? [group] : group.content;
 			for (let i=0; i<list.length; i++) {
 				let entry = list[i];
-				let url = entry.type == "site" ? "#"+buildQuery({s: group.path + entry.url}) : entry.url;
-				str += "- `"+group.path+entry.url+".md` - ["+entry.name+"]("+url+")  \n";
+				if (entry.type == "site") {
+					let url = "#"+buildQuery({s: group.path + entry.url});
+					str += "- `"+group.path+entry.url+".md` - ["+entry.name+"]("+url+")  \n";
+				} else {
+					let url = entry.url;
+					str += "- `"+entry.url+"` - ["+entry.name+"]("+url+")  \n";	
+				}
 			};
 		};
 	};
