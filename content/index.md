@@ -1,7 +1,7 @@
 # Welcome!
-On this website, you can find various Touhou-related things I made. You can use the navigation bar above to check different pages.
+You can find various things I made here, as well as some resources for modding ZUN's games yourself.
 
 #### Media and stuff:
-- [My Youtube](https://www.youtube.com/channel/UCfFHyEuaF-aVxz91x25aTpQ)
-- [My Twitch](https://www.twitch.tv/priw8)
+- [Youtube](https://www.youtube.com/channel/UCfFHyEuaF-aVxz91x25aTpQ)
+- [Twitch](https://www.twitch.tv/priw8)
 - Discord: **Priw8#9873**
