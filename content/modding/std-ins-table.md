@@ -12,7 +12,7 @@
 |         10         |ins_10(2x int and then 7x float)         | Unknown. |
 |         11         |ins_11(???)                              | Very unknown. |
 |         12         |ins_12(int type)                         | Applies a rotation effect to the camera based on `type`. 0 - no effect. 1 - rotate a bit like a barrel, doesn't actually make full circles but rather rotates to like 15deg, then to -15deg and repeats. 2 - rotate like a barrel counterclockwise, makes full circles. 3 - Apart from the effect of type=1, the camera also moves randomly. 4 - like type=2, but clockwise instead.|
-|         13         |ins_13(int a)                            | Unknown. I have a random theory that it is used to delete sprites set by ins_12 and a=slot, but I could be completely wrong.|
+|         13         |ins_13(int a)                            | Unknown. I have a random theory that it is used to delete sprites set by ins_14 and a=slot, but I could be completely wrong.|
 |         14         |ins_14(int slot, int scriptIndex, int layer)| From the same ANM script as the one used for QUADs, load script onto the specified slot, and set its layer. The script must be a 2d sprite. It is used in [game=16]HSiFS[/game] stage 1 to display the sky and the clouds, for example.|
 |         15         |ins_15(???)                              | Very unknown. |
 |         16         |ins_16(int a)                            | When an ECL script uses `callSTD(int a)` (ins_630), the STD script will immidiately jump to this instruction (value of `a` here and `a` in callSTD must be the same for this to happen)|

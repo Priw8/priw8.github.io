@@ -57,11 +57,9 @@ function navigate(data) {
 		} else {
 			window.location.replace(data.url);
 		}
-	};
-	if (data.type == "site") {
+	} else if (data.type == "site") {
 		loadContent(data.path, data.url);
-	};
-	if (data.type == "blog") {
+	} else if (data.type == "blog") {
 		let group = getGroupByPath(data.path);
 		loadBlog(data.path, data.url, 1, group.max, group.reverse);
 	};
@@ -202,6 +200,10 @@ function getIncludeTarget(id) {
 
 function loadContent(path, file) {
 	if (active && active == file) return;
+	const group = getGroupByPath(path);
+	if (group.type == "redirect") {
+		return loadContent(group.url, file);
+	}
 	active = file;
 	getContent(path, file, function(txt) {
 		loadMd(txt, path, file);

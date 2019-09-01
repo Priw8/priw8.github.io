@@ -57,16 +57,21 @@ const INDEX =
 		"single": true,
 		"path": "ecl-tutorial/",
 		"type": "blog",
-		"url": 4,
+		"url": 7,
 		"max": 1,
 		"reverse": true,
 		"noItem": true
 	},*/
 	// soon
-
+	{
+		"noItem": true,
+		"path": "ecl/",
+		"type": "redirect",
+		"url": "modding/"
+	},
 	{
 		"groupName": "Modding",
-		"path": "ecl/",
+		"path": "modding/",
 		"content": [
 			/*{
 				"name": "ECL tutorial",

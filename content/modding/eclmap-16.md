@@ -1,4 +1,7 @@
 ### th16 eclmap
+
+## WARNING: this eclmap is no longer updated. Use [these ones](https://github.com/Priw8/eclmap) instead.
+
 While I did make the th16 eclmap a while ago, names of some instructions were kinda bad. Now, I made a better version that actually doesn't suck. Some naming conventions:
 - `Enm_create` instructions: they can have 3 "flags", `B`, `M` and `F` (always in that order). `B` is boss, `M` is mirrored and `F` is filler (doesn't spawn when there's a boss on screen). So for example `Enm_createMF` would spawn a mirrored filler enemy.
 - As you may know, many `Anm_*` instructions have 2 versions: setting something immidiately, and making something gradually change. Now, the second version always has the same name as the first one, except there's `Time` at the end. For example `Anm_alpha` and `Anm_alphaTime`.
