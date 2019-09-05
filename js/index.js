@@ -89,9 +89,16 @@ const INDEX =
 				"url": "vars"
 			},
 			{
-				"name": "th13-17 eclmap",
-				"type": "site",
-				"url": "eclmap-16"
+				"name": "Eclmaps",
+				"type": "href",
+				"newTab": true,
+				"url": "https://github.com/Priw8/eclmap"
+			},
+			{
+				"name": "MERLIN",
+				"type": "href",
+				"newTab": true,
+				"url": "https://github.com/Priw8/merlin"
 			},
 			{
 				"name": "STD tutorial",
@@ -102,12 +109,6 @@ const INDEX =
 				"name": "STD instruction table",
 				"type": "site",
 				"url": "std-ins"
-			},
-			{
-				"name": "MERLIN",
-				"type": "href",
-				"newTab": true,
-				"url": "https://github.com/Priw8/merlin"
 			}
 		]
 	},
