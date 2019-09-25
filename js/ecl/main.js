@@ -23,6 +23,26 @@ function getVarTableRow(entry, id) {
 	return `<tr style='color:%GAMECOLOR-${game}%'><td>${idString}</td><td>${typeString}</td><td>${accessString}</td><td>${scopeString}</td><td>${type+name}</td><td>${desc}</td></tr>`;
 }
 
+function addTooltips(txt) {
+	let codeTags = txt.match(/`(.*?)`/g);
+	let dupes = [];
+	if (codeTags == null) return txt;
+	for (let i=0; i<codeTags.length; i++) {
+		let expr = codeTags[i].substring(1, codeTags[i].length-1);
+		if (dupes.indexOf(expr) > -1) continue;
+		dupes.push(expr);
+		let tip;
+		if (expr.charAt(0) == "%" || expr.substring(0, 2) == "¨D") tip = getVarTip(expr);
+		else tip = getOpcodeTip(expr);
+		if (tip) {
+			tip = tip.replace(/_/g, "\\\\_");
+			tip = MD.makeHtml(tip).replace(/'/g, "&apos;");
+			txt = txt.replace(new RegExp("`"+expr+"`", "g"), "<span data-tip='"+tip+"'>`"+expr+"`</span>");
+		}
+	}
+	return txt;
+}
+
 function getVarTip(expr) {
 	let [entry, id] = getVariableByName(expr);
 	if (entry == null) return "";
@@ -51,68 +71,22 @@ function getVariableByName(expr) {
 	return [null, -1];
 }
 
-function getOpcode(game, num) {
-	for (let i=0; i<INS.length; ++i) {
-		const ins = INS[i];
-		if (game >= ins.game && ins.number == num) return ins;
+function getOpcodeTip(expr) {
+	let opcode = getOpcodeByName(expr);
+	if (opcode == null) return "";
+	let args = "";
+	let desc = opcode.description;
+	for (let i=0; i<opcode.args.length; i++) {
+		if (i > 0) args += ", ";
+		args += ARGTYPES[opcode.args[i]] + " " + opcode.argnames[i];
+		desc = desc.replace("%"+(i+1), "`"+opcode.argnames[i]+"`");
+	}
+	return `**${opcode.number} - ${opcode.name}(${args})**[br][hr]${desc}`;
+}
+
+function getOpcodeByName(name) {
+	for (let i in INS) {
+		if (INS[i].name == name) return INS[i];
 	}
 	return null;
-}
-
-function generateOpcodeTable(game) {
-	let html = "";
-	let handledOpcodes = [];
-	html += "<table>";
-	html += "<tr><th>ID</th><th>name</th><th>parameters</th><th>description</th></tr>";
-	for (let i=0; i<INS.length; ++i) {
-		const ins = INS[i];
-		if (game >= ins.game && handledOpcodes.indexOf(ins.number) == -1) {
-			handledOpcodes.push(ins.number);
-			html += generateOpcodeTableEntry(ins);
-		}
-	}
-	return html;
-}
-
-function generateOpcodeTableEntry(ins) {
-	return `
-<tr>
-	<td>${ins.number}</td>
-	<td>${getOpcodeName(ins)}
-	<td>${generateOpcodeParameters(ins)}
-	<td>${generateOpcodeDesc(ins)}</td>
-</tr>
-`;
-}
-
-function getOpcodeName(ins) {
-	if (currentMap != null) 
-		return currentMap.getMnemonic(ins.number);
-	else
-		return `ins_${ins.number}`; 
-}
-
-function generateOpcodeParameters(ins) {
-	let ret = "";
-	for (let i=0; i<ins.args.length; ++i) {
-		if (i != 0) ret += ", ";
-		ret += ARGTYPES[ins.args[i]] + " " + ins.argnames[i];
-	}
-	return ret;
-}
-
-function generateOpcodeDesc(ins) {
-	let ret = ins.description;
-	for (let i=0; i<ins.args.length; i++) {
-		ret = ret.replace(new RegExp("%"+(i+1), "g"), "`"+ins.argnames[i]+"`");
-	}
-	return MD.makeHtml(ret);
-}
-
-function getOpcodeTip(ins) {
-	return escapeTip(`<br><b>${ins.number} - ${getOpcodeName(ins)}(${generateOpcodeParameters(ins)})</b><br><hr>${generateOpcodeDesc(ins)}`);
-}
-
-function escapeTip(tip) {
-	return tip.replace(/"/g, "&quot;").replace(/'/g, "&apos;").replace(/_/g, "_").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\[ins=\]/, "[ins_notip=");
 }

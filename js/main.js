@@ -4,23 +4,12 @@ let MD = new showdown.Converter({
 	strikethrough: true
 });
 let $content = document.querySelector(".content-wrapper");
-let $scriptContent = document.querySelector(".script-wrapper");
 let cache = {};
 let blog = [];
 let active = "";
 let activePage = "";
 let $tip = null;
 let $activeTipTarget = null;
-let contentLoadListeners = [];
-
-function contentLoaded() {
-	for (let i=0; i<contentLoadListeners.length; ++i) 
-		contentLoadListeners[i]();
-}
-
-function onContentLoad(clb) {
-	contentLoadListeners.push(clb);
-}
 
 function initNavigation() {
 	let $nav = document.querySelector(".header-navigation");
@@ -127,7 +116,6 @@ function setupBlogContent(index, page, start, end, max) {
 	let $div = document.createElement("div");
 	$div.classList.add("content");
 	$div.style.opacity = "0.0";
-	$scriptContent.innerHTML = "";
 	$content.innerHTML = "";
 	for (let i=index; i>=0; i--) {
 		blog[i] = {
@@ -140,7 +128,6 @@ function setupBlogContent(index, page, start, end, max) {
 	}
 	let $pageNav = createBlogNavigation(index, parseInt(page), max);
 	$content.appendChild($pageNav);
-	contentLoaded();
 }
 
 function createBlogNavigation(index, page, max) {
@@ -266,12 +253,10 @@ function getGroupByPath(path) {
 
 function loadMd(txt, path, file) {
 	setWindowTitle(path, file);
-	$scriptContent.innerHTML = "";
 	let html = MD.makeHtml(txt);
 	$content.innerHTML = "<div class='content'>"+ html + "</div>";
 	setActiveNavigation(path, file);
 	resetScroll();
-	contentLoaded();
 }
 
 function resetScroll() {

@@ -106,49 +106,12 @@ let ext = function() {
 		}
 	}
 
-	let html = {
-		type: "lang",
-		regex: /\[html\]([^]*?)\[\/html\]/g,
-		replace: "$1"
-	}
-
-	let script = {
-		type: "lang",
-		regex: /\[script\]([^]*?)\[\/script\]/g,
-		replace: function(match, content) {
-			const $script = document.createElement("script");
-			$script.innerHTML = content;
-			$scriptContent.appendChild($script);
-			return "";
-		}
-	}
-
-	let ins = {
-		type: "lang",
-		regex: /\[ins=(.*?),(.*?)\]/g,
-		replace: function(match, num, game) {
-			const ins = getOpcode(parseFloat(game), parseInt(num));
-			if (ins == null) return "`opcode_error_"+num+"`";
-			let tip = getOpcodeTip(ins);
-			return "<code data-tip=\""+tip+"\">"+getOpcodeName(ins)+"</code>";
-		}
-	}
-	let ins_notip = {
-		type: "lang",
-		regex: /\[ins_notip=(.*?),(.*?)\]/g,
-		replace: function(match, num, game) {
-			const ins = getOpcode(parseFloat(game), parseInt(num));
-			if (ins == null) return "`opcode_error_"+num+"`";
-			return "<code>"+getOpcodeName(ins)+"</code>";
-		}
-	}
-
-	/*let eclTooltips = {
+	let eclTooltips = {
 		type: "lang",
 		filter: function(text) {
 			return addTooltips(text);
 		}
-	}*/
+	}
 
-	return [yt, hr, br, ts, img, code, title, c, include, game, rawGame, vartable, html, script, ins, ins_notip];
+	return [yt, hr, br, ts, img, code, title, c, include, game, rawGame, vartable, eclTooltips];
 }
