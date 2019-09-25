@@ -79,6 +79,11 @@ const INDEX =
 				"url": "/#b=ecl-tutorial/&p=1"
 			},*/
 			{
+				"name": "ECL instruction table",
+				"type": "site",
+				"url": "ins"
+			},
+			{
 				"name": "Enemy flag table",
 				"type": "site",
 				"url": "flags"
