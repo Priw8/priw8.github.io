@@ -1,0 +1,4 @@
+[submodule "eclmap"]
+	path = eclmap
+	url = https://github.com/Priw8/eclmap.git
+	branch = master
