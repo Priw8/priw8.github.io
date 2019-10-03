@@ -273,14 +273,14 @@ const INS =
 		game: 14,
 		args: "SSfff",
 		argnames: ["anmIndex", "script", "x", "y", "z"],
-		description: "Same as [ins=314,16], but the spawned script is offset by (%3,%4). For 3D objects, %5 is used too (TODO: verify that)."
+		description: "Same as [ins=307,14], but the spawned script is offset by (%3,%4). For 3D objects, %5 is used too (TODO: verify that)."
 	},
 	{
 		number: 338,
 		game: 16,
 		args: "SSfff",
 		argnames: ["anmIndex", "script", "x", "y", "z"],
-		description: "Same as [ins=314,16], but the spawned script is offset by (%3,%4). For 3D objects, %5 is used too (TODO: verify that)."
+		description: "Same as [ins=307,16], but the spawned script is offset by (%3,%4). For 3D objects, %5 is used too (TODO: verify that)."
 	},
 	{
 		number: 339,
