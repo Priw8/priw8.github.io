@@ -211,7 +211,7 @@ function getIncludeTarget(id) {
 	return document.querySelector("#included-content-"+id);
 }
 
-function loadContent(path, file) {
+function loadContent(path, file, writeQuery=true) {
 	if (active && active == file) return;
 	const group = getGroupByPath(path);
 	if (group.type == "redirect") {
@@ -224,10 +224,12 @@ function loadContent(path, file) {
 		loadMd(getErrorString(path, file), path, file);
 		active = "";
 	});
-	let query = buildQuery({
-		"s": path+file
-	});
-	location.hash = query;
+	if (writeQuery) {
+		let query = buildQuery({
+			"s": path+file
+		});
+		location.hash = query;
+	}
 }
 
 function getErrorString(path, file) {
@@ -321,7 +323,7 @@ function initContent() {
 		let spl = query.s.split("/");
 		let file = spl.pop();
 		let path = spl.join("/") + "/";
-		loadContent(path, file);
+		loadContent(path, file, false);
 	} else if (query.b) {
 		let group = getGroupByPath(query.b);
 		loadBlog(group.path, group.url, query.p, group.max, group.reverse);

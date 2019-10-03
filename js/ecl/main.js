@@ -51,6 +51,11 @@ function getVariableByName(expr) {
 	return [null, -1];
 }
 
+function normalizeGameVersion(num) {
+	while(Math.floor(num) != num) num *= 10;
+	return num;
+}
+
 function getOpcode(game, num) {
 	for (let i=0; i<INS.length; ++i) {
 		const ins = INS[i];
@@ -60,7 +65,7 @@ function getOpcode(game, num) {
 }
 
 function generateOpcodeTable(game) {
-	let html = "";
+	let html = MD.makeHtml(`Current table: [game=${normalizeGameVersion(game)}] version ${game}[/game]`);
 	let handledOpcodes = [];
 	html += "<table>";
 	html += "<tr><th>ID</th><th>name</th><th>parameters</th><th>description</th></tr>";
