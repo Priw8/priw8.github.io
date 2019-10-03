@@ -143,6 +143,12 @@ let ext = function() {
 		}
 	}
 
+	let tip = {
+		type: "lang",
+		regex: /\[tip=(.*?)\]([^]*?)\[\/tip\]/g,
+		replace: `<span data-tip='$1'>$2</span>`
+	}
+
 	/*let eclTooltips = {
 		type: "lang",
 		filter: function(text) {
@@ -150,5 +156,5 @@ let ext = function() {
 		}
 	}*/
 
-	return [yt, hr, br, ts, img, code, title, c, include, game, rawGame, vartable, html, script, ins, ins_notip];
+	return [yt, hr, br, ts, img, code, title, c, include, game, rawGame, vartable, html, script, ins, ins_notip, tip];
 }

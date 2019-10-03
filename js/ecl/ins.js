@@ -302,28 +302,112 @@ const INS =
 		game: 13,
 		args: "ff",
 		argnames: ["x", "y"],
-		description: "Immidiately sets enemy's absolute position to %1, %2."
+		description: "Sets caller's absolute position to %1, %2."
 	},
 	{
 		number: 401,
 		game: 13,
 		args: "SSff",
 		argnames: ["time", "mode", "x", "y"],
-		description: "Change enemy's absolute position to %3, %4 in %1 frames using mode %2."
+		description: "Same as [ins=400,13], but the change is applied in %1 frames using mode %2."
 	},
 	{
 		number: 402,
 		game: 13,
 		args: "ff",
 		argnames: ["x", "y"],
-		description: "Immidiately sets enemy's relative position to %1, %2."
+		description: "Sets caller's relative position to %1, %2."
 	},
 	{
 		number: 403,
 		game: 13,
 		args: "SSff",
 		argnames: ["time", "mode", "x", "y"],
-		description: "Change enemy's relative position to %3, %4 in %1 frames using mode %2."
+		description: "Same as [ins=402,13], but the change is applied in %1 frames using mode %2."
+	},
+	{
+		number: 404,
+		game: 13,
+		args: "ff",
+		argnames: ["r", "spd"],
+		description: "Sets caller's absolute movement angle to %1 and speed to %2."
+	},
+	{
+		number: 405,
+		game: 13,
+		args: "SSff",
+		argnames: ["time", "mode", "r", "spd"],
+		description: "Same as [ins=404,13], but the change is applied in %1 frames using mode %2."
+	},
+	{
+		number: 406,
+		game: 13,
+		args: "ff",
+		argnames: ["r", "spd"],
+		description: "Sets caller's relative movement angle to %1 and speed to %2."
+	},
+	{
+		number: 407,
+		game: 13,
+		args: "SSff",
+		argnames: ["time", "mode", "r", "spd"],
+		description: "Same as [ins=406,13], but the change is applied in %1 frames using mode %2."
+	},
+	{
+		number: 408,
+		game: 13,
+		args: "ffff",
+		argnames: ["θ", "spd", "rad", "radInc"],
+		description: "Sets caller's absolute circle movement: %1 is the angle indicating initial position on the circle, %2 is the angular velocity, %3 is circle radius and %4 is by how much the radius increases each frame."
+	},
+	{
+		number: 409,
+		game: 13,
+		args: "SSfff",
+		argnames: ["time", "mode", "spd", "rad", "radInc"],
+		description: "Same as [ins=408,13], but the change is applied in %1 frames using mode %2. There is also no initial angle parameter here for obvious reason."
+	},
+	{
+		number: 410,
+		game: 13,
+		args: "ffff",
+		argnames: ["θ", "spd", "rad", "radInc"],
+		description: "Sets caller's relative circle movement: %1 is the angle indicating initial position on the circle, %2 is the angular velocity, %3 is circle radius and %4 is by how much the radius increases each frame."
+	},
+	{
+		number: 411,
+		game: 13,
+		args: "SSfff",
+		argnames: ["time", "mode", "spd", "rad", "radInc"],
+		description: "Same as [ins=410,13], but the change is applied in %1 frames using mode %2. There is also no initial angle parameter here for obvious reason."
+	},
+	{
+		number: 412,
+		game: 13,
+		args: "SSf",
+		argnames: ["time", "mode", "spd"],
+		description: "Randomizes caller's absolute angle and sets absolute speed to %3. The speed changes back to 0 in %1 frames using mode %2."
+	},
+	{
+		number: 413,
+		game: 13,
+		args: "SSf",
+		argnames: ["time", "mode", "spd"],
+		description: "Randomizes caller's relative angle and sets relative speed to %3. The speed changes back to 0 in %1 frames using mode %2."
+	},
+	{
+		number: 414,
+		game: 13,
+		args: "",
+		argnames: [],
+		description: "Sets caller's absolute position to the position of the boss (TODO: which position?). If called without a boss, [tip=Google translated from THBWiki, I find this sentence funny]it will cause serious mis-access and explode[/tip]."
+	},
+	{
+		number: 415,
+		game: 13,
+		args: "",
+		argnames: [],
+		description: "Sets caller's relative position to the position of the boss (TODO: which position?). If called without a boss, [tip=Google translated from THBWiki, I find this sentence funny]it will cause serious mis-access and explode[/tip]."
 	},
 	{
 		number: 431,
