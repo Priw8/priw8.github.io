@@ -272,8 +272,8 @@ const INS =
 		number: 337,
 		game: 14,
 		args: "SSfff",
-		argnames: ["a", "b", "r", "s", "m"],
-		description: "[c=red]Unknown.[/c]"
+		argnames: ["anmIndex", "script", "x", "y", "z"],
+		description: "Same as [ins=314,16], but the spawned script is offset by (%3,%4). For 3D objects, %5 is used too (TODO: verify that)."
 	},
 	{
 		number: 338,
