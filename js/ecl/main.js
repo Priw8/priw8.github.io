@@ -56,48 +56,115 @@ function normalizeGameVersion(num) {
 	return num;
 }
 
-function getOpcode(game, num) {
-	for (let i=0; i<INS.length; ++i) {
-		const ins = INS[i];
-		if (game >= ins.game && ins.number == num) return ins;
+function getGroups(game) {
+	switch(game) {
+		case 13:  return GROUPS_13;
+		case 14:  return GROUPS_14;
+		case 143: return GROUPS_143;
+		case 15:  return GROUPS_15;
+		case 16:  return GROUPS_16;
+		case 165: return GROUPS_165;
+		case 17:  return GROUPS_17;
 	}
+}
+
+function getOpcodeFromList(list, num) {
+	let ret = list[num];
+	if (typeof ret == "undefined") return null;
+	return ret;
+}
+
+function getOpcodeNoCheck(game, num) {
+	let ret = null;
+	switch(game) {
+		// Inherits ins from previous versions.
+		case 17:
+			ret = getOpcodeFromList(INS_17, num);
+		case 165:
+			if (!ret) ret = getOpcodeFromList(INS_165, num);
+		case 16:
+			if (!ret) ret = getOpcodeFromList(INS_16, num);
+		case 15:
+			if (!ret) ret = getOpcodeFromList(INS_15, num);
+		case 143:
+			if (!ret) ret = getOpcodeFromList(INS_143, num);
+		case 14:
+			if (!ret) ret = getOpcodeFromList(INS_14, num);
+		case 13:
+			if (!ret) ret = getOpcodeFromList(INS_13, num);
+	}
+	return ret;
+}
+
+function getOpcode(game, num) {
+	game = normalizeGameVersion(game);
+	const groups = getGroups(game);
+	// check if the given opcode number exists in the given version.
+	let exists = false;
+	for (let i=0; i<groups.length; ++i) {
+		const group = groups[i];
+		if (group.min <= num && group.max >= num) {
+			exists = true;
+			break;
+		}
+	}
+
+	if (exists) return getOpcodeNoCheck(game, num);
+
 	return null;
 }
 
 function generateOpcodeTable(game) {
-	let html = MD.makeHtml(`Current table: [game=${normalizeGameVersion(game)}] version ${game}[/game]`);
-	let handledOpcodes = [];
-	html += "<table>";
-	html += "<tr><th>ID</th><th>name</th><th>parameters</th><th>description</th></tr>";
-	for (let i=0; i<INS.length; ++i) {
-		const ins = INS[i];
-		if (game >= ins.game && handledOpcodes.indexOf(ins.number) == -1) {
-			handledOpcodes.push(ins.number);
-			html += generateOpcodeTableEntry(ins);
+	const normalized = normalizeGameVersion(game);
+	let html = MD.makeHtml(`Current table: [game=${normalized}] version ${game}[/game]`);
+	// let handledOpcodes = [];
+	let table = "";
+
+	let total = 0;
+	let documented = 0;
+	const groups = getGroups(normalized);
+	for (let i=0; i<groups.length; ++i) {
+		const group = groups[i];
+
+		table += `<br><h2>${group.min}-${group.max}: ${group.title}</h2>`;
+		table += "<table class='ins-table'>";
+		table += "<tr><th class='ins-id'>ID</th><th class='ins-name'>name</th><th class='ins-args'>parameters</th><th class='ins-desc'>description</th></tr>";
+
+		for (let num=group.min; num<=group.max; ++num) {
+			const ins = getOpcodeNoCheck(normalized, num);
+			total += 1;
+			if (ins != null) documented += 1;
+			table += generateOpcodeTableEntry(ins, num);
 		}
+
+		table += "</table>";
 	}
+	html += `Documented instructions: ${documented}/${total} (${(documented/total*100).toFixed(2)}%)`;
+	html += table;
 	return html;
 }
 
-function generateOpcodeTableEntry(ins) {
+function generateOpcodeTableEntry(ins, num) {
 	return `
 <tr>
-	<td>${ins.number}</td>
-	<td>${getOpcodeName(ins)}
+	<td>${num}</td>
+	<td>${getOpcodeName(num)}
 	<td>${generateOpcodeParameters(ins)}
 	<td>${generateOpcodeDesc(ins)}</td>
 </tr>
 `;
 }
 
-function getOpcodeName(ins) {
+function getOpcodeName(num) {
 	if (currentMap != null) 
-		return currentMap.getMnemonic(ins.number);
+		return currentMap.getMnemonic(num);
 	else
-		return `ins_${ins.number}`; 
+		return `ins_${num}`; 
 }
 
 function generateOpcodeParameters(ins) {
+	if (ins == null) return "<span style='color:gray'>No data available.</span>";;
+
 	let ret = "";
 	for (let i=0; i<ins.args.length; ++i) {
 		if (i != 0) ret += ", ";
@@ -107,6 +174,8 @@ function generateOpcodeParameters(ins) {
 }
 
 function generateOpcodeDesc(ins) {
+	if (ins == null) return "<span style='color:gray'>No description available.</span>";
+
 	let ret = ins.description;
 	for (let i=0; i<ins.args.length; i++) {
 		ret = ret.replace(new RegExp("%"+(i+1), "g"), "`"+ins.argnames[i]+"`");
@@ -115,7 +184,7 @@ function generateOpcodeDesc(ins) {
 }
 
 function getOpcodeTip(ins) {
-	return escapeTip(`<br><b>${ins.number} - ${getOpcodeName(ins)}(${generateOpcodeParameters(ins)})</b><br><hr>${generateOpcodeDesc(ins)}`);
+	return escapeTip(`<br><b>${ins.number} - ${getOpcodeName(ins.number)}(${generateOpcodeParameters(ins)})</b><br><hr>${generateOpcodeDesc(ins)}`);
 }
 
 function escapeTip(tip) {

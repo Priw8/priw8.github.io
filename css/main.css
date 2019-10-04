@@ -239,3 +239,22 @@ table, th, td, tr {
 	z-index: 100;
 	font-size: 14px;
 }
+
+.ins-table {
+	width: 100%;
+}
+.ins-table * {
+	box-sizing: border-box;
+}
+.ins-id {
+	width: 3%;
+}
+.ins-name {
+	width: 15%;
+}
+.ins-args {
+	width: 25%;
+}
+.ins-desc {
+	width: 57%;
+}
