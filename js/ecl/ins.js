@@ -350,7 +350,7 @@ const INS_13 = {
         description: "Empty instruction, doesn't do anything."
     },
     1: {
-        number: 0,
+        number: 1,
         game: 13,
         args: "",
         argnames: [],
@@ -365,21 +365,98 @@ const INS_13 = {
     8: null,
     9: null,
     10: {
-        number: 0,
+        number: 10,
         game: 13,
         args: "",
         argnames: [],
         description: "Returns from the current sub."
     },
+    11: {
+        number: 11,
+        game: 13,
+        args: "m",
+        argnames: ["sub"],
+        description: "Calls a given sub. Can take additational parameters to pass as arguments to the sub. [c=orange]Direct Usage obsolete. Use `@subName()` syntax instead.[/c]"
+    },
+    12: {
+        number: 12,
+        game: 13,
+        args: "o",
+        argnames: ["target"],
+        description: "Unconditionally jumps to the label %1. [c=orange]Direct usage obsolete. Use `goto label` syntax instead.[/c]"
+    },
+    13: {
+        number: 13,
+        game: 13,
+        args: "o",
+        argnames: ["target"],
+        description: "Pops a number from the stack and if it evaluates to true, jumps to label %1. [c=orange]Direct usage obsolete. Use if/unless statement instead.[/c]"
+    },
+    14: {
+        number: 14,
+        game: 13,
+        args: "o",
+        argnames: ["target"],
+        description: "Pops a number from the stack and if it evaluates to false, jumps to label %1. [c=orange]Direct usage obsolete. Use if/unless statement instead.[/c]"
+    },
+    15: {
+        number: 15,
+        game: 13,
+        args: "m",
+        argnames: ["sub"],
+        description: "Asynchronously calls a given sub. Can take additational parameters to pass as arguments to the sub. [c=orange]Direct usage obsolete. Use `@subName() async` syntax instead.[/c]"
+    },
+    16: {
+        number: 16,
+        game: 13,
+        args: "mS",
+        argnames: ["sub", "id"],
+        description: "Asynchronously calls a given sub on slot %2. Can take additational parameters to pass as arguments to the sub. [c=orange]Direct usage will soon be obsolete. When that happens, `@subName() async id` syntax will be used instead (I haven't implemented that yet).[/c]"
+    },
+    17: {
+        number:  17,
+        game: 13,
+        args: "S",
+        argnames: ["id"],
+        description: "Ends a sub on slot %1 (same slot as in [ins=16,13]). [c=orange]Direct usage will soon be obsolete, and `kill id` syntax will be used instead (I haven't implemented that yet).[/c]"
+    },
     18: null,
     19: null,
     20: null,
+    21: {
+        number: 21,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "[c=red]Unknown.[/c]"
+    },
+    22: {
+        number: 22,
+        game: 13,
+        args: "Sm",
+        argnames: ["a", "b"],
+        description: "Unknown debug instruction. TODO: check if code exists in the game."
+    },
+    23: {
+        number: 23,
+        game: 13,
+        args: "S",
+        argnames: ["time"],
+        description: "Stops sub execution for %1 frames."
+    },
     24: null,
     25: null,
     26: null,
     27: null,
     28: null,
     29: null,
+    30: {
+        number: 30,
+        game: 13,
+        args: "m",
+        argnames: ["a"],
+        description: "Unknown debug instruction. Can take additational paremeters. TODO: check if code exists in the game."
+    },
     31: null,
     32: null,
     33: null,
@@ -389,11 +466,354 @@ const INS_13 = {
     37: null,
     38: null,
     39: null,
+    40: {
+        number: 40,
+        game: 13,
+        args: "S",
+        argnames: ["size"],
+        description: "Increases the ECL stack pointer by %1 bytes (probably), to make space for sub variables. [c=orange]Obsolete, thecl generates this instruction automatically.[/c]"
+    },
     41: null,
+    42: {
+        number: 42,
+        game: 13,
+        args: "S",
+        argnames: ["num"],
+        description: "Pushes an integer to the ECL stack. [c=orange]Obsolete, push values to stack by writing unassigned expressions instead.[/c]"
+    },
+    43: {
+        number: 43,
+        game: 13,
+        args: "S",
+        argnames: ["var"],
+        description: "Pops an integer from the stack into variable %1. [c=orange]Obsolete, use assignement syntax instead.[/c]"
+    },
+    44: {
+        number: 44,
+        game: 13,
+        args: "f",
+        argnames: ["num"],
+        description: "Pushes an float to the ECL stack. [c=orange]Obsolete, push values to stack by writing unassigned expressions instead.[/c]"
+    },
+    45: {
+        number: 45,
+        game: 13,
+        args: "f",
+        argnames: ["var"],
+        description: "Pops an float from the stack into variable %1. [c=orange]Obsolete, use assignement syntax instead.[/c]"
+    },
     46: null,
     47: null,
     48: null,
     49: null,
+    50: {
+        number: 50,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Sums integers on the stack. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    51: {
+        number: 51,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Sums floats on the stack. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    52: {
+        number: 52,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Subtracts integers on the stack. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    53: {
+        number: 53,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Subtracts floats on the stack. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    54: {
+        number: 54,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Multiplies integers on the stack. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    55: {
+        number: 55,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Multiplies floats on the stack. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    56: {
+        number: 56,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Divides integers on the stack. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    57: {
+        number: 57,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Divides floats on the stack. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    58: {
+        number: 58,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Modulo operation on integers on the stack. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    59: {
+        number: 59,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Stack integer `==` comparison. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    60: {
+        number: 60,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Stack float `==` comparison. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    61: {
+        number: 61,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Stack integer `!=` comparison. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    62: {
+        number: 62,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Stack float `!=` comparison. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    63: {
+        number: 63,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Stack integer `<` comparison. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    64: {
+        number: 64,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Stack float `<` comparison. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    65: {
+        number: 65,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Stack integer `<=` comparison. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    66: {
+        number: 66,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Stack float `<=` comparison. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    67: {
+        number: 67,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Stack integer `>` comparison. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    68: {
+        number: 68,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Stack float `>` comparison. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    69: {
+        number: 69,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Stack integer `>=` comparison. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    70: {
+        number: 70,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Stack float `>=` comparison. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    71: {
+        number: 71,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Stack integer NOT operation (e.g. !1). [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    72: {
+        number: 72,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Stack float NOT operation (e.g. !1.0f). [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    73: {
+        number: 73,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Logical OR operation on the stack. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    74: {
+        number: 74,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Logical AND operation on the stack. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    75: {
+        number: 75,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Bitwise XOR operation on integers on the stack. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    76: {
+        number: 76,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Bitwise OR operation on integers on the stack. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    77: {
+        number: 77,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Bitwise AND operation on integers on the stack. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    78: {
+        number: 78,
+        game: 13,
+        args: "S",
+        argnames: ["var"],
+        description: "Pushes variable %1 to the stack and then decrements it. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    79: {
+        number: 79,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "sin operation on a float on the stack. [c=orange]Obsolete, use `sin(floatVal)` instead.[/c]"
+    },
+    80: {
+        number: 80,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "cos operation on a float on the stack. [c=orange]Obsolete, use `cos(floatVal)` instead.[/c]"
+    },
+    81: {
+        number: 81,
+        game: 13,
+        args: "ffff",
+        argnames: ["varX", "varY", "ang", "radius"],
+        description: "Performs following operation: [code]%1 = cos(%3)\*%4;\n%2 = sin(%3)\*%4;[/code]"
+    },
+    82: {
+        number: 82,
+        game: 13,
+        args: "f",
+        argnames: ["var"],
+        description: "Normalizes angle in %1."
+    },
+    83: {
+        number: 83,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Negates an integer on the stack. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    84: {
+        number: 84,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Negates a float on the stack. [c=orange]Obsolete, use expressions instead.[/c]"
+    },
+    85: {
+        number: 85,
+        game: 13,
+        args: "fff",
+        argnames: ["var", "x", "y"],
+        description: "Performs following operation: [code]%1 = %2*%2 + %3*%3;[/code]"
+    },
+    86: {
+        number: 86,
+        game: 13,
+        args: "fff",
+        argnames: ["var", "x", "y"],
+        description: "Performs following operation: [code]%1 = sqrt(%2*%2 + %3*%3);[/code]"
+    },
+    87: {
+        number: 87,
+        game: 13,
+        args: "fffff",
+        argnames: ["var", "x1", "y1", "x2", "y2"],
+        description: "Calculates angle from (%2,%3) to (%4,%5) and stores it in %1."
+    },
+    88: {
+        number: 88,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "square root operation on a float on the stack. [c=orange]Obsolete, use `sqrt(floatVal)` instead.[/c]"
+    },
+    89: {
+        number: 89,
+        game: 13,
+        args: "fff",
+        argnames: ["var", "a", "x"],
+        description: "Performs following operation: [code]%1 = %2*%3;[/code][br](what's the point of making this an instruction, ZUN?)"
+    },
+    90: {
+        number: 90,
+        game: 13,
+        args: "fffff",
+        argnames: ["varX", "varY", "x", "y", "rad"],
+        description: "Rotates point (%3,%4) by angle %5 and stores the resulting coordinates in %1 and %2."
+    },
+    91: {
+        number: 91,
+        game: 13,
+        args: "SfSSff",
+        argnames: ["slot", "var", "time", "mode", "init", "final"],
+        description: "In %3 frames using mode %4, variable %2 changes from %5 to %6. %1 is used to set the slot to be used by this ins, every enemy has 8 slots (0 to 7)."
+    },
+    92: {
+        number: 92,
+        game: 13,
+        args: "SfSSffff",
+        argnames: ["slot", "var", "time", "mode", "init", "final", "m", "n"],
+        description: "Same as [ins=91,13], but takes 2 extra arguments of unknown meaning. [c=red]Needs investigation.[/c]"
+    },
+    93: {
+        number: 93,
+        game: 13,
+        args: "ffff",
+        argnames: ["varX", "varY", "r1", "r2"],
+        description: "Gets a random point, if I understand the google translate spaghetti of THBWiki correctly it works like this:[br][code]float rad = RANDRAD;\n%1 = cos(rad)\*(%3 + RANDF\*(%3-%4));\n%2 = sin(rad)\*(%3 + RANDF\*(%3-%4));[/code][br]So basically the point is in the area between rings with radiuses %3 and %4.[br](TODO: check if I'm correct)"
+    },
     300: {
         number: 300,
         game: 13,
@@ -1142,5 +1562,6 @@ const INS_17 = {};
 const ARGTYPES = {
     "S": "int",
     "f": "float",
-    "m": "string"
+    "m": "string",
+    "o": "label"
 }
