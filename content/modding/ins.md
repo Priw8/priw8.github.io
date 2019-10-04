@@ -56,6 +56,9 @@ onContentLoad(async function() {
         const game = parseFloat(query.table);
         await loadEclmap(null, "?"+query.table, game);
         target.innerHTML = generateOpcodeTable(game);
+    } else {
+        await loadEclmap(null, "?17", 17);
+        target.innerHTML = generateOpcodeTable(17);
     }
 });
 [/script]
