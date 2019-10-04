@@ -812,7 +812,7 @@ const INS_13 = {
         game: 13,
         args: "ffff",
         argnames: ["varX", "varY", "r1", "r2"],
-        description: "Gets a random point, if I understand the google translate spaghetti of THBWiki correctly it works like this:[br][code]float rad = RANDRAD;\n%1 = cos(rad)\*(%3 + RANDF\*(%3-%4));\n%2 = sin(rad)\*(%3 + RANDF\*(%3-%4));[/code][br]So basically the point is in the area between rings with radiuses %3 and %4.[br](TODO: check if I'm correct)"
+        description: "Gets a random point based on %3 and %4 and stores it on (%1,%2). [c=red]Needs investigation.[/c]"
     },
     300: {
         number: 300,
