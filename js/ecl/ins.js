@@ -342,6 +342,57 @@ const GROUPS_17 =
 ];
 
 const INS_13 = {
+    0: {
+        number: 0,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Empty instruction, doesn't do anything."
+    },
+    1: {
+        number: 0,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Returns to the top of current call stack."
+    },
+    2: null,
+    3: null,
+    4: null,
+    5: null,
+    6: null,
+    7: null,
+    8: null,
+    9: null,
+    10: {
+        number: 0,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Returns from the current sub."
+    },
+    18: null,
+    19: null,
+    20: null,
+    24: null,
+    25: null,
+    26: null,
+    27: null,
+    28: null,
+    29: null,
+    31: null,
+    32: null,
+    33: null,
+    34: null,
+    35: null,
+    36: null,
+    37: null,
+    38: null,
+    39: null,
+    46: null,
+    47: null,
+    48: null,
+    49: null,
     300: {
         number: 300,
         game: 13,

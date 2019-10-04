@@ -71,6 +71,14 @@ function getGroups(game) {
 function getOpcodeFromList(list, num) {
 	let ret = list[num];
 	if (typeof ret == "undefined") return null;
+	if (ret == null)
+		return {
+			number: -1,
+			game: -1,
+			args: "",
+			argnames: [],
+			desc: ""
+		};
 	return ret;
 }
 
@@ -135,9 +143,13 @@ function generateOpcodeTable(game) {
 
 		for (let num=group.min; num<=group.max; ++num) {
 			const ins = getOpcodeNoCheck(normalized, num);
-			total += 1;
-			if (ins != null) documented += 1;
-			table += generateOpcodeTableEntry(ins, num);
+			let instrDocumented = ins != null && ins.number != -1;
+			let instrExists = instrDocumented || ins == null
+			if (instrDocumented) documented += 1;
+			if (instrExists) {
+				total += 1;
+				table += generateOpcodeTableEntry(ins, num);
+			}
 		}
 
 		table += "</table>";
