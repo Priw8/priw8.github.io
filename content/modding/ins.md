@@ -27,6 +27,16 @@ Eclmap for instruction names:<br><br>
 
 [script]
 onContentLoad(async function() {
+    function initTableNavigation() {
+        document.querySelector(".ins-navigation")
+        .addEventListener("click", e => {
+            if (e.target.dataset.target) {
+                const targ = document.querySelector("[data-insnavigation='"+e.target.dataset.target+"']");
+                targ.scrollIntoView();
+                window.scrollBy(0, -110);
+            }
+        });
+    }
     const select = document.querySelector(".ecl-table-game-select");
     const target = document.querySelector(".ecl-table-wrapper");
     const input = document.querySelector("#eclmap-file");
@@ -47,6 +57,7 @@ onContentLoad(async function() {
                 } else return alert("Please upload an eclmap first.");
             }
             target.innerHTML = generateOpcodeTable(game);
+            initTableNavigation();
             const query = parseQuery();
             query.table = game;
             location.hash = buildQuery(query);
@@ -56,9 +67,11 @@ onContentLoad(async function() {
         const game = parseFloat(query.table);
         await loadEclmap(null, "?"+query.table, game);
         target.innerHTML = generateOpcodeTable(game);
+        initTableNavigation();
     } else {
         await loadEclmap(null, "?17", 17);
         target.innerHTML = generateOpcodeTable(17);
+        initTableNavigation();
     }
 });
 [/script]

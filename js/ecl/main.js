@@ -116,8 +116,9 @@ function getOpcode(game, num) {
 
 function generateOpcodeTable(game) {
 	const normalized = normalizeGameVersion(game);
-	let html = MD.makeHtml(`Current table: [game=${normalized}] version ${game}[/game]`);
-	// let handledOpcodes = [];
+	let base = MD.makeHtml(`Current table: [game=${normalized}] version ${game}[/game]`);
+
+	let navigation = "<div class='ins-navigation'><h3>Navigation</h3>";
 	let table = "";
 
 	let total = 0;
@@ -126,7 +127,9 @@ function generateOpcodeTable(game) {
 	for (let i=0; i<groups.length; ++i) {
 		const group = groups[i];
 
-		table += `<br><h2>${group.min}-${group.max}: ${group.title}</h2>`;
+		navigation += `- <span class='ins-navigation-entry' data-target='${group.title}'>${group.title} (${group.min}-${group.max})</span><br>`
+
+		table += `<br><h2 data-insnavigation="${group.title}">${group.min}-${group.max}: ${group.title}</h2>`;
 		table += "<table class='ins-table'>";
 		table += "<tr><th class='ins-id'>ID</th><th class='ins-name'>name</th><th class='ins-args'>parameters</th><th class='ins-desc'>description</th></tr>";
 
@@ -139,9 +142,9 @@ function generateOpcodeTable(game) {
 
 		table += "</table>";
 	}
-	html += `Documented instructions: ${documented}/${total} (${(documented/total*100).toFixed(2)}%)`;
-	html += table;
-	return html;
+	navigation += "</div>";
+	base += `Documented instructions: ${documented}/${total} (${(documented/total*100).toFixed(2)}%)`;
+	return base + navigation + table;
 }
 
 function generateOpcodeTableEntry(ins, num) {

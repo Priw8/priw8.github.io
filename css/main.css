@@ -258,3 +258,9 @@ table, th, td, tr {
 .ins-desc {
 	width: 57%;
 }
+
+.ins-navigation-entry {
+	cursor: pointer;
+	text-decoration: underline;
+	color: lightblue;
+}
