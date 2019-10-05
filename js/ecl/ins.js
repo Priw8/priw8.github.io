@@ -1530,7 +1530,7 @@ const INS_13 = {
         argnames: [
             "n"
         ],
-        description: "Sets flag(s) according to %1. Refer to the flag table for exact values.",
+        description: "Sets flag(s) according to %1. Refer to the [flag table](#s=modding/flags) for exact values.",
         documented: true
     },
     518: {

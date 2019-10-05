@@ -149,6 +149,28 @@ let ext = function() {
 		replace: `<span data-tip='$1'>$2</span>`
 	}
 
+	async function requireEclmap(game, content, id) {
+		// this must always wait at least some time, to make sure that the function this was called from finished running...
+		await new Promise(resolve => setTimeout(resolve, 1));
+		game = parseFloat(game);
+		await loadEclmap(null, "?"+game, game);
+		const $replace = document.querySelector(`#require-eclmap-${id}`);
+		if ($replace != null) {
+			$replace.innerHTML = MD.makeHtml(content);
+		}
+	}
+
+	let eclmapId = 0;
+	let eclmap = {
+		type: "lang",
+		regex: /\[requireEclmap=([0-9]+?)\]([^]*?)\[\/requireEclmap\]/g,
+		replace: function(match, num, content) {
+			let id = eclmapId++;
+			requireEclmap(num, content, id);
+			return "<div id='require-eclmap-"+id+"'>Loading eclmap...</div>";
+		}
+	}
+
 	/*let eclTooltips = {
 		type: "lang",
 		filter: function(text) {
@@ -156,5 +178,5 @@ let ext = function() {
 		}
 	}*/
 
-	return [yt, hr, br, ts, img, code, title, c, include, game, rawGame, vartable, html, script, ins, ins_notip, tip];
+	return [eclmap, yt, hr, br, ts, img, code, title, c, include, game, rawGame, vartable, html, script, ins, ins_notip, tip];
 }
