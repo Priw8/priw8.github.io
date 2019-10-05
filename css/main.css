@@ -15,6 +15,12 @@ code {
 	display: inline;
 }
 
+instr {
+	background: #14442c;
+	display: inline;
+	font-family: monospace;
+}
+
 .border-l {
 	width: 10%;
 	position: fixed;

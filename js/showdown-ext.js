@@ -122,7 +122,7 @@ let ext = function() {
 			const ins = getOpcode(parseFloat(game), parseInt(num));
 			if (ins == null) return "`opcode_error_"+num+"`";
 			let tip = getOpcodeTip(ins);
-			return "<code data-tip=\""+tip+"\">"+getOpcodeName(ins.number, ins.documented)+"</code>";
+			return "<instr data-tip=\""+tip+"\">"+getOpcodeName(ins.number, ins.documented)+"</instr>";
 		}
 	}
 	let ins_notip = {
@@ -131,7 +131,7 @@ let ext = function() {
 		replace: function(match, num, game) {
 			const ins = getOpcode(parseFloat(game), parseInt(num));
 			if (ins == null) return "`opcode_error_"+num+"`";
-			return "<code>"+getOpcodeName(ins.number, ins.documented)+"</code>";
+			return "<instr>"+getOpcodeName(ins.number, ins.documented)+"</instr>";
 		}
 	}
 
@@ -143,7 +143,7 @@ let ext = function() {
 			if (variable == null) return "`variable_error_"+num+"`";
 			let tip = getVarTip(variable);
 			console.log(getVarName(num, variable.documented));
-			return "<code data-tip=\""+tip+"\">"+getVarName(num, variable.documented)+"</code>";
+			return "<instr data-tip=\""+tip+"\">"+getVarName(num, variable.documented)+"</instr>";
 		}
 	}
 
@@ -153,7 +153,7 @@ let ext = function() {
 		replace: function(match, num, game) {
 			const variable = getVar(normalizeGameVersion(game), parseInt(num));
 			if (variable == null) return "`variable_error_"+num+"`";
-			return "<code>"+getVarName(num, variable.documented)+"</code>";
+			return "<instr>"+getVarName(num, variable.documented)+"</instr>";
 		}
 	}
 

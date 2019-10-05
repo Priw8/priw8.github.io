@@ -1510,17 +1510,226 @@ const INS_13 = {
         description: "Sets caller's relative position to the position of the boss (TODO: which position?). If called without a boss, [tip=Google translated from THBWiki, I find this sentence funny]it will cause serious mis-access and explode[/tip].",
         documented: true
     },
+    416: {
+        number: 416,
+        game: 13,
+        args: "fff",
+        argnames: ["x", "y", "z"],
+        description: "Same as [ins=400,13], but takes a %3 parameter for the third dimension, which probably affects 3D ANM scripts used by the caller, or something.",
+        documented: true
+    },
+    417: {
+        number: 417,
+        game: 13,
+        args: "fff",
+        argnames: ["x", "y", "z"],
+        description: "Same as [ins=402,13], but takes a %3 parameter for the third dimension, which probably affects 3D ANM scripts used by the caller, or something.",
+        documented: true
+    },
+    418: {
+        number: 418,
+        game: 13,
+        args: "ff",
+        argnames: ["x", "y"],
+        description: "Increases caller's absolute position by %1 and %2.",
+        documented: true
+    },
+    419: {
+        number: 419,
+        game: 13,
+        args: "ff",
+        argnames: ["x", "y"],
+        description: "While the code of this ins looks like it's supposed to be a relative version of [ins=418,13], it doesn't seem to behave like that...",
+        documented: false
+    },
+    420: {
+        number: 420,
+        game: 13,
+        args: "ffffff",
+        argnames: [
+            "θ",
+            "spd",
+            "rad",
+            "radInc",
+            "ellDir",
+            "ellRatio"
+        ],
+        description: "Sets caller's absolute ellipse movement: %1 is the angle indicating initial position on the ellipse, %2 is the angular velocity, %3 is the base circle radius and %4 is by how much the radius increases each frame. %6 is how much the base circle should be 'squished' to make it an ellipse, and %5 is the squishing angle (I don't know math terms in English, sorry)",
+        documented: true
+    },
+    421: {
+        number: 421,
+        game: 13,
+        args: "SSfffff",
+        argnames: [
+            "time",
+            "mode",
+            "spd",
+            "rad",
+            "radInc",
+            "ellDir",
+            "ellRatio"
+        ],
+        description: "Same as [ins=420,13], but the change is applied in %1 frames using mode %2. There is also no initial angle parameter here for obvious reason",
+        documented: true
+    },
+    422: {
+        number: 422,
+        game: 13,
+        args: "ffffff",
+        argnames: [
+            "θ",
+            "spd",
+            "rad",
+            "radInc",
+            "ellDir",
+            "ellRatio"
+        ],
+        description: "Sets caller's relative ellipse movement: %1 is the angle indicating initial position on the ellipse, %2 is the angular velocity, %3 is the base circle radius and %4 is by how much the radius increases each frame. %6 is how much the base circle should be 'squished' to make it an ellipse, and %5 is the squishing angle (I don't know math terms in English, sorry)",
+        documented: true
+    },
+    423: {
+        number: 423,
+        game: 13,
+        args: "SSfffff",
+        argnames: [
+            "time",
+            "mode",
+            "spd",
+            "rad",
+            "radInc",
+            "ellDir",
+            "ellRatio"
+        ],
+        description: "Same as [ins=422,13], but the change is applied in %1 frames using mode %2. There is also no initial angle parameter here for obvious reason",
+        documented: true
+    },
+    424: {
+        number: 424,
+        game: 13,
+        args: "S",
+        argnames: ["state"],
+        description: "Sets caller's mirror flag to %1.",
+        documented: true
+    },
+    425: {
+        number: 425,
+        game: 13,
+        args: "Sffffff",
+        argnames: ["time", "x1", "y1", "x2", "y2", "x3", "y3"],
+        description: "In %1 frames, the enemy moves towards (%2,%3), then moves towards (%6,%7) for a while and finally moves to (%4,%5). Uses absolute position.[br]From THBWiki: [br](assuming the current coordinates are (x0, y0)) the motion trajectory is actually a Bezier curve from (x0, y0) to (x2, y2);[br]The P1 coordinate of the curve is `((x1-x0)*1/3, (y1-y0)*1/3)`;[br]The P2 coordinate of the curve is `(-(x3-x2)*1/3+x2,-(y3-y2) *1/3+x2)`",
+        documented: true
+    },
+    426: {
+        number: 426,
+        game: 13,
+        args: "Sffffff",
+        argnames: ["time", "x1", "y1", "x2", "y2", "x3", "y3"],
+        description: "Same as [ins=425,13], but uses relative position.",
+        documented: true
+    },
+    427: {
+        number: 427,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Resets some movement-related parameters (TODO: what exactly?)",
+        documented: false
+    },
+    428: {
+        number: 428,
+        game: 13,
+        args: "ff",
+        argnames: ["r", "spd"],
+        description: "Same as [ins=404,13], but ignores the mirror flag.",
+        documented: true
+    },
+    429: {
+        number: 429,
+        game: 13,
+        args: "SSff",
+        argnames: ["time", "mode", "r", "spd"],
+        description: "Same as [ins=405,13], but ignores the mirror flag.",
+        documented: true
+    },
+    430: {
+        number: 430,
+        game: 13,
+        args: "ff",
+        argnames: ["r", "spd"],
+        description: "Same as [ins=406,13], but ignores the mirror flag.",
+        documented: true
+    },
     431: {
         number: 431,
         game: 13,
         args: "SSff",
-        argnames: [
-            "time",
-            "mode",
-            "angle",
-            "spd"
-        ],
-        description: "Change enemy's relative angle to %3 and relative speed to %4 in %1 frames using mode %2. Ignores the mirror flag.",
+        argnames: ["time", "mode", "r", "spd"],
+        description: "Same as [ins=407,13], but ignores the mirror flag.",
+        documented: true
+    },
+    432: {
+        number: 432,
+        game: 13,
+        args: "S",
+        argnames: ["id"],
+        description: "Possibly sets caller's absolute position to position of enemy of ID %1. [c=red]Needs checking.[/c]",
+        documented: false
+    },
+    433: {
+        number: 433,
+        game: 13,
+        args: "S",
+        argnames: ["id"],
+        description: "Possibly sets caller's relative position to position of enemy of ID %1. [c=red]Needs checking.[/c]",
+        documented: false
+    },
+    434: {
+        number: 434,
+        game: 13,
+        args: "SSSff",
+        argnames: ["time", "mode", "c", "x", "y"],
+        description: "In %1 frames using mode %2, caller's absolute position is changed to (%4,%5). The movement trajectory is a curve based on %3, [c=red]it is unknown how it works exactly.[/c]",
+        documented: false
+    },
+    435: {
+        number: 435,
+        game: 13,
+        args: "SSSff",
+        argnames: ["time", "mode", "c", "x", "y"],
+        description: "In %1 frames using mode %2, caller's relative position is changed to (%4,%5). The movement trajectory is a curve based on %3, [c=red]it is unknown how it works exactly.[/c]",
+        documented: false
+    },
+    436: {
+        number: 436,
+        game: 13,
+        args: "SSff",
+        argnames: ["time", "mode", "x", "y"],
+        description: "Same as [ins=418,13], but the change is applied in %1 frames using mode %2.",
+        documented: true
+    },
+    437: {
+        number: 437,
+        game: 13,
+        args: "SSff",
+        argnames: ["time", "mode", "x", "y"],
+        description: "Same as [ins=419,13], but the change is applied in %1 frames using mode %2 (it also behaves as expected, unlike [ins=419,13]).",
+        documented: true
+    },
+    438: {
+        number: 438,
+        game: 13,
+        args: "SSSff",
+        argnames: ["time", "mode", "c", "x", "y"],
+        description: "Same as [ins=434,13], but instead caller's current absolute coordinates are added to %4 and %5.",
+        documented: true
+    },
+    439: {
+        number: 439,
+        game: 13,
+        args: "SSSff",
+        argnames: ["time", "mode", "c", "x", "y"],
+        description: "Same as [ins=435,13], but instead caller's current relative coordinates are added to %4 and %5.",
         documented: true
     },
     502: {
