@@ -16,6 +16,7 @@ let contentLoadListeners = [];
 function contentLoaded() {
 	for (let i=0; i<contentLoadListeners.length; ++i) 
 		contentLoadListeners[i]();
+	contentLoadListeners.splice(0, contentLoadListeners.length);
 }
 
 function onContentLoad(clb) {
