@@ -84,14 +84,14 @@ const INDEX =
 				"url": "ins"
 			},
 			{
-				"name": "Enemy flag table",
-				"type": "site",
-				"url": "flags"
-			},
-			{
-				"name": "Variable table",
+				"name": "ECL variable table",
 				"type": "site",
 				"url": "vars"
+			},
+			{
+				"name": "ECL flag table",
+				"type": "site",
+				"url": "flags"
 			},
 			{
 				"name": "Eclmaps",
