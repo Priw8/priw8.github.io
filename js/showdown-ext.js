@@ -142,7 +142,6 @@ let ext = function() {
 			const variable = getVar(normalizeGameVersion(game), parseInt(num));
 			if (variable == null) return "`variable_error_"+num+"`";
 			let tip = getVarTip(variable);
-			console.log(getVarName(num, variable.documented));
 			return "<instr data-tip=\""+tip+"\">"+getVarName(num, variable.documented)+"</instr>";
 		}
 	}
