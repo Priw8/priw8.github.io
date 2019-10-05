@@ -1,61 +1,113 @@
-let generatedVarTable = "";
-function generateVarTable() {
-	if (generatedVarTable) return generatedVarTable;
+function generateVarTable(game) {
 	let html = "";
 	html += "<table>";
 	html += "<tr><th>ID</th><th>type</th><th>access</th><th>scoping</th><th>name</th><th>description</th></tr>";
-	for (let i=-10000; typeof VARS[i] != "undefined"; i++) {
-		html += getVarTableRow(VARS[i], i);
+
+	game = normalizeGameVersion(game);
+	const limit = getVarLimits(game);
+
+	for (let i=limit[0]; i<=limit[1]; i++) {
+		html += getVarTableRow(getVarNoCheck(game, i));
 	}
+
 	html += "</table>";
 	html = MD.makeHtml(html);
-	generatedVarTable = html;
 	return html;
 }
 
-function getVarTableRow(entry, id) {
-	if (entry == null) return "";
-	let [game, type, access, scope, desc] = entry;
-	let idString = id + (type == "$" ? "" : ".0f");
-	let typeString = type == "$" ? "int" : "float";
-	let accessString = access == "rw" ? "read/write" : "read-only";
-	let scopeString = scope == "g" ? "global" : "local";
-	return `<tr style='color:%GAMECOLOR-${game}%'><td>${idString}</td><td>${typeString}</td><td>${accessString}</td><td>${scopeString}</td><td>${getVarName(id)}</td><td>${desc}</td></tr>`;
+function getVarTableRow(v) {
+	if (v == null) return "";
+	let idString = v.number + (v.type == "$" ? "" : ".0f");
+	let typeString = v.type == "$" ? "int" : "float";
+	let accessString = v.access == "rw" ? "read/write" : "read-only";
+	let scopeString = v.scope == "g" ? "global" : "local";
+	return `<tr><td>${idString}</td><td>${typeString}</td><td>${accessString}</td><td>${scopeString}</td><td>${getVarName(v.number, v.documented)}</td><td>${v.desc}</td></tr>`;
 }
 
-function getVarTip(expr) {
-	let [entry, id] = getVariableByName(expr);
-	if (entry == null) return "";
-	let [game, type, access, scope, name, desc] = entry;
-	let idString = id + (type == "$" ? "" : ".0f");
-	let typeString = type == "$" ? "int" : "float";
-	let accessString = access == "rw" ? "read/write" : "read-only";
-	let scopeString = scope == "g" ? "global" : "local";
-	let tip = `**${idString} - ${type+name}** - ${scopeString}, ${accessString}, ${typeString} variable[br][hr]${desc}`;
-	return tip;
-}
-
-function getVariableByName(expr) {
-	let type, name;
-	if (expr.charAt(0) == "%") {
-		type = "%";
-		name = expr.substring(1);
-	} else {
-		type = "$";
-		name = expr.substring(2);
+function getVarLimits(game) {
+	switch(game) {
+		case 10: return VARLIMIT_10;
+		case 11: return VARLIMIT_11;
+		case 12: return VARLIMIT_12;
+		case 125: return VARLIMIT_125;
+		case 128: return VARLIMIT_128;
+		case 13: return VARLIMIT_13;
+		case 14: return VARLIMIT_14;
+		case 143: return VARLIMIT_143;
+		case 15: return VARLIMIT_15;
+		case 16: return VARLIMIT_16;
+		case 165: return VARLIMIT_165;
+		case 17: return VARLIMIT_17;
 	}
-	for (let i in VARS) {
-		if (VARS[i] == null) continue;
-		if (VARS[i][4] == name && VARS[i][1] == type) return [VARS[i], i];
-	}
-	return [null, -1];
 }
 
-function getVarName(id) {
-	return currentMap.getGlobal(id);
+function getVar(game, id) {
+	let lim = getVarLimits(game);
+	if (lim[0] <= id && lim[1] >= id) 
+		return getVarNoCheck(game, id);
+	return null;
+	/*const variable = VARS[id];
+	if (typeof variable == "undefined")
+		return null;
+	if (variable == null) 
+		return [-1,	"$", "ro", "g", "Unkown variable."];
+	return variable;*/
+}
+
+function getVarNoCheck(game, id) {
+	let ret = null;
+	switch(game) {
+		case 17:
+			ret = getVarFromList(VAR_17, id);
+		case 165:
+			if (!ret) ret = getVarFromList(VAR_165, id);
+		case 16:
+			if (!ret) ret = getVarFromList(VAR_16, id);
+		case 15:
+			if (!ret) ret = getVarFromList(VAR_15, id);
+		case 143:
+			if (!ret) ret = getVarFromList(VAR_143, id);
+		case 14:
+			if (!ret) ret = getVarFromList(VAR_14, id);
+		case 13:
+			if (!ret) ret = getVarFromList(VAR_13, id);
+		case 128:
+			if (!ret) ret = getVarFromList(VAR_128, id);
+		case 125:
+			if (!ret) ret = getVarFromList(VAR_125, id);
+		case 12:
+			if (!ret) ret = getVarFromList(VAR_12, id);
+		case 11:
+			if (!ret) ret = getVarFromList(VAR_11, id);
+		case 10:
+			if (!ret) ret = getVarFromList(VAR_10, id);
+	}
+	return ret;
+}
+
+function getVarFromList(list, id) {
+	const ret = list[id];
+	if (typeof ret == "undefined") return null;
+	return ret;
+}
+
+function getVarName(id, documented) {
+	if (documented) return currentMap.getGlobal(id);
+	return `<span style='color:red'>${currentMap.getGlobal(id)}</span>`;
+}
+
+function getVarTip(v) {
+	if (v == null) return "";
+	let idString = v.number + (v.type == "$" ? "" : ".0f");
+	let typeString = v.type == "$" ? "int" : "float";
+	let accessString = v.access == "rw" ? "read/write" : "read-only";
+	let scopeString = v.scope == "g" ? "global" : "local";
+	let tip = `**${idString} - ${getVarName(v.number, v.documented)}** - ${scopeString}, ${accessString}, ${typeString} variable[br][hr]${v.desc}`;
+	return MD.makeHtml(tip.replace(/\[var=/g, "[var_notip="));
 }
 
 function normalizeGameVersion(num) {
+	if (typeof num == "string") num = parseFloat(num);
 	while(Math.floor(num) != num) num *= 10;
 	return num;
 }

@@ -98,14 +98,6 @@ let ext = function() {
 		}
 	}
 
-	let vartable = {
-		type: "lang",
-		regex: /\[vartable\]/g,
-		replace: function() {
-			return generateVarTable()
-		}
-	}
-
 	let html = {
 		type: "lang",
 		regex: /\[html\]([^]*?)\[\/html\]/g,
@@ -140,6 +132,27 @@ let ext = function() {
 			const ins = getOpcode(parseFloat(game), parseInt(num));
 			if (ins == null) return "`opcode_error_"+num+"`";
 			return "<code>"+getOpcodeName(ins.number, ins.documented)+"</code>";
+		}
+	}
+
+	let variable = {
+		type: "lang",
+		regex: /\[var=(-?.*?),(.*?)\]/g,
+		replace: function(match, num, game) {
+			const variable = getVar(normalizeGameVersion(game), parseInt(num));
+			if (variable == null) return "`variable_error_"+num+"`";
+			let tip = getVarTip(variable);
+			return "<code data-tip=\""+tip+"\">"+getVarName(num, variable.documented)+"</code>";
+		}
+	}
+
+	let variable_notip = {
+		type: "lang",
+		regex: /\[var=(-?.*?),(.*?)\]/g,
+		replace: function(match, num, game) {
+			const variable = getVar(normalizeGameVersion(game), parseInt(num));
+			if (variable == null) return "`variable_error_"+num+"`";
+			return "<code>"+getVarName(num, variable.documented)+"</code>";
 		}
 	}
 
@@ -178,5 +191,5 @@ let ext = function() {
 		}
 	}*/
 
-	return [eclmap, yt, hr, br, ts, img, code, title, c, include, game, rawGame, vartable, html, script, ins, ins_notip, tip];
+	return [eclmap, yt, hr, br, ts, img, code, title, c, include, game, rawGame, html, script, ins, ins_notip, variable, variable_notip, tip];
 }
