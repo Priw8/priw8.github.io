@@ -1,18 +1,28 @@
 function generateVarTable(game) {
-	let html = "";
-	html += "<table>";
-	html += "<tr><th>ID</th><th>type</th><th>access</th><th>scoping</th><th>name</th><th>description</th></tr>";
+	let normalized = normalizeGameVersion(game);
 
-	game = normalizeGameVersion(game);
-	const limit = getVarLimits(game);
+	let head = `Current table: [game=${normalized}]version ${game}[/game][br]`;
 
+	let table = "";
+	table += "<table>";
+	table += "<tr><th>ID</th><th>type</th><th>access</th><th>scoping</th><th>name</th><th>description</th></tr>";
+
+	const limit = getVarLimits(normalized);
+
+	let total = 0;
+	let documented = 0;
 	for (let i=limit[0]; i<=limit[1]; i++) {
-		html += getVarTableRow(getVarNoCheck(game, i));
+		const v = getVarNoCheck(normalized, i);
+		++total;
+		if (v.documented) ++documented;
+		table += getVarTableRow(v);
 	}
+	table += "</table>";
 
-	html += "</table>";
-	html = MD.makeHtml(html);
-	return html;
+	head += `Documented variables: ${documented}/${total} (${(documented/total*100).toFixed(2)}%)[br]`;
+	head += `Variables marked in <span style='color:red'>red</span> either need further investigation or descriptions for them have not yet been written.`;
+
+	return MD.makeHtml(head) + MD.makeHtml(table);
 }
 
 function getVarTableRow(v) {
@@ -181,7 +191,7 @@ function getOpcode(game, num) {
 
 function generateOpcodeTable(game) {
 	const normalized = normalizeGameVersion(game);
-	let base = MD.makeHtml(`Current table: [game=${normalized}] version ${game}[/game]`);
+	let base = `Current table: [game=${normalized}] version ${game}[/game][br]`;
 
 	let navigation = "<div class='ins-navigation'><h3>Navigation</h3>";
 	let table = "";
@@ -213,9 +223,9 @@ function generateOpcodeTable(game) {
 		table += "</table>";
 	}
 	navigation += "</div>";
-	base += `Documented instructions: ${documented}/${total} (${(documented/total*100).toFixed(2)}%)<br>`;
-	base += "Instructions marked in <span style='color:red'>red</span> either need further investigation or descriptions for them have not yet been written.";
-	return base + navigation + table;
+	base += `Documented instructions: ${documented}/${total} (${(documented/total*100).toFixed(2)}%)[br]`;
+	base += "Instructions marked in [c=red]red[/c] either need further investigation or descriptions for them have not yet been written.";
+	return MD.makeHtml(base) + navigation + table;
 }
 
 function generateOpcodeTableEntry(ins, num) {
