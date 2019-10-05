@@ -1837,6 +1837,70 @@ const INS_14 = {
         ],
         description: "Same as [ins=307,14], but the spawned script is offset by (%3,%4). For 3D objects, %5 is used too (TODO: verify that).",
         documented: true
+    },
+    440: {
+        number: 440,
+        game: 14,
+        args: "f",
+        argnames: ["r"],
+        description: "Sets caller's absolute movement angle to %1.",
+        documented: true
+    },
+    441: {
+        number: 441,
+        game: 14,
+        args: "SSf",
+        argnames: ["time", "mode", "r"],
+        description: "Same as [ins=440,14], but the change is applied in %1 frames using mode %2.",
+        documented: true
+    },
+    442: {
+        number: 442,
+        game: 14,
+        args: "f",
+        argnames: ["r"],
+        description: "Sets caller's relative movement angle to %1.",
+        documented: true
+    },
+    443: {
+        number: 443,
+        game: 14,
+        args: "SSf",
+        argnames: ["time", "mode", "r"],
+        description: "Same as [ins=442,14], but the change is applied in %1 frames using mode %2.",
+        documented: true
+    },
+    444: {
+        number: 444,
+        game: 14,
+        args: "f",
+        argnames: ["spd"],
+        description: "Sets caller's absolute movement speed to %1.",
+        documented: true
+    },
+    445: {
+        number: 445,
+        game: 14,
+        args: "SSf",
+        argnames: ["time", "mode", "spd"],
+        description: "Same as [ins=444,14], but the change is applied in %1 frames using mode %2.",
+        documented: true
+    },
+    446: {
+        number: 446,
+        game: 14,
+        args: "f",
+        argnames: ["spd"],
+        description: "Sets caller's relative movement speed to %1.",
+        documented: true
+    },
+    447: {
+        number: 447,
+        game: 14,
+        args: "SSf",
+        argnames: ["time", "mode", "spd"],
+        description: "Same as [ins=446,14], but the change is applied in %1 frames using mode %2.",
+        documented: true
     }
 };
 
