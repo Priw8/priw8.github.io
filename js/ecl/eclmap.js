@@ -90,7 +90,11 @@ class Eclmap {
     }
     getMnemonic(num) {
         if (this.opcodes[num]) return this.opcodes[num];
-        else return `ins_${num}`;
+        return `ins_${num}`;
+    }
+    getGlobal(num) {
+        if (this.globals[num]) return this.globals[num];
+        return `[${num}]`;
     }
     err(txt) {
         alert(`eclmap parse error at line ${this.line}: ${txt}`);

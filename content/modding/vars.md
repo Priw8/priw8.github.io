@@ -4,4 +4,6 @@ Note2: [game=165]Violet Detector[/game] variables have not been researched yet a
 Entries in the table have different colors, depending on which game they first appeared in. Colors are as follow:
 [include=modding/game-colors]  
 Names in this table are obsiously not official; they are the same as in my eclmap.
+[requireEclmap=17]
 [vartable]
+[/requireEclmap]

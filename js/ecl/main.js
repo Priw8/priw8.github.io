@@ -15,12 +15,12 @@ function generateVarTable() {
 
 function getVarTableRow(entry, id) {
 	if (entry == null) return "";
-	let [game, type, access, scope, name, desc] = entry;
+	let [game, type, access, scope, desc] = entry;
 	let idString = id + (type == "$" ? "" : ".0f");
 	let typeString = type == "$" ? "int" : "float";
 	let accessString = access == "rw" ? "read/write" : "read-only";
 	let scopeString = scope == "g" ? "global" : "local";
-	return `<tr style='color:%GAMECOLOR-${game}%'><td>${idString}</td><td>${typeString}</td><td>${accessString}</td><td>${scopeString}</td><td>${type+name}</td><td>${desc}</td></tr>`;
+	return `<tr style='color:%GAMECOLOR-${game}%'><td>${idString}</td><td>${typeString}</td><td>${accessString}</td><td>${scopeString}</td><td>${getVarName(id)}</td><td>${desc}</td></tr>`;
 }
 
 function getVarTip(expr) {
@@ -49,6 +49,10 @@ function getVariableByName(expr) {
 		if (VARS[i][4] == name && VARS[i][1] == type) return [VARS[i], i];
 	}
 	return [null, -1];
+}
+
+function getVarName(id) {
+	return currentMap.getGlobal(id);
 }
 
 function normalizeGameVersion(num) {
