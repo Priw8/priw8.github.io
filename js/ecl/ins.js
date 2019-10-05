@@ -1499,7 +1499,7 @@ const INS_13 = {
         game: 13,
         args: "",
         argnames: [],
-        description: "Sets caller's absolute position to the position of the boss (TODO: which position?). If called without a boss, [tip=Google translated from THBWiki, I find this sentence funny]it will cause serious mis-access and explode[/tip].",
+        description: "Sets caller's absolute position to the absolute position of the boss. If called without a boss, [tip=Google translated from THBWiki, I find this sentence funny]it will cause serious mis-access and explode[/tip].",
         documented: true
     },
     415: {
@@ -1507,7 +1507,7 @@ const INS_13 = {
         game: 13,
         args: "",
         argnames: [],
-        description: "Sets caller's relative position to the position of the boss (TODO: which position?). If called without a boss, [tip=Google translated from THBWiki, I find this sentence funny]it will cause serious mis-access and explode[/tip].",
+        description: "Sets caller's relative position to the relative position of the boss. If called without a boss, [tip=Google translated from THBWiki, I find this sentence funny]it will cause serious mis-access and explode[/tip].",
         documented: true
     },
     416: {
@@ -1673,16 +1673,16 @@ const INS_13 = {
         game: 13,
         args: "S",
         argnames: ["id"],
-        description: "Possibly sets caller's absolute position to position of enemy of ID %1. [c=red]Needs checking.[/c]",
-        documented: false
+        description: "Sets caller's absolute position to absolute position of enemy with ID %1.",
+        documented: true
     },
     433: {
         number: 433,
         game: 13,
         args: "S",
         argnames: ["id"],
-        description: "Possibly sets caller's relative position to position of enemy of ID %1. [c=red]Needs checking.[/c]",
-        documented: false
+        description: "Sets caller's relative position to relative position of enemy with ID %1.",
+        documented: true
     },
     434: {
         number: 434,
