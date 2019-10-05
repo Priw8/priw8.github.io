@@ -1732,6 +1732,22 @@ const INS_13 = {
         description: "Same as [ins=435,13], but instead caller's current relative coordinates are added to %4 and %5.",
         documented: true
     },
+    500: {
+        number: 500,
+        game: 13,
+        args: "ff",
+        argnames: ["w", "h"],
+        description: "Sets caller's hurtbox width to %1 and height to %2.",
+        documented: true
+    },
+    501: {
+        number: 501,
+        game: 13,
+        args: "ff",
+        argnames: ["w", "h"],
+        description: "Sets caller's hitbox width to %1 and height to %2.",
+        documented: true
+    },
     502: {
         number: 502,
         game: 13,
@@ -1742,15 +1758,183 @@ const INS_13 = {
         description: "Sets flag(s) according to %1. Refer to the [flag table](#s=modding/flags) for exact values.",
         documented: true
     },
+    503: {
+        number: 503,
+        game: 13,
+        args: "S",
+        argnames: [
+            "n"
+        ],
+        description: "Clears flag(s) according to %1. Refer to the [flag table](#s=modding/flags) for exact values.",
+        documented: true
+    },
+    504: {
+        number: 504,
+        game: 13,
+        args: "ffff",
+        argnames: ["x", "y", "w", "h"],
+        description: "Sets caller's movement limit rectangle: (%1,%2) are the coordinates of top left corner of the rect, while %3, %4 are width and height of it.",
+        documented: true
+    },
+    505: {
+        number: 505,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Removes caller's movement limit.",
+        documented: true
+    },
+    506: {
+        number: 506,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Clears caller's extra item drop.",
+        documented: true
+    },
+    507: {
+        number: 507,
+        game: 13,
+        args: "SS",
+        argnames: ["type", "amount"],
+        description: "Adds %2 items of type %1 to caller's extra drop. Item type table will be made in the future.",
+        documented: true
+    },
+    508: {
+        number: 508,
+        game: 13,
+        args: "ff",
+        argnames: ["w", "h"],
+        description: "Sets caller's item drop area width to %1 and height to %2.",
+        documented: true
+    },
+    509: {
+        number: 509,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Drops all items the caller has.",
+        documented: true
+    },
+    510: {
+        number: 510,
+        game: 13,
+        args: "S",
+        argnames: ["type"],
+        description: "Sets caller's main drop to %1.",
+        documented: true
+    },
+    511: {
+        number: 511,
+        game: 13,
+        args: "S",
+        argnames: ["hp"],
+        description: "Sets caller's curent HP and max HP to %1.",
+        documented: true
+    },
+    512: {
+        number: 512,
+        game: 13,
+        args: "S",
+        argnames: ["a"],
+        description: "If %1 is 0, activates boss mode and makes the caller the main boss. If %1 > 0, it makes the caller the secondary boss. If %1 is -1, ends boss mode.",
+        documented: true
+    },
+    513: {
+        number: 513,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Resets boss timer.",
+        documented: true
+    },
+    514: {
+        number: 514,
+        game: 13,
+        args: "SSSm",
+        argnames: ["slot", "hp", "time", "sub"],
+        description: "Sets an interrupt on slot %1 (not sure how many slots there are) - once caller's hp reaches %2 or %3 frames have passed since this was called, caller will terminate all subs it's currently running and execute sub %4.",
+        documented: true
+    },
+    515: {
+        number: 515,
+        game: 13,
+        args: "S",
+        argnames: ["time"],
+        description: "Makes the caller completely invulnerable for %1 frames.",
+        documented: true
+    },
+    516: {
+        number: 516,
+        game: 13,
+        args: "S",
+        argnames: ["id"],
+        description: "Plays sound %1. Sound id table will be added in the future.",
+        documented: true
+    },
+    517: {
+        number: 517,
+        game: 13,
+        args: "SSS",
+        argnames: ["time", "b", "c"],
+        description: "Activates screen shake for %1 frames, %2 and %3 control the intensity, [c=red]needs investigation.[/c]",
+        documented: false
+    },
     518: {
         number: 518,
         game: 13,
         args: "S",
-        argnames: [
-            "dialogueId"
-        ],
+        argnames: ["dialogueId"],
         description: "Starts a dialogue, %1 is the ID of an entry in the .msg file. Apart from that, has the effect [ins=525,13].",
         documented: true
+    },
+    519: {
+        number: 519,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Waits until there are no dialogues active, or the running .msg script calls a certain instruction ([c=red]which one?[/c])",
+        documented: false
+    },
+    520: {
+        number: 520,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Possibly waits until there are no killable enemies on the screen. [c=red]Needs checking.[/c]",
+        documented: false
+    },
+    521: {
+        number: 521,
+        game: 13,
+        args: "Sm",
+        argnames: ["slot", "sub"],
+        description: "Sets a timeout interrupt on slot %1 - when the timer reaches 0, caller will terminate all subs it's currently running and execute sub %2.",
+        documented: true
+    },
+    522: {
+        number: 522,
+        game: 13,
+        args: "SSSm",
+        argnames: ["id", "life", "score", "name"],
+        description: "[ins=537,13], but used on the extra stage.",
+        documented: true
+    },
+    523: {
+        number: 523,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Ends currently active spellcard.",
+        documented: true
+    },
+    524: {
+        number: 524,
+        game: 13,
+        args: "S",
+        argnames: ["a"],
+        description: "Some jank that's responsible for showing boss name and possibly other things. In [game=15]LoLK[/game], it also ends the current chapter and begins a new one.",
+        documented: false
     },
     525: {
         number: 525,
@@ -1759,6 +1943,101 @@ const INS_13 = {
         argnames: [],
         description: "Kills all other enemies (unless they have a flag that prevents that set).",
         documented: true
+    },
+    526: {
+        number: 526,
+        game: 13,
+        args: "f",
+        argnames: ["r"],
+        description: "Makes bullets generated by the caller not spawn if they are in radius %1 around the player."
+    },
+    527: {
+        number: 527,
+        game: 13,
+        args: "SfS",
+        argnames: ["slot", "hp", "c"],
+        description: "Sets a new life marker on slot %1, %2 determines where the marker will appear on the health bar (if %2=1000.0f and the enemy has 2000 hp, the marker will split the hp bar in half). %3 is an RGB value of unknown use (possibly leftover from earlier ECL versions)",
+        documented: true
+    },
+    528: {
+        number: 528,
+        game: 13,
+        args: "SSSm",
+        argnames: ["id", "life", "score", "name"],
+        description: "Variation of [ins=537,13], the difference is unknown.",
+        documented: false
+    },
+    529: {
+        number: 529,
+        game: 13,
+        args: "ffff",
+        argnames: ["var", "a", "b", "c"],
+        description: "Sets %1 to %2 if rank is low, %3 if rank is average or %4 if rank is high.",
+        documented: true
+    },
+    530: {
+        number: 530,
+        game: 13,
+        args: "ffffff",
+        argnames: ["var", "a", "b", "c", "d", "e"],
+        description: "Sets %1 to %2 if rank is very low, %3 if rank is low, %4 if rank is average, %5 if rank is high or %6 if rank is very high.",
+        documented: true
+    },
+    531: {
+        number: 531,
+        game: 13,
+        args: "fff",
+        argnames: ["var", "a", "b"],
+        description: "Sets %1 to %2 if rank is low or %3 if rank is high.",
+        documented: true
+    },
+    532: {
+        number: 532,
+        game: 13,
+        args: "SSSS",
+        argnames: ["var", "a", "b", "c"],
+        description: "Sets %1 to %2 if rank is low, %3 if rank is average or %4 if rank is high.",
+        documented: true
+    },
+    533: {
+        number: 533,
+        game: 13,
+        args: "SSSSSS",
+        argnames: ["var", "a", "b", "c", "d", "e"],
+        description: "Sets %1 to %2 if rank is very low, %3 if rank is low, %4 if rank is average, %5 if rank is high or %6 if rank is very high.",
+        documented: true
+    },
+    534: {
+        number: 534,
+        game: 13,
+        args: "SSS",
+        argnames: ["var", "a", "b"],
+        description: "Sets %1 to %2 if rank is low or %3 if rank is high.",
+        documented: true
+    },
+    535: {
+        number: 535,
+        game: 13,
+        args: "SSSSS",
+        argnames: ["var", "E", "N", "H", "L"],
+        description: "Sets %1 to one of values provided based on difficulty.",
+        documented: true
+    },
+    536: {
+        number: 536,
+        game: 13,
+        args: "fffff",
+        argnames: ["var", "E", "N", "H", "L"],
+        description: "Sets %1 to one of values provided based on difficulty.",
+        documented: true
+    },
+    537: {
+        number: 537,
+        game: 13,
+        args: "SSSm",
+        argnames: ["id", "life", "score", "name"],
+        description: "Declares a spellcard with id %1 and name %4. I am not sure what %2 and %3 do exactly, [c=red]needs investigation[/c].",
+        documented: false
     },
     547: {
         number: 547,
