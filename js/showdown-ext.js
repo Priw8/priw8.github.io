@@ -130,7 +130,7 @@ let ext = function() {
 			const ins = getOpcode(parseFloat(game), parseInt(num));
 			if (ins == null) return "`opcode_error_"+num+"`";
 			let tip = getOpcodeTip(ins);
-			return "<code data-tip=\""+tip+"\">"+getOpcodeName(ins.number)+"</code>";
+			return "<code data-tip=\""+tip+"\">"+getOpcodeName(ins.number, ins.documented)+"</code>";
 		}
 	}
 	let ins_notip = {
@@ -139,7 +139,7 @@ let ext = function() {
 		replace: function(match, num, game) {
 			const ins = getOpcode(parseFloat(game), parseInt(num));
 			if (ins == null) return "`opcode_error_"+num+"`";
-			return "<code>"+getOpcodeName(ins.number)+"</code>";
+			return "<code>"+getOpcodeName(ins.number, ins.documented)+"</code>";
 		}
 	}
 

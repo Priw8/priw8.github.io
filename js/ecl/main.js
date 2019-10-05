@@ -77,7 +77,8 @@ function getOpcodeFromList(list, num) {
 			game: -1,
 			args: "",
 			argnames: [],
-			desc: ""
+			desc: "",
+			documented: false
 		};
 	return ret;
 }
@@ -143,8 +144,9 @@ function generateOpcodeTable(game) {
 
 		for (let num=group.min; num<=group.max; ++num) {
 			const ins = getOpcodeNoCheck(normalized, num);
-			let instrDocumented = ins != null && ins.number != -1;
-			let instrExists = instrDocumented || ins == null
+			let instrDocumented = ins != null && ins.documented;
+			let instrNoDesc = ins != null && ins.number != -1;
+			let instrExists = instrDocumented || instrNoDesc || ins == null
 			if (instrDocumented) documented += 1;
 			if (instrExists) {
 				total += 1;
@@ -155,7 +157,8 @@ function generateOpcodeTable(game) {
 		table += "</table>";
 	}
 	navigation += "</div>";
-	base += `Documented instructions: ${documented}/${total} (${(documented/total*100).toFixed(2)}%)`;
+	base += `Documented instructions: ${documented}/${total} (${(documented/total*100).toFixed(2)}%)<br>`;
+	base += "Instructions marked in <span style='color:red'>red</span> either need further investigation or descriptions for them have not yet been written.";
 	return base + navigation + table;
 }
 
@@ -163,18 +166,24 @@ function generateOpcodeTableEntry(ins, num) {
 	return `
 <tr>
 	<td>${num}</td>
-	<td>${getOpcodeName(num)}
+	<td>${getOpcodeName(num, ins ? ins.documented : false)}
 	<td>${generateOpcodeParameters(ins)}
 	<td>${generateOpcodeDesc(ins)}</td>
 </tr>
 `;
 }
 
-function getOpcodeName(num) {
+function getOpcodeName(num, documented) {
+	let name;
 	if (currentMap != null) 
-		return currentMap.getMnemonic(num);
+		name = currentMap.getMnemonic(num);
 	else
-		return `ins_${num}`; 
+		name = `ins_${num}`;
+
+	if (documented)
+		return name;
+	else
+		return `<span style='color:red'>${name}</span>`
 }
 
 function generateOpcodeParameters(ins) {
@@ -199,7 +208,7 @@ function generateOpcodeDesc(ins) {
 }
 
 function getOpcodeTip(ins) {
-	return escapeTip(`<br><b>${ins.number} - ${getOpcodeName(ins.number)}(${generateOpcodeParameters(ins)})</b><br><hr>${generateOpcodeDesc(ins)}`);
+	return escapeTip(`<br><b>${ins.number} - ${getOpcodeName(ins.number, ins.documented)}(${generateOpcodeParameters(ins)})</b><br><hr>${generateOpcodeDesc(ins)}`);
 }
 
 function escapeTip(tip) {
