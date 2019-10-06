@@ -1773,7 +1773,7 @@ const INS_13 = {
         game: 13,
         args: "ffff",
         argnames: ["x", "y", "w", "h"],
-        description: "Sets caller's movement limit rectangle: (%1,%2) are the coordinates of top left corner of the rect, while %3, %4 are width and height of it.",
+        description: "Sets caller's movement limit rectangle: (%1,%2) are the coordinates of the center of the rect, while %3, %4 are width and height of it.",
         documented: true
     },
     505: {
