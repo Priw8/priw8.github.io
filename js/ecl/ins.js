@@ -1058,7 +1058,7 @@ const INS_13 = {
         argnames: [
             "script"
         ],
-        description: "Same as [ins=307,13], except it uses the ANM script selected by [ins=302,13].",
+        description: "Same as [ins=307,13], except it uses the ANM file selected by [ins=302,13].",
         documented: true
     },
     314: {
