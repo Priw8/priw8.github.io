@@ -2242,6 +2242,126 @@ const INS_13 = {
         description: "[c=red]Unknown.[/c]",
         documented: false
     },
+    600: {
+        number: 600,
+        game: 13,
+        args: "S",
+        argnames: ["etId"],
+        description: "Resets bullet manager %1 to default properties.",
+        documented: true
+    },
+    601: {
+        number: 601,
+        game: 13,
+        args: "S",
+        argnames: ["etId"],
+        description: "Shoots bullet(s) using properties from bullet manager %1.",
+        documented: true
+    },
+    602: {
+        number: 602,
+        game: 13,
+        args: "SSS",
+        argnames: ["etId", "type", "color"],
+        description: "Sets bullet type and color of bullet manager %1. Pre-th15 bullet types are yet to be documented.",
+        documented: true
+    },
+    603: {
+        number: 603,
+        game: 13,
+        args: "Sff",
+        argnames: ["etId", "x", "y"],
+        description: "Sets the relative offset of bullets spawned by bullet manager %1 to (%2,%3).",
+        documented: true
+    },
+    604: {
+        number: 604,
+        game: 13,
+        args: "Sff",
+        argnames: ["etId", "angle1", "angle2"],
+        description: "Sets angle1 and angle2 of bullet manager %1.",
+        documented: true
+    },
+    605: {
+        number: 605,
+        game: 13,
+        args: "Sff",
+        argnames: ["etId", "speed1", "speed1"],
+        description: "Sets speed1 and speed2 of bullet manager %1.",
+        documented: true
+    },
+    606: {
+        number: 606,
+        game: 13,
+        args: "SSS",
+        argnames: ["etId", "count1", "count2"],
+        description: "Sets count1 and count2 of bullet manager %1.",
+        documented: true
+    },
+    607: {
+        number: 607,
+        game: 13,
+        args: "SS",
+        argnames: ["etId", "aim"],
+        description: "Sets aim mode of bullet manager %1.",
+        documented: true
+    },
+    608: {
+        number: 608,
+        game: 13,
+        args: "Sff",
+        argnames: ["etId", "sound1", "sound1"],
+        description: "Sets sound1 and sound2 of bullet manager %1 (sound effect table is TODO). sound1 plays when the bullet manager fires a bullet, while sound2 plays when a bullet fired by the bullet manager does certain transformations. Set to -1 for no sound.",
+        documented: true
+    },
+    609: {
+        number: 609,
+        game: 13,
+        args: "SSSSSSff",
+        argnames: ["etId", "index", "async", "type", "a", "b", "r", "s"],
+        description: "Sets bullet transformation of bullet manager %1, transformation explanation will be added in the future.",
+        documented: true
+    },
+    610: {
+        number: 610,
+        game: 13,
+        args: "SSSSSSSSffff",
+        argnames: ["etId", "index", "async", "type", "a", "b", "c", "d", "r", "s", "m", "n"],
+        description: "Same as [ins=609,13], but takes more arguments for certain transformation types.",
+        documented: true
+    },
+    611: {
+        number: 611,
+        game: 13,
+        args: "SSSSSff",
+        argnames: ["etId", "async", "type", "a", "b", "r", "s"],
+        description: "Addes bullet transformation to bullet manager %1, transformation explanation will be added in the future.",
+        documented: true
+    },
+    612: {
+        number: 612,
+        game: 13,
+        args: "SSSSSSSffff",
+        argnames: ["etId", "async", "type", "a", "b", "c", "d", "r", "s", "m", "n"],
+        description: "Same as [ins=611,13], but takes more arguments for certain transformation types.",
+        documented: true
+    },
+    613: {
+        number: 613,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Clears all bullets.",
+        documented: true
+    },
+    614: {
+        number: 614,
+        game: 13,
+        args: "SS",
+        argnames: ["etIdDest", "etIdSrc"],
+        description: "Copies everything from bullet manager %2 into bullet manager %1.",
+        documented: true
+    },
     615: {
         number: 615,
         game: 13,
@@ -2260,6 +2380,102 @@ const INS_13 = {
             "r"
         ],
         description: "Clears all bullets in a circle of radius %1 around the caller without turning them into cancel items.",
+        documented: true
+    },
+    617: {
+        number: 617,
+        game: 13,
+        args: "Sffffff",
+        argnames: ["etId", "spd1l", "spd1m", "spd1h", "spd2l", "spd2m", "spd2h"],
+        description: "Sets speed1 and speed2 of bullet manager %1 to two of the values provided, based on ingame rank (l=low, m=mediumn, h=high)",
+        documented: true
+    },
+    618: {
+        number: 618,
+        game: 13,
+        args: "Sffffffffff",
+        argnames: ["etId", "spd1l", "spd1ml", "spd1m", "spd1mh", "spd1h", "spd2l", "spd2ml", "spd2m", "spd2mh", "spd2h"],
+        description: "Sets speed1 and speed2 of bullet manager %1 to two of the values provided, based on ingame rank (l=low, ml=medium-low, m=mediumn, mh=medium-high, h=high)",
+        documented: true
+    },
+    619: {
+        number: 619,
+        game: 13,
+        args: "Sffff",
+        argnames: ["etId", "spd1l", "spd1h", "spd2l", "spd2h"],
+        description: "Sets speed1 and speed2 of bullet manager %1 to two of the values provided, based on ingame rank (l=low, h=high)",
+        documented: true
+    },
+    620: {
+        number: 620,
+        game: 13,
+        args: "SSSSSSS",
+        argnames: ["etId", "cnt1l", "cnt1m", "cnt1h", "cnt2l", "cnt2m", "cnt2h"],
+        description: "Sets count1 and count2 of bullet manager %1 to two of the values provided, based on ingame rank (l=low, m=mediumn, h=high)",
+        documented: true
+    },
+    621: {
+        number: 621,
+        game: 13,
+        args: "SSSSSSSSSSS",
+        argnames: ["etId", "cnt1l", "cnt1ml", "cnt1m", "cnt1mh", "cnt1h", "cnt2l", "cnt2ml", "cnt2m", "cnt2mh", "cnt2h"],
+        description: "Sets count1 and count2 of bullet manager %1 to two of the values provided, based on ingame rank (l=low, ml=medium-low, m=mediumn, mh=medium-high, h=high)",
+        documented: true
+    },
+    622: {
+        number: 622,
+        game: 13,
+        args: "SSSSS",
+        argnames: ["etId", "cnt1l", "cnt1h", "cnt2l", "cnt2h"],
+        description: "Sets count1 and count2 of bullet manager %1 to two of the values provided, based on ingame rank (l=low, h=high)",
+        documented: true
+    },
+    623: {
+        number: 623,
+        game: 13,
+        args: "fff",
+        argnames: ["var", "x", "y"],
+        description: "Gets angle to the player from coordinates (%2,%3) and stores it in %1.",
+        documented: true
+    },
+    624: {
+        number: 624,
+        game: 13,
+        args: "Sffffffff",
+        argnames: ["etId", "spd1e", "spd1n", "spd1h", "spd1l", "spd2e", "spd2n", "spd2h", "spd2l"],
+        description: "Sets speed1 and speed2 of bullet manager %1 to 2 of the values provided, based on the difficulty (e=easy, n=normal, h=hard, l=lunatic)",
+        documented: true
+    },
+    625: {
+        number: 625,
+        game: 13,
+        args: "SSSSSSSSS",
+        argnames: ["etId", "cnt1e", "cnt1n", "cnt1h", "cnt1l", "cnt2e", "cnt2n", "cnt2h", "cnt2l"],
+        description: "Sets count1 and count2 of bullet manager %1 to 2 of the values provided, based on the difficulty (e=easy, n=normal, h=hard, l=lunatic)",
+        documented: true
+    },
+    626: {
+        number: 626,
+        game: 13,
+        args: "Sff",
+        argnames: ["etId", "angle", "radius"],
+        description: "Sets the relative offset of bullets spawned by bullet manager %1 to (cos(%2)*%3,sin(%2)*%3). Stacks with [ins=603,13].",
+        documented: true
+    },
+    627: {
+        number: 627,
+        game: 13,
+        args: "Sf",
+        argnames: ["etId", "dist"],
+        description: "Sets distance of bullets spawned by bullet manager %1 to %2 (that is, when aa bullet is spawned it moves by %2 using its current angle).",
+        documented: true
+    },
+    628: {
+        number: 628,
+        game: 13,
+        args: "Sff",
+        argnames: ["etId", "x", "y"],
+        description: "Sets the absolute offset of bullets spawned by bullet manager %1 to (%2,%3).",
         documented: true
     },
     635: {
@@ -2450,6 +2666,14 @@ const INS_15 = {
         argnames: [],
         description: "[c=red]Unknown.[/c]",
         documented: false
+    },
+    602: {
+        number: 602,
+        game: 13,
+        args: "S",
+        argnames: ["etId", "type", "color"],
+        description: "Sets bullet type and color of bullet manager %1. Refer to [this image](https://cdn.discordapp.com/attachments/395767870119870466/570658618316161041/BULLET_IDS.png) made by Dai. Remarks:[br]- bullet types 35 and 36 spin[br]- type 30 pulses[br]- the difference between 16/37 is the spin direction (same case for 23 and 24)",
+        documented: true
     }
 };
 
