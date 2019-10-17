@@ -1673,7 +1673,7 @@ const INS_13 = {
         game: 13,
         args: "S",
         argnames: ["id"],
-        description: "Sets caller's absolute position to absolute position of enemy with ID %1.",
+        description: "Sets caller's absolute position to absolute position of enemy with [var=-9914,13] == %1.",
         documented: true
     },
     433: {
@@ -1681,7 +1681,7 @@ const INS_13 = {
         game: 13,
         args: "S",
         argnames: ["id"],
-        description: "Sets caller's relative position to relative position of enemy with ID %1.",
+        description: "Sets caller's relative position to relative position of enemy with [var=-9914,13] == %1.",
         documented: true
     },
     434: {
@@ -2183,7 +2183,7 @@ const INS_13 = {
         game: 13,
         args: "SS",
         argnames: ["var", "id"],
-        description: "Checks if enemy of ID %2 is still alive, and sets %1 to 1 if it is or 0 if it isn't.",
+        description: "Checks if enemy of [var=-9914,13] == %2 is still alive, and sets %1 to 1 if it is or 0 if it isn't.",
         documented: true
     },
     556: {
@@ -2578,6 +2578,31 @@ const INS_13 = {
         description: "Sets the string parameter of transform on index %2 in bullet manager %1 to %3, transformations will be explained separately later.",
         documented: true
     },
+
+    800: {
+        number: 800,
+        game: 13,
+        args: "Sm",
+        argnames: ["id", "sub"],
+        description: "Makes enemy with [var=-9914,13] == %1 stop all subs it's running and execute sub %2 (works like an interrupt). This will NOT make the enemy execute the sub right as this instruction is called, the new sub will be executed when the game handles the given enemy, which might be later on the same frame or on the next frame. Using this to make the caller interrupt itself can make the game explode.",
+        documented: true
+    },
+    801: {
+        number: 801,
+        game: 13,
+        args: "ffS",
+        argnames: ["varX", "varY", "id"],
+        description: "Stores coordinates of enemy with [var=-9914,13] == %3 in (%1,%2).",
+        documented: true
+    },
+    802: {
+        number: 802,
+        game: 13,
+        args: "S",
+        argnames: ["a"],
+        description: "[c=red]Once again, google translate doesn't make any sense.[/c]",
+        documented: false
+    }
 };
 
 const INS_14 = {
@@ -2810,7 +2835,7 @@ const INS_16 = {
         argnames: [
             "id"
         ],
-        description: "[c=red]Unknown.[/c] Used in [game=16]HSiFS[/game] stage 6, %1 is an ID of another enemy. Might be used to delete that enemy.",
+        description: "[c=red]Unknown.[/c] Used in [game=16]HSiFS[/game] stage 6, %1 is an [var=-9914,13] of another enemy. Might be used to delete that enemy.",
         documented: false
     },
     572: {
