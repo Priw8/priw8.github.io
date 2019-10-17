@@ -2478,6 +2478,54 @@ const INS_13 = {
         description: "Sets the absolute offset of bullets spawned by bullet manager %1 to (%2,%3).",
         documented: true
     },
+    629: {
+        number: 629,
+        game: 13,
+        args: "fS",
+        argnames: ["r", "color"],
+        description: "Sets caller's fog's radius to %1 and color to %2 (RGB value in reverse order). This resets the fog completely, that is, every time it's called the fog spawn animation plays.",
+        documented: true
+    },
+    630: {
+        number: 630,
+        game: 13,
+        args: "S",
+        argnames: ["switch"],
+        description: "Sets execution pointer of the STD script to where STD ins_16(%1) is (%1 must be the same), basically same concept as [ins=317,13].",
+        documented: true
+    },
+    631: {
+        number: 631,
+        game: 13,
+        args: "S",
+        argnames: ["time"],
+        description: "Hides boss lifebar for %1 frames.",
+        documented: true
+    },
+    632: {
+        number: 632,
+        game: 13,
+        args: "S",
+        argnames: ["id"],
+        description: "Sets a function that the game will execute every frame from a set of hardcoded functions that differs between games.",
+        documented: true
+    },
+    633: {
+        number: 633,
+        game: 13,
+        args: "S",
+        argnames: ["state"],
+        description: "Sets the external damage flag to %1. Caller probably needs to be the main boss for this to work - with this flag set, the caller gets damaged by the value stored in [var=-9940,13] every frame, and then resets the value. This allows other enemies to damage the boss by incrementing the aforementioned variable, used in [game=15]LoLK[/game] by Sagume (and also happens to be the main cause of the Sagume skip glitch)",
+        documented: true
+    },
+    634: {
+        number: 634,
+        game: 13,
+        args: "S",
+        argnames: ["a"],
+        description: "Something something sets a flag that does something to the caller's hitbox or whatever, google translate makes no sense. [c=red]Needs checking.[/c]",
+        documented: false
+    },
     635: {
         number: 635,
         game: 13,
@@ -2497,7 +2545,39 @@ const INS_13 = {
         ],
         description: "Same as [ins=616,13], but doesn't clear bullets with bomb invulnerability.",
         documented: true
-    }
+    },
+    637: {
+        number: 637,
+        game: 13,
+        args: "S",
+        argnames: ["id"],
+        description: "Same as [ins=632,13], except the function is called just once instead of every frame.",
+        documented: true
+    },
+    638: {
+        number: 638,
+        game: 13,
+        args: "S",
+        argnames: ["a"],
+        description: "[c=red]Unknown.[/c]",
+        documented: false
+    },
+    639: {
+        number: 639,
+        game: 13,
+        args: "S",
+        argnames: ["a"],
+        description: "[c=red]Unknown.[/c]",
+        documented: false
+    },
+    640: {
+        number: 640,
+        game: 13,
+        args: "SSm",
+        argnames: ["etId", "index", "s"],
+        description: "Sets the string parameter of transform on index %2 in bullet manager %1 to %3, transformations will be explained separately later.",
+        documented: true
+    },
 };
 
 const INS_14 = {
@@ -2636,6 +2716,14 @@ const INS_14 = {
         args: "S",
         argnames: ["state"],
         description: "Enables/disables spell card damage reduction, if %1 is 1 it's enabled, if it's 0 it's disabled. Can be used outside of spell cards.",
+        documented: true
+    },
+    641: {
+        number: 641,
+        game: 14,
+        args: "S",
+        argnames: ["a"],
+        description: "[c=red]Unknown, %1 is supposedly `etId`.[/c]",
         documented: true
     }
 };
