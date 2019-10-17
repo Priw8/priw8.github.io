@@ -2459,7 +2459,7 @@ const INS_13 = {
         game: 13,
         args: "Sff",
         argnames: ["etId", "angle", "radius"],
-        description: "Sets the relative offset of bullets spawned by bullet manager %1 to (cos(%2)*%3,sin(%2)*%3). Stacks with [ins=603,13].",
+        description: "Sets the relative offset of bullets spawned by bullet manager %1 to (cos(%2)\\*%3,sin(%2)\\*%3). Stacks with [ins=603,13].",
         documented: true
     },
     627: {
