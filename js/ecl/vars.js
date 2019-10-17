@@ -9,7 +9,7 @@ const VARLIMIT_143 = [-10000, -9907];
 const VARLIMIT_15 = [-10000, -9904];
 const VARLIMIT_16 = [-10000, -9903];
 const VARLIMIT_165 = [-10000, -9903];
-const VARLIMIT_17 = [-10000, -9900];
+const VARLIMIT_17 = [-10000, -9899];
 
 const VAR_10 = {
     "-10000": {
@@ -967,6 +967,15 @@ const VAR_17 = {
         access: "ro",
         scope: "g",
         desc: "Set to 1 when player is in the state of hyperdying, that is, right after breaking a hyper. Used by st6 midboss.",
+        documented: true
+    },
+    "-9899": {
+        number: -9899,
+        game: 17,
+        type: "$",
+        access: "ro",
+        scope: "g",
+        desc: "Set to 1 when the stage was loaded through the achievement menu, otherwise -1.",
         documented: true
     }
 };
