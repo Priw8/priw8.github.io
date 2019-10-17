@@ -419,7 +419,7 @@ const INS_13 = {
         game: 13,
         args: "mS",
         argnames: ["sub", "id"],
-        description: "Asynchronously calls a given sub on slot %2. Can take additational parameters to pass as arguments to the sub. [c=orange]Direct usage will soon be obsolete. When that happens, `@subName() async id` syntax will be used instead (I haven't implemented that yet).[/c]",
+        description: "Asynchronously calls a given sub on slot %2. Can take additational parameters to pass as arguments to the sub. [c=orange]Direct usage obsolete, use, `@subName() async id` syntax instead.[/c]",
         documented: true
     },
     17: {
@@ -427,7 +427,7 @@ const INS_13 = {
         game: 13,
         args: "S",
         argnames: ["id"],
-        description: "Ends a sub on slot %1 (same slot as in [ins=16,13]). [c=orange]Direct usage will soon be obsolete, and `kill id` syntax will be used instead (I haven't implemented that yet).[/c]",
+        description: "Ends a sub on slot %1 (same slot as in [ins=16,13]).",
         documented: true
     },
     18: null,
@@ -2040,6 +2040,78 @@ const INS_13 = {
         description: "Declares a spellcard with id %1 and name %4. I am not sure what %2 and %3 do exactly, [c=red]needs investigation[/c].",
         documented: false
     },
+    538: {
+        number: 538,
+        game: 13,
+        args: "SSSm",
+        argnames: ["id", "life", "score", "name"],
+        description: "Unknown difference from [ins=537,13].",
+        documented: false
+    },
+    539: {
+        number: 539,
+        game: 13,
+        args: "SSSm",
+        argnames: ["id", "life", "score", "name"],
+        description: "Unknown difference from [ins=537,13].",
+        documented: false
+    },
+    540: {
+        number: 540,
+        game: 13,
+        args: "S",
+        argnames: ["cnt"],
+        description: "Sets the amount of stars displayed in the top left corner. Stars might not appear at all if there is no boss active.",
+        documented: true
+    },
+    541: {
+        number: 541,
+        game: 13,
+        args: "S",
+        argnames: ["a"],
+        description: "[c=red]Unknown.[/c]",
+        documented: false
+    },
+    542: {
+        number: 542,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Makes the current spell a timeout spell (prevent spell bonus from decreasing, give capture bonus if timed out).",
+        documented: true
+    },
+    543: {
+        number: 543,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "[c=red]Unknown.[/c]",
+        documented: false
+    },
+    544: {
+        number: 544,
+        game: 13,
+        args: "S",
+        argnames: ["a"],
+        description: "Unknown, sets or clears some flag?",
+        documented: false
+    },
+    545: {
+        number: 545,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Resets some parameters of the caller [c=red](what exactly?)[/c]",
+        documented: false
+    },
+    546: {
+        number: 546,
+        game: 13,
+        args: "SS",
+        argnames: ["a", "script"],
+        description: "Sets the bomb invulnerability flag (%1=1 set, %1=0 not set), the caller's ANM script will change to %2 when a bomb is active [c=red](how does it work with ANM slots exactly?)[/c]",
+        documented: true
+    },
     547: {
         number: 547,
         game: 13,
@@ -2049,6 +2121,126 @@ const INS_13 = {
         ],
         description: "Sets game speed to %1 of the normal speed. In [game=143]ISC[/game], enemies with flag 13 (dec=8192) set will ignore effects of this opcode.",
         documented: true
+    },
+    548: {
+        number: 548,
+        game: 13,
+        args: "SSSS",
+        argnames: ["e", "n", "h", "l"],
+        description: "Same as [ins=23,13], but the wait time is choosen from the given 4 based on the difficulty.",
+        documented: true
+    },
+    549: {
+        number: 549,
+        game: 13,
+        args: "S",
+        argnames: ["a"],
+        description: "[c=red]Unknown.[/c]",
+        documented: false
+    },
+    550: {
+        number: 550,
+        game: 13,
+        args: "S",
+        argnames: ["a"],
+        description: "[c=red]Unknown.[/c]",
+        documented: false
+    },
+    551: {
+        number: 551,
+        game: 13,
+        args: "S",
+        argnames: ["a"],
+        description: "[c=red]Unknown.[/c]",
+        documented: false
+    },
+    552: {
+        number: 552,
+        game: 13,
+        args: "S",
+        argnames: ["layers"],
+        description: "Increases layer of all ANM scripts used by the caller by %1.",
+        documented: true
+    },
+    553: {
+        number: 553,
+        game: 13,
+        args: "S",
+        argnames: ["id"],
+        description: "Makes the caller play sound %1 when hit. Sound id table will be added in the future.",
+        documented: true
+    },
+    554: {
+        number: 554,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Shows the stage logo from an ANM of a hardcoded name.",
+        documented: true
+    },
+    555: {
+        number: 555,
+        game: 13,
+        args: "SS",
+        argnames: ["var", "id"],
+        description: "Checks if enemy of ID %2 is still alive, and sets %1 to 1 if it is or 0 if it isn't.",
+        documented: true
+    },
+    556: {
+        number: 556,
+        game: 13,
+        args: "m",
+        argnames: ["sub"],
+        description: "Makes the caller execute sub %1 when the HP reaches 0. Keep in mind that the caller is already marked for deletion at the point when the sub actually executes, so if you put waiting there the sub will not execute fully (because the caller will be deleted)",
+        documented: true
+    },
+    557: {
+        number: 557,
+        game: 13,
+        args: "SSSff",
+        argnames: ["a", "b", "c", "r", "s"],
+        description: "[c=red]Unknown.[/c]",
+        documented: false
+    },
+    558: {
+        number: 558,
+        game: 13,
+        args: "S",
+        argnames: ["state"],
+        description: "Literally the exact same instruction as [ins=424,13].",
+        documented: true
+    },
+    559: {
+        number: 559,
+        game: 13,
+        args: "S",
+        argnames: ["a"],
+        description: "[c=red]Unknown.[/c]",
+        documented: false
+    },
+    560: {
+        number: 559,
+        game: 13,
+        args: "ff",
+        argnames: ["r", "s"],
+        description: "[c=red]Unknown.[/c]",
+        documented: false
+    },
+    561: {
+        number: 561,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "Makes the caller execute the sub set with [ins=556,13]. If there is no such sub set, the caller dies instead (exactly the same as if the player shot down the caller, that is, items are dropped, death sound plays etc)",
+        documented: true
+    },
+    562: {
+        number: 562,
+        game: 13,
+        args: "",
+        argnames: [],
+        description: "[c=red]Unknown.[/c]",
+        documented: false
     },
     615: {
         number: 615,
@@ -2181,12 +2373,85 @@ const INS_14 = {
         argnames: ["time", "mode", "spd"],
         description: "Same as [ins=446,14], but the change is applied in %1 frames using mode %2.",
         documented: true
+    },
+    563: {
+        number: 563,
+        game: 14,
+        args: "S",
+        argnames: ["a"],
+        description: "[c=red]Unknown.[/c]",
+        documented: false
+    },
+    564: {
+        number: 564,
+        game: 14,
+        args: "f",
+        argnames: ["r"],
+        description: "[c=red]Unknown.[/c]",
+        documented: false
+    },
+    565: {
+        number: 563,
+        game: 14,
+        args: "f",
+        argnames: ["red"],
+        description: "Sets caller's damage reduction when a bomb is active, 0.0f means no damage at all, 1.0f is full damage, [c=red]not sure what happens when numbers outside this range are used.[/c]",
+        documented: true
+    },
+    566: {
+        number: 566,
+        game: 14,
+        args: "",
+        argnames: [""],
+        description: "Unknown (does it even exist?)",
+        documented: false
+    },
+    567: {
+        number: 567,
+        game: 14,
+        args: "S",
+        argnames: ["a"],
+        description: "[c=red]Unknown.[/c]",
+        documented: false
+    },
+    568: {
+        number: 568,
+        game: 14,
+        args: "S",
+        argnames: ["state"],
+        description: "Enables/disables spell card damage reduction, if %1 is 1 it's enabled, if it's 0 it's disabled. Can be used outside of spell cards.",
+        documented: true
     }
 };
 
 const INS_143 = {};
 
-const INS_15 = {};
+const INS_15 = {
+    569: {
+        number: 569,
+        game: 15,
+        args: "S",
+        argnames: ["a"],
+        description: "[c=red]Unknown.[/c]",
+        documented: false
+    },
+    570: {
+        number: 563,
+        game: 15,
+        args: "",
+        argnames: [],
+        description: "[c=red]Unknown.[/c]",
+        documented: false
+    },
+    571: {
+        number: 563,
+        game: 15,
+        args: "",
+        argnames: [],
+        description: "[c=red]Unknown.[/c]",
+        documented: false
+    }
+};
 
 const INS_16 = {
     337: {
@@ -2235,6 +2500,14 @@ const INS_16 = {
         ],
         description: "[c=red]Unknown.[/c] Used in [game=16]HSiFS[/game] stage 6, %1 is an ID of another enemy. Might be used to delete that enemy.",
         documented: false
+    },
+    572: {
+        number: 572,
+        game: 16,
+        args: "S",
+        argnames: ["hp"],
+        description: "Sets caller's current HP to %1, without changing max HP.",
+        documented: true
     }
 };
 
