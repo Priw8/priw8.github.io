@@ -469,7 +469,7 @@ const INS_13 = {
         args: "m",
         argnames: ["a"],
         description: "Unknown debug instruction. Can take additational paremeters. TODO: check if code exists in the game.",
-        documented: true
+        documented: false
     },
     31: null,
     32: null,
@@ -2749,7 +2749,7 @@ const INS_14 = {
         args: "S",
         argnames: ["a"],
         description: "[c=red]Unknown, %1 is supposedly `etId`.[/c]",
-        documented: true
+        documented: false
     }
 };
 
