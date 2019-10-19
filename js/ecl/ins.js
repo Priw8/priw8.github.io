@@ -2335,7 +2335,7 @@ const INS_13 = {
         game: 13,
         args: "SSSSSff",
         argnames: ["etId", "async", "type", "a", "b", "r", "s"],
-        description: "Addes bullet transformation to bullet manager %1, transformation explanation will be added in the future.",
+        description: "Adds bullet transformation to bullet manager %1, transformation explanation will be added in the future.",
         documented: true
     },
     612: {
@@ -2559,7 +2559,7 @@ const INS_13 = {
         game: 13,
         args: "S",
         argnames: ["n"],
-        description: "Adds %1 to score (or subtracts if %1 is negative). There is no lower boundary check, so if this causes score to go below 0, and underflow happens.",
+        description: "Adds %1 to score (or subtracts if %1 is negative). There is no lower boundary check, so if this causes score to go below 0, an underflow happens.",
         documented: true
     },
     639: {
