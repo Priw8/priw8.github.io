@@ -2558,17 +2558,17 @@ const INS_13 = {
         number: 638,
         game: 13,
         args: "S",
-        argnames: ["a"],
-        description: "[c=red]Unknown.[/c]",
-        documented: false
+        argnames: ["n"],
+        description: "Adds %1 to score (or subtracts if %1 is negative). There is no lower boundary check, so if this causes score to go below 0, and underflow happens.",
+        documented: true
     },
     639: {
         number: 639,
         game: 13,
         args: "S",
-        argnames: ["a"],
-        description: "[c=red]Unknown.[/c]",
-        documented: false
+        argnames: ["id"],
+        description: "Same as [ins=632,13], except it sets an unknown flag to 1 ([ins=632,13] sets it to 0)",
+        documented: true
     },
     640: {
         number: 640,
@@ -2747,9 +2747,9 @@ const INS_14 = {
         number: 641,
         game: 14,
         args: "S",
-        argnames: ["a"],
-        description: "[c=red]Unknown, %1 is supposedly `etId`.[/c]",
-        documented: false
+        argnames: ["etId"],
+        description: "Subtracts 1 from the index used by [ins=611,13] and [ins=612,13], unless it's already 0. This basically changes where the next transformation will be appended.",
+        documented: true
     }
 };
 

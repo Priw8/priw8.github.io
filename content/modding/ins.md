@@ -1,6 +1,12 @@
 ## ECL instruction table
-Note: this is based on information from [here](https://thwiki.cc/%E8%84%9A%E6%9C%AC%E5%AF%B9%E7%85%A7%E8%A1%A8/ECL).  
-Note2: this is very incomplete as of now.  
+Based on:
+- [THBWiki](https://thwiki.cc/%E8%84%9A%E6%9C%AC%E5%AF%B9%E7%85%A7%E8%A1%A8/ECL)
+- [Dass' documentation](https://en.touhouwiki.net/wiki/User:Mddass/Touhou_File_Format_Specification/ECL/V2.2)
+- My own research
+- 32th System's research
+- Dai's research  
+  
+Note: this is incomplete as of now.  
   
 [html]
 Select game version:
