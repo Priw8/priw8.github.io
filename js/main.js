@@ -374,6 +374,14 @@ function initResize() {
 	resize();
 };
 
+function getElementData($elem, key) {
+	do {
+		if (typeof $elem.dataset[key] != "undefined")
+			return [$elem.dataset[key], $elem];
+	} while ($elem = $elem.parentElement);
+	return ["", null];
+}
+
 function initTips() {
 	$tip = document.querySelector(".tip");
 	document.body.addEventListener("mouseover", tipIn);
@@ -408,9 +416,31 @@ function tipOut(e) {
 }
 
 function getTip($targ) {
-	if (!$targ) return ["", null];
-	if ($targ.dataset.tip) return [$targ.dataset.tip, $targ];
-	else return getTip($targ.parentElement);
+	return getElementData($targ, "tip");
+}
+
+function initEmbeds() {
+	document.addEventListener("click", e => {
+		let [url, $elem] = getElementData(e.target, "video");
+		if ($elem != null) {
+			$elem = $elem.firstChild; // the wrapper consists of 2 elements
+			$elem.removeChild($elem.firstChild);
+			let $video = document.createElement("video");
+			$video.setAttribute("controls", "");
+			let $source = document.createElement("source");
+			$source.setAttribute("src", url);
+			$video.appendChild($source);
+			$elem.appendChild($video);
+		}
+		[url, $elem] = getElementData(e.target, "yt");
+		if ($elem != null) {
+			$elem = $elem.firstChild;
+			$elem.removeChild($elem.firstChild);
+			let $iframe = document.createElement("iframe");
+			$iframe.src = "https://www.youtube.com/embed/"+url;
+			$elem.appendChild($iframe);
+		}
+	});
 }
 
 function init() {
@@ -418,10 +448,10 @@ function init() {
 	initContent();
 	initResize();
 	initTips();
+	initEmbeds();
 	hljs.configure({
 		useBR: true
 	});
-	new ClipboardJS(".copy-btt");
 }
 
 init();

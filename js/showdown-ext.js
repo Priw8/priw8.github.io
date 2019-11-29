@@ -2,8 +2,8 @@ let ext = function() {
 	let yt = {
 		type: "lang",
 		regex: /\[yt\](.*?)\[\/yt\]/g,
-		replace: '<div class="fit-wrapper"><div class="fit-wrapper2 yt"><iframe src="https://www.youtube.com/embed/$1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>'
-	};
+		replace: '<div class="fit-wrapper" data-yt="$1"><div class="fit-wrapper2 yt"><div class="video-load"><div>Automatic video loading is <b>disabled</b>, in order to reduce network usage and loading times.<br>Click this to load the video.</div></div></div></div>'
+};
 	let hr = {
 		type: "lang",
 		regex: /\[hr\]/g,
@@ -32,12 +32,12 @@ let ext = function() {
 		type: "lang",
 		regex: /\[code\]([^]+?)\[\/code\]/g,
 		replace: function(match, content) {
-			// putting the content in data-clipboard-text didn't really work
-			let clip = jank.cloneNode();
-			clip.innerHTML = content;
-			clip.setAttribute("id", "clipboard"+cnt);
-			document.body.appendChild(clip);
-			return "<hljs>"+highlightCode(content)+"<span class='copy-btt' data-clipboard-action='copy' data-clipboard-target='#clipboard"+(cnt++)+"'>Copy</span></hljs>";
+			let ret = "<hljs>"+highlightCode(content)+"</hljs>";
+			// This is some quality jank right here, caused by the fact that I could not find a way to make hljs not escape this html
+			ret = ret.replace(/&lt;instr data-tip=<span class="hljs-string">(.*?)<\/span>&gt;(.*?)&lt;\/instr&gt;/g, (match, tip, content) => {
+				return `<span data-tip=${tip.replace(/&amp;/g, "&")}>${content}</span>`
+			});
+			return ret;
 		}
 	}
 
@@ -191,5 +191,11 @@ let ext = function() {
 		}
 	}*/
 
-	return [eclmap, yt, hr, br, ts, img, code, title, c, include, game, rawGame, html, script, ins, ins_notip, variable, variable_notip, tip];
+	let video = {
+		type: "lang",
+		regex: /\[video=(.*?), hratio=(.*?)\]/g,
+		replace: '<div class="fit-wrapper" data-video="$1"><div class="fit-wrapper2" style="padding-top: $2%"><div class="video-load"><div>Automatic video loading is <b>disabled</b>, in order to reduce network usage and loading times.<br>Click this to load the video.</div></div></div></div>'
+	}
+
+	return [eclmap, yt, hr, br, ts, img, ins, code, title, c, include, game, rawGame, html, script, ins_notip, variable, variable_notip, tip, video];
 }

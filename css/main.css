@@ -15,6 +15,19 @@ code {
 	display: inline;
 }
 
+
+li {
+	margin-bottom: 9px;
+	margin-top: 9px;
+}
+
+blockquote {
+	border: 1px dashed rgba(255, 255, 255, 0.3);
+	border-radius: 8px;
+	background: rgba(90, 155, 90, 0.2);
+	padding: 5px;
+}
+
 instr {
 	background: #14442c;
 	display: inline;
@@ -182,6 +195,9 @@ instr {
 .fit-wrapper2.yt {
 	padding-top: 56.25%;	
 }
+.fit-wrapper2.yt > iframe {
+	border: none;
+}
 .fit-wrapper2 > * {
 	position: absolute;
 	width: 100%;
@@ -269,4 +285,15 @@ table, th, td, tr {
 	cursor: pointer;
 	text-decoration: underline;
 	color: lightblue;
+}
+
+.video-load {
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(40, 40, 40, 0.55);
+	cursor: pointer;
+	padding: 20px;
+	box-sizing: border-box;
 }

@@ -44,6 +44,11 @@ const INDEX =
 				"url": "uffs"
 			},
 			{
+				"name": "WBaWC practice patch",
+				"type": "site",
+				"url": "prac"
+			},
+			{
 				"name": "WBaWC demo practice patch",
 				"type": "site",
 				"url": "wbawc_prac"
