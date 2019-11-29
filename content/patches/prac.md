@@ -15,6 +15,7 @@ My first full practice patch, which allows skipping to any part of the game, bas
 - The section number is sometimes not properly reset, allowing selecting invalid sections. Invalid sections don't crash the game, they simply do nothing. This will be fixed in a future version.
 - The "extra beasts appeared" bug can occur in practice. I blame ZUN for this, maybe this will be fixed in the future, maybe not.
 - [c=red]Practicing extra stage with it not being unlocked will result in game freezing upon returning to practice menu. This will be fixed in near future.[/c]
+- Sometimes, the difficulty resets to normal. This will be fixed.
 * In case of encountering a bug that's not on the list, report it to Priw8#9873
 
 Download here: [th17prac1.0.zip](/files/th17prac1.0.zip)
