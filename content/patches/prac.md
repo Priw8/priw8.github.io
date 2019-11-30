@@ -18,4 +18,5 @@ My first full practice patch, which allows skipping to any part of the game, bas
 - Sometimes, the difficulty resets to normal. This will be fixed.
 * In case of encountering a bug that's not on the list, report it to Priw8#9873
 
+**Note:** due to hard disk failure, it will take a bit longer than expected to fix bugs.  
 Download here: [th17prac1.0.zip](/files/th17prac1.0.zip)
