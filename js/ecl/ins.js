@@ -2156,7 +2156,7 @@ const INS_8 = {
             "unknown",
             "d"
         ],
-        description: "Gives the caller a trail effect with the same sprite as the caller. It spawns a sprite every %4 frames that lasts $2 frames before it disappears. Flags determine the visuals of the trail:[br]1 - display sprite[br]2 - sprite shrinks away[br]4 - sprite fades away[br]Set to 0 to disable entirely, Using flags higher than these explodes the game.",
+        description: "Gives the caller a trail effect with the same sprite as the caller. It spawns a sprite every %4 frames that lasts %2 frames before it disappears. Flags determine the visuals of the trail:[br]1 - display sprite[br]2 - sprite shrinks away[br]4 - sprite fades away[br]Set to 0 to disable entirely, Using flags higher than these explodes the game.",
         documented: true
     },
     158: {
