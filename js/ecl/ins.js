@@ -1264,7 +1264,7 @@ const INS_8 = {
         argnames: [
             "flags"
         ],
-        description: "Sets enemy flags. Refer to flag table for details (Note: flag table is not actually on this website yet, will add soon).",
+        description: "Sets enemy flags. Refer to [flag table](#s=modding/flags) for details.",
         documented: true
     },
     81: {
@@ -1274,7 +1274,7 @@ const INS_8 = {
         argnames: [
             "flags"
         ],
-        description: "Clears enemy flags. Refer to flag table for details (Note: flag table is not actually on this website yet, will add soon).",
+        description: "Clears enemy flags. Refer to [flag table](#s=modding/flags) for details.",
         documented: true
     },
     82: {
