@@ -1,3 +1,4 @@
+const VARLIMIT_8 = [10000, 10100];
 const VARLIMIT_10 = [-10000, -9950];
 const VARLIMIT_11 = [-10000, -9932];
 const VARLIMIT_12 = [-10000, -9930];
@@ -10,6 +11,8 @@ const VARLIMIT_15 = [-10000, -9904];
 const VARLIMIT_16 = [-10000, -9903];
 const VARLIMIT_165 = [-10000, -9903];
 const VARLIMIT_17 = [-10000, -9899];
+
+const VAR_8 = {};
 
 const VAR_10 = {
     "-10000": {

@@ -6,18 +6,19 @@ Based on:
 - 32th System's research
 - Dai's research  
   
-Note: this is incomplete as of now.  
-  
+Documentation of [game=8]Imperishable Night[/game] was mostly done by Dai.
+
 [html]
 Select game version:
 <select class='ecl-table-game-select'>
+    <option value="08">08 (Imperishable Night)</option>
     <option value="13">13 (Ten Desires)</option>
     <option value="14">14 (Double Dealing Character)</option>
     <option value="14.3">14.3 (Impossible Spell Card)</option>
     <option value="15">15 (Legacy of Lunatic Kingdom)</option>
     <option value="16">16 (Hidden Star in Four Seasons)</option>
     <option value="16.5">16.5 (Violent Disease)</option>
-    <option value="17" selected>17 (Wily Beast and Weakest Creature)</option>
+    <option selected value="17" selected>17 (Wily Beast and Weakest Creature)</option>
 </select>
 
 Eclmap for instruction names:<br><br>

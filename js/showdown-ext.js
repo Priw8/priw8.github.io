@@ -37,6 +37,10 @@ let ext = function() {
 			ret = ret.replace(/&lt;instr data-tip=<span class="hljs-string">(.*?)<\/span>&gt;(.*?)&lt;\/instr&gt;/g, (match, tip, content) => {
 				return `<span data-tip=${tip.replace(/&amp;/g, "&")}>${content}</span>`
 			});
+			ret = ret.replace(/&lt;instr&gt;(.*?)&lt;\/instr&gt;/g, (match, content) => {
+				return `<span>${content}</span>`
+			});
+			ret = ret.replace(/\\\\/g, "\\");
 			return ret;
 		}
 	}
@@ -68,6 +72,7 @@ let ext = function() {
 	}
 
 	let colors = {
+		8: "#c0b6d6",
 		10: "#fafca2",
 		11: "#adb0e6",
 		12: "lightgreen",
@@ -119,19 +124,29 @@ let ext = function() {
 		type: "lang",
 		regex: /\[ins=(.*?),(.*?)\]/g,
 		replace: function(match, num, game) {
-			const ins = getOpcode(parseFloat(game), parseInt(num));
-			if (ins == null) return "`opcode_error_"+num+"`";
-			let tip = getOpcodeTip(ins);
-			return "<instr data-tip=\""+tip+"\">"+getOpcodeName(ins.number, ins.documented)+"</instr>";
+			let timeline = false;
+			if (game[0] == "t") {
+				timeline = true;
+				game = game.substring(1);
+			}
+			const ins = getOpcode(parseFloat(game), parseInt(num), timeline);
+			if (ins == null) return "`opcode\\_error\\_"+num+"`";
+			let tip = getOpcodeTip(ins, timeline);
+			return "<instr data-tip=\""+tip+"\">"+getOpcodeName(ins.number, ins.documented, timeline)+"</instr>";
 		}
 	}
 	let ins_notip = {
 		type: "lang",
 		regex: /\[ins_notip=(.*?),(.*?)\]/g,
 		replace: function(match, num, game) {
-			const ins = getOpcode(parseFloat(game), parseInt(num));
-			if (ins == null) return "`opcode_error_"+num+"`";
-			return "<instr>"+getOpcodeName(ins.number, ins.documented)+"</instr>";
+			let timeline = false;
+			if (game[0] == "t") {
+				timeline = true;
+				game = game.substring(1);
+			}
+			const ins = getOpcode(parseFloat(game), parseInt(num), timeline);
+			if (ins == null) return "`opcode\\_error\\_"+num+"`";
+			return "<instr>"+getOpcodeName(ins.number, ins.documented, timeline)+"</instr>";
 		}
 	}
 
@@ -140,9 +155,9 @@ let ext = function() {
 		regex: /\[var=(-?.*?),(.*?)\]/g,
 		replace: function(match, num, game) {
 			const variable = getVar(normalizeGameVersion(game), parseInt(num));
-			if (variable == null) return "`variable_error_"+num+"`";
+			if (variable == null) return "<instr>variable\\_error\\_"+num+"</instr>";
 			let tip = getVarTip(variable);
-			return "<instr data-tip=\""+tip+"\">"+getVarName(num, variable.documented)+"</instr>";
+			return "<instr data-tip=\""+tip+"\">"+getVarName(num, variable.documented) +"</instr>";
 		}
 	}
 
@@ -151,7 +166,7 @@ let ext = function() {
 		regex: /\[var=(-?.*?),(.*?)\]/g,
 		replace: function(match, num, game) {
 			const variable = getVar(normalizeGameVersion(game), parseInt(num));
-			if (variable == null) return "`variable_error_"+num+"`";
+			if (variable == null) return "<instr>variable\\_error\\_"+num+"</instr>";
 			return "<instr>"+getVarName(num, variable.documented)+"</instr>";
 		}
 	}
@@ -197,5 +212,5 @@ let ext = function() {
 		replace: '<div class="fit-wrapper" data-video="$1"><div class="fit-wrapper2" style="padding-top: $2%"><div class="video-load"><div>Automatic video loading is <b>disabled</b>, in order to reduce network usage and loading times.<br>Click this to load the video.</div></div></div></div>'
 	}
 
-	return [eclmap, yt, hr, br, ts, img, ins, code, title, c, include, game, rawGame, html, script, ins_notip, variable, variable_notip, tip, video];
+	return [eclmap, yt, hr, br, ts, img, ins, ins_notip,  variable, variable_notip, code, title, c, include, game, rawGame, html, script, tip, video];
 }

@@ -1,3 +1,17 @@
+const GROUPS_8 = [
+    {
+        min: 0,
+        max: 184,
+        title: "Normal"
+    },
+    {
+        min: 0,
+        max: 16,
+        title: "Timeline",
+        timeline: true
+    }
+]
+
 const GROUPS_13 = 
 [
     {
@@ -340,6 +354,2212 @@ const GROUPS_17 =
         title: "Game specific"
     }
 ];
+
+const INS_8 = {
+    0: {
+        number: 0,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Does nothing.",
+        documented: true
+    },
+    1: {
+        number: 1,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Immediately deletes the caller.",
+        documented: true
+    },
+    2: {
+        number: 2,
+        game: 8,
+        args: "S",
+        argnames: [
+            "t"
+        ],
+        description: "Stops sub execution time for %1 frames.",
+        documented: true
+    },
+    3: {
+        number: 3,
+        game: 8,
+        args: "S",
+        argnames: [
+            "A"
+        ],
+        description: "Does nothing. Parameter %1 is not even accessed by the game.",
+        documented: true
+    },
+    4: {
+        number: 4,
+        game: 8,
+        args: "So",
+        argnames: [
+            "t",
+            "target"
+        ],
+        description: "Unconditionally jumps to label %1 and sets time to %2.",
+        documented: true
+    },
+    5: {
+        number: 5,
+        game: 8,
+        args: "SoS",
+        argnames: [
+            "t",
+            "target",
+            "&var"
+        ],
+        description: "If (%3 != 0), jumps to label %2, sets time to %1 and decrements %3 by 1.",
+        documented: true
+    },
+    6: {
+        number: 6,
+        game: 8,
+        args: "SS",
+        argnames: [
+            "&var",
+            "val"
+        ],
+        description: "Sets %1 to %2.",
+        documented: true
+    },
+    7: {
+        number: 7,
+        game: 8,
+        args: "ff",
+        argnames: [
+            "&var",
+            "val"
+        ],
+        description: "Sets %1 to %2.",
+        documented: true
+    },
+    8: {
+        number: 8,
+        game: 8,
+        args: "Sf",
+        argnames: [
+            "&var",
+            "val"
+        ],
+        description: "Sets %1 to either %2 or -%2 at random. ",
+        documented: true
+    },
+    9: {
+        number: 9,
+        game: 8,
+        args: "ff",
+        argnames: [
+            "&var",
+            "val"
+        ],
+        description: "Sets %1 to either %2 or -%2 at random. ",
+        documented: true
+    },
+    10: {
+        number: 10,
+        game: 8,
+        args: "SS",
+        argnames: [
+            "&var",
+            "val"
+        ],
+        description: "Adds %2 to %1.",
+        documented: true
+    },
+    11: {
+        number: 11,
+        game: 8,
+        args: "SS",
+        argnames: [
+            "&var",
+            "val"
+        ],
+        description: "Subtracts %2 from %1.",
+        documented: true
+    },
+    12: {
+        number: 12,
+        game: 8,
+        args: "SS",
+        argnames: [
+            "&var",
+            "val"
+        ],
+        description: "Multiplies %1 by %2.",
+        documented: true
+    },
+    13: {
+        number: 13,
+        game: 8,
+        args: "SS",
+        argnames: [
+            "&var",
+            "val"
+        ],
+        description: "Divides %1 by %2.",
+        documented: true
+    },
+    14: {
+        number: 14,
+        game: 8,
+        args: "SS",
+        argnames: [
+            "&var",
+            "val"
+        ],
+        description: "%1 = %1 % %2 (modulo)",
+        documented: true
+    },
+    15: {
+        number: 15,
+        game: 8,
+        args: "ff",
+        argnames: [
+            "&var",
+            "val"
+        ],
+        description: "Adds %2 to %1.",
+        documented: true
+    },
+    16: {
+        number: 16,
+        game: 8,
+        args: "ff",
+        argnames: [
+            "&var",
+            "val"
+        ],
+        description: "Subtracts %2 from %1.",
+        documented: true
+    },
+    17: {
+        number: 17,
+        game: 8,
+        args: "ff",
+        argnames: [
+            "&var",
+            "val"
+        ],
+        description: "Multiplies %1 by %2.",
+        documented: true
+    },
+    18: {
+        number: 18,
+        game: 8,
+        args: "ff",
+        argnames: [
+            "&var",
+            "val"
+        ],
+        description: "Divides %1 by %2.",
+        documented: true
+    },
+    19: {
+        number: 19,
+        game: 8,
+        args: "ff",
+        argnames: [
+            "&var",
+            "val"
+        ],
+        description: "%1 = %1 % %2 (modulo)",
+        documented: true
+    },
+    20: {
+        number: 20,
+        game: 8,
+        args: "SSS",
+        argnames: [
+            "&var",
+            "val1",
+            "val2"
+        ],
+        description: "Sets %1 to (%2 + %3).",
+        documented: true
+    },
+    21: {
+        number: 21,
+        game: 8,
+        args: "SSS",
+        argnames: [
+            "&var",
+            "val1",
+            "val2"
+        ],
+        description: "Sets %1 to (%2 - %3).",
+        documented: true
+    },
+    22: {
+        number: 22,
+        game: 8,
+        args: "SSS",
+        argnames: [
+            "&var",
+            "val1",
+            "val2"
+        ],
+        description: "Sets %1 to (%2 * %3).",
+        documented: true
+    },
+    23: {
+        number: 23,
+        game: 8,
+        args: "SSS",
+        argnames: [
+            "&var",
+            "val1",
+            "val2"
+        ],
+        description: "Sets %1 to (%2 / %3).",
+        documented: true
+    },
+    24: {
+        number: 24,
+        game: 8,
+        args: "SSS",
+        argnames: [
+            "&var",
+            "val1",
+            "val2"
+        ],
+        description: "Sets %1 to (%2 % %3).",
+        documented: true
+    },
+    25: {
+        number: 25,
+        game: 8,
+        args: "fff",
+        argnames: [
+            "&var",
+            "val1",
+            "val2"
+        ],
+        description: "Sets %1 to (%2 + %3).",
+        documented: true
+    },
+    26: {
+        number: 26,
+        game: 8,
+        args: "fff",
+        argnames: [
+            "&var",
+            "val1",
+            "val2"
+        ],
+        description: "Sets %1 to (%2 - %3).",
+        documented: true
+    },
+    27: {
+        number: 27,
+        game: 8,
+        args: "fff",
+        argnames: [
+            "&var",
+            "val1",
+            "val2"
+        ],
+        description: "Sets %1 to (%2 * %3).",
+        documented: true
+    },
+    28: {
+        number: 28,
+        game: 8,
+        args: "fff",
+        argnames: [
+            "&var",
+            "val1",
+            "val2"
+        ],
+        description: "Sets %1 to (%2 / %3).",
+        documented: true
+    },
+    29: {
+        number: 29,
+        game: 8,
+        args: "fff",
+        argnames: [
+            "&var",
+            "val1",
+            "val2"
+        ],
+        description: "Sets %1 to (%2 % %3)",
+        documented: true
+    },
+    30: {
+        number: 30,
+        game: 8,
+        args: "S",
+        argnames: [
+            "&var"
+        ],
+        description: "Increments %1 by 1.",
+        documented: true
+    },
+    31: {
+        number: 31,
+        game: 8,
+        args: "S",
+        argnames: [
+            "&var"
+        ],
+        description: "Decrements %1 by 1.",
+        documented: true
+    },
+    32: {
+        number: 32,
+        game: 8,
+        args: "ff",
+        argnames: [
+            "&var",
+            "val"
+        ],
+        description: "Sets %1 to sin(%2).",
+        documented: true
+    },
+    33: {
+        number: 33,
+        game: 8,
+        args: "ff",
+        argnames: [
+            "&var",
+            "val"
+        ],
+        description: "Sets %1 to cos(%2).",
+        documented: true
+    },
+    34: {
+        number: 34,
+        game: 8,
+        args: "fffff",
+        argnames: [
+            "&var",
+            "x1",
+            "y1",
+            "x2",
+            "y2"
+        ],
+        description: "Calculates the angle from (%2, %3) to (%4, %5) and stores it in %1.",
+        documented: true
+    },
+    35: {
+        number: 35,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unknown & unused.",
+        documented: false
+    },
+    36: {
+        number: 36,
+        game: 8,
+        args: "fSSSffff",
+        argnames: [
+            "&var",
+            "t",
+            "b",
+            "m",
+            "init",
+            "final",
+            "p1",
+            "p2"
+        ],
+        description: "In %2 frames using mode %4, %1 changes from %5 to %6. If (%3 == 7), the interpolation changes to a bézier curve where x0 = %5, x1 = %7, x2 = -%8 and x3 = %6. Note that %8 needs to have its sign reversed for the curve to go as expected (why ZUN).",
+        documented: true
+    },
+    37: {
+        number: 37,
+        game: 8,
+        args: "f",
+        argnames: [
+            "&var"
+        ],
+        description: "Normalizes %1 to a value between -pi and pi.",
+        documented: true
+    },
+    38: {
+        number: 38,
+        game: 8,
+        args: "ffff",
+        argnames: [
+            "&var_x",
+            "&var_y",
+            "ang",
+            "dist"
+        ],
+        description: "Performs the following operations: (%1 = cos(%3) * %4; %2 = sin(%3) * %4)",
+        documented: true
+    },
+    39: {
+        number: 39,
+        game: 8,
+        args: "fffff",
+        argnames: [
+            "&var",
+            "x1",
+            "y1",
+            "x2",
+            "y2"
+        ],
+        description: "Calculates the distance from (%2, %3) to (%4, %5) and stores it in %1.",
+        documented: true
+    },
+    40: {
+        number: 40,
+        game: 8,
+        args: "SSSo",
+        argnames: [
+            "a",
+            "b",
+            "t",
+            "target"
+        ],
+        description: "If (%1 == %2), jumps to label %4 and sets time to %3.",
+        documented: true
+    },
+    41: {
+        number: 41,
+        game: 8,
+        args: "ffSo",
+        argnames: [
+            "a",
+            "b",
+            "t",
+            "target"
+        ],
+        description: "If (%1 == %2), jumps to label %4 and sets time to %3 (float version).",
+        documented: true
+    },
+    42: {
+        number: 42,
+        game: 8,
+        args: "SSSo",
+        argnames: [
+            "a",
+            "b",
+            "t",
+            "target"
+        ],
+        description: "If (%1 != %2), jumps to label %4 and sets time to %3.",
+        documented: true
+    },
+    43: {
+        number: 43,
+        game: 8,
+        args: "ffSo",
+        argnames: [
+            "a",
+            "b",
+            "t",
+            "target"
+        ],
+        description: "If (%1 != %2), jumps to label %4 and sets time to %3 (float version).",
+        documented: true
+    },
+    44: {
+        number: 44,
+        game: 8,
+        args: "SSSo",
+        argnames: [
+            "a",
+            "b",
+            "t",
+            "target"
+        ],
+        description: "If (%1 < %2), jumps to label %4 and sets time to %3.",
+        documented: true
+    },
+    45: {
+        number: 45,
+        game: 8,
+        args: "ffSo",
+        argnames: [
+            "a",
+            "b",
+            "t",
+            "target"
+        ],
+        description: "If (%1 < %2), jumps to label %4 and sets time to %3 (float version).",
+        documented: true
+    },
+    46: {
+        number: 46,
+        game: 8,
+        args: "SSSo",
+        argnames: [
+            "a",
+            "b",
+            "t",
+            "target"
+        ],
+        description: "If (%1 <= %2), jumps to label %4 and sets time to %3.",
+        documented: true
+    },
+    47: {
+        number: 47,
+        game: 8,
+        args: "ffSo",
+        argnames: [
+            "a",
+            "b",
+            "t",
+            "target"
+        ],
+        description: "If (%1 <= %2), jumps to label %4 and sets time to %3 (float version).",
+        documented: true
+    },
+    48: {
+        number: 48,
+        game: 8,
+        args: "SSSo",
+        argnames: [
+            "a",
+            "b",
+            "t",
+            "target"
+        ],
+        description: "If (%1 > %2), jumps to label %4 and sets time to %3.",
+        documented: true
+    },
+    49: {
+        number: 49,
+        game: 8,
+        args: "ffSo",
+        argnames: [
+            "a",
+            "b",
+            "t",
+            "target"
+        ],
+        description: "If (%1 > %2), jumps to label %4 and sets time to %3 (float version).",
+        documented: true
+    },
+    50: {
+        number: 50,
+        game: 8,
+        args: "SSSo",
+        argnames: [
+            "a",
+            "b",
+            "t",
+            "target"
+        ],
+        description: "If (%1 >= %2), jumps to label %4 and sets time to %3.",
+        documented: true
+    },
+    51: {
+        number: 51,
+        game: 8,
+        args: "ffSo",
+        argnames: [
+            "a",
+            "b",
+            "t",
+            "target"
+        ],
+        description: "If (%1 >= %2), jumps to label %4 and sets time to %3 (float version).",
+        documented: true
+    },
+    52: {
+        number: 52,
+        game: 8,
+        args: "S",
+        argnames: [
+            "sub"
+        ],
+        description: "Calls sub %1.",
+        documented: true
+    },
+    53: {
+        number: 53,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Returns from the current sub.",
+        documented: true
+    },
+    54: {
+        number: 54,
+        game: 8,
+        args: "S",
+        argnames: [
+            "id"
+        ],
+        description: "Sets the ANM script of the caller to script %1 in `enemy.anm`",
+        documented: true
+    },
+    55: {
+        number: 55,
+        game: 8,
+        args: "S",
+        argnames: [
+            "id"
+        ],
+        description: "Sets multiple ANM scripts of the caller to scripts (%1) to (%1 + 5) in `enemy.anm`. For movement and other animations.",
+        documented: true
+    },
+    56: {
+        number: 56,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unknown & unused.",
+        documented: false
+    },
+    57: {
+        number: 57,
+        game: 8,
+        args: "SS",
+        argnames: [
+            "slot",
+            "id"
+        ],
+        description: "Sets the ANM script on slot %1 of the caller to script %2 in `enemy.anm`",
+        documented: true
+    },
+    58: {
+        number: 58,
+        game: 8,
+        args: "S",
+        argnames: [
+            "id"
+        ],
+        description: "Sets the ANM script of the caller to script %1 in this stage's `stg(x)enm.anm`.",
+        documented: true
+    },
+    59: {
+        number: 59,
+        game: 8,
+        args: "S",
+        argnames: [
+            "id"
+        ],
+        description: "Sets multiple ANM scripts of the caller to scripts (%1) to (%1 + 5) in this stage's `stg(x)enm.anm`. For movement and other animations.",
+        documented: true
+    },
+    60: {
+        number: 60,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unknown & unused.",
+        documented: false
+    },
+    61: {
+        number: 61,
+        game: 8,
+        args: "SS",
+        argnames: [
+            "slot",
+            "id"
+        ],
+        description: "Sets the ANM script on slot %1 of the caller to script %2 in this stage's `stg(x)enm.anm`",
+        documented: true
+    },
+    62: {
+        number: 62,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Plays the attack animation of the caller's boss ANM script. Unexpected results if the script is not from `stg(x)enm.anm`",
+        documented: true
+    },
+    63: {
+        number: 63,
+        game: 8,
+        args: "ff",
+        argnames: [
+            "x",
+            "y"
+        ],
+        description: "Sets caller's position to (%1,%2).",
+        documented: true
+    },
+    64: {
+        number: 64,
+        game: 8,
+        args: "SSff",
+        argnames: [
+            "t",
+            "m",
+            "x",
+            "y"
+        ],
+        description: "In %1 frames using mode %2, move the caller's position to (%3,%4).",
+        documented: true
+    },
+    65: {
+        number: 65,
+        game: 8,
+        args: "ff",
+        argnames: [
+            "ang",
+            "spd"
+        ],
+        description: "Sets caller's movement angle to %1 and speed to %2.",
+        documented: true
+    },
+    66: {
+        number: 66,
+        game: 8,
+        args: "SSff",
+        argnames: [
+            "t",
+            "m",
+            "ang",
+            "spd"
+        ],
+        description: "In %1 frames using mode %2, change caller's movement angle to %3 and speed to %4.",
+        documented: true
+    },
+    67: {
+        number: 67,
+        game: 8,
+        args: "SSf",
+        argnames: [
+            "t",
+            "m",
+            "spd"
+        ],
+        description: "In %1 frames using mode %2, move the caller in a random direction based on the player's position and the movement boundary with speed %3. Does not work correctly if no movement boundary is set with [ins=75,8].",
+        documented: true
+    },
+    68: {
+        number: 68,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unknown & unused.",
+        documented: false
+    },
+    69: {
+        number: 69,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unknown & unused.",
+        documented: false
+    },
+    70: {
+        number: 70,
+        game: 8,
+        args: "f",
+        argnames: [
+            "ang"
+        ],
+        description: "Sets caller's angular velocity to %1 (adds %1 to the caller's movement angle every frame).",
+        documented: true
+    },
+    71: {
+        number: 71,
+        game: 8,
+        args: "f",
+        argnames: [
+            "spd"
+        ],
+        description: "Sets caller's acceleration to %1 (adds %1 to caller's movement speed every frame)",
+        documented: true
+    },
+    72: {
+        number: 72,
+        game: 8,
+        args: "Sffffff",
+        argnames: [
+            "t",
+            "x",
+            "y",
+            "theta",
+            "angSpd",
+            "rad",
+            "radSpd"
+        ],
+        description: "For %1 frames, moves the caller in a circle around absolute position (%2,%3), where %4 is the starting angle, %5 is the rotation speed, %6 is the starting radius, and %7 is the radius increase speed.",
+        documented: true
+    },
+    73: {
+        number: 73,
+        game: 8,
+        args: "Sfff",
+        argnames: [
+            "t",
+            "theta",
+            "angSpd",
+            "radSpd"
+        ],
+        description: "For %1 frames, moves the caller in a circle around its current position, where %2 is the starting angle, %3 is the rotation speed, and %4 is the radius increase speed.",
+        documented: true
+    },
+    74: {
+        number: 74,
+        game: 8,
+        args: "Sff",
+        argnames: [
+            "t",
+            "angSpd",
+            "radSpd"
+        ],
+        description: "Changes the caller's circle movement time to %1, rotation speed to %2, and radius speed to %3. Does not work correctly if [ins=72,8] or [ins=73,8] have not been called earlier.",
+        documented: true
+    },
+    75: {
+        number: 75,
+        game: 8,
+        args: "ffff",
+        argnames: [
+            "left",
+            "top",
+            "right",
+            "bottom"
+        ],
+        description: "Limits the caller's movement to a rectangular boundary.",
+        documented: true
+    },
+    76: {
+        number: 76,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Removes the caller's movement limit.",
+        documented: true
+    },
+    77: {
+        number: 77,
+        game: 8,
+        args: "ff",
+        argnames: [
+            "width",
+            "height"
+        ],
+        description: "Sets the caller's hitbox (player collision) and hurtbox (player shot collision) size to %1, %2.",
+        documented: true
+    },
+    78: {
+        number: 78,
+        game: 8,
+        args: "ff",
+        argnames: [
+            "width",
+            "height"
+        ],
+        description: "Sets the caller's hurtbox (player shot collision) size to %1, %2.",
+        documented: true
+    },
+    79: {
+        number: 79,
+        game: 8,
+        args: "S",
+        argnames: [
+            "A"
+        ],
+        description: "Unknown. Argument is always 16. Only used in stage 1.",
+        documented: false
+    },
+    80: {
+        number: 80,
+        game: 8,
+        args: "S",
+        argnames: [
+            "flags"
+        ],
+        description: "Sets enemy flags. Refer to flag table for details (Note: flag table is not actually on this website yet, will add soon).",
+        documented: true
+    },
+    81: {
+        number: 81,
+        game: 8,
+        args: "S",
+        argnames: [
+            "flags"
+        ],
+        description: "Clears enemy flags. Refer to flag table for details (Note: flag table is not actually on this website yet, will add soon).",
+        documented: true
+    },
+    82: {
+        number: 82,
+        game: 8,
+        args: "f",
+        argnames: [
+            "rad"
+        ],
+        description: "Makes bullets of the caller not spawn if they are within %1 radius of the player.",
+        documented: true
+    },
+    83: {
+        number: 83,
+        game: 8,
+        args: "S",
+        argnames: [
+            "a"
+        ],
+        description: "If (%1 == 1) and the caller is a familiar, adds a trail effect to the caller.",
+        documented: true
+    },
+    84: {
+        number: 84,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unused. Does nothing.",
+        documented: true
+    },
+    85: {
+        number: 85,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unused. Does nothing.",
+        documented: true
+    },
+    86: {
+        number: 86,
+        game: 8,
+        args: "SSS",
+        argnames: [
+            "&var",
+            "&bossVar",
+            "bossId"
+        ],
+        description: "Sets %1 to the specified boss' variable %2. Example: [br][code][ins_notip=86,8]([var=10000,8], [var=10051,8], 1)[/code][br] would set [var=10000,8] to the life of boss 1",
+        documented: true
+    },
+    87: {
+        number: 87,
+        game: 8,
+        args: "ffS",
+        argnames: [
+            "&var",
+            "&bossVar",
+            "bossId"
+        ],
+        description: "Sets %1 to the specified boss' variable %2. Example: [br][code][ins_notip=87,8]([var=10016,8], [var=10042,8], 1)[/code][br] would set [var=10016,8] to the X-Coordinate of boss 1",
+        documented: true
+    },
+    88: {
+        number: 88,
+        game: 8,
+        args: "SS",
+        argnames: [
+            "id",
+            "sub"
+        ],
+        description: "Calls sub %2 on another boss with boss id %1.",
+        documented: true
+    },
+    89: {
+        number: 89,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unknown & unused.",
+        documented: false
+    },
+    90: {
+        number: 90,
+        game: 8,
+        args: "SffSSS",
+        argnames: [
+            "sub",
+            "x",
+            "y",
+            "life",
+            "item",
+            "score"
+        ],
+        description: "In absolute position (%2,%3), creates a familiar with %1, %4, %5, and %6. Familiars turn invincible when focusing and clear bullets when destroyed.",
+        documented: true
+    },
+    91: {
+        number: 91,
+        game: 8,
+        args: "SffSSS",
+        argnames: [
+            "sub",
+            "x",
+            "y",
+            "life",
+            "item",
+            "score"
+        ],
+        description: "Same as [ins=90,8], but the position is relative to the caller instead.",
+        documented: true
+    },
+    92: {
+        number: 92,
+        game: 8,
+        args: "SffSSS",
+        argnames: [
+            "sub",
+            "x",
+            "y",
+            "life",
+            "item",
+            "score"
+        ],
+        description: "In position (%2,%3) relative to the caller, creates a familiar that follows the caller with %1, %4, %5, and %6.",
+        documented: true
+    },
+    93: {
+        number: 93,
+        game: 8,
+        args: "SfffSSS",
+        argnames: [
+            "sub",
+            "x",
+            "y",
+            "z",
+            "life",
+            "item",
+            "score"
+        ],
+        description: "In absolute position (%2,%3), creates an enemy with %1, %4, %5, and %6.",
+        documented: true
+    },
+    94: {
+        number: 94,
+        game: 8,
+        args: "SfffSSS",
+        argnames: [
+            "sub",
+            "x",
+            "y",
+            "z",
+            "life",
+            "item",
+            "score"
+        ],
+        description: "Samea as [ins=93,8], but the position is relative to the caller instead..",
+        documented: true
+    },
+    95: {
+        number: 95,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Kills all active enemies excluding bosses.",
+        documented: true
+    },
+    96: {
+        number: 96,
+        game: 8,
+        args: "SSSSffffS",
+        argnames: [
+            "spr",
+            "col",
+            "cnt1",
+            "cnt2",
+            "spd1",
+            "spd2",
+            "ang1",
+            "ang2",
+            "exFlags"
+        ],
+        description: "Set bullet attributes: sets aimmode to 0 (aimed fan), sprite and hitbox to %1, color to %2, bullets per layer to %3, layer count to %4, first layer speed to %5, last layer speed to %6, aim offset to %7, angle between bullets to %8, and transform flags to %9.",
+        documented: true
+    },
+    97: {
+        number: 97,
+        game: 8,
+        args: "SSSSffffS",
+        argnames: [
+            "spr",
+            "col",
+            "cnt1",
+            "cnt2",
+            "spd1",
+            "spd2",
+            "ang1",
+            "ang2",
+            "exFlags"
+        ],
+        description: "Set bullet attributes: sets aimmode to 1 (unaimed fan), sprite and hitbox to %1, color to %2, bullets per layer to %3, layer count to %4, first layer speed to %5, last layer speed to %6, aim direction to %7, angle between bullets to %8, and transform flags to %9.",
+        documented: true
+    },
+    98: {
+        number: 98,
+        game: 8,
+        args: "SSSSffffS",
+        argnames: [
+            "spr",
+            "col",
+            "cnt1",
+            "cnt2",
+            "spd1",
+            "spd2",
+            "ang1",
+            "ang2",
+            "exFlags"
+        ],
+        description: "Set bullet attributes: sets aimmode to 2 (aimed ring), sprite and hitbox to %1, color to %2, bullets per layer to %3, layer count to %4, first layer speed to %5, last layer speed to %6, aim offset to %7, angle between layers to %8, and transform flags to %9.",
+        documented: true
+    },
+    99: {
+        number: 99,
+        game: 8,
+        args: "SSSSffffS",
+        argnames: [
+            "spr",
+            "col",
+            "cnt1",
+            "cnt2",
+            "spd1",
+            "spd2",
+            "ang1",
+            "ang2",
+            "exFlags"
+        ],
+        description: "Set bullet attributes: sets aimmode to 3 (unaimed ring), sprite and hitbox to %1, color to %2, bullets per layer to %3, layer count to %4, first layer speed to %5, last layer speed to %6, aim direction to %7, angle between layers to %8, and transform flags to %9.",
+        documented: true
+    },
+    100: {
+        number: 100,
+        game: 8,
+        args: "SSSSffffS",
+        argnames: [
+            "spr",
+            "col",
+            "cnt1",
+            "cnt2",
+            "spd1",
+            "spd2",
+            "ang1",
+            "ang2",
+            "exFlags"
+        ],
+        description: "Set bullet attributes: sets aimmode to 4 (offset aimed ring), sprite and hitbox to %1, color to %2, bullets per layer to %3, layer count to %4, first layer speed to %5, last layer speed to %6, aim offset to %7, angle between layers to %8, and transform flags to %9.",
+        documented: true
+    },
+    101: {
+        number: 101,
+        game: 8,
+        args: "SSSSffffS",
+        argnames: [
+            "spr",
+            "col",
+            "cnt1",
+            "cnt2",
+            "spd1",
+            "spd2",
+            "ang1",
+            "ang2",
+            "exFlags"
+        ],
+        description: "Set bullet attributes: sets aimmode to 5 (offset unaimed ring), sprite and hitbox to %1, color to %2, bullets per layer to %3, layer count to %4, first layer speed to %5, last layer speed to %6, aim direction to %7, angle between layers to %8, and transform flags to %9.",
+        documented: true
+    },
+    102: {
+        number: 102,
+        game: 8,
+        args: "SSSSffffS",
+        argnames: [
+            "spr",
+            "col",
+            "cnt1",
+            "cnt2",
+            "spd1",
+            "spd2",
+            "ang1",
+            "ang2",
+            "exFlags"
+        ],
+        description: "Set bullet attributes: sets aimmode to 6 (random angles), sprite and hitbox to %1, color to %2, bullets per layer to %3, layer count to %4, first layer speed to %5, last layer speed to %6, maximum direction to %7, minimum direction to %8, and transform flags to %9.",
+        documented: true
+    },
+    103: {
+        number: 103,
+        game: 8,
+        args: "SSSSffffS",
+        argnames: [
+            "spr",
+            "col",
+            "cnt1",
+            "cnt2",
+            "spd1",
+            "spd2",
+            "ang1",
+            "ang2",
+            "exFlags"
+        ],
+        description: "Set bullet attributes: sets aimmode to 7 (random speeds ring), sprite and hitbox to %1, color to %2, bullets per layer to %3, layer count to %4, maximum speed to %5, minimum speed to %6, aim direction to %7, angle between layers to %8, and transform flags to %9.",
+        documented: true
+    },
+    104: {
+        number: 104,
+        game: 8,
+        args: "SSSSffffS",
+        argnames: [
+            "spr",
+            "col",
+            "cnt1",
+            "cnt2",
+            "spd1",
+            "spd2",
+            "ang1",
+            "ang2",
+            "exFlags"
+        ],
+        description: "Set bullet attributes: sets aimmode to 7 (random angles and speeds), sprite and hitbox to %1, color to %2, bullets per layer to %3, layer count to %4, maximum speed to %5, minimum speed to %6, maximum direction to %7, minimum direction to %8, and transform flags to %9.",
+        documented: true
+    },
+    105: {
+        number: 105,
+        game: 8,
+        args: "S",
+        argnames: [
+            "t"
+        ],
+        description: "Automatically shoots bullets with set attributes every %1 frames.",
+        documented: true
+    },
+    106: {
+        number: 106,
+        game: 8,
+        args: "S",
+        argnames: [
+            "t"
+        ],
+        description: "Automatically shoots bullets with set attributes every %1 frames and delays the first shot by a random value between 0 and %1.",
+        documented: true
+    },
+    107: {
+        number: 107,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Sets it so setting bullet attributes does not immediately shoot.",
+        documented: true
+    },
+    108: {
+        number: 108,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Sets the bullet shoot flag.",
+        documented: true
+    },
+    109: {
+        number: 109,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unknown & unused.",
+        documented: false
+    },
+    110: {
+        number: 110,
+        game: 8,
+        args: "ff",
+        argnames: [
+            "x",
+            "y"
+        ],
+        description: "Sets the shooting offset to (%1,%2) relative to the caller.",
+        documented: true
+    },
+    111: {
+        number: 111,
+        game: 8,
+        args: "SSSSSff",
+        argnames: [
+            "slot",
+            "id",
+            "async",
+            "a",
+            "b",
+            "r",
+            "s"
+        ],
+        description: "Set bullet transformations. Refer to transform table for details (Note: not on this site yet, will be added soon).",
+        documented: true
+    },
+    112: {
+        number: 112,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Clears all bullets on screen and turns them into star items.",
+        documented: true
+    },
+    113: {
+        number: 113,
+        game: 8,
+        args: "SS",
+        argnames: [
+            "sfxOn",
+            "sfxEx"
+        ],
+        description: "Sets the sound when a bullet is fired to %1 and the sound when certain transforms are triggered to %2. -1 for defaults. Bullet ex flag 512 needs to be set for any sound to be heard.",
+        documented: true
+    },
+    114: {
+        number: 114,
+        game: 8,
+        args: "SSffffffSSSSSS",
+        argnames: [
+            "spr",
+            "col",
+            "ang",
+            "spd",
+            "unk1",
+            "len1",
+            "len2",
+            "width",
+            "spawnTime",
+            "duration",
+            "endTime",
+            "grazeDelay",
+            "grazeSpd",
+            "unk2"
+        ],
+        description: "Shoots a laser with sprite %1, color %2, angle %3, speed %4, initial length %6, final length %7, width %8, activates after %9 frames, is active for %10 frames, despawns for %11 frames, and can be grazed every %13 frames, after %12 frames. %5 and %14 are unknown.",
+        documented: true
+    },
+    115: {
+        number: 115,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unknown & unused.",
+        documented: false
+    },
+    116: {
+        number: 116,
+        game: 8,
+        args: "S",
+        argnames: [
+            "id"
+        ],
+        description: "Sets the index where the next laser shot will be stored to %1.",
+        documented: true
+    },
+    117: {
+        number: 117,
+        game: 8,
+        args: "Sf",
+        argnames: [
+            "id",
+            "ang"
+        ],
+        description: "Rotates laser of id %1 by %2.",
+        documented: true
+    },
+    118: {
+        number: 118,
+        game: 8,
+        args: "Sf",
+        argnames: [
+            "id",
+            "ang"
+        ],
+        description: "Aims laser of id %1 towards the player and offsets it further by %2.",
+        documented: true
+    },
+    119: {
+        number: 119,
+        game: 8,
+        args: "Sfff",
+        argnames: [
+            "id",
+            "x",
+            "y",
+            "z"
+        ],
+        description: "Offsets laser of id %1 by (%2,%3) from its origin. %4 is always `0.0f`.",
+        documented: true
+    },
+    120: {
+        number: 120,
+        game: 8,
+        args: "S",
+        argnames: [
+            "id"
+        ],
+        description: "Checks if a laser of id %1 is active, and stores the result in [var=10038,8].",
+        documented: true
+    },
+    121: {
+        number: 121,
+        game: 8,
+        args: "S",
+        argnames: [
+            "id"
+        ],
+        description: "Instantly cancels laser of id %1.",
+        documented: true
+    },
+    122: {
+        number: 122,
+        game: 8,
+        args: "SSS",
+        argnames: [
+            "unknown",
+            "id",
+            "score",
+            "name",
+            "user",
+            "desc1",
+            "desc2"
+        ],
+        description: "Starts a spellcard of id %2 and name %4. %5, %6 and %7 are part of the spell description in spell practice.",
+        documented: true
+    },
+    123: {
+        number: 123,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Ends a spellcard. Also clears all bullets on screen.",
+        documented: true
+    },
+    124: {
+        number: 124,
+        game: 8,
+        args: "S",
+        argnames: [
+            "sfx"
+        ],
+        description: "Plays a sound of id %1.",
+        documented: true
+    },
+    125: {
+        number: 125,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unknown & unused.",
+        documented: false
+    },
+    126: {
+        number: 126,
+        game: 8,
+        args: "SS",
+        argnames: [
+            "val",
+            "i"
+        ],
+        description: "Writes value %1 at index %2 (in some internal array of the caller). Mainly used to assign subs to be called when a timeline event is triggered.",
+        documented: true
+    },
+    127: {
+        number: 127,
+        game: 8,
+        args: "S",
+        argnames: [
+            "id"
+        ],
+        description: "Sets the boss id of the caller to %1. Also enables healthbar, timer, and other things. -1 to disable.",
+        documented: true
+    },
+    128: {
+        number: 128,
+        game: 8,
+        args: "Sfff",
+        argnames: [
+            "unknown",
+            "x",
+            "y",
+            "z"
+        ],
+        description: "Creates a card effect that spins around the caller based on (%2,%3,%4). (x,y,z are not radian values but something else entirely?)",
+        documented: true
+    },
+    129: {
+        number: 129,
+        game: 8,
+        args: "S",
+        argnames: [
+            "A"
+        ],
+        description: "Unknown. Used very frequently.",
+        documented: false
+    },
+    130: {
+        number: 130,
+        game: 8,
+        args: "S",
+        argnames: [
+            "sub"
+        ],
+        description: "Set the sub to be called when health reaches 0. Only works if the caller is a boss.",
+        documented: true
+    },
+    131: {
+        number: 131,
+        game: 8,
+        args: "S",
+        argnames: [
+            "life"
+        ],
+        description: "Sets the life of the caller to %1.",
+        documented: true
+    },
+    132: {
+        number: 132,
+        game: 8,
+        args: "S",
+        argnames: [
+            "time"
+        ],
+        description: "Sets the timer of the caller to %1. The timer increases every frame and attack timer is (timerThreshold - timer).",
+        documented: true
+    },
+    133: {
+        number: 133,
+        game: 8,
+        args: "SSS",
+        argnames: [
+            "unknown",
+            "life",
+            "sub"
+        ],
+        description: "Sets the life threshold of the caller to %2. When life reaches this value, call sub %3.",
+        documented: true
+    },
+    134: {
+        number: 134,
+        game: 8,
+        args: "SS",
+        argnames: [
+            "time",
+            "sub"
+        ],
+        description: "Sets the attack timer to %1. When the caller's timer reaches this value, call the sub %2.",
+        documented: true
+    },
+    135: {
+        number: 135,
+        game: 8,
+        args: "SS",
+        argnames: [
+            "slot",
+            "sub"
+        ],
+        description: "Asynchronously calls sub %2 at slot %1.",
+        documented: true
+    },
+    136: {
+        number: 136,
+        game: 8,
+        args: "SS",
+        argnames: [
+            "func",
+            "param"
+        ],
+        description: "Calls a function of id %1 from a set of hardcoded functions with the specified parameter. Use %1 = -1 to disable.",
+        documented: true
+    },
+    137: {
+        number: 137,
+        game: 8,
+        args: "SS",
+        argnames: [
+            "func",
+            "param"
+        ],
+        description: "Same as [ins=136,8], but calls the function every frame instead of just once.",
+        documented: true
+    },
+    138: {
+        number: 138,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unknown & unused.",
+        documented: false
+    },
+    139: {
+        number: 139,
+        game: 8,
+        args: "SSS",
+        argnames: [
+            "id",
+            "amt",
+            "col"
+        ],
+        description: "Creates %2 effects of script (%1 + 28) in `etama.anm` with color %3 at the caller's position.",
+        documented: true
+    },
+    140: {
+        number: 140,
+        game: 8,
+        args: "SSSfSS",
+        argnames: [
+            "id",
+            "amt",
+            "col",
+            "ang",
+            "unk1",
+            "unk2"
+        ],
+        description: "Creates %2 effects of script (%1 + 28) in `etama.anm` with color %3 and angle %4 at the caller's position. %5 and %6 are unknown.",
+        documented: true
+    },
+    141: {
+        number: 141,
+        game: 8,
+        args: "S",
+        argnames: [
+            "id"
+        ],
+        description: "Instantly item of a given id at caller's position.",
+        documented: true
+    },
+    142: {
+        number: 142,
+        game: 8,
+        args: "S",
+        argnames: [
+            "cnt"
+        ],
+        description: "Instantly drops %1 items around the enemy. Drops power items if not at max power, otherwise drops point items.",
+        documented: true
+    },
+    143: {
+        number: 143,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unknown & unused.",
+        documented: false
+    },
+    144: {
+        number: 144,
+        game: 8,
+        args: "SS",
+        argnames: [
+            "point",
+            "power"
+        ],
+        description: "When health reaches 0, drop %1 extra point items and %2 extra power items around the caller's position.",
+        documented: true
+    },
+    145: {
+        number: 145,
+        game: 8,
+        args: "S",
+        argnames: [
+            "a"
+        ],
+        description: "Makes the caller's main ANM script rotate in the direction it's moving if (%1 == 1).",
+        documented: true
+    },
+    146: {
+        number: 146,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unknown & unused.",
+        documented: false
+    },
+    147: {
+        number: 147,
+        game: 8,
+        args: "S",
+        argnames: [
+            "id"
+        ],
+        description: "Calls script ID %1 in the stage's STD file (unconfirmed, thstd crashes on these files). ",
+        documented: true
+    },
+    148: {
+        number: 148,
+        game: 8,
+        args: "S",
+        argnames: [
+            "amt"
+        ],
+        description: "Sets the amount of healthbars visible in the top left of the screen to %1.",
+        documented: true
+    },
+    149: {
+        number: 149,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unknown & unused.",
+        documented: false
+    },
+    150: {
+        number: 150,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unknown & unused.",
+        documented: false
+    },
+    151: {
+        number: 151,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unknown & unused.",
+        documented: false
+    },
+    152: {
+        number: 152,
+        game: 8,
+        args: "SSSSSS",
+        argnames: [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F"
+        ],
+        description: "Unknown. All arguments are always 0.",
+        documented: false
+    },
+    153: {
+        number: 153,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unknown. Used at the start of every spell.",
+        documented: false
+    },
+    154: {
+        number: 154,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unknown & unused.",
+        documented: false
+    },
+    155: {
+        number: 155,
+        game: 8,
+        args: "S",
+        argnames: [
+            "a"
+        ],
+        description: "Turns the current spell into a timeout spell if (%1 == 1). Timeout spells do not drop in score value and can be captured by timing it down.",
+        documented: true
+    },
+    156: {
+        number: 156,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unknown & unused.",
+        documented: false
+    },
+    157: {
+        number: 157,
+        game: 8,
+        args: "SSSS",
+        argnames: [
+            "flags",
+            "t",
+            "unknown",
+            "d"
+        ],
+        description: "Gives the caller a trail effect with the same sprite as the caller. It spawns a sprite every %4 frames that lasts $2 frames before it disappears. Flags determine the visuals of the trail:[br]1 - display sprite[br]2 - sprite shrinks away[br]4 - sprite fades away[br]Set to 0 to disable entirely, Using flags higher than these explodes the game.",
+        documented: true
+    },
+    158: {
+        number: 158,
+        game: 8,
+        args: "SSSS",
+        argnames: [
+            "id",
+            "lifeMin",
+            "lifeMax",
+            "col"
+        ],
+        description: "Sets lifebar color from %2 to %3 to %4. %1 is used for multiple colors in one lifebar (higher ids for lower life, and need to be set in order).",
+        documented: true
+    },
+    159: {
+        number: 159,
+        game: 8,
+        args: "S",
+        argnames: [
+            "layers"
+        ],
+        description: "Increases layer of all ANM scripts used by the caller by %1. Negative values turn the caller invisible, and values higher than 3 crash the game.",
+        documented: true
+    },
+    160: {
+        number: 160,
+        game: 8,
+        args: "S",
+        argnames: [
+            "t"
+        ],
+        description: "Makes the caller invulnerable to damage for %1 frames.",
+        documented: true
+    },
+    161: {
+        number: 161,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unknown & unused.",
+        documented: false
+    },
+    162: {
+        number: 162,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Clears all bullets on screen without turning them into star items.",
+        documented: true
+    },
+    163: {
+        number: 163,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unknown & unused.",
+        documented: false
+    },
+    164: {
+        number: 164,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unknown & unused.",
+        documented: false
+    },
+    165: {
+        number: 165,
+        game: 8,
+        args: "f",
+        argnames: [
+            "ang"
+        ],
+        description: "Rotates the main ANM script of the caller by %1 if the ANM script allows rotation.",
+        documented: true
+    },
+    166: {
+        number: 166,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unknown & unused.",
+        documented: false
+    },
+    167: {
+        number: 167,
+        game: 8,
+        args: "Sf",
+        argnames: [
+            "id",
+            "ang"
+        ],
+        description: "Sets angle of laser with id %1 to %2.",
+        documented: true
+    },
+    168: {
+        number: 168,
+        game: 8,
+        args: "S",
+        argnames: [
+            "cnt"
+        ],
+        description: "Instantly drops %1 point items around the caller's position regardless of player power.",
+        documented: true
+    },
+    169: {
+        number: 169,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unknown & unused.",
+        documented: false
+    },
+    170: {
+        number: 170,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unknown & unused.",
+        documented: false
+    },
+    171: {
+        number: 171,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unknown & unused.",
+        documented: false
+    },
+    172: {
+        number: 172,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unknown & unused.",
+        documented: false
+    },
+    173: {
+        number: 173,
+        game: 8,
+        args: "S",
+        argnames: [
+            "A"
+        ],
+        description: "Unknown. Argument is always 0 or 1.",
+        documented: false
+    },
+    174: {
+        number: 174,
+        game: 8,
+        args: "S",
+        argnames: [
+            "id"
+        ],
+        description: "Sets some special ANM slot (investigation needed) on the caller to ANM script (%1 + 48) from etama.anm. Should only be used to change the sprite familiars use when the player is focusing. Crashes if id is higher than 2.",
+        documented: false
+    },
+    175: {
+        number: 175,
+        game: 8,
+        args: "S",
+        argnames: [
+            "a"
+        ],
+        description: "Prevents enemies from being spawned through the timeline if (%1 == 1). Resumes enemy spawning otherwise.",
+        documented: true
+    },
+    176: {
+        number: 176,
+        game: 8,
+        args: "S",
+        argnames: [
+            "a"
+        ],
+        description: "Activates the nullify effect on the player if (%1 == 1). Used in last spells and spell practice. When the player is in nullify state, the next hit will not reduce the player's lives and will activate spell dissolve, which freezes the player and the caller for some time and makes the player invincible. After this time, the screen is cleared of all bullets and the player unfreezes. The caller will remain frozen until the player invincibility runs out. The caller will then unfreeze.",
+        documented: true
+    },
+    177: {
+        number: 177,
+        game: 8,
+        args: "S",
+        argnames: [
+            "A"
+        ],
+        description: "Unknown. Argument is always [var=10051,8].",
+        documented: false
+    },
+    178: {
+        number: 178,
+        game: 8,
+        args: "SSf",
+        argnames: [
+            "t",
+            "m",
+            "spd"
+        ],
+        description: "Similar to [ins=67,8], difference unknown. Used by Reimu in stage 4.",
+        documented: false
+    },
+    179: {
+        number: 179,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Shows the current time in the top right corner of the playing area. Only used by Kaguya when starting her last spells.",
+        documented: true
+    },
+    180: {
+        number: 180,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Unknown & unused.",
+        documented: false
+    },
+    181: {
+        number: 181,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Adds 30 minutes to the time and plays a sound effect. Only used by Kaguya in between her last spells.",
+        documented: true
+    },
+    182: {
+        number: 182,
+        game: 8,
+        args: "S",
+        argnames: [
+            "a"
+        ],
+        description: "Makes the boss ANM scripts not on the main slot (like Mokou's phoenix) follow the boss sprite bobbing up and down. Only used for Mokou, Yuyuko and Yukari. Might need more research.",
+        documented: false
+    },
+    183: {
+        number: 183,
+        game: 8,
+        args: "S",
+        argnames: [
+            "A"
+        ],
+        description: "Unknown. Argument is always 0 or 1.",
+        documented: false
+    },
+    184: {
+        number: 184,
+        game: 8,
+        args: "S",
+        argnames: [
+            "A"
+        ],
+        description: "Unknown. Argument is always 1.",
+        documented: false
+    }
+};
+
+const TIMELINE_INS_8 = {
+    0: {
+        number: 0,
+        game: 8,
+        args: "SffSSSS",
+        argnames: [
+            "sub",
+            "x",
+            "y",
+            "life",
+            "unk",
+            "item",
+            "score"
+        ],
+        description: "In absolute position (%2,%3), creates an enemy with %1, %4, %6, and %7. %5 is unknown.",
+        documented: true
+    },
+    1: {
+        number: 1,
+        game: 8,
+        args: "SffSSSS",
+        argnames: [
+            "sub",
+            "x",
+            "y",
+            "life",
+            "unk",
+            "item",
+            "score"
+        ],
+        description: "In absolute position (%2,%3), creates a mirrored enemy with %1, %4, %6, and %7. %5 is unknown.",
+        documented: true
+    },
+    2: {
+        number: 2,
+        game: 8,
+        args: "SfffSSS",
+        argnames: [
+            "sub",
+            "x_min",
+            "x_max",
+            "y",
+            "life",
+            "item",
+            "score"
+        ],
+        description: "In absolute position (`x`,%4) where `x` is a random value between %2 and %3, creates an enemy with %1, %5, %6 and %7.",
+        documented: true
+    },
+    4: {
+        number: 4,
+        game: 8,
+        args: "SfffSSS",
+        argnames: [
+            "sub",
+            "x_min",
+            "x_max",
+            "y",
+            "life",
+            "item",
+            "score"
+        ],
+        description: "In absolute position (`x`,%4) where `x` is a random value between %2 and %3, creates a mirrored enemy with %1, %5, %6 and %7.",
+        documented: true
+    },
+    6: {
+        number: 6,
+        game: 8,
+        args: "S",
+        argnames: [
+            "id"
+        ],
+        description: "Starts dialogue of id %1.",
+        documented: true
+    },
+    7: {
+        number: 7,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Waits until a pause is reached in the currently active dialogue script.",
+        documented: true
+    },
+    8: {
+        number: 8,
+        game: 8,
+        args: "SS",
+        argnames: [
+            "bossId",
+            "event"
+        ],
+        description: "Runs a hardcoded event on a boss with id %1. Used to make bosses execute a sub id stored with [ins=126,8].",
+        documented: true
+    },
+    10: {
+        number: 10,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Waits until there are no more killable enemies present.",
+        documented: true
+    },
+    13: {
+        number: 13,
+        game: 8,
+        args: "S",
+        argnames: [
+            "id"
+        ],
+        description: "Waits until [ins=14,t8] is called with id %1 in any other timelines.",
+        documented: true
+    },
+    14: {
+        number: 14,
+        game: 8,
+        args: "S",
+        argnames: [
+            "id"
+        ],
+        description: "Resumes any timelines waiting with [ins=13,t8] id %1.",
+        documented: true
+    },
+    15: {
+        number: 15,
+        game: 8,
+        args: "SffSSSS",
+        argnames: [
+            "sub",
+            "x",
+            "y",
+            "life",
+            "unk",
+            "item",
+            "score"
+        ],
+        description: "Difference from [ins=0,t8] unknown. Only used to spawn Eirin in stage 5.",
+        documented: false
+    },
+    16: {
+        number: 16,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Shows the retry screen in spell practice, and the continue screen otherwise.",
+        documented: true
+    }
+};
 
 const INS_13 = {
     0: {

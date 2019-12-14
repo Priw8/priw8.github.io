@@ -36,6 +36,7 @@ function getVarTableRow(v) {
 
 function getVarLimits(game) {
 	switch(game) {
+		case 8: return VARLIMIT_8;
 		case 10: return VARLIMIT_10;
 		case 11: return VARLIMIT_11;
 		case 12: return VARLIMIT_12;
@@ -91,6 +92,9 @@ function getVarNoCheck(game, id) {
 			if (!ret) ret = getVarFromList(VAR_11, id);
 		case 10:
 			if (!ret) ret = getVarFromList(VAR_10, id);
+			break;
+		case 8:
+			if (!ret) ret = getVarFromList(VAR_8, id);
 	}
 	return ret;
 }
@@ -124,6 +128,7 @@ function normalizeGameVersion(num) {
 
 function getGroups(game) {
 	switch(game) {
+		case 8:   return GROUPS_8;
 		case 13:  return GROUPS_13;
 		case 14:  return GROUPS_14;
 		case 143: return GROUPS_143;
@@ -149,42 +154,55 @@ function getOpcodeFromList(list, num) {
 	return ret;
 }
 
-function getOpcodeNoCheck(game, num) {
+function getOpcodeNoCheck(game, num, timeline) {
 	let ret = null;
-	switch(game) {
-		// Inherits ins from previous versions.
-		case 17:
-			ret = getOpcodeFromList(INS_17, num);
-		case 165:
-			if (!ret) ret = getOpcodeFromList(INS_165, num);
-		case 16:
-			if (!ret) ret = getOpcodeFromList(INS_16, num);
-		case 15:
-			if (!ret) ret = getOpcodeFromList(INS_15, num);
-		case 143:
-			if (!ret) ret = getOpcodeFromList(INS_143, num);
-		case 14:
-			if (!ret) ret = getOpcodeFromList(INS_14, num);
-		case 13:
-			if (!ret) ret = getOpcodeFromList(INS_13, num);
+	if (!timeline) {
+		switch(game) {
+			// Inherits ins from previous versions.
+			case 17:
+				ret = getOpcodeFromList(INS_17, num);
+			case 165:
+				if (!ret) ret = getOpcodeFromList(INS_165, num);
+			case 16:
+				if (!ret) ret = getOpcodeFromList(INS_16, num);
+			case 15:
+				if (!ret) ret = getOpcodeFromList(INS_15, num);
+			case 143:
+				if (!ret) ret = getOpcodeFromList(INS_143, num);
+			case 14:
+				if (!ret) ret = getOpcodeFromList(INS_14, num);
+			case 13:
+				if (!ret) ret = getOpcodeFromList(INS_13, num);
+				break;
+			case 8:
+				if (!ret) ret = getOpcodeFromList(INS_8, num);
+		}
+	} else {
+		switch(game) {
+			case 8:
+				if (!ret) ret = getOpcodeFromList(TIMELINE_INS_8, num)
+		}
 	}
 	return ret;
 }
 
-function getOpcode(game, num) {
+function getOpcode(game, num, timeline) {
 	game = normalizeGameVersion(game);
 	const groups = getGroups(game);
 	// check if the given opcode number exists in the given version.
 	let exists = false;
 	for (let i=0; i<groups.length; ++i) {
 		const group = groups[i];
+		if (!!timeline != !!group.timeline)
+			continue;
+
 		if (group.min <= num && group.max >= num) {
 			exists = true;
 			break;
 		}
 	}
 
-	if (exists) return getOpcodeNoCheck(game, num);
+	if (exists) return getOpcodeNoCheck(game, num, timeline);
 
 	return null;
 }
@@ -209,14 +227,14 @@ function generateOpcodeTable(game) {
 		table += "<tr><th class='ins-id'>ID</th><th class='ins-name'>name</th><th class='ins-args'>parameters</th><th class='ins-desc'>description</th></tr>";
 
 		for (let num=group.min; num<=group.max; ++num) {
-			const ins = getOpcodeNoCheck(normalized, num);
+			const ins = getOpcodeNoCheck(normalized, num, group.timeline);
 			let instrDocumented = ins != null && ins.documented;
 			let instrNoDesc = ins != null && ins.number != -1;
 			let instrExists = instrDocumented || instrNoDesc || ins == null
 			if (instrDocumented) documented += 1;
 			if (instrExists) {
 				total += 1;
-				table += generateOpcodeTableEntry(ins, num);
+				table += generateOpcodeTableEntry(ins, num, group.timeline);
 			}
 		}
 
@@ -228,21 +246,21 @@ function generateOpcodeTable(game) {
 	return MD.makeHtml(base) + navigation + table;
 }
 
-function generateOpcodeTableEntry(ins, num) {
+function generateOpcodeTableEntry(ins, num, timeline) {
 	return `
 <tr>
 	<td>${num}</td>
-	<td>${getOpcodeName(num, ins ? ins.documented : false)}
+	<td>${getOpcodeName(num, ins ? ins.documented : false, timeline)}
 	<td>${generateOpcodeParameters(ins)}
 	<td>${generateOpcodeDesc(ins)}</td>
 </tr>
 `;
 }
 
-function getOpcodeName(num, documented) {
+function getOpcodeName(num, documented, timeline) {
 	let name;
 	if (currentMap != null) 
-		name = currentMap.getMnemonic(num);
+		name = timeline ? currentMap.getTimelineMnemonic(num) : currentMap.getMnemonic(num);
 	else
 		name = `ins_${num}`;
 
@@ -263,20 +281,22 @@ function generateOpcodeParameters(ins) {
 	return ret;
 }
 
-function generateOpcodeDesc(ins) {
+function generateOpcodeDesc(ins, notip=false) {
 	if (ins == null) return "<span style='color:gray'>No description available.</span>";
 
 	let ret = ins.description;
 	for (let i=0; i<ins.args.length; i++) {
-		ret = ret.replace(new RegExp("%"+(i+1), "g"), "`"+ins.argnames[i]+"`");
+		ret = ret.replace(new RegExp("%"+(i+1)+"(?=[^0-9])", "g"), "`"+ins.argnames[i]+"`");
 	}
+	if (notip) 
+		ret = ret.replace(/\[ins=/g, "[ins_notip=");
 	return MD.makeHtml(ret);
 }
 
-function getOpcodeTip(ins) {
-	return escapeTip(`<br><b>${ins.number} - ${getOpcodeName(ins.number, ins.documented)}(${generateOpcodeParameters(ins)})</b><br><hr>${generateOpcodeDesc(ins)}`);
+function getOpcodeTip(ins, timeline) {
+	return escapeTip(`<br><b>${ins.number} - ${getOpcodeName(ins.number, ins.documented, timeline)}(${generateOpcodeParameters(ins)})</b><br><hr>${generateOpcodeDesc(ins, true)}`);
 }
 
 function escapeTip(tip) {
-	return tip.replace(/"/g, "&quot;").replace(/'/g, "&apos;").replace(/_/g, "_").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\[ins=\]/, "[ins_notip=");
+	return tip.replace(/"/g, "&quot;").replace(/'/g, "&apos;").replace(/_/g, "_").replace(/</g, "&lt;").replace(/>/g, "&gt;");//.replace(/\[ins=/g, "[ins_notip=");
 }
