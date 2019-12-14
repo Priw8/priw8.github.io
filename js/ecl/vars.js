@@ -586,7 +586,7 @@ const VAR_8 = {
         type: "$",
         access: "rw",
         scope: "l",
-        desc: "Function-Wide integer. When a sub is called, the value is copied to [var=10057,8] in the called sub.",
+        desc: "Function-Wide integer. When a sub is called, the value is copied to [var=10056,8] in the called sub.",
         documented: true
     },
     10065: {
@@ -595,7 +595,7 @@ const VAR_8 = {
         type: "%",
         access: "rw",
         scope: "l",
-        desc: "Function-Wide float. When a sub is called, the value is copied to [var=10058,8] in the called sub.",
+        desc: "Function-Wide float. When a sub is called, the value is copied to [var=10057,8] in the called sub.",
         documented: true
     },
     10066: {
@@ -604,7 +604,7 @@ const VAR_8 = {
         type: "%",
         access: "rw",
         scope: "l",
-        desc: "Function-Wide float. When a sub is called, the value is copied to [var=10059,8] in the called sub.",
+        desc: "Function-Wide float. When a sub is called, the value is copied to [var=10058,8] in the called sub.",
         documented: true
     },
     10067: {
@@ -613,7 +613,7 @@ const VAR_8 = {
         type: "%",
         access: "rw",
         scope: "l",
-        desc: "Function-Wide float. When a sub is called, the value is copied to [var=10060,8] in the called sub.",
+        desc: "Function-Wide float. When a sub is called, the value is copied to [var=10059,8] in the called sub.",
         documented: true
     },
     10068: {
@@ -622,7 +622,7 @@ const VAR_8 = {
         type: "%",
         access: "rw",
         scope: "l",
-        desc: "Function-Wide float. When a sub is called, the value is copied to [var=10061,8] in the called sub.",
+        desc: "Function-Wide float. When a sub is called, the value is copied to [var=10060,8] in the called sub.",
         documented: true
     },
     10069: {
