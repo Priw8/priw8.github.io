@@ -296,7 +296,7 @@ function generateOpcodeDesc(ins, notip=false) {
 }
 
 function getOpcodeTip(ins, timeline) {
-	return escapeTip(`<br><b>${ins.number} - ${getOpcodeName(ins.number, ins.documented, timeline)}(${generateOpcodeParameters(ins)})</b><br><hr>${generateOpcodeDesc(ins, true)}`);
+	return escapeTip(`<br><b>${timeline ? "timeline ": ""}${ins.number} - ${getOpcodeName(ins.number, ins.documented, timeline)}(${generateOpcodeParameters(ins)})</b><br><hr>${generateOpcodeDesc(ins, true)}`);
 }
 
 function escapeTip(tip) {
