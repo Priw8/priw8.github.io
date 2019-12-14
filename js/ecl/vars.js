@@ -12,7 +12,809 @@ const VARLIMIT_16 = [-10000, -9903];
 const VARLIMIT_165 = [-10000, -9903];
 const VARLIMIT_17 = [-10000, -9899];
 
-const VAR_8 = {};
+const VAR_8 = {
+    10000: {
+        number: 10000,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Integer variable local to the enemy. Inherited by spawned enemies.",
+        documented: true
+    },
+    10001: {
+        number: 10001,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Integer variable local to the enemy. Inherited by spawned enemies.",
+        documented: true
+    },
+    10002: {
+        number: 10002,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Integer variable local to the enemy. Inherited by spawned enemies.",
+        documented: true
+    },
+    10003: {
+        number: 10003,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Integer variable local to the enemy. Inherited by spawned enemies.",
+        documented: true
+    },
+    10004: {
+        number: 10004,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Integer variable local to the enemy. Inherited by spawned enemies.",
+        documented: true
+    },
+    10005: {
+        number: 10005,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Integer variable local to the enemy. Inherited by spawned enemies.",
+        documented: true
+    },
+    10006: {
+        number: 10006,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Integer variable local to the enemy. Inherited by spawned enemies.",
+        documented: true
+    },
+    10007: {
+        number: 10007,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Integer variable local to the enemy. Inherited by spawned enemies.",
+        documented: true
+    },
+    10008: {
+        number: 10008,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Integer variable local to the enemy. Does NOT get inherited by spawned enemies.",
+        documented: true
+    },
+    10009: {
+        number: 10009,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Integer variable local to the enemy. Does NOT get inherited by spawned enemies.",
+        documented: true
+    },
+    10010: {
+        number: 10010,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Integer variable local to the enemy. Does NOT get inherited by spawned enemies.",
+        documented: true
+    },
+    10011: {
+        number: 10011,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Integer variable local to the enemy. Does NOT get inherited by spawned enemies.",
+        documented: true
+    },
+    10012: {
+        number: 10012,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Integer variable local to the enemy. Does NOT get inherited by spawned enemies.",
+        documented: true
+    },
+    10013: {
+        number: 10013,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Integer variable local to the enemy. Does NOT get inherited by spawned enemies.",
+        documented: true
+    },
+    10014: {
+        number: 10014,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Integer variable local to the enemy. Does NOT get inherited by spawned enemies.",
+        documented: true
+    },
+    10015: {
+        number: 10015,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Integer variable local to the enemy. Does NOT get inherited by spawned enemies.",
+        documented: true
+    },
+    10016: {
+        number: 10016,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Float variable local to the enemy. Inherited by spawned enemies.",
+        documented: true
+    },
+    10017: {
+        number: 10017,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Float variable local to the enemy. Inherited by spawned enemies.",
+        documented: true
+    },
+    10018: {
+        number: 10018,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Float variable local to the enemy. Inherited by spawned enemies.",
+        documented: true
+    },
+    10019: {
+        number: 10019,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Float variable local to the enemy. Inherited by spawned enemies.",
+        documented: true
+    },
+    10020: {
+        number: 10020,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Float variable local to the enemy. Inherited by spawned enemies.",
+        documented: true
+    },
+    10021: {
+        number: 10021,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Float variable local to the enemy. Inherited by spawned enemies.",
+        documented: true
+    },
+    10022: {
+        number: 10022,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Float variable local to the enemy. Inherited by spawned enemies.",
+        documented: true
+    },
+    10023: {
+        number: 10023,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Float variable local to the enemy. Inherited by spawned enemies.",
+        documented: true
+    },
+    10024: {
+        number: 10024,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Float variable local to the enemy. Does NOT get inherited by spawned enemies.",
+        documented: true
+    },
+    10025: {
+        number: 10025,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Float variable local to the enemy. Does NOT get inherited by spawned enemies.",
+        documented: true
+    },
+    10026: {
+        number: 10026,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Float variable local to the enemy. Does NOT get inherited by spawned enemies.",
+        documented: true
+    },
+    10027: {
+        number: 10027,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Float variable local to the enemy. Does NOT get inherited by spawned enemies.",
+        documented: true
+    },
+    10028: {
+        number: 10028,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Float variable local to the enemy. Does NOT get inherited by spawned enemies.",
+        documented: true
+    },
+    10029: {
+        number: 10029,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Float variable local to the enemy. Does NOT get inherited by spawned enemies.",
+        documented: true
+    },
+    10030: {
+        number: 10030,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Float variable local to the enemy. Does NOT get inherited by spawned enemies.",
+        documented: true
+    },
+    10031: {
+        number: 10031,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Float variable local to the enemy. Does NOT get inherited by spawned enemies.",
+        documented: true
+    },
+    10032: {
+        number: 10032,
+        game: 8,
+        type: "$",
+        access: "ro",
+        scope: "g",
+        desc: "Random integer, very large range.",
+        documented: true
+    },
+    10033: {
+        number: 10033,
+        game: 8,
+        type: "%",
+        access: "ro",
+        scope: "g",
+        desc: "Random float between 0.0f and 1.0f.",
+        documented: true
+    },
+    10035: {
+        number: 10035,
+        game: 8,
+        type: "%",
+        access: "ro",
+        scope: "g",
+        desc: "Random float between -1.0f and 1.0f",
+        documented: true
+    },
+    10036: {
+        number: 10036,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Integer variable local to the enemy. Inherited by spawned enemies.",
+        documented: true
+    },
+    10037: {
+        number: 10037,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Integer variable local to the enemy. Inherited by spawned enemies.",
+        documented: true
+    },
+    10038: {
+        number: 10038,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Integer variable local to the enemy. Inherited by spawned enemies.",
+        documented: true
+    },
+    10039: {
+        number: 10039,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Integer variable local to the enemy. Inherited by spawned enemies.",
+        documented: true
+    },
+    10040: {
+        number: 10040,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "g",
+        desc: "Difficulty. (0 = easy, 1 = normal, 2 = hard, 3 = lunatic, 4 = extra)",
+        documented: true
+    },
+    10041: {
+        number: 10041,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "g",
+        desc: "Current rank value",
+        documented: true
+    },
+    10042: {
+        number: 10042,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "X position of the enemy.",
+        documented: true
+    },
+    10043: {
+        number: 10043,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Y position of the enemy.",
+        documented: true
+    },
+    10044: {
+        number: 10044,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Z position of the enemy. (unused)",
+        documented: true
+    },
+    10045: {
+        number: 10045,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "X position of the player.",
+        documented: true
+    },
+    10046: {
+        number: 10046,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Y position of the player.",
+        documented: true
+    },
+    10047: {
+        number: 10047,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Z position of the player. (unused)",
+        documented: true
+    },
+    10048: {
+        number: 10048,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Angle from the enemy to the player.",
+        documented: true
+    },
+    10049: {
+        number: 10049,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Time elapsed since enemy spawn, in frames.",
+        documented: true
+    },
+    10050: {
+        number: 10050,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Distance from the enemy to the player.",
+        documented: true
+    },
+    10051: {
+        number: 10051,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Current life of the enemy.",
+        documented: true
+    },
+    10052: {
+        number: 10052,
+        game: 8,
+        type: "$",
+        access: "ro",
+        scope: "g",
+        desc: "Shottype. (0 = Border Team, 1 = Magic Team, 2 = Scarlet team, 3 = Netherworld Team, 4 = solo Reimu, 5 = solo Yukari, etc..",
+        documented: true
+    },
+    10053: {
+        number: 10053,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Function-Wide integer.",
+        documented: true
+    },
+    10054: {
+        number: 10054,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Function-Wide integer.",
+        documented: true
+    },
+    10055: {
+        number: 10055,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Function-Wide integer.",
+        documented: true
+    },
+    10056: {
+        number: 10056,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Function-Wide integer.",
+        documented: true
+    },
+    10057: {
+        number: 10057,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Function-Wide float.",
+        documented: true
+    },
+    10058: {
+        number: 10058,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Function-Wide float.",
+        documented: true
+    },
+    10059: {
+        number: 10059,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Function-Wide float.",
+        documented: true
+    },
+    10060: {
+        number: 10060,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Function-Wide float.",
+        documented: true
+    },
+    10061: {
+        number: 10061,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Function-Wide integer. When a sub is called, the value is copied to [var=10053,8] in the called sub.",
+        documented: true
+    },
+    10062: {
+        number: 10062,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Function-Wide integer. When a sub is called, the value is copied to [var=10054,8] in the called sub.",
+        documented: true
+    },
+    10063: {
+        number: 10063,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Function-Wide integer. When a sub is called, the value is copied to [var=10055,8] in the called sub.",
+        documented: true
+    },
+    10064: {
+        number: 10064,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Function-Wide integer. When a sub is called, the value is copied to [var=10057,8] in the called sub.",
+        documented: true
+    },
+    10065: {
+        number: 10065,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Function-Wide float. When a sub is called, the value is copied to [var=10058,8] in the called sub.",
+        documented: true
+    },
+    10066: {
+        number: 10066,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Function-Wide float. When a sub is called, the value is copied to [var=10059,8] in the called sub.",
+        documented: true
+    },
+    10067: {
+        number: 10067,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Function-Wide float. When a sub is called, the value is copied to [var=10060,8] in the called sub.",
+        documented: true
+    },
+    10068: {
+        number: 10068,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Function-Wide float. When a sub is called, the value is copied to [var=10061,8] in the called sub.",
+        documented: true
+    },
+    10069: {
+        number: 10069,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Angle of the enemy's movement.",
+        documented: true
+    },
+    10074: {
+        number: 10074,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Spawn X of the enemy.",
+        documented: true
+    },
+    10075: {
+        number: 10075,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Spawn Y of the enemy.",
+        documented: true
+    },
+    10076: {
+        number: 10076,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Spawn Z of the enemy. (unused)",
+        documented: true
+    },
+    10077: {
+        number: 10077,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Current angle in circle movement.",
+        documented: true
+    },
+    10078: {
+        number: 10078,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Current rotation speed in circle movement.",
+        documented: true
+    },
+    10079: {
+        number: 10079,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Movement Target X of the enemy.",
+        documented: true
+    },
+    10080: {
+        number: 10080,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Movement Target Y of the enemy.",
+        documented: true
+    },
+    10081: {
+        number: 10081,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Movement Target Z of the enemy.",
+        documented: true
+    },
+    10082: {
+        number: 10082,
+        game: 8,
+        type: "%",
+        access: "ro",
+        scope: "g",
+        desc: "Random float between -pi and pi",
+        documented: true
+    },
+    10085: {
+        number: 10085,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "g",
+        desc: "Unknown.",
+        documented: false
+    },
+    10086: {
+        number: 10086,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "g",
+        desc: "Unknown.",
+        documented: false
+    },
+    10088: {
+        number: 10088,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Life threshold of the enemy. Set with [ins=133,8].",
+        documented: true
+    },
+    10089: {
+        number: 10089,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Unknown.",
+        documented: false
+    },
+    10093: {
+        number: 10093,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "The score reward upon killing the enemy.",
+        documented: true
+    },
+    10094: {
+        number: 10094,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Float variable local to the enemy. Inherited by spawned enemies.",
+        documented: true
+    },
+    10095: {
+        number: 10095,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Float variable local to the enemy. Inherited by spawned enemies.",
+        documented: true
+    },
+    10096: {
+        number: 10096,
+        game: 8,
+        type: "$",
+        access: "ro",
+        scope: "l",
+        desc: "Amount of familiars active that were spawned by the enemy.",
+        documented: true
+    },
+    10098: {
+        number: 10098,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "g",
+        desc: "Unknown.",
+        documented: false
+    },
+    10099: {
+        number: 10099,
+        game: 8,
+        type: "$",
+        access: "ro",
+        scope: "g",
+        desc: "Set to 0 when the player dies, bombs or anything else that would fail a spell. Otherwise 1.",
+        documented: true
+    },
+    10100: {
+        number: 10100,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "g",
+        desc: "Unknown.",
+        documented: false
+    }
+};
 
 const VAR_10 = {
     "-10000": {

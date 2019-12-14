@@ -13,8 +13,10 @@ function generateVarTable(game) {
 	let documented = 0;
 	for (let i=limit[0]; i<=limit[1]; i++) {
 		const v = getVarNoCheck(normalized, i);
-		++total;
-		if (v.documented) ++documented;
+		if (v) {
+			++total;
+			if (v.documented) ++documented;
+		}
 		table += getVarTableRow(v);
 	}
 	table += "</table>";
