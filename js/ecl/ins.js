@@ -2650,9 +2650,30 @@ const INS_13 = {
         description: "Ends a sub on slot %1 (same slot as in [ins=16,13]).",
         documented: true
     },
-    18: null,
-    19: null,
-    20: null,
+    18: {
+        number:  18,
+        game: 13,
+        args: "S",
+        argnames: ["id"],
+        description: "Let `vm` be async sub running on slot %1 - this ins sets `vm[0x000011E4]` to 1.",
+        documented: false
+    },
+    19: {
+        number:  19,
+        game: 13,
+        args: "S",
+        argnames: ["id"],
+        description: "Let `vm` be async sub running on slot %1 - this ins sets `vm[0x000011E4]` to 0.",
+        documented: false
+    },
+    20: {
+        number:  20,
+        game: 13,
+        args: "SS",
+        argnames: ["id", "b"],
+        description: "Let `vm` be async sub running on slot %1 - this ins sets `vm[0x0000101C]` to %2.",
+        documented: false
+    },
     21: {
         number: 21,
         game: 13,
