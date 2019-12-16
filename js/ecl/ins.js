@@ -2655,7 +2655,7 @@ const INS_13 = {
         game: 13,
         args: "S",
         argnames: ["id"],
-        description: "Let `vm` be async sub running on slot %1 - this ins sets `vm[0x000011E4]` to 1.",
+        description: "Let `vm` be async sub running on slot %1: this ins sets `vm[0x000011E4]` to 1.",
         documented: false
     },
     19: {
@@ -2663,7 +2663,7 @@ const INS_13 = {
         game: 13,
         args: "S",
         argnames: ["id"],
-        description: "Let `vm` be async sub running on slot %1 - this ins sets `vm[0x000011E4]` to 0.",
+        description: "Let `vm` be async sub running on slot %1: this ins sets `vm[0x000011E4]` to 0.",
         documented: false
     },
     20: {
@@ -2671,7 +2671,7 @@ const INS_13 = {
         game: 13,
         args: "SS",
         argnames: ["id", "b"],
-        description: "Let `vm` be async sub running on slot %1 - this ins sets `vm[0x0000101C]` to %2.",
+        description: "Let `vm` be async sub running on slot %1: this ins sets `vm[0x0000101C]` to %2.",
         documented: false
     },
     21: {
@@ -2679,8 +2679,8 @@ const INS_13 = {
         game: 13,
         args: "",
         argnames: [],
-        description: "[c=red]Unknown.[/c]",
-        documented: false
+        description: "Possibly ends all running async subs, [c=red]needs checking[/c].",
+        documented: false,
     },
     22: {
         number: 22,
