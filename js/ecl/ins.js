@@ -2698,7 +2698,14 @@ const INS_13 = {
         description: "Stops sub execution for %1 frames.",
         documented: true
     },
-    24: null,
+    24: {
+        number: 24,
+        game: 13,
+        args: "f",
+        argnames: ["time"],
+        description: "[ins=23,13], but time is given as a float instead of an int. Subframes do actually exist and affect [ins=547,13].",
+        documented: true
+    },
     25: null,
     26: null,
     27: null,
