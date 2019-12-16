@@ -2666,7 +2666,7 @@ const INS_13 = {
         game: 13,
         args: "Sm",
         argnames: ["a", "b"],
-        description: "Unknown debug instruction. TODO: check if code exists in the game.",
+        description: "Debug instruction, code does not exist in the release builds of the game. Most likely used to call sub %2 if some variable set in a debug menu is equal to %1.",
         documented: true
     },
     23: {
