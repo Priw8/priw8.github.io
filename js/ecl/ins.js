@@ -2679,8 +2679,8 @@ const INS_13 = {
         game: 13,
         args: "",
         argnames: [],
-        description: "Possibly ends all running async subs, [c=red]needs checking[/c].",
-        documented: false,
+        description: "Ends all running async subs.",
+        documented: true,
     },
     22: {
         number: 22,
