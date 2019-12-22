@@ -2715,9 +2715,9 @@ const INS_13 = {
         number: 30,
         game: 13,
         args: "m",
-        argnames: ["a"],
-        description: "Unknown debug instruction. Can take additational paremeters. TODO: check if code exists in the game.",
-        documented: false
+        argnames: ["formatString"],
+        description: "Some sort of `printf` debug instruction, which can take additational float/int arguments after %1. Its code does not exist in the release builds.",
+        documented: true
     },
     31: null,
     32: null,
