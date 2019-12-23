@@ -2758,7 +2758,7 @@ const INS_13 = {
         game: 13,
         args: "f",
         argnames: ["num"],
-        description: "Pushes an float to the ECL stack. [c=orange]Obsolete, push values to stack by writing unassigned expressions instead.[/c]",
+        description: "Pushes a float to the ECL stack. [c=orange]Obsolete, push values to stack by writing unassigned expressions instead.[/c]",
         documented: true
     },
     45: {
@@ -2766,7 +2766,7 @@ const INS_13 = {
         game: 13,
         args: "f",
         argnames: ["var"],
-        description: "Pops an float from the stack into variable %1. [c=orange]Obsolete, use assignement syntax instead.[/c]",
+        description: "Pops a float from the stack into variable %1. [c=orange]Obsolete, use assignement syntax instead.[/c]",
         documented: true
     },
     46: null,
