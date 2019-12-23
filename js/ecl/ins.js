@@ -4607,7 +4607,7 @@ const INS_13 = {
         game: 13,
         args: "SS",
         argnames: ["etIdDest", "etIdSrc"],
-        description: "Copies everything from bullet manager %2 into bullet manager %1.",
+        description: "Copies everything from bullet manager %2 into bullet manager %1. [c=red]Warning:[/c] this instruction is partially broken and does NOT copy the index next [ins=611,13]/[ins=612,13] transformations will be added at.",
         documented: true
     },
     615: {
