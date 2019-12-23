@@ -2615,7 +2615,7 @@ const INS_13 = {
         game: 13,
         args: "o",
         argnames: ["target"],
-        description: "Pops a number from the stack and if it evaluates to true, jumps to label %1. [c=orange]Direct usage obsolete. Use if/unless statement instead.[/c]",
+        description: "Pops a number from the stack and if it evaluates to false (in this context, 0), jumps to label %1. [c=orange]Direct usage obsolete. Use if/unless statement instead.[/c]",
         documented: true
     },
     14: {
@@ -2623,7 +2623,7 @@ const INS_13 = {
         game: 13,
         args: "o",
         argnames: ["target"],
-        description: "Pops a number from the stack and if it evaluates to false, jumps to label %1. [c=orange]Direct usage obsolete. Use if/unless statement instead.[/c]",
+        description: "Pops a number from the stack and if it evaluates to true (in this context, anything non-0), jumps to label %1. [c=orange]Direct usage obsolete. Use if/unless statement instead.[/c]",
         documented: true
     },
     15: {
