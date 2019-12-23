@@ -2639,7 +2639,7 @@ const INS_13 = {
         game: 13,
         args: "mS",
         argnames: ["sub", "id"],
-        description: "Asynchronously calls a given sub on slot %2. Can take additational parameters to pass as arguments to the sub. [c=orange]Direct usage obsolete, use, `@subName() async id` syntax instead.[/c]",
+        description: "Asynchronously calls a given sub and assigns it ID %2. Can take additational parameters to pass as arguments to the sub. [c=orange]Direct usage obsolete, use, `@subName() async id` syntax instead.[/c]",
         documented: true
     },
     17: {
@@ -2647,7 +2647,7 @@ const INS_13 = {
         game: 13,
         args: "S",
         argnames: ["id"],
-        description: "Ends a sub on slot %1 (same slot as in [ins=16,13]).",
+        description: "Ends most recently called sub that has ID %1 (same ID as in [ins=16,13]). If no sub with the given ID is found, nothing happens. Using ID -1 can lead to various unexpected results, ranging from deleting the enemy to freezing the game.",
         documented: true
     },
     18: {
@@ -2655,7 +2655,7 @@ const INS_13 = {
         game: 13,
         args: "S",
         argnames: ["id"],
-        description: "Let `vm` be async sub running on slot %1: this ins sets `vm[0x000011E4]` to 1.",
+        description: "Let `vm` be the most recent async sub running with ID %1: this ins sets `vm[0x000011E4]` to 1.",
         documented: false
     },
     19: {
@@ -2663,7 +2663,7 @@ const INS_13 = {
         game: 13,
         args: "S",
         argnames: ["id"],
-        description: "Let `vm` be async sub running on slot %1: this ins sets `vm[0x000011E4]` to 0.",
+        description: "Let `vm` be the most recent async sub running with ID %1: this ins sets `vm[0x000011E4]` to 0.",
         documented: false
     },
     20: {
@@ -2671,7 +2671,7 @@ const INS_13 = {
         game: 13,
         args: "SS",
         argnames: ["id", "b"],
-        description: "Let `vm` be async sub running on slot %1: this ins sets `vm[0x0000101C]` to %2.",
+        description: "Let `vm` be the most recent async sub running with ID %1: this ins sets `vm[0x0000101C]` to %2.",
         documented: false
     },
     21: {
@@ -2679,7 +2679,7 @@ const INS_13 = {
         game: 13,
         args: "",
         argnames: [],
-        description: "Ends all running async subs.",
+        description: "Ends all running async subs. Calling this in an async sub can lead to unexpected results, such as crashing the game.",
         documented: true,
     },
     22: {
