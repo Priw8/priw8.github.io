@@ -278,7 +278,7 @@ function generateOpcodeParameters(ins) {
 	let ret = "";
 	for (let i=0; i<ins.args.length; ++i) {
 		if (i != 0) ret += ", ";
-		ret += ARGTYPES[ins.args[i]] + " " + ins.argnames[i];
+		ret += '<span style="white-space: nowrap;">' + ARGTYPES[ins.args[i]] + " " + ins.argnames[i] + '</span>';
 	}
 	return ret;
 }
@@ -288,7 +288,7 @@ function generateOpcodeDesc(ins, notip=false) {
 
 	let ret = ins.description;
 	for (let i=0; i<ins.args.length; i++) {
-		ret = ret.replace(new RegExp("%"+(i+1)+"(?=[^0-9])", "g"), "`"+ins.argnames[i]+"`");
+		ret = ret.replace(new RegExp("%"+(i+1)+"(?=[^0-9])", "g"), "[tip=Parameter "+(i+1)+", "+ARGTYPES[ins.args[i]]+"]`"+ins.argnames[i]+"`[/tip]");
 	}
 	if (notip) 
 		ret = ret.replace(/\[ins=/g, "[ins_notip=");
