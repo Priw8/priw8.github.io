@@ -5030,8 +5030,8 @@ const INS_15 = {
     },
     602: {
         number: 602,
-        game: 13,
-        args: "S",
+        game: 15,
+        args: "SSS",
         argnames: ["etId", "type", "color"],
         description: "Sets bullet type and color of bullet manager %1. Refer to [this image](https://cdn.discordapp.com/attachments/395767870119870466/570658618316161041/BULLET_IDS.png) made by Dai. Remarks:[br]- bullet types 35 and 36 spin[br]- type 30 pulses[br]- the difference between 16/37 is the spin direction (same case for 23 and 24)",
         documented: true
