@@ -56,17 +56,17 @@ const INDEX =
 		]
 	},
 
-	/*{
+	{
 		"groupName": "ECL tutorial",
 		"name": "ECL tutorial",
 		"single": true,
 		"path": "ecl-tutorial/",
 		"type": "blog",
-		"url": 7,
+		"url": 5,
 		"max": 1,
 		"reverse": true,
 		"noItem": true
-	},*/
+	},
 	// soon
 	{
 		"noItem": true,
@@ -78,11 +78,11 @@ const INDEX =
 		"groupName": "Modding",
 		"path": "modding/",
 		"content": [
-			/*{
+			{
 				"name": "ECL tutorial",
 				"type": "href",
-				"url": "/#b=ecl-tutorial/&p=1"
-			},*/
+				"url": "#b=ecl-tutorial/&p=1"
+			},
 			{
 				"name": "ECL instruction table",
 				"type": "site",
