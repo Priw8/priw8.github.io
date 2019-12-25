@@ -24,6 +24,11 @@ let ext = function() {
 		regex: /\[img=(.*?), hratio=(.*?)\]/g,
 		replace: '<div class="fit-wrapper"><div class="fit-wrapper2" style="padding-top: $2%"><img style="cursor:pointer;" onclick="window.open(\'$1\')" src="$1"></div></div>'
 	}
+	let img_small = {
+		type: "lang",
+		regex: /\[img=(.*?)]/g,
+		replace: '<img style="cursor:pointer;" onclick="window.open(\'$1\')" src="$1">'		
+	}
 
 	let jank = document.createElement("textarea");
 	jank.classList.add("clipboard-jank");
@@ -212,5 +217,5 @@ let ext = function() {
 		replace: '<div class="fit-wrapper" data-video="$1"><div class="fit-wrapper2" style="padding-top: $2%"><div class="video-load"><div>Automatic video loading is <b>disabled</b>, in order to reduce network usage and loading times.<br>Click this to load the video.</div></div></div></div>'
 	}
 
-	return [eclmap, yt, hr, br, ts, img, ins, ins_notip,  variable, variable_notip, code, title, c, include, game, rawGame, html, script, tip, video];
+	return [eclmap, yt, hr, br, ts, img, img_small, ins, ins_notip,  variable, variable_notip, code, title, c, include, game, rawGame, html, script, tip, video];
 }
