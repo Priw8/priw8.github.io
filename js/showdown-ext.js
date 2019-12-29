@@ -217,5 +217,17 @@ let ext = function() {
 		replace: '<div class="fit-wrapper" data-video="$1"><div class="fit-wrapper2" style="padding-top: $2%"><div class="video-load"><div>Automatic video loading is <b>disabled</b>, in order to reduce network usage and loading times.<br>Click this to load the video.</div></div></div></div>'
 	}
 
-	return [eclmap, yt, hr, br, ts, img, img_small, ins, ins_notip,  variable, variable_notip, code, title, c, include, game, rawGame, html, script, tip, video];
+	let flex = {
+		type: "lang",
+		regex: /\[flex\]([^]*?)\[\/flex\]/g,
+		replace: '<div class="flexbox">$1</div>'
+	}
+
+	let flex2 = {
+		type: "lang",
+		regex: /\[flex=(.*?)\]([^]*?)\[\/flex\]/g,
+		replace: '<div class="flexbox" style="align-items: $1">$2</div>'
+	}
+
+	return [eclmap, yt, hr, br, ts, img, img_small, ins, ins_notip,  variable, variable_notip, code, title, c, include, game, rawGame, html, script, tip, video, flex, flex2];
 }

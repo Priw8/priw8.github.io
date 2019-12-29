@@ -301,3 +301,9 @@ table, th, td, tr {
 	padding: 20px;
 	box-sizing: border-box;
 }
+
+.flexbox {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
