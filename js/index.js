@@ -62,7 +62,7 @@ const INDEX =
 		"single": true,
 		"path": "ecl-tutorial/",
 		"type": "blog",
-		"url": 6,
+		"url": 8,
 		"max": 1,
 		"reverse": true,
 		"noItem": true
