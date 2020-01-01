@@ -4534,7 +4534,7 @@ const INS_13 = {
         number: 605,
         game: 13,
         args: "Sff",
-        argnames: ["etId", "speed1", "speed1"],
+        argnames: ["etId", "speed1", "speed2"],
         description: "Sets speed1 and speed2 of bullet manager %1.",
         documented: true
     },
@@ -4557,8 +4557,8 @@ const INS_13 = {
     608: {
         number: 608,
         game: 13,
-        args: "Sff",
-        argnames: ["etId", "sound1", "sound1"],
+        args: "SSS",
+        argnames: ["etId", "sound1", "sound2"],
         description: "Sets sound1 and sound2 of bullet manager %1 (sound effect table is TODO). sound1 plays when the bullet manager fires a bullet, while sound2 plays when a bullet fired by the bullet manager does certain transformations. Set to -1 for no sound.",
         documented: true
     },
