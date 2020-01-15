@@ -63,17 +63,24 @@ function handleNavigation(e) {
 }
 
 function navigate(data) {
+	let path = data.path, url = data.url;
+	if (url.charAt(0) == "/") {
+		const li = url.lastIndexOf("/");
+		path = url.substring(1, li);
+		url = url.substring(li);
+	}
+
 	if (data.type == "href") {
 		if (data.newtab == "true") {
-			window.open(data.url);
+			window.open(url);
 		} else {
-			window.location.replace(data.url);
+			window.location.replace(url);
 		}
 	} else if (data.type == "site") {
-		loadContent(data.path, data.url);
+		loadContent(path, url);
 	} else if (data.type == "blog") {
-		let group = getGroupByPath(data.path);
-		loadBlog(data.path, data.url, 1, group.max, group.reverse);
+		let group = getGroupByPath(path);
+		loadBlog(path, url, 1, group.max, group.reverse);
 	};
 }
 
@@ -215,7 +222,7 @@ function getIncludeTarget(id) {
 function loadContent(path, file, writeQuery=true) {
 	if (active && active == file) return;
 	const group = getGroupByPath(path);
-	if (group.type == "redirect") {
+	if (group != null && group.type == "redirect") {
 		return loadContent(group.url, file);
 	}
 	active = file;

@@ -106,9 +106,8 @@ const INDEX =
 			},
 			{
 				"name": "MERLIN",
-				"type": "href",
-				"newTab": true,
-				"url": "https://github.com/Priw8/merlin"
+				"type": "site",
+				"url": "/merlin/doc/index"
 			},
 			{
 				"name": "STD tutorial",
@@ -183,5 +182,5 @@ If the problem persists, contact me on Discord: **Priw8#9873**.
 
 const EMBED_LOAD_ERROR = `
 Failed to load embedded content.  
-HTML status code: %code%
+HTTP status code: %code%
 `;
