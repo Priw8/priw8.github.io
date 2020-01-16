@@ -406,7 +406,7 @@ function showTip(tip, $targ, $realTarg) {
 	$tip.innerHTML = tip;
 	let tipRect = $tip.getBoundingClientRect();
 	let rect = $targ.getBoundingClientRect();
-	let top = rect.top - rect.height - tipRect.height + 13 + window.scrollY;
+	let top = rect.top - /*rect.height/2 -*/ tipRect.height + window.scrollY;
 	let left = rect.left + rect.width/2 - tipRect.width/2;
 	if (left < 0) left = 0;
 	let max = document.body.offsetWidth - tipRect.width;
