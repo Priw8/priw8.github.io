@@ -107,7 +107,7 @@ const INDEX =
 			{
 				"name": "MERLIN",
 				"type": "site",
-				"url": "/merlin/doc/index"
+				"url": "/MERLIN/doc/index"
 			},
 			{
 				"name": "STD tutorial",
