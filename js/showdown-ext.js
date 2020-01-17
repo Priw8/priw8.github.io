@@ -313,5 +313,39 @@ let ext = function() {
 		}
 	}
 
-	return [eclmap, yt, hr, br, ts, img, img_small, ins, ins_notip,  variable, variable_notip, code, title, c, include, game, rawGame, html, script, tip, video, flex, flex2, et];
+	async function requireAnm(name, content, id) {
+		// this must always wait at least some time, to make sure that the function this was called from finished running...
+		await new Promise(resolve => setTimeout(resolve, 1));
+		await getAnm(name);
+		const $replace = document.querySelector(`#require-anm-${id}`);
+		if ($replace != null) {
+			$replace.innerHTML = MD.makeHtml(content);
+		}
+	}
+
+	let anmId = 0;
+	let currentAnm = "";
+	let anmSelect = {
+		type: "lang",
+		regex: /\[requireAnm=(.*?)\]([^]*?)\[\/requireAnm\]/g,
+		replace: function(match, name, content) {
+			let id = anmId++;
+			currentAnm = name;
+			requireAnm(name, content, id);
+			return "<div id='require-anm-"+id+"'>Loading ANM...</div>";
+		}
+	}
+
+	let anm = {
+		type: "lang",
+		regex: /\[anm=(.*?),(.*?),(.*?)\]/g,
+		replace: function(match, anm, game, id) {
+			if (!anmCache[currentAnm])
+				return "anm-error";
+			
+			return `<div data-tip="<instr>${anm}</instr> - <instr>${id}</instr>, version ${game}" style="${getAnmImg(anmCache[currentAnm][anm][game], id)}"></div>`;
+		}
+	}
+
+	return [anmSelect, eclmap, yt, hr, br, ts, img, img_small, ins, ins_notip,  variable, variable_notip, code, title, c, include, game, rawGame, html, script, tip, video, flex, flex2, et, anm];
 }
