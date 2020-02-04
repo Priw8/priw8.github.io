@@ -110,6 +110,11 @@ const INDEX =
 				"url": "/MERLIN/doc/index"
 			},
 			{
+				"name": "ECLplus",
+				"type": "href",
+				"url": "http://github.com/Priw8/ECLplus/"
+			},
+			{
 				"name": "STD tutorial",
 				"type": "site",
 				"url": "std-tutorial"

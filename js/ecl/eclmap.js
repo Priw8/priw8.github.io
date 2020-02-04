@@ -36,14 +36,16 @@ async function autoEclmap(game) {
 		[7],
 		[8, 9, 9.5],
 		[10, 10.3, 11, 12, 12.5, 12.8],
-		[13, 14, 14.3, 15, 16, 16.5, 17]
+        [13, 14, 14.3, 15, 16, 16.5, 17],
+        [GAME_ECLPLUS]
 	];
 	let rgroups = [
 		["06"],
 		["07"],
 		["08", "09", "95"],
 		["10", "103", "11", "12", "125", "128"],
-		["13", "14", "143", "15", "16", "165", "17"]
+        ["13", "14", "143", "15", "16", "165", "17"],
+        ["GAME_ECLPLUS"]
 	];
 	let group = null;
 	for (g=0; g<groups.length; ++g) {
@@ -51,7 +53,16 @@ async function autoEclmap(game) {
 			group = rgroups[g];
 			break;
 		}
-	}
+    }
+    
+    if (group == "GAME_ECLPLUS") {
+        const res = await fetch("eclplus/ECLinclude/ECLplus.eclm");
+        if (res.ok) {
+            const txt = await res.text();
+            return txt;
+        } else return "eclmap";
+    }
+
 	if (group == null) return "eclmap";
 
 	// Generally prioritize getting eclmap for the exact same version
@@ -71,7 +82,7 @@ async function autoEclmap(game) {
 		if (res.ok) {
 			const txt = await res.text();
 			return txt;
-		}
+		} else return "eclmap";
 	}
 
 	return "eclmap";

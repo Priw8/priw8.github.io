@@ -138,6 +138,7 @@ function getGroups(game) {
 		case 16:  return GROUPS_16;
 		case 165: return GROUPS_165;
 		case 17:  return GROUPS_17;
+		case GAME_ECLPLUS: return GROUPS_ECLPLUS;
 	}
 }
 
@@ -160,9 +161,12 @@ function getOpcodeNoCheck(game, num, timeline) {
 	let ret = null;
 	if (!timeline) {
 		switch(game) {
+			case GAME_ECLPLUS:
+				ret = getOpcodeFromList(INS_ECLPLUS, num);
+				break;
 			// Inherits ins from previous versions.
 			case 17:
-				ret = getOpcodeFromList(INS_17, num);
+				if (!ret) ret = getOpcodeFromList(INS_17, num);
 			case 165:
 				if (!ret) ret = getOpcodeFromList(INS_165, num);
 			case 16:
@@ -211,7 +215,7 @@ function getOpcode(game, num, timeline) {
 
 function generateOpcodeTable(game) {
 	const normalized = normalizeGameVersion(game);
-	let base = `Current table: [game=${normalized}] version ${game}[/game][br]`;
+	let base = `Current table: [game=${normalized}] version ${game == GAME_ECLPLUS ? "ECLplus" : game}[/game][br]`;
 
 	let navigation = "<div class='ins-navigation'><h3>Navigation</h3>";
 	let table = "";

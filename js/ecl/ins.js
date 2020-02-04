@@ -5106,3 +5106,174 @@ const ARGTYPES = {
     "m": "string",
     "o": "label"
 }
+
+const GAME_ECLPLUS = 2000;
+
+const GROUPS_ECLPLUS = [
+    {
+        min: 2000,
+        max: 2005,
+        title: "No specific category"
+    },
+    {
+        min: 2100,
+        max: 2105,
+        title: "Player manipulation"
+    },
+    {
+        min: 2200,
+        max: 2205,
+        title: "Extended enemy interaction"
+    }
+]
+
+const INS_ECLPLUS = {
+    2000: {
+        number: 2000,
+        game: GAME_ECLPLUS,
+        args: "m",
+        argnames: ["format"],
+        description: "Shows a printf-formatted message box. Can take additational arguments for values of the printf format.",
+        documented: true
+    },
+    2001: {
+        number: 2001,
+        game: GAME_ECLPLUS,
+        args: "m",
+        argnames: ["format"],
+        description: "Prints a printf-formatted string in the console. Can take additational arguments for values of the printf format.",
+        documented: true
+    },
+    2002: {
+        number: 2002,
+        game: GAME_ECLPLUS,
+        args: "",
+        argnames: [],
+        description: "Clears the console.",
+        documented: true
+    },
+    2003: {
+        number: 2003,
+        game: GAME_ECLPLUS,
+        args: "mff",
+        argnames: ["format", "x", "y"],
+        description: "Draws a printf-formatted string on coordinates (%1, %2) in the game window for 1 frame.",
+        documented: true
+    },
+    2004: {
+        number: 2004,
+        game: GAME_ECLPLUS,
+        args: "S",
+        argnames: ["color"],
+        description: "Sets color of the string drawn by [ins=2003,"+GAME_ECLPLUS+"].",
+        documented: true
+    },
+    2005: {
+        number: 2005,
+        game: GAME_ECLPLUS,
+        args: "m",
+        argnames: ["name"],
+        description: "Changes currently playing music to one specified by %1 (must be the same as in `thbgm.fmt`)",
+        documented: true
+    },
+
+
+    2100: {
+        number: 2100,
+        game: GAME_ECLPLUS,
+        args: "ff",
+        argnames: ["x", "y"],
+        description: "Sets player's position to (%1, %2).",
+        documented: true
+    },
+    2101: {
+        number: 2101,
+        game: GAME_ECLPLUS,
+        args: "",
+        argnames: [],
+        description: "Immidiately kills the player, ignoring any iframes.",
+        documented: true
+    },
+    2102: {
+        number: 2102,
+        game: GAME_ECLPLUS,
+        args: "",
+        argnames: [],
+        description: "Immidiately makes the player bomb, even if there are no bombs left (although it does consume a bomb).",
+        documented: true
+    },
+    2103: {
+        number: 2103,
+        game: GAME_ECLPLUS,
+        args: "S",
+        argnames: ["lives"],
+        description: "Sets current amount of lives to %1.",
+        documented: true
+    },
+    2104: {
+        number: 2104,
+        game: GAME_ECLPLUS,
+        args: "S",
+        argnames: ["bombs"],
+        description: "Sets current amount of bombs to %1.",
+        documented: true
+    },
+    2105: {
+        number: 2105,
+        game: GAME_ECLPLUS,
+        args: "S",
+        argnames: ["power"],
+        description: "Sets current power of the player to %1.",
+        documented: true
+    },
+
+
+    2200: {
+        number: 2200,
+        game: GAME_ECLPLUS,
+        args: "",
+        argnames: [],
+        description: "Resets and deletes all message channels.",
+        documented: true
+    },
+    2201: {
+        number: 2201,
+        game: GAME_ECLPLUS,
+        args: "S",
+        argnames: ["channel"],
+        description: "Resets and deletes the given channel.",
+        documented: true
+    },
+    2202: {
+        number: 2202,
+        game: GAME_ECLPLUS,
+        args: "ffffS",
+        argnames: ["a", "b", "c", "d", "channel"],
+        description: "Sends a message on the given channel.",
+        documented: true
+    },
+    2203: {
+        number: 2203,
+        game: GAME_ECLPLUS,
+        args: "ffffS",
+        argnames: ["&received", "&a", "&b", "&c", "&d", "channel"],
+        description: "Gets and removes a message from the given channel. %1 is set to 1 on success and 0 on failure (if there were no messages).",
+        documented: true
+    },
+    2204: {
+        number: 2204,
+        game: GAME_ECLPLUS,
+        args: "ffffS",
+        argnames: ["&received", "&a", "&b", "&c", "&d", "channel"],
+        description: "Gets a message from the given channel, but doesn't remove it. %1 is set to 1 on success and 0 on failure (if there were no messages).",
+        documented: true
+    },
+    2205: {
+        number: 2205,
+        game: GAME_ECLPLUS,
+        args: "ffffS",
+        argnames: ["&receive", "channel"],
+        description: "Sets %1 to 1 if there are any messages on the given channel, or to 0 if there aren't. There also exists an inline sub `msgWait(int channel)` which waits until there are messages in a given channel.",
+        documented: true
+    }
+}
