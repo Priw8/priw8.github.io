@@ -130,7 +130,7 @@ const INDEX =
 				"name": "Shottype editor",
 				"type": "href",
 				"newTab": true,
-				"url": "/sht-webedit/"
+				"url": "https://priw8.github.io/sht-webedit/"
 			}
 		]
 	},
