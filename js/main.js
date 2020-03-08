@@ -25,13 +25,18 @@ function onContentLoad(clb) {
 
 function initNavigation() {
 	let $nav = document.querySelector(".header-navigation");
-	let html = "";
-	for (let i=0; i<INDEX.length; i++) {
-		if (!INDEX[i].noItem) html += getNavigationEntry(INDEX[i]);
-	}
+	let html = getNavigation(INDEX);
 	$nav.innerHTML = html;
 	$nav.addEventListener("click", handleNavigation);
 	window.addEventListener("hashchange", initContent, false);
+}
+
+function getNavigation(data) {
+	let html = "";
+	for (let i=0; i<data.length; i++) {
+		if (!data[i].noItem) html += getNavigationEntry(data[i]);
+	}
+	return html;
 }
 
 function getNavigationEntry(data) {
@@ -40,15 +45,28 @@ function getNavigationEntry(data) {
 	if (!data.single) {
 		html += "<div class='navigation-entry-name'>"+data.groupName+"</div>";
 		html += "<div class='navigation-entry-list'>";
-		for (let i=0; i<data.content.length; i++) {
-			let item = data.content[i];
-			html += "<div class='navigation-entry-list-item' "+getNavEntryDatasetString(item, data.path)+">"+item.name+"</div>";
-		};
+		html += getNavigationEntryList(data)
 		html += "</div>";
 	} else {
 		html += "<div class='navigation-entry-name' "+getNavEntryDatasetString(data, data.path)+">"+data.groupName+"</div>";
 	};
 	html += "</div>";
+	return html;
+}
+
+function getNavigationEntryList(data) {
+	let html = "";
+	for (let i=0; i<data.content.length; i++) {
+		let item = data.content[i];
+		if (item.type == "subgroup") {
+			html += "<div class='navigation-entry-list-item subgroup-parent'><div>" + getNavigationEntryList({
+				path: data.path,
+				content: item.children
+			}) + "</div><span>" + item.name + "</span></div>";
+		} else {
+			html += "<div class='navigation-entry-list-item' "+getNavEntryDatasetString(item, data.path)+">"+item.name+"</div>";
+		}
+	}
 	return html;
 }
 

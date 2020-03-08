@@ -79,50 +79,62 @@ const INDEX =
 		"path": "modding/",
 		"content": [
 			{
-				"name": "ECL tutorial",
-				"type": "href",
-				"url": "#b=ecl-tutorial/&p=1"
+				"name": "ECL (enemies, danmaku)",
+				"type": "subgroup",
+				"children": [
+					{
+						"name": "ECL tutorial",
+						"type": "href",
+						"url": "#b=ecl-tutorial/&p=1"
+					},
+					{
+						"name": "ECL instruction table",
+						"type": "site",
+						"url": "ins"
+					},
+					{
+						"name": "ECL variable table",
+						"type": "site",
+						"url": "vars"
+					},
+					{
+						"name": "ECL flag table",
+						"type": "site",
+						"url": "flags"
+					},
+					{
+						"name": "Eclmaps",
+						"type": "href",
+						"newTab": true,
+						"url": "https://github.com/Priw8/eclmap"
+					},
+					{
+						"name": "MERLIN",
+						"type": "site",
+						"url": "/MERLIN/doc/index"
+					},
+					{
+						"name": "ECLplus",
+						"type": "href",
+						"url": "http://github.com/Priw8/ECLplus/"
+					}
+				]
 			},
 			{
-				"name": "ECL instruction table",
-				"type": "site",
-				"url": "ins"
-			},
-			{
-				"name": "ECL variable table",
-				"type": "site",
-				"url": "vars"
-			},
-			{
-				"name": "ECL flag table",
-				"type": "site",
-				"url": "flags"
-			},
-			{
-				"name": "Eclmaps",
-				"type": "href",
-				"newTab": true,
-				"url": "https://github.com/Priw8/eclmap"
-			},
-			{
-				"name": "MERLIN",
-				"type": "site",
-				"url": "/MERLIN/doc/index"
-			},
-			{
-				"name": "ECLplus",
-				"type": "href",
-				"url": "http://github.com/Priw8/ECLplus/"
-			},
-			{
-				"name": "STD tutorial",
-				"type": "site",
-				"url": "std-tutorial"
-			},
-			{
-				"name": "STD instruction table",
-				"type": "site",
-				"url": "std-ins"
+				"name": "STD (backgrounds)",
+				"type": "subgroup",
+				"children": [
+					{
+						"name": "STD tutorial",
+						"type": "site",
+						"url": "std-tutorial"
+					},
+					{
+						"name": "STD instruction table",
+						"type": "site",
+						"url": "std-ins"
+					}
+				]
 			}
 		]
 	},

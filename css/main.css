@@ -126,6 +126,18 @@ instr {
 	padding: 8px;
 }
 
+.navigation-entry-list-item.subgroup-parent > div {
+	display: none;
+	position: absolute;
+	background: #222222;
+	left: 100%;
+	margin-top: -8px;
+	width: 150px;
+}
+.navigation-entry-list-item.subgroup-parent:hover > div {
+	display: block;
+}
+
 .content-wrapper {
 	width: 80%;
 	margin-left: 10%;
