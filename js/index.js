@@ -135,23 +135,21 @@ const INDEX =
 						"url": "std-ins"
 					}
 				]
-			}
-		]
-	},
-
-	{
-		"groupName": "Tools",
-		"path": null,
-		"content": [
+			},
 			{
-				"name": "Shottype editor",
-				"type": "href",
-				"newTab": true,
-				"url": "https://priw8.github.io/sht-webedit/"
+				"name": "SHT (shottypes)",
+				"type": "subgroup",
+				"children": [
+					{
+						"name": "Shottype editor",
+						"type": "href",
+						"newTab": true,
+						"url": "https://priw8.github.io/sht-webedit/"
+					}
+				]
 			}
 		]
 	},
-
 	{
 		"groupName": "Links",
 		"path": null,
@@ -178,7 +176,7 @@ const INDEX =
 				"name": "Maribel's site",
 				"type": "href",
 				"newTab": true,
-				"url": "https://maribelhearn.github.io/"
+				"url": "https://maribelhearn.com/"
 			}
 		]
 	}
