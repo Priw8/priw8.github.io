@@ -77,7 +77,11 @@ let ext = function() {
 	}
 
 	let colors = {
+		6: "#ff5959",
+		7: "#62ffff",
 		8: "#c0b6d6",
+		9: "#ff82c0",
+		95: "#ebc996",
 		10: "#fafca2",
 		11: "#adb0e6",
 		12: "lightgreen",
