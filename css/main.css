@@ -85,6 +85,10 @@ instr {
 	border-bottom-right-radius: 15px;*/
 	border-collapse: collapse;
 }
+.header-navigation a {
+	color: inherit;
+	text-decoration: inherit;
+}
 .navigation-entry {
 	font-family: sans-serif;
 	display: inline-table;

@@ -48,7 +48,7 @@ function getNavigationEntry(data) {
 		html += getNavigationEntryList(data)
 		html += "</div>";
 	} else {
-		html += "<div class='navigation-entry-name' "+getNavEntryDatasetString(data, data.path)+">"+data.groupName+"</div>";
+		html += "<a " + getNavEntryHref(data, data.path) + " ><div class='navigation-entry-name' "+getNavEntryDatasetString(data, data.path)+">"+data.groupName+"</div></a>";
 	};
 	html += "</div>";
 	return html;
@@ -64,7 +64,7 @@ function getNavigationEntryList(data) {
 				content: item.children
 			}) + "</div><span>" + item.name + "</span></div>";
 		} else {
-			html += "<div class='navigation-entry-list-item' "+getNavEntryDatasetString(item, data.path)+">"+item.name+"</div>";
+			html += "<a " + getNavEntryHref(item, data.path) + " ><div class='navigation-entry-list-item' "+getNavEntryDatasetString(item, data.path) + ">"+item.name+"</div></a>";
 		}
 	}
 	return html;
@@ -74,9 +74,20 @@ function getNavEntryDatasetString(item, path) {
 	return "data-type='"+item.type+"' data-url='"+item.url+"' data-path='"+path+"' data-newtab='"+item.newTab+"'";
 }
 
+function getNavEntryHref(item, path) {
+	return `href='${
+		item.type == "href"
+			? item.url
+			: item.type == "blog"
+				? "#b=" + path + "&p=1"
+				: "#s=" + path + item.url
+	}'`;
+}
+
 function handleNavigation(e) {
 	if (typeof e.target.dataset.type != "undefined") {
 		navigate(e.target.dataset);
+		e.preventDefault();
 	}
 }
 
