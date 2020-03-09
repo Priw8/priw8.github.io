@@ -2,11 +2,13 @@
 .hljs-selector-tag,
 .hljs-literal,
 .hljs-section,
-.hljs-link {
+.hljs-link,
+.hljs-meta {
   color: #ff5b80;
 }
 
 .hljs-string,
+.hljs-meta-string,
 .hljs-name,
 .hljs-type,
 .hljs-attribute,
@@ -26,8 +28,7 @@
 
 .hljs-comment,
 .hljs-quote,
-.hljs-deletion,
-.hljs-meta {
+.hljs-deletion {
   color: #999999;
 }
 
