@@ -281,18 +281,28 @@ function getErrorString(path, file) {
 		} else {
 			str += "  \n  \n  You might be looking for one of the following pages:  \n"
 			let list = group.single ? [group] : group.content;
-			for (let i=0; i<list.length; i++) {
-				let entry = list[i];
-				if (entry.type == "site") {
-					let url = "#"+buildQuery({s: group.path + entry.url});
-					str += "- `"+group.path+entry.url+".md` - ["+entry.name+"]("+url+")  \n";
-				} else {
-					let url = entry.url;
-					str += "- `"+entry.url+"` - ["+entry.name+"]("+url+")  \n";	
-				}
-			};
+			str += getErrorStringFromList(group, list);
 		};
 	};
+	return str;
+}
+
+function getErrorStringFromList(group, list) {
+	let str = "";
+	for (let i=0; i<list.length; i++) {
+		let entry = list[i];
+		if (entry.type == "subgroup") {
+			str += "#### " + entry.name + "\n";
+			str += getErrorStringFromList(group, entry.children);
+		} else if (entry.type == "site") {
+			const path = (entry.url[0] != "/" ? group.path : "") + entry.url;
+			let url = "#"+buildQuery({s: path});
+			str += "- `" + path + ".md` - ["+entry.name+"]("+url+")  \n";
+		} else {
+			let url = entry.url;
+			str += "- `"+entry.url+"` - ["+entry.name+"]("+url+")  \n";	
+		}
+	}
 	return str;
 }
 
