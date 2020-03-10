@@ -67,7 +67,17 @@ const INDEX =
 		"reverse": true,
 		"noItem": true
 	},
-	// soon
+	{
+		"groupName": "General modding guide",
+		"name": "General modding guide",
+		"single": true,
+		"path": "general-modding-guide/",
+		"type": "blog",
+		"url": 5,
+		"max": 1,
+		"reverse": true,
+		"noItem": true
+	},
 	{
 		"noItem": true,
 		"path": "ecl/",
@@ -78,6 +88,11 @@ const INDEX =
 		"groupName": "Modding",
 		"path": "modding/",
 		"content": [
+			{
+				"name": "General modding guide",
+				"type": "href",
+				"url": "#b=general-modding-guide/&p=1"
+			},
 			{
 				"name": "ECL (enemies, danmaku)",
 				"type": "subgroup",
