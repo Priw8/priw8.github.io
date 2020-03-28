@@ -5,6 +5,7 @@ Based on:
 - My own research
 - 32th System's research
 - Dai's research  
+- ExpHP's research
   
 Documentation of [game=8]Imperishable Night[/game] was mostly done by Dai.
 

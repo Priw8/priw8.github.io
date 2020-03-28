@@ -3513,24 +3513,24 @@ const INS_13 = {
         game: 13,
         args: "SS",
         argnames: [
-            "a",
-            "b"
+            "slot",
+            "alpha"
         ],
-        description: "[c=red]Unknown.[/c] Might be doing something to ANM script on slot %1.",
-        documented: false
+        description: "Sets alpha2 (opacity of the gradient) of ANM script on slot %1 to %2.",
+        documented: true
     },
     332: {
         number: 332,
         game: 13,
         args: "SSSS",
         argnames: [
-            "a",
-            "b",
-            "c",
-            "d"
+            "slot",
+            "time",
+            "mode",
+            "alpha"
         ],
-        description: "[c=red]Unknown.[/c] Might be doing something to ANM script on slot %1.",
-        documented: false
+        description: "Same as [ins=331,13], but the change is applied in %2 frames using mode %3.",
+        documented: true
     },
     333: {
         number: 333,
@@ -4859,11 +4859,11 @@ const INS_14 = {
         game: 14,
         args: "SS",
         argnames: [
-            "a",
-            "b"
+            "slot",
+            "layer"
         ],
-        description: "[c=red]Unknown.[/c]",
-        documented: false
+        description: "Set layer of ANM script on slot %1 to %2.",
+        documented: true
     },
     337: {
         number: 337,
