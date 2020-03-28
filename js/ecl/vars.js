@@ -1708,9 +1708,9 @@ const VAR_15 = {
         game: 15,
         type: "$",
         access: "ro",
-        scope: "l",
-        desc: "[c=red]Unknown.[/c]",
-        documented: false
+        scope: "g",
+        desc: "Value set by [ins=524,17].",
+        documented: true
     },
     "-9904": {
         number: -9904,

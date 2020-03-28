@@ -4964,7 +4964,7 @@ const INS_14 = {
         game: 14,
         args: "f",
         argnames: ["red"],
-        description: "Sets caller's damage reduction when a bomb is active, 0.0f means no damage at all, 1.0f is full damage, [c=red]not sure what happens when numbers outside this range are used.[/c]",
+        description: "Sets caller's damage reduction when a bomb is active, 0.0f means no damage at all, 1.0f is full damage, negative values will make the enemy heal when you bomb.",
         documented: true
     },
     566: {
