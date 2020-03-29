@@ -155,6 +155,12 @@ const INDEX =
 		"path": null,
 		"content": [
 			{
+				"name": "ZUNcode Discord",
+				"type": "href",
+				"newTab": true,
+				"url": "https://discord.gg/fvPJvHJ"
+			},
+			{
 				"name": "My Github",
 				"type": "href",
 				"newTab": true,
