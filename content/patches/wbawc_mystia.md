@@ -6,5 +6,5 @@ Extra stage is ~~not finished~~ not started yet, and will be added in a future u
   
 This release also features a special DLC! Download the patch to actually find out what it is :^)  
 
-Download: [right heeeree!](https://mega.nz/file/58o0XYDQ#wZ2RtMWI7_5c29B75XXY_JK_hKaYZnd0E9V-oo-N2gI)  
+Download: [right heeeree!](https://mega.nz/file/5s5SkSyL#5h0D5CxEz-QkG7IezA9IDo_2jaWcVh647GLksXfB_Xo)  
 It's... actually not on thcrap, because it relies on ECLplus, and thcrap does not support per-patch plugins as of now. I tried to make installation of this patch as simple as possible, though!
