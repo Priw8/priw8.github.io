@@ -24,34 +24,63 @@ const INDEX =
 		"path": "patches/",
 		"content": [
 			{
-				"name": "Custom shottypes",
-				"type": "site",
-				"url": "shottypes"
+				"name": "Multiple games",
+				"type": "subgroup",
+				"children": [
+					{
+						"name": "Custom shottypes",
+						"type": "site",
+						"url": "shottypes"
+					}
+				]
 			},
 			{
-				"name": "LoDDK",
-				"type": "site",
-				"url": "loddk"
+				"name": "LoLK",
+				"type": "subgroup",
+				"children": [
+					{
+						"name": "Legacy of Double Dealing Kingdom",
+						"type": "site",
+						"url": "loddk"
+					}		
+				]
 			},
 			{
-				"name": "HSiFS nonspell practice",
-				"type": "site",
-				"url": "hsifs_nonprac"
+				"name": "HSiFS",
+				"type": "subgroup",
+				"children": [
+					{
+						"name": "Nonspell practice",
+						"type": "site",
+						"url": "hsifs_nonprac"
+					},
+					{
+						"name": "Undefined Fantastic Four Seasons",
+						"type": "site",
+						"url": "uffs"
+					}
+				]
 			},
 			{
-				"name": "Undefined Fantastic Four Seasons",
-				"type": "site",
-				"url": "uffs"
-			},
-			{
-				"name": "WBaWC practice patch",
-				"type": "site",
-				"url": "prac"
-			},
-			{
-				"name": "WBaWC demo practice patch",
-				"type": "site",
-				"url": "wbawc_prac"
+				"name": "WBaWC",
+				"type": "subgroup",
+				"children": [
+					{
+						"name": "Practice patch",
+						"type": "site",
+						"url": "prac"
+					},
+					{
+						"name": "Demo practice patch",
+						"type": "site",
+						"url": "wbawc_prac"
+					},
+					{
+						"name": "Mystia's Adventure",
+						"type": "site",
+						"url": "wbawc_mystia"
+					}
+				]
 			}
 		]
 	},
