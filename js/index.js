@@ -20,7 +20,7 @@ const INDEX =
 	},
 
 	{
-		"groupName": "Patches",
+		"groupName": "Mods",
 		"path": "patches/",
 		"content": [
 			{
@@ -42,6 +42,11 @@ const INDEX =
 						"name": "Rank patch",
 						"type": "site",
 						"url": "mof_rank"
+					},
+					{
+						"name": "Mountain of Motion Sickness",
+						"type": "site",
+						"url": "mof_sickness"
 					}
 				]
 			},
