@@ -335,10 +335,15 @@ function setWindowTitle(path, file) {
 	}
 	if (group.single) document.head.querySelector("title").innerText = group.name;
 	else {
-		for (let i=0; i<group.content.length; i++) {
-			let item = group.content[i];
-			if (item.url == file) document.head.querySelector("title").innerText = item.name;
-		}
+		setWindowTitleGroup(file, group.content);
+	}
+}
+
+function setWindowTitleGroup(file, group) {
+	for (let i=0; i<group.length; i++) {
+		let item = group[i];
+		if (item.type == "subgroup") setWindowTitleGroup(file, item.children);
+		else if (item.url == file) document.head.querySelector("title").innerText = item.name;
 	}
 }
 
