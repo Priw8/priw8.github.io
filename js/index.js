@@ -35,6 +35,17 @@ const INDEX =
 				]
 			},
 			{
+				"name": "MoF",
+				"type": "subgroup",
+				"children": [
+					{
+						"name": "Rank patch",
+						"type": "site",
+						"url": "mof_rank"
+					}
+				]
+			},
+			{
 				"name": "LoLK",
 				"type": "subgroup",
 				"children": [
