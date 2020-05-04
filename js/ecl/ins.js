@@ -4164,8 +4164,8 @@ const INS_13 = {
         number: 522,
         game: 13,
         args: "SSSm",
-        argnames: ["id", "life", "score", "name"],
-        description: "[ins=537,13], but used on the extra stage.",
+        argnames: ["id", "time", "unused", "name"],
+        description: "Same as [ins=537,13], but the difficulty number is NOT added to the id.",
         documented: true
     },
     523: {
@@ -4212,9 +4212,9 @@ const INS_13 = {
         number: 528,
         game: 13,
         args: "SSSm",
-        argnames: ["id", "life", "score", "name"],
-        description: "Variation of [ins=537,13], the difference is unknown.",
-        documented: false
+        argnames: ["id", "time", "unused", "name"],
+        description: "No difference from [ins=522,13], unused.",
+        documented: true
     },
     529: {
         number: 529,
@@ -4284,25 +4284,29 @@ const INS_13 = {
         number: 537,
         game: 13,
         args: "SSSm",
-        argnames: ["id", "life", "score", "name"],
-        description: "Declares a spellcard with id %1 and name %4. I am not sure what %2 and %3 do exactly, [c=red]needs investigation[/c].",
-        documented: false
+        argnames: ["id", "time", "unused", "name"],
+        description: "Declares a spellcard with id %1 and name %4. The actual ID passed to the spell-creating function is `id + difficulty`, with easy=0, normal=1, hard=2, lunatic=3, ex=4, overdrive=5.  \n" +
+            "%2 determines how much time the spell circle takes to shrink (in frames), as well as how fast the spell bonus decreases. The exact formula is as follows:  \n" +
+            "[code] int factor = maxSCB >> 2; // maxSCB is hardcoded\n currSCB -= (maxSCB - factor) / (%2 - 300);\n currSCB -= currSCB % 10; [/code]  \n" + 
+            "As you can guess, setting %2 to 300 causes a division by 0 error and crashes the game, while setting it to a value smaller than 300 causes the SCB to increase over time, instead of decreasing. " + 
+            "%3 is unused.",
+        documented: true
     },
     538: {
         number: 538,
         game: 13,
         args: "SSSm",
-        argnames: ["id", "life", "score", "name"],
-        description: "Unknown difference from [ins=537,13].",
-        documented: false
+        argnames: ["id", "time", "unused", "name"],
+        description: "Same as [ins=537,13], except the ID used it `id - 1 + difficulty`.",
+        documented: true
     },
     539: {
         number: 539,
         game: 13,
         args: "SSSm",
-        argnames: ["id", "life", "score", "name"],
-        description: "Unknown difference from [ins=537,13].",
-        documented: false
+        argnames: ["id", "time", "unused", "name"],
+        description: "Same as [ins=537,13], except the ID used it `id - 2 + difficulty`.",
+        documented: true
     },
     540: {
         number: 540,
@@ -5086,6 +5090,51 @@ const INS_16 = {
         description: "[c=red]Unknown.[/c] Used in [game=16]HSiFS[/game] stage 6, %1 is an [var=-9914,13] of another enemy. Might be used to delete that enemy.",
         documented: false
     },
+    522: {
+        number: 522,
+        game: 16,
+        args: "SSSm",
+        argnames: ["id", "time", "type", "name"],
+        description: "Same as [ins=537,16], but the difficulty number is NOT added to the id.",
+        documented: true
+    },
+    528: {
+        number: 528,
+        game: 16,
+        args: "SSSm",
+        argnames: ["id", "time", "type", "name"],
+        description: "No difference from [ins=522,16], unused.",
+        documented: true
+    },
+    537: {
+        number: 537,
+        game: 16,
+        args: "SSSm",
+        argnames: ["id", "time", "mode", "name"],
+        description: "Declares a spellcard with id %1 and name %4. The actual ID passed to the spell-creating function is `id + difficulty`, with easy=0, normal=1, hard=2, lunatic=3, ex=4, overdrive=5.  \n" +
+            "%2 determines how much time the spell circle takes to shrink (in frames), as well as how fast the spell bonus decreases. The exact formula is as follows:  \n" +
+            "[code] int factor = maxSCB >> 2; // maxSCB is hardcoded\n currSCB -= (maxSCB - factor) / (%2 - 300);\n currSCB -= currSCB % 10; [/code]  \n" + 
+            "As you can guess, setting %2 to 300 causes a division by 0 error and crashes the game, while setting it to a value smaller than 300 causes the SCB to increase over time, instead of decreasing. " + 
+            "%3 TBD, it's not unused.",
+        documented: true
+    },
+    538: {
+        number: 538,
+        game: 16,
+        args: "SSSm",
+        argnames: ["id", "time", "mode", "name"],
+        description: "Same as [ins=537,16], except the ID used it `id - 1 + difficulty`.",
+        documented: true
+    },
+    539: {
+        number: 539,
+        game: 16,
+        args: "SSSm",
+        argnames: ["id", "time", "mode", "name"],
+        description: "Same as [ins=537,16], except the ID used it `id - 2 + difficulty`.",
+        documented: true
+    },
+
     572: {
         number: 572,
         game: 16,
