@@ -1173,8 +1173,8 @@ const VAR_10 = {
         game: 10,
         type: "$",
         access: "ro",
-        scope: "g",
-        desc: "[c=red]Unknown variable.[/c]",
+        scope: "l",
+        desc: "Some sort of ANM ID of the enemy (what's the purpose?).",
         documented: false
     },
     "-9960": {
@@ -1639,11 +1639,11 @@ const VAR_125 = {
     "-9910": {
         number: -9910,
         game: 125,
-        type: "$",
+        type: "%",
         access: "ro",
         scope: "g",
-        desc: "[c=red]Unknown.[/c]",
-        documented: false
+        desc: "Speed at which the boss moves.",
+        documented: true
     }
 }
 

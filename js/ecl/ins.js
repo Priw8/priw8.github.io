@@ -3416,11 +3416,11 @@ const INS_13 = {
         game: 13,
         args: "SS",
         argnames: [
-            "a",
-            "b"
+            "anmIndex",
+            "script"
         ],
-        description: "[c=red]Unknown.[/c]",
-        documented: false
+        description: "Set the animation that will play when the enemy dies to script %2 from ANM file specified by %1.",
+        documented: true
     },
     324: {
         number: 324,
@@ -4061,7 +4061,7 @@ const INS_13 = {
         game: 13,
         args: "",
         argnames: [],
-        description: "Drops all items the caller has.",
+        description: "Drops all items the caller has. Has no effect in spell practice.",
         documented: true
     },
     510: {
@@ -4320,9 +4320,9 @@ const INS_13 = {
         number: 541,
         game: 13,
         args: "S",
-        argnames: ["a"],
-        description: "[c=red]Unknown.[/c]",
-        documented: false
+        argnames: ["time"],
+        description: "Disables the hitbox (but not the hurtbox) for the given amount of frames.",
+        documented: true
     },
     542: {
         number: 542,
@@ -4450,9 +4450,9 @@ const INS_13 = {
         number: 557,
         game: 13,
         args: "SSSff",
-        argnames: ["a", "b", "c", "r", "s"],
-        description: "[c=red]Unknown.[/c]",
-        documented: false
+        argnames: ["time", "mode", "color", "start", "end"],
+        description: "Same as STD ins_9, that is, fogTime. Refer to [the STD instruction table](#s=modding/std-ins) for details.",
+        documented: true
     },
     558: {
         number: 558,
@@ -4466,9 +4466,9 @@ const INS_13 = {
         number: 559,
         game: 13,
         args: "S",
-        argnames: ["a"],
-        description: "[c=red]Unknown.[/c]",
-        documented: false
+        argnames: ["limit"],
+        description: "Set the maximum amount of enemies that can be present. New enemies will fail to spawn if the cap is reached. Default is 99999.",
+        documented: true
     },
     560: {
         number: 559,
@@ -4491,8 +4491,8 @@ const INS_13 = {
         game: 13,
         args: "",
         argnames: [],
-        description: "[c=red]Unknown.[/c]",
-        documented: false
+        description: "Same as [ins=509,13], but item spawning will not be blocked in spell practice.",
+        documented: true
     },
     600: {
         number: 600,
@@ -4831,6 +4831,15 @@ const INS_13 = {
         documented: true
     },
 
+    712: {
+        number: 712,
+        game: 13,
+        args: "ff",
+        argnames: ["w", "h"],
+        description: "Cancels all bullets in rectangle of width %1 and height %2.",
+        documented: true
+    },
+
     800: {
         number: 800,
         game: 13,
@@ -4959,9 +4968,9 @@ const INS_14 = {
         number: 564,
         game: 14,
         args: "f",
-        argnames: ["r"],
-        description: "[c=red]Unknown.[/c]",
-        documented: false
+        argnames: ["angle"],
+        description: "Rotates the hitbox and hurtbox of the enemy (note: the hitbox rotation is really janky, but hurtbox rotates fine). Has no effect unless the enemy uses rectangular collision.",
+        documented: true
     },
     565: {
         number: 563,
@@ -5002,7 +5011,16 @@ const INS_14 = {
         argnames: ["etId"],
         description: "Subtracts 1 from the index used by [ins=611,13] and [ins=612,13], unless it's already 0. This basically changes where the next transformation will be appended.",
         documented: true
-    }
+    },
+
+    712: {
+        number: 712,
+        game: 13,
+        args: "ff",
+        argnames: ["w", "h"],
+        description: "Cancels all bullets in rectangle of width %1 and height %2. The area is affected by rotation set by [ins=564,14].",
+        documented: true
+    },
 };
 
 const INS_143 = {};
