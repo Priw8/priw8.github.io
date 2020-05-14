@@ -5015,7 +5015,7 @@ const INS_14 = {
 
     712: {
         number: 712,
-        game: 13,
+        game: 14,
         args: "ff",
         argnames: ["w", "h"],
         description: "Cancels all bullets in rectangle of width %1 and height %2. The area is affected by rotation set by [ins=564,14].",
