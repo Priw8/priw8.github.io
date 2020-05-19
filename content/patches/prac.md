@@ -1,6 +1,5 @@
 # [game=17]Wily Beast and Weakest Creature[/game] practice patch
 
-// TODO: make video
 
 My first full practice patch, which allows skipping to any part of the game, based on other existing patches. 
 
@@ -12,11 +11,12 @@ My first full practice patch, which allows skipping to any part of the game, bas
 - Set initial tokens (goast)
 
 ## Known bugs
-- The section number is sometimes not properly reset, allowing selecting invalid sections. Invalid sections don't crash the game, they simply do nothing. This will be fixed in a future version.
-- The "extra beasts appeared" bug can occur in practice. I blame ZUN for this, maybe this will be fixed in the future, maybe not.
-- [c=red]Practicing extra stage with it not being unlocked will result in game freezing upon returning to practice menu. This will be fixed in near future.[/c]
-- Sometimes, the difficulty resets to normal. This will be fixed.
-* In case of encountering a bug that's not on the list, report it to Priw8#9873
+- The section number is sometimes not properly reset, allowing selecting invalid sections. Invalid sections don't crash the game, they simply do nothing.
+- The "extra beasts appeared" bug can occur in practice. I blame ZUN for this
+- [c=red]Practicing extra stage with it not being unlocked will result in game freezing upon returning to practice menu.[/c]
+- Sometimes, the difficulty resets to normal.
 
-**Note:** due to hard disk failure, it will take a bit longer than expected to fix bugs.  
+
+**Note:** source code of this was lost due to a hard disk failure (actually I do have a backup but it's outdated). Because of that, bugs won't be fixed. I recommend getting thprac from [Maribel's site](https://maribelhearn.com/tools) instead (labeled as "Universal Practice Tool by ACK").  
+  
 Download here: [th17prac1.0.zip](/files/th17prac1.0.zip)

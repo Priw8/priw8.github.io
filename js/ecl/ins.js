@@ -5105,8 +5105,8 @@ const INS_16 = {
         argnames: [
             "id"
         ],
-        description: "[c=red]Unknown.[/c] Used in [game=16]HSiFS[/game] stage 6, %1 is an [var=-9914,13] of another enemy. Might be used to delete that enemy.",
-        documented: false
+        description: "Delete enemy with the given ID.",
+        documented: true
     },
     522: {
         number: 522,

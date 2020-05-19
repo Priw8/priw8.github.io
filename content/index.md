@@ -1,7 +1,7 @@
 # Welcome!
-You can find various things I made here, as well as some resources for modding ZUN's games yourself.
+One day I'll come up with something to actually put on this page. Either way, things here are mostly related to modding various games (mostly Touhou).
 
 #### Media and stuff:
-- [Youtube](https://www.youtube.com/channel/UCfFHyEuaF-aVxz91x25aTpQ)
+- [Youtube](https://www.youtube.com/c/Priw8)
 - [Twitch](https://www.twitch.tv/priw8)
 - Discord: **Priw8#9873**

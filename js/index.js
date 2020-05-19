@@ -10,6 +10,8 @@ const INDEX =
 	},
 
 	{
+		"noItem": true, // hiding it until I find any purpose for it
+
 		"groupName": "News",
 		"name": "News and stuff",
 		"single": true,
@@ -86,15 +88,26 @@ const INDEX =
 						"type": "site",
 						"url": "prac"
 					},
-					{
+					/*{
 						"name": "Demo practice patch",
 						"type": "site",
 						"url": "wbawc_prac"
-					},
+					},*/
 					{
 						"name": "Mystia's Adventure",
 						"type": "site",
 						"url": "wbawc_mystia"
+					}
+				]
+			},
+			{
+				"name": "Not Touhou",
+				"type": "subgroup",
+				"children": [
+					{
+						"name": "Crypt of the Necrodancer",
+						"type": "site",
+						"url": "necrodancer"
 					}
 				]
 			}
