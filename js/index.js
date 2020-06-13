@@ -101,7 +101,18 @@ const INDEX =
 				]
 			},
 			{
-				"name": "Not Touhou",
+				"name": "Len'en",
+				"type": "subgroup",
+				"children": [
+					{
+						"name": "Len'en EE practice patch",
+						"type": "site",
+						"url": "lenen1_prac"
+					}
+				]
+			},
+			{
+				"name": "Other",
 				"type": "subgroup",
 				"children": [
 					{
