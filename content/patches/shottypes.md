@@ -35,7 +35,7 @@ Download [heeeeeeeeere](https://mega.nz/#!10JzTKBC!GLi2MJZADsRPqdn1b9knvLfJknXep
 [hr]
 ### The 0 power shot collection
 (no video)  
-Basically a collection of shottypes that stay at 0 power forever. Yep, that's it. Well, techniccally the power does increase, but the shottype doesn't get any better.  
+Basically a collection of shottypes that stay at 0 power forever. Yep, that's it. Well, technically the power does increase, but the shottype doesn't get any better.  
 Only available through thcrap, I didn't bother making another way of using the patch because who would want to play it anyway.
 
 [hr]

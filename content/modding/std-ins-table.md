@@ -15,7 +15,7 @@
 |         13         |ins_13(int a)                            | Unknown. I have a random theory that it is used to delete sprites set by ins_14 and a=slot, but I could be completely wrong.|
 |         14         |ins_14(int slot, int scriptIndex, int layer)| From the same ANM script as the one used for QUADs, load script onto the specified slot, and set its layer. The script must be a 2d sprite. It is used in [game=16]HSiFS[/game] stage 1 to display the sky and the clouds, for example.|
 |         15         |ins_15(???)                              | Very unknown. |
-|         16         |ins_16(int a)                            | When an ECL script uses `callSTD(int a)` (ins_630), the STD script will immidiately jump to this instruction (value of `a` here and `a` in callSTD must be the same for this to happen)|
+|         16         |ins_16(int a)                            | When an ECL script uses `callSTD(int a)` (ins_630), the STD script will immediately jump to this instruction (value of `a` here and `a` in callSTD must be the same for this to happen)|
 |         17         |ins_17(int a)                            | If a=1, it will enable an effect that makes the bottom of the screen distorted. |
 |         18         |ins_18(int time, int mode, float x, float y, float z)| Same as ins_6 but it changes in `time` frames using `mode` (needs checking). |
 |         19         |ins_19(int a)                            | Unknown. |

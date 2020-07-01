@@ -1,7 +1,7 @@
 # Bullet transformations
 ## In Touhou 13 - 17
 [requireEclmap=17]
-Bullet transformations, also referred to as etEx for short, define what the bullet does after being shot. A bullet manager has a bullet transformation list (etEx list), which is an 18-element array of single transformations. Entries can be added via [ins=609,13], [ins=610,13], [ins=611,13] and [ins=612,13] instructions. [ins=640,17] is also used to set an additational parameter of a transform on the given index. When a bullet is shot, the etEx list is fully copied from the bullet manager to the bullet itself. This means that modifying the manager's etEx list after shooting a bullet will not change the list used by that bullet. 
+Bullet transformations, also referred to as etEx for short, define what the bullet does after being shot. A bullet manager has a bullet transformation list (etEx list), which is an 18-element array of single transformations. Entries can be added via [ins=609,13], [ins=610,13], [ins=611,13] and [ins=612,13] instructions. [ins=640,17] is also used to set an additional parameter of a transform on the given index. When a bullet is shot, the etEx list is fully copied from the bullet manager to the bullet itself. This means that modifying the manager's etEx list after shooting a bullet will not change the list used by that bullet. 
 
 ## [ins=609,13], [ins=611,13]
 There are 4 instructions for adding new entries to the transform list: [ins=609,13], [ins=610,13], [ins=611,13] and [ins=612,13]. They are generally similar, but have some very important differences.  

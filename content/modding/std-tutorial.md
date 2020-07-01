@@ -209,7 +209,7 @@ STD scripts are far simplier than ANM and ECL scripts, as they don't even have a
     ins_3(1800, 0, 0.0f, 2600.0f, -20.0f);
 1800:
     ins_1(84, 0);[/code]  
-The STD instruction table can ba found [here](#s=ecl/std-ins), refer to it to check what the individual instructions here do.  
+The STD instruction table can be found [here](#s=ecl/std-ins), refer to it to check what the individual instructions here do.  
 Time labels work in the same way as in ECL, that is the script has a time value that increases every frame, and time labels will stop the script execution until that value is greater or equals the value in the time label.  
 #### The jump instruction
 thecl generates automatic labels for `jump` instructions, but thstd doesn't. This means that you have to calculate the jump offset yourself. Every instruction size is `8+4*n`, with `n` being the amount of arguments, and the jump offset is absolute (from the beginning of the script).  
