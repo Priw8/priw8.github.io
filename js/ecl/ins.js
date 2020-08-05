@@ -4774,9 +4774,9 @@ const INS_13 = {
         number: 634,
         game: 13,
         args: "S",
-        argnames: ["a"],
-        description: "Something something sets a flag that does something to the caller's hitbox or whatever, google translate makes no sense. [c=red]Needs checking.[/c]",
-        documented: false
+        argnames: ["id"],
+        description: "Make the caller use a special function for determining collision with the player. TODO: create a list of functions and their IDs",
+        documented: true
     },
     635: {
         number: 635,
