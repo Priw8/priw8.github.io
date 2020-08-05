@@ -166,19 +166,61 @@ function getOpcodeNoCheck(game, num, timeline) {
 				break;
 			// Inherits ins from previous versions.
 			case 17:
-				if (!ret) ret = getOpcodeFromList(INS_17, num);
+				ret = getOpcodeFromList(INS_17, num);
+				if (ret) {
+					if (ret.noInherit && ret.game != 17)
+						ret = null;
+					else
+						break;
+				}
 			case 165:
-				if (!ret) ret = getOpcodeFromList(INS_165, num);
+				ret = getOpcodeFromList(INS_165, num);
+				if (ret) {
+					if (ret.noInherit && ret.game != game)
+						ret = null;
+					else
+						break;
+				}
 			case 16:
-				if (!ret) ret = getOpcodeFromList(INS_16, num);
+				ret = getOpcodeFromList(INS_16, num);
+				if (ret) {
+					if (ret.noInherit && ret.game != game)
+						ret = null;
+					else
+						break;
+				}
 			case 15:
-				if (!ret) ret = getOpcodeFromList(INS_15, num);
+				ret = getOpcodeFromList(INS_15, num);
+				if (ret) {
+					if (ret.noInherit && ret.game != game)
+						ret = null;
+					else
+						break;
+				}
 			case 143:
-				if (!ret) ret = getOpcodeFromList(INS_143, num);
+				ret = getOpcodeFromList(INS_143, num);
+				if (ret) {
+					if (ret.noInherit && ret.game != game)
+						ret = null;
+					else
+						break;
+				}
 			case 14:
-				if (!ret) ret = getOpcodeFromList(INS_14, num);
+				ret = getOpcodeFromList(INS_14, num);
+				if (ret) {
+					if (ret.noInherit && ret.game != game)
+						ret = null;
+					else
+						break;
+				}
 			case 13:
-				if (!ret) ret = getOpcodeFromList(INS_13, num);
+				ret = getOpcodeFromList(INS_13, num);
+				if (ret) {
+					if (ret.noInherit && ret.game != game)
+						ret = null;
+					else
+						break;
+				}
 				break;
 			case 8:
 				if (!ret) ret = getOpcodeFromList(INS_8, num);

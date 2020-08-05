@@ -252,7 +252,7 @@ const GROUPS_16 =
     },
     {
         min: 1000,
-        max: 1003,
+        max: 1001,
         title: "Game specific"
     }
 ];
@@ -5160,6 +5160,26 @@ const INS_16 = {
         argnames: ["hp"],
         description: "Sets caller's current HP to %1, without changing max HP.",
         documented: true
+    },
+
+
+    1000: {
+        number: 1000,
+        game: 16,
+        args: "SSS",
+        argnames: ["time", "max", "min"],
+        description: "Set the number of season items dropped by the enemy. At the time this instruction is called, the bonus for killing the enemy will be %2 season items, and will decrease linearly to %3 over the next %1 frames.",
+        documented: true,
+        noInherit: true
+    },
+    1001: {
+        number: 1001,
+        game: 16,
+        args: "S",
+        argnames: ["damage"],
+        description: "The enemy will spawn a season item for every %1 points of damage it receives.  Used by bosses.",
+        documented: true,
+        noInherit: true
     }
 };
 
