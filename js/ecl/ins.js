@@ -4860,9 +4860,9 @@ const INS_13 = {
         number: 802,
         game: 13,
         args: "S",
-        argnames: ["a"],
-        description: "[c=red]Once again, google translate doesn't make any sense.[/c]",
-        documented: false
+        argnames: ["slot"],
+        description: "For all existing bosses, trigger the interrupt set by [ins=514,13] on slot %1. Does not change the HP to the one set in [ins=514,13].",
+        documented: true
     }
 };
 
