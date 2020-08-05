@@ -90,14 +90,6 @@ async function autoEclmap(game) {
 
 class Eclmap {
     constructor(txt) {
-        this.is_new = false;
-
-        // old eclmaps
-        this.opcodes = {};
-        this.timeline_opcodes = {};
-        this.globals = {};
-
-        // new ecmlaps
         this.ins = [];
         this.timeline_ins = [];
         this.var = [];
@@ -115,37 +107,22 @@ class Eclmap {
         this.parse();
     }
     getMnemonic(num) {
-        if (!this.is_new) {
-            if (this.opcodes[num])
-                return this.opcodes[num];
-        } else {
-            let ent = this.seqmapGet(this.ins, num);
-            if (ent != null)
-                return ent.name;
-        }
+        let ent = this.seqmapGet(this.ins, num);
+        if (ent != null)
+            return ent.name;
         return `ins_${num}`;
     }
     getTimelineMnemonic(num) {
-        if (!this.is_new) {
-            if (this.timeline_opcodes[num])
-                return this.timeline_opcodes[num];
-        } else {
-            let ent = this.seqmapGet(this.timeline_ins, num);
-            if (ent != null)
-                return ent.name;
-        }
+        let ent = this.seqmapGet(this.timeline_ins, num);
+        if (ent != null)
+            return ent.name;
 
         return `ins_${num}`;
     }
     getGlobal(num) {
-        if (!this.is_new) {
-            if (this.globals[num])
-                return this.globals[num];
-        } else {
-            let ent = this.seqmapGet(this.var, num);
-            if (ent != null)
-                return ent.name;
-        }
+        let ent = this.seqmapGet(this.var, num);
+        if (ent != null)
+            return ent.name;
 
         return `[${num}]`;
     }
@@ -172,34 +149,8 @@ class Eclmap {
     }
     parse() {
         const magic = this.fgets();
-        if (magic != "eclmap") {
-            // parse new format, old format parsing will be removed in thhe future
-            this.is_new = true;
-            this.parseNew(magic);
-            return;
-        }
-        let line;
-        while((line = this.fgets()) != null) {
-            // Remove comments.
-            line = line.split("#")[0];
-            let token = this.strtok(line, " \t\n");
-            if (!token) continue; // 0 tokens = empty line
-            const num = parseInt(token);
-            if (isNaN(num)) return this.err("opcode is not a number")
-
-            token = this.strtok(null, " \t\n");
-            if (!token) return this.err("not enough tokens");
-            const group = token == '?' ? this.opcodes : (token == '@' ? this.timeline_opcodes : this.globals);
-
-            token = this.strtok(null, " \t\n");
-            if (!token) return this.err("not enough tokens");
-
-            // validate mnemonic
-            if (!token.match(/[a-zA-Z_][a-zA-Z_0-9]*/)) return this.err(token + "isn't a valid identifier");
-            if (token.substring(0, 4) == "ins_") return this.err("mnemonic can't start with ins_");
-
-            group[num] = token;
-        }
+        this.control("!ins_names"); // default
+        this.seqmapLoad("!eclmap", this.set.bind(this), this.control.bind(this), magic);
     }
 
     control(arg) {
@@ -289,11 +240,6 @@ class Eclmap {
                 return 1;
         }
         this.seqmapSet(this.currentSeqmap, num, name);
-    }
-
-    parseNew(magic) {
-        this.control("!ins_names"); // default
-        this.seqmapLoad("!eclmap", this.set.bind(this), this.control.bind(this), magic);
     }
 
     seqmapLoad(magic, set, control, line) {
