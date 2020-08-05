@@ -4353,8 +4353,8 @@ const INS_13 = {
         game: 13,
         args: "",
         argnames: [],
-        description: "Resets some parameters of the caller [c=red](what exactly?)[/c]",
-        documented: false
+        description: "Cancels all lasers.",
+        documented: true
     },
     546: {
         number: 546,
