@@ -78,7 +78,7 @@ async function autoEclmap(game) {
 	});
 	
 	for (let i=0; i<group.length; ++i) {
-		const res = await fetch(`eclmap/th${group[i]}.eclm`);
+		const res = await fetch(`eclmap/eclmap/th${group[i]}.eclm`);
 		if (res.ok) {
 			const txt = await res.text();
 			return txt;
