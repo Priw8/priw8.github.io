@@ -31,6 +31,7 @@ function parseEclmap(txt, name) {
 }
 
 async function autoEclmap(game) {
+    debugger;
 	let groups = [
 		[6],
 		[7],
@@ -39,31 +40,24 @@ async function autoEclmap(game) {
         [13, 14, 14.3, 15, 16, 16.5, 17],
         [GAME_ECLPLUS]
 	];
-	let rgroups = [
-		["06"],
-		["07"],
-		["08", "09", "95"],
-		["10", "103", "11", "12", "125", "128"],
-        ["13", "14", "143", "15", "16", "165", "17"],
-        ["GAME_ECLPLUS"]
-	];
+
 	let group = null;
 	for (g=0; g<groups.length; ++g) {
 		if (groups[g].indexOf(game) > -1) {
-			group = rgroups[g];
+			group = groups[g];
 			break;
 		}
     }
     
-    if (group == "GAME_ECLPLUS") {
+    if (group[0] == GAME_ECLPLUS) {
         const res = await fetch("eclplus/ECLinclude/ECLplus.eclm");
         if (res.ok) {
             const txt = await res.text();
             return txt;
-        } else return "eclmap";
+        } else return "!eclmap";
     }
 
-	if (group == null) return "eclmap";
+	if (group == null) return "!eclmap";
 
 	// Generally prioritize getting eclmap for the exact same version
 	// if not found, try the earlier versions, and if there are no earlier versions,
@@ -78,14 +72,14 @@ async function autoEclmap(game) {
 	});
 	
 	for (let i=0; i<group.length; ++i) {
-		const res = await fetch(`eclmap/eclmap/th${group[i]}.eclm`);
+		const res = await fetch(`eclmap/eclmap/th${normalizeGameVersion(group[i])}.eclm`);
 		if (res.ok) {
 			const txt = await res.text();
 			return txt;
-		} else return "eclmap";
+		} else return "!eclmap";
 	}
 
-	return "eclmap";
+	return "!eclmap";
 }
 
 class Eclmap {
