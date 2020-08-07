@@ -31,7 +31,6 @@ function parseEclmap(txt, name) {
 }
 
 async function autoEclmap(game) {
-    debugger;
 	let groups = [
 		[6],
 		[7],
