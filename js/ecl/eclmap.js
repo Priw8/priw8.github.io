@@ -7,8 +7,8 @@ async function loadEclmap(file, name, game) {
         return;
     }
 
-	let txt;
-	if (file == null) txt = await autoEclmap(game);
+    let txt;
+    if (file == null) txt = await autoEclmap(game);
     else txt = await fileEclmap(file);
     
     const map = parseEclmap(txt);
@@ -21,31 +21,31 @@ async function fileEclmap(file) {
     const txt = await new Promise((resolve, reject) => {
         fr.onload = () => resolve(fr.result);
     });
-	return txt;
+    return txt;
 }
 
 function parseEclmap(txt, name) {
-	const map = new Eclmap(txt);
+    const map = new Eclmap(txt);
     currentMap = map; 
     return map;
 }
 
 async function autoEclmap(game) {
-	let groups = [
-		[6],
-		[7],
-		[8, 9, 9.5],
-		[10, 10.3, 11, 12, 12.5, 12.8],
+    let groups = [
+        [6],
+        [7],
+        [8, 9, 9.5],
+        [10, 10.3, 11, 12, 12.5, 12.8],
         [13, 14, 14.3, 15, 16, 16.5, 17],
         [GAME_ECLPLUS]
-	];
+    ];
 
-	let group = null;
-	for (g=0; g<groups.length; ++g) {
-		if (groups[g].indexOf(game) > -1) {
-			group = groups[g];
-			break;
-		}
+    let group = null;
+    for (g=0; g<groups.length; ++g) {
+        if (groups[g].indexOf(game) > -1) {
+            group = groups[g];
+            break;
+        }
     }
     
     if (group[0] == GAME_ECLPLUS) {
@@ -56,29 +56,32 @@ async function autoEclmap(game) {
         } else return "!eclmap";
     }
 
-	if (group == null) return "!eclmap";
+    if (group == null) return "!eclmap";
 
-	// Generally prioritize getting eclmap for the exact same version
-	// if not found, try the earlier versions, and if there are no earlier versions,
-	// try to find it in later versions...
-	group.sort((a, b) => {
-		if (a == game) return -1;
-		else if (b == game) return 1;
-		else if (a > game && b < game) return 1;
-		else if (b > game && a < game) return -1;
-		else if (a > game && b > game) return a - b;
-		else return b - a;
-	});
-	
-	for (let i=0; i<group.length; ++i) {
-		const res = await fetch(`eclmap/eclmap/th${normalizeGameVersion(group[i])}.eclm`);
-		if (res.ok) {
-			const txt = await res.text();
-			return txt;
-		} else return "!eclmap";
-	}
+    // Generally prioritize getting eclmap for the exact same version
+    // if not found, try the earlier versions, and if there are no earlier versions,
+    // try to find it in later versions...
+    group.sort((a, b) => {
+        if (a == game) return -1;
+        else if (b == game) return 1;
+        else if (a > game && b < game) return 1;
+        else if (b > game && a < game) return -1;
+        else if (a > game && b > game) return a - b;
+        else return b - a;
+    });
+    
+    for (let i=0; i<group.length; ++i) {
+        const ver = normalizeGameVersion(group[i]);
+        const strver = ver < 10 ? `0${ver}` : `${ver}`;
 
-	return "!eclmap";
+        const res = await fetch(`eclmap/eclmap/th${strver}.eclm`);
+        if (res.ok) {
+            const txt = await res.text();
+            return txt;
+        } else return "!eclmap";
+    }
+
+    return "!eclmap";
 }
 
 class Eclmap {
