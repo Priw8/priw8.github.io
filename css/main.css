@@ -293,13 +293,11 @@ table, th, td, tr {
 	text-align: center;
 }
 .ins-signature {
-	width: 15%;
+	width: 30%;
 }
 .ins-name {
 	font-weight: bold;
 	font-size: 110%;
-}
-.ins-params {
 }
 .ins-params::before {
 	content: "(";
@@ -313,11 +311,8 @@ table, th, td, tr {
 	color: #b7e1c3;
 	font-weight: bold;
 }
-.ins-args {
-	width: 25%;
-}
 .ins-desc {
-	width: 57%;
+	width: 67%;
 }
 
 .ins-navigation-entry {

@@ -298,7 +298,7 @@ function generateOpcodeTableEntry(ins, num, timeline) {
 <tr>
 	<td class="ins-id">${num}</td>
 	<td class="ins-signature">
-		<span class="ins-name">${getOpcodeName(num, ins ? ins.documented : false, timeline)}</span><span class="ins-params">${generateOpcodeParameters(ins)}</span>
+		<span class="ins-name">${getOpcodeName(num, ins ? ins.documented : false, timeline)}</span><wbr><span class="ins-params">${generateOpcodeParameters(ins)}</span>
 	<td class="ins-desc">${generateOpcodeDesc(ins)}</td>
 </tr>
 `;
