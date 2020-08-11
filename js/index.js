@@ -190,6 +190,17 @@ const INDEX =
 				]
 			},
 			{
+				"name": "ANM (all rendering)",
+				"type": "subgroup",
+				"children": [
+					{
+						"name": "ExpHP's site",
+						"type": "href",
+						"url": "https://exphp.github.io/thpages/"
+					}
+				]
+			},
+			{
 				"name": "STD (backgrounds)",
 				"type": "subgroup",
 				"children": [
@@ -246,6 +257,11 @@ const INDEX =
 				"type": "href",
 				"newTab": true,
 				"url": "https://www.twitch.tv/priw8"
+			},
+			{
+				"name": "ExpHP's site",
+				"type": "href",
+				"url": "https://exphp.github.io/thpages/"
 			},
 			{
 				"name": "Maribel's site",
