@@ -290,9 +290,28 @@ table, th, td, tr {
 }
 .ins-id {
 	width: 3%;
+	text-align: center;
+}
+.ins-signature {
+	width: 15%;
 }
 .ins-name {
-	width: 15%;
+	font-weight: bold;
+	font-size: 110%;
+}
+.ins-params {
+}
+.ins-params::before {
+	content: "(";
+	color: #777777;
+}
+.ins-params::after {
+	content: ")";
+	color: #777777;
+}
+.ins-arg-type {
+	color: #b7e1c3;
+	font-weight: bold;
 }
 .ins-args {
 	width: 25%;

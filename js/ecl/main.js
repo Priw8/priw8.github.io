@@ -272,7 +272,6 @@ function generateOpcodeTable(game) {
 
 		table += `<br><h2 data-insnavigation="${group.title}">${group.min}-${group.max}: ${group.title}</h2>`;
 		table += "<table class='ins-table'>";
-		table += "<tr><th class='ins-id'>ID</th><th class='ins-name'>name</th><th class='ins-args'>parameters</th><th class='ins-desc'>description</th></tr>";
 
 		for (let num=group.min; num<=group.max; ++num) {
 			const ins = getOpcodeNoCheck(normalized, num, group.timeline);
@@ -297,10 +296,10 @@ function generateOpcodeTable(game) {
 function generateOpcodeTableEntry(ins, num, timeline) {
 	return `
 <tr>
-	<td>${num}</td>
-	<td>${getOpcodeName(num, ins ? ins.documented : false, timeline)}
-	<td>${generateOpcodeParameters(ins)}
-	<td>${generateOpcodeDesc(ins)}</td>
+	<td class="ins-id">${num}</td>
+	<td class="ins-signature">
+		<span class="ins-name">${getOpcodeName(num, ins ? ins.documented : false, timeline)}</span><span class="ins-params">${generateOpcodeParameters(ins)}</span>
+	<td class="ins-desc">${generateOpcodeDesc(ins)}</td>
 </tr>
 `;
 }
@@ -319,12 +318,12 @@ function getOpcodeName(num, documented, timeline) {
 }
 
 function generateOpcodeParameters(ins) {
-	if (ins == null) return "<span style='color:gray'>No data available.</span>";;
+	if (ins == null) return "";
 
 	let ret = "";
 	for (let i=0; i<ins.args.length; ++i) {
 		if (i != 0) ret += ", ";
-		ret += '<span style="white-space: nowrap;">' + ARGTYPES[ins.args[i]] + " " + ins.argnames[i] + '</span>';
+		ret += `<span style="white-space: nowrap;"><span class="ins-arg-type">${ARGTYPES[ins.args[i]]}</span> ${ins.argnames[i]}</span>`;
 	}
 	return ret;
 }
@@ -342,7 +341,13 @@ function generateOpcodeDesc(ins, notip=false) {
 }
 
 function getOpcodeTip(ins, timeline) {
-	return escapeTip(`<br><b>${timeline ? "timeline ": ""}${ins.number} - ${getOpcodeName(ins.number, ins.documented, timeline)}(${generateOpcodeParameters(ins)})</b><br><hr>${generateOpcodeDesc(ins, true)}`);
+	return escapeTip(
+`
+<br>
+<b>${timeline ? "timeline ": ""}${ins.number} - ${getOpcodeName(ins.number, ins.documented, timeline)}(${generateOpcodeParameters(ins)})</b>
+<br><hr>${generateOpcodeDesc(ins, true)}
+`
+	);
 }
 
 function escapeTip(tip) {
