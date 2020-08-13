@@ -342,11 +342,8 @@ function generateOpcodeDesc(ins, notip=false) {
 
 function getOpcodeTip(ins, timeline) {
 	return escapeTip(
-`
-<br>
-<b>${timeline ? "timeline ": ""}${ins.number} - ${getOpcodeName(ins.number, ins.documented, timeline)}(${generateOpcodeParameters(ins)})</b>
-<br><hr>${generateOpcodeDesc(ins, true)}
-`
+/* NOTE: his string must abolutely NOT have any newlines in it */
+`<br><b>${timeline ? "timeline ": ""}${ins.number} - ${getOpcodeName(ins.number, ins.documented, timeline)}(${generateOpcodeParameters(ins)})</b><br><hr>${generateOpcodeDesc(ins, true)}`
 	);
 }
 
