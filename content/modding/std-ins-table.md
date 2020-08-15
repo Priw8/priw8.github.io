@@ -4,7 +4,7 @@
 |         2          |ins_2(float x, float y, float z)         | Set the position of the camera. |
 |         3          |ins_3(int time, int mode, float x, float y, float z)| Move camera to the specified position in `time` frames using mode `mode`. Mode works in the same way as in ECL/ANM. **It moves to the new position from the last position set by ins_2, and not the current position!!!**|
 |         4          |ins_4(float x, float y, float z)         | Make the camera look at specified coordinates. Keep in mind that these coordinates are relative to camera's position |
-|         5          |ins_5(int time, int mode, float x, float y, float z)| Same as for, but the instead of changing instantly it changes in `time` frames using `mode` |
+|         5          |ins_5(int time, int mode, float x, float y, float z)| Same as ins_4, but the instead of changing instantly it changes in `time` frames using `mode` |
 |         6          |ins_6(float x, float y, float z)         | Set the camera movement vector |
 |         7          |ins_7(float vow)                         | Set the camera field of view. Use `0.68831855f` for a "normal" field of view |
 |         8          |ins_8(int bgra, float start, float end)  | Set the fog, `bgra` is a color value (thstd dumps it as #bbggrraa for easier editing), it's like RGB but reversed, the last byte is supposed to be alpha but I didn't observe any differences with different values of it. `start` is the beginning of the fog, it will have 0 opacity there, and `end` is the end of the fog, it'll have full opacity there, so nothing will be visible past that point. Both `start` and `end` are distance from the camera.|
