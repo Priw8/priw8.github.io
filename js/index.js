@@ -53,6 +53,17 @@ const INDEX =
 				]
 			},
 			{
+				"name": "DDC",
+				"type": "subgroup",
+				"children": [
+					{
+						"name": "DDDDDDDDDDD",
+						"type": "site",
+						"url": "ddddddddddd"
+					}
+				]
+			},
+			{
 				"name": "LoLK",
 				"type": "subgroup",
 				"children": [
