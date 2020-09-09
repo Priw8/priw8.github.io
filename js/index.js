@@ -87,6 +87,11 @@ const INDEX =
 						"name": "Undefined Fantastic Four Seasons",
 						"type": "site",
 						"url": "uffs"
+					},
+					{
+						"name": "GFW freeze",
+						"type": "site",
+						"url": "th16ice"
 					}
 				]
 			},
