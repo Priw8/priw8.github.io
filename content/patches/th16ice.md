@@ -1,6 +1,6 @@
 # GFW freeze patch
 
-[img=content/patches/files/th16ice.png, hratio=114]
+[yt]TvMVRnmAYBw[/yt]
 
 This patch adds the bullet freezing mechanic from GFW to HSiFS! It replaces releases.  
 While it makes most sense to play this as Cirno, the patch adds freezing powers to all characters.  
