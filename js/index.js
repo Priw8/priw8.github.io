@@ -33,6 +33,11 @@ const INDEX =
 						"name": "Custom shottypes",
 						"type": "site",
 						"url": "shottypes"
+					},
+					{
+						"name": "Thanos",
+						"type": "site",
+						"url": "thanos"
 					}
 				]
 			},
