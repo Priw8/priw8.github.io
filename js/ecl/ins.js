@@ -1004,10 +1004,10 @@ const INS_8 = {
     56: {
         number: 56,
         game: 8,
-        args: "",
-        argnames: [],
-        description: "Unknown & unused.",
-        documented: false
+        args: "SSSSSS",
+        argnames: ["id1", "id2", "id3", "id4", "id5", "id6"],
+        description: "Same as [ins=55,8], but instead of using sequential script IDs, all are specified manually.",
+        documented: true
     },
     57: {
         number: 57,
@@ -1043,10 +1043,10 @@ const INS_8 = {
     60: {
         number: 60,
         game: 8,
-        args: "",
-        argnames: [],
-        description: "Unknown & unused.",
-        documented: false
+        args: "SSSSSS",
+        argnames: ["id1", "id2", "id3", "id4", "id5", "id6"],
+        description: "Same as [ins=59,8], but instead of using sequential script IDs, all are specified manually.",
+        documented: true
     },
     61: {
         number: 61,
@@ -1644,8 +1644,8 @@ const INS_8 = {
         game: 8,
         args: "",
         argnames: [],
-        description: "Unknown & unused.",
-        documented: false
+        description: "Shoots bullets immediately, without any regard for the flag set by [ins=108,8] or the timer set by [ins=105,8].",
+        documented: true
     },
     110: {
         number: 110,
@@ -1719,10 +1719,25 @@ const INS_8 = {
     115: {
         number: 115,
         game: 8,
-        args: "",
-        argnames: [],
-        description: "Unknown & unused.",
-        documented: false
+        args: "SSffffffSSSSSS",
+        argnames: [
+            "spr",
+            "col",
+            "ang",
+            "spd",
+            "unk1",
+            "len1",
+            "len2",
+            "width",
+            "spawnTime",
+            "duration",
+            "endTime",
+            "grazeDelay",
+            "grazeSpd",
+            "unk2"
+        ],
+        description: "Same as [ins=114,8], except the laser is aimed at the player.",
+        documented: true
     },
     116: {
         number: 116,
@@ -2019,10 +2034,10 @@ const INS_8 = {
     143: {
         number: 143,
         game: 8,
-        args: "",
-        argnames: [],
-        description: "Unknown & unused.",
-        documented: false
+        args: "S",
+        argnames: ["item"],
+        description: "Set main drop of the caller to the given item (same value that's used by [ins=0,t8] timeline instructions).",
+        documented: true
     },
     144: {
         number: 144,
@@ -2100,17 +2115,17 @@ const INS_8 = {
     152: {
         number: 152,
         game: 8,
-        args: "SSSSSS",
+        args: "ffSSSS",
         argnames: [
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "F"
+            "speedMin",
+            "speedMax",
+            "cnt1Min",
+            "cnt1Max",
+            "cnt2Min",
+            "cnt2Max"
         ],
-        description: "Unknown. All arguments are always 0.",
-        documented: false
+        description: "Uses rank to increase speed, bullets per layer, and number of layers for all bullets fired by this enemy.  %1, %3, and %5 are the values that are added at 0 rank, while %2, %4, and %6 are the values added at 32 rank.",
+        documented: true
     },
     153: {
         number: 153,
