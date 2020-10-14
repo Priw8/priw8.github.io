@@ -1,13 +1,5 @@
 ## ECL instruction table
-Based on:
-- [THBWiki](https://thwiki.cc/%E8%84%9A%E6%9C%AC%E5%AF%B9%E7%85%A7%E8%A1%A8/ECL)
-- [Dass' documentation](https://en.touhouwiki.net/wiki/User:Mddass/Touhou_File_Format_Specification/ECL/V2.2)
-- My own research
-- 32th System's research
-- Dai's research  
-- ExpHP's research
-  
-Documentation of [game=8]Imperishable Night[/game] was mostly done by Dai.
+Check [here](#s=modding/credits) for credits.  
 
 [html]
 Select game version:

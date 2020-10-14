@@ -248,6 +248,11 @@ const INDEX =
 						"url": "https://priw8.github.io/sht-webedit/"
 					}
 				]
+			},
+			{
+				"name": "Credits",
+				"type": "site",
+				"url": "credits"
 			}
 		]
 	},
