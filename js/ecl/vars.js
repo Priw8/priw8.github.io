@@ -634,6 +634,42 @@ const VAR_8 = {
         desc: "Angle of the enemy's movement.",
         documented: true
     },
+    10070: {
+        number: 10070,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Angular velocity of the enemy.",
+        documented: true
+    },
+    10071: {
+        number: 10071,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Speed of the enemy.",
+        documented: true
+    },
+    10072: {
+        number: 10072,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Acceleration of the enemy.",
+        documented: true
+    },
+    10073: {
+        number: 10073,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "l",
+        desc: "Radius of enemy's circle movement.",
+        documented: true
+    },
     10074: {
         number: 10074,
         game: 8,
@@ -715,13 +751,31 @@ const VAR_8 = {
         desc: "Random float between -pi and pi",
         documented: true
     },
+    10083: {
+        number: 10083,
+        game: 8,
+        type: "%",
+        access: "ro",
+        scope: "l",
+        desc: "Amount of damage the enemy received on the previous frame.",
+        documented: true
+    },
+    10084: {
+        number: 10084,
+        game: 8,
+        type: "$",
+        access: "ro",
+        scope: "l",
+        desc: "If enemy is a boss, then it's the argument passed to [ins=127,8]. If enemy is not a boss, this could be whatever (but 0 by default).",
+        documented: true
+    },
     10085: {
         number: 10085,
         game: 8,
         type: "%",
         access: "rw",
         scope: "g",
-        desc: "Unknown.",
+        desc: "Some X coordinate?",
         documented: false
     },
     10086: {
@@ -730,7 +784,16 @@ const VAR_8 = {
         type: "%",
         access: "rw",
         scope: "g",
-        desc: "Unknown.",
+        desc: "Some Y coordinate?",
+        documented: false
+    },
+    10087: {
+        number: 10087,
+        game: 8,
+        type: "%",
+        access: "rw",
+        scope: "g",
+        desc: "Some Z coordinate?",
         documented: false
     },
     10088: {
@@ -746,10 +809,37 @@ const VAR_8 = {
         number: 10089,
         game: 8,
         type: "$",
-        access: "rw",
+        access: "ro",
         scope: "l",
         desc: "Unknown.",
         documented: false
+    },
+    10090: {
+        number: 10090,
+        game: 8,
+        type: "$",
+        access: "ro",
+        scope: "l",
+        desc: "Unknown.",
+        documented: false
+    },
+    10091: {
+        number: 10091,
+        game: 8,
+        type: "$",
+        access: "ro",
+        scope: "l",
+        desc: "Unknown.",
+        documented: false
+    },
+    10092: {
+        number: 10092,
+        game: 8,
+        type: "$",
+        access: "rw",
+        scope: "l",
+        desc: "Value set by [ins=143,8].",
+        documented: true
     },
     10093: {
         number: 10093,
@@ -787,14 +877,23 @@ const VAR_8 = {
         desc: "Amount of familiars active that were spawned by the enemy.",
         documented: true
     },
+    10097: {
+        number: 10097,
+        game: 8,
+        type: "$",
+        access: "ro",
+        scope: "g",
+        desc: "Set to 1 if player is currently a Youkai.",
+        documented: true
+    },
     10098: {
         number: 10098,
         game: 8,
         type: "$",
-        access: "rw",
+        access: "r",
         scope: "g",
-        desc: "Unknown.",
-        documented: false
+        desc: "Set to 1 if time threshold for the current stage has been met.",
+        documented: true
     },
     10099: {
         number: 10099,
@@ -809,10 +908,10 @@ const VAR_8 = {
         number: 10100,
         game: 8,
         type: "$",
-        access: "rw",
+        access: "r",
         scope: "g",
-        desc: "Unknown.",
-        documented: false
+        desc: "Current timer value.",
+        documented: true
     }
 };
 
