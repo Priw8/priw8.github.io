@@ -440,7 +440,7 @@ const INS_8 = {
     8: {
         number: 8,
         game: 8,
-        args: "Sf",
+        args: "SS",
         argnames: [
             "&var",
             "val"
