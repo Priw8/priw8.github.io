@@ -5311,9 +5311,24 @@ const INS_165 = {
         number: 1012,
         game: 165,
         args: "S",
-        argnames: ["index"],
-        description: "`th165.exe+1F694`: sets some value related to photos (accessed when photo of enemy is taken). If the value is nonzero, then it's used as an index in a byte array when photo of the enemy is taken, and the value at the given index gets set to 1. It is unknown what the array is (refer to code at `th165.exe+1A830`).",
-        documented: false,
+        argnames: ["bonus"],
+        description: 
+            "Sets the additional bonus for taking picture of the enemy (in form of a #hashtag)." +
+            "\n  With English patch, they are as follows:\n  " + 
+            "- 0 - nothing\n" + 
+            "- 1 - #GiantBulletslel\n" + 
+            "- 2 - #SuperMoon!\n" +
+            "- 3 - #DanmakuDestroyingRod?\n" + 
+            "- 4 - #StoneDanmakuROFL\n" + 
+            "- 5 - #FluffyFluff\n" + 
+            "- 6 - #DoggiePhoto\n" +
+            "- 7 - #AnimalPhoto\n" + 
+            "- 8 - #BanginDrum\n" +
+            "- 9 - #BodyOfMist?!\n" + 
+            "- 10 - #TheyrePissed...\n" + 
+            "- 11 - #ImTheRealSumirekoUsami!\n\n" + 
+            "~~Using other values will corrupt the stack~~",
+        documented: true,
         noInherit: true        
     },
     1013: {
