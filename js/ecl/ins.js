@@ -5198,7 +5198,143 @@ const INS_16 = {
     }
 };
 
-const INS_165 = {};
+const INS_165 = {
+    1000: {
+        number: 1000,
+        game: 165,
+        args: "",
+        argnames: [],
+        description: "Ends the scene as a victory.",
+        documented: true,
+        noInherit: true
+    },
+    1001: {
+        number: 1001,
+        game: 165,
+        args: "",
+        argnames: [],
+        description: "Ends the scene as a game over.",
+        documented: true,
+        noInherit: true
+    },
+    1002: {
+        number: 1002,
+        game: 165,
+        args: "f",
+        argnames: ["mult"],
+        description: "Set value used to determine \"photo views\", \"like\" and \"faved\" values when a photo is taken, something gets multiplied by it (exact formula unknown, 1.0f by default)",
+        documented: true,
+        noInherit: true
+    },
+    1003: {
+        number: 1003,
+        game: 165,
+        args: "S",
+        argnames: ["state"],
+        description: "`th165.exe+1F5A6`: sets or clears flag 0x8 in flags_high; this bitflag is checked when a photo of the enemy is taken to determine... uh... something! it's an if-else, checked at `th165.exe+4B4CA`",
+        documented: false,
+        noInherit: true
+    },
+    1004: {
+        number: 1004,
+        game: 165,
+        args: "",
+        argnames: [],
+        description: "`th165.exe+1F54F`: calls a pretty invloved method on `photoManager`.",
+        documented: false,
+        noInherit: true
+    },
+    1005: {
+        number: 1005,
+        game: 165,
+        args: "S",
+        argnames: ["duration"],
+        description: "Makes the entire screen fade to black in the given amount of frames.",
+        documented: true,
+        noInherit: true
+    },
+    1006: {
+        number: 1006,
+        game: 165,
+        args: "f",
+        argnames: ["a"],
+        description: "`th165.exe+1F60A`: calls some method on the `supervisor`.",
+        documented: false,
+        noInherit: true
+    },
+    1007: {
+        number: 1007,
+        game: 165,
+        args: "S",
+        argnames: ["duration"],
+        description: "Makes the inner area of the STG frame fade to black in the given amount of frames.",
+        documented: true,
+        noInherit: true
+    },
+    1008: {
+        number: 1008,
+        game: 165,
+        args: "S",
+        argnames: ["state"],
+        description: "Determines whether camera can be used; Setting %1 to `1` allows using camera, `0` completely removes it",
+        documented: true,
+        noInherit: true
+    },
+    1009: {
+        number: 1009,
+        game: 165,
+        args: "S",
+        argnames: ["a"],
+        description: "`th165.exe+1F64B`: sets some value in player struct, this value is used multiple times when a photo is taken.",
+        documented: false,
+        noInherit: true
+    },
+    1010: {
+        number: 1010,
+        game: 165,
+        args: "f",
+        argnames: ["mult"],
+        description: "Sets how much a single cancel item adds to the camera charge (a multiplier).",
+        documented: true,
+        noInherit: true
+    },
+    1011: {
+        number: 1011,
+        game: 165,
+        args: "S",
+        argnames: ["val"],
+        description: "Sets a value that determines the bonus for getting the enemy in the photo (every enemy has its own specific one), default is 10, exact formula unknown.",
+        documented: true,
+        noInherit: true
+    },
+    1012: {
+        number: 1012,
+        game: 165,
+        args: "S",
+        argnames: ["index"],
+        description: "`th165.exe+1F694`: sets some value related to photos (accessed when photo of enemy is taken). If the value is nonzero, then it's used as an index in a byte array when photo of the enemy is taken, and the value at the given index gets set to 1. It is unknown what the array is (refer to code at `th165.exe+1A830`).",
+        documented: false,
+        noInherit: true        
+    },
+    1013: {
+        number: 1013,
+        game: 165,
+        args: "",
+        argnames: [],
+        description: "Makes the enemy take a photo of itself.",
+        documented: true,
+        noInherit: true
+    },
+    1014: {
+        number: 1014,
+        game: 165,
+        args: "S",
+        argnames: ["duration"],
+        description: "Disables player shooting for a given amount of frames.",
+        documented: true,
+        noInherit: true
+    }
+};
 
 const INS_17 = {};
 
