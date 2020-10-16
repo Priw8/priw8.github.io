@@ -17,6 +17,6 @@ My first full practice patch, which allows skipping to any part of the game, bas
 - Sometimes, the difficulty resets to normal.
 
 
-**Note:** source code of this was lost due to a hard disk failure (actually I do have a backup but it's outdated). Because of that, bugs won't be fixed. I recommend getting thprac from [Maribel's site](https://maribelhearn.com/tools) instead (labeled as "Universal Practice Tool by ACK").  
+**Note:** source code of this was lost due to a hard disk failure (actually I do have a backup but it's outdated). Because of that, bugs won't be fixed. I recommend getting thprac from [here](https://github.com/ack7139/thprac/releases/latest) instead.
   
 Download here: [th17prac1.0.zip](/files/th17prac1.0.zip)
