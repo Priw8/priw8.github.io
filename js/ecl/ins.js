@@ -2477,6 +2477,20 @@ const TIMELINE_INS_8 = {
         description: "In absolute position (`x`,%4) where `x` is a random value between %2 and %3, creates an enemy with %1, %5, %6 and %7.",
         documented: true
     },
+    3: {
+        number: 3,
+        game: 8,
+        args: "SfSSS",
+        argnames: [
+            "sub",
+            "y",
+            "life",
+            "item",
+            "score"
+        ],
+        description: "In absolute position (`x`,%2) where `x` is a random value between `0.0f` and `384.0f`, creates an enemy with %1, %3, %4 and %5.",
+        documented: true
+    },
     4: {
         number: 4,
         game: 8,
@@ -2491,6 +2505,20 @@ const TIMELINE_INS_8 = {
             "score"
         ],
         description: "In absolute position (`x`,%4) where `x` is a random value between %2 and %3, creates a mirrored enemy with %1, %5, %6 and %7.",
+        documented: true
+    },
+    5: {
+        number: 5,
+        game: 8,
+        args: "SfSSS",
+        argnames: [
+            "sub",
+            "y",
+            "life",
+            "item",
+            "score"
+        ],
+        description: "In absolute position (`x`,%2) where `x` is a random value between `0.0f` and `384.0f`, creates a mirrored enemy with %1, %3, %4 and %5.",
         documented: true
     },
     6: {
@@ -2522,12 +2550,52 @@ const TIMELINE_INS_8 = {
         description: "Runs a hardcoded event on a boss with id %1. Used to make bosses execute a sub id stored with [ins=126,8].",
         documented: true
     },
+    9: {
+        number: 9,
+        game: 8,
+        args: "",
+        argnames: [],
+        description: "Triggers item autocollection.",
+        documented: true
+    },
     10: {
         number: 10,
         game: 8,
         args: "",
         argnames: [],
         description: "Waits until there are no more killable enemies present.",
+        documented: true
+    },
+    11: {
+        number: 11,
+        game: 8,
+        args: "SffSSSS",
+        argnames: [
+            "sub",
+            "x",
+            "y",
+            "life",
+            "pointItemCnt",
+            "powerItemCnt",
+            "score"
+        ],
+        description: "In absolute position (%2,%3), creates an enemy with %1, %4, and %7. The enemy will drop %5 point items and %6 power items on death.",
+        documented: true
+    },
+    12: {
+        number: 12,
+        game: 8,
+        args: "SffSSSS",
+        argnames: [
+            "sub",
+            "x",
+            "y",
+            "life",
+            "pointItemCnt",
+            "powerItemCnt",
+            "score"
+        ],
+        description: "In absolute position (%2,%3), creates a mirrored enemy with %1, %4, and %7. The enemy will drop %5 point items and %6 power items on death.",
         documented: true
     },
     13: {
@@ -2563,8 +2631,8 @@ const TIMELINE_INS_8 = {
             "item",
             "score"
         ],
-        description: "Difference from [ins=0,t8] unknown. Only used to spawn Eirin in stage 5.",
-        documented: false
+        description: "Same as [ins=0,t8], but ignores the enemy spawn prevention flag.",
+        documented: true
     },
     16: {
         number: 16,
