@@ -18,10 +18,7 @@ Bullet transformations are executed in order, and what a transform does exactly 
 ## The `async` flag
 The async flag of the etEx instructions is a value that's either 0 or 1. Any other values can lead to unexpected results, they could even potentially blow up your fridge, so don't use them. Anyway... If the `async` flag is set, the transformation will execute simulatenously with the one before it. This means that it's possible for a bullet to execute more than 1 transformation at once (however, I am not sure whether this actually allows executing more than 2 - I'd have to research that). This behaviour can be a bit wacky at times and not necessairly work properly for all transform combinations, but for the combinations that ZUN uses it DOES work.
 
-## Transform type documentation
-On thbwiki (in Chinese), or sorta in comments in the MERLIN liibrary: [here](https://github.com/Priw8/merlin/blob/master/th17/merlin/inline/etama.tecl), for the constant numbers refer to [this](https://github.com/Priw8/merlin/blob/master/th17/merlin/globals/etama.tecl). Transformation table will be added on this website in the future.
-
-## Examples
-TODO
+## Examples and documentation
+For more information (including examples), visit the MERLIN [documentation](#s=MERLIN/doc/functions/transformations).
 
 [/requireEclmap]
