@@ -4232,8 +4232,8 @@ const INS_13 = {
         game: 13,
         args: "",
         argnames: [],
-        description: "Possibly waits until there are no killable enemies on the screen. [c=red]Needs checking.[/c]",
-        documented: false
+        description: "Waits until there are no boss enemies.",
+        documented: true
     },
     521: {
         number: 521,
