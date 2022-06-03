@@ -198,7 +198,7 @@ A more complex ENTRY:
 This ENTRY creates a bookshelf out of the ANM scripts in the ANM file, and places multiple instances of it throughout the stage. Keep in mind that the rotation of the planes used to form a single bookshelf has to be done in the ANM scripts.  
 
 ### STD scripts
-STD scripts are far simplier than ANM and ECL scripts, as they don't even have any variables. They are used to control camera movement, field of view, set fog and do some other things. Fortunately, the dump format is way less of a headache than ANM scripts.  
+STD scripts are far simpler than ANM and ECL scripts, as they don't even have any variables. They are used to control camera movement, field of view, set fog and do some other things. Fortunately, the dump format is way less of a headache than ANM scripts.  
 [code]SCRIPT:
     ins_6(0.0f, 1.0f, 0.0f);
     ins_7(0.68831855f);
@@ -248,7 +248,7 @@ SCRIPT:
     ins_3(1800, 0, 0.0f, 2600.0f, -20.0f);
 1800:
     ins_1(84, 0);[/code]  
-The bookshelves begin at y=500, camera starts at y=600. Then the camera moves to y=2600 for 1800 frames. The duplicate of the beginning section starts at y=2500, so in both cases the camera y position is greater by 100. This makes the jump to ins_2, which sets the camera y position to 600, completely unnoticable. Obviously, this may be more difficult to do with more complex backgrounds, but you get the idea.
+The bookshelves begin at y=500, camera starts at y=600. Then the camera moves to y=2600 for 1800 frames. The duplicate of the beginning section starts at y=2500, so in both cases the camera y position is greater by 100. This makes the jump to ins_2, which sets the camera y position to 600, completely unnoticeable. Obviously, this may be more difficult to do with more complex backgrounds, but you get the idea.
 
 ### The end
 This was all I know about STD files. If you want, you can download the full examples [here](/files/eosd-st4bg.7z).

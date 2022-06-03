@@ -5,7 +5,7 @@
 [game=128]TH12.8 - Great Fairy Wars[/game]  
 [game=13]TH13 - Ten Desires[/game]  
 [game=14]TH14 - Double Dealing Character[/game]  
-[game=143]TH14.3 - Impossible Spellcard[/game]  
+[game=143]TH14.3 - Impossible Spell Card[/game]  
 [game=15]TH15 - Legacy of Lunatic Kingdom[/game]  
 [game=16]TH16 - Hidden Star in Four Seasons[/game]  
 [game=165]TH16.5 - Violet Detector[/game]  
