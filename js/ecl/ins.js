@@ -2682,7 +2682,7 @@ const INS_13 = {
         game: 13,
         args: "m",
         argnames: ["sub"],
-        description: "Calls a given sub. Can take additational parameters to pass as arguments to the sub. [c=orange]Direct Usage obsolete. Use `@subName()` syntax instead.[/c]",
+        description: "Calls a given sub. Can take additional parameters to pass as arguments to the sub. [c=orange]Direct Usage obsolete. Use `@subName()` syntax instead.[/c]",
         documented: true
     },
     12: {
@@ -2714,7 +2714,7 @@ const INS_13 = {
         game: 13,
         args: "m",
         argnames: ["sub"],
-        description: "Asynchronously calls a given sub. Can take additational parameters to pass as arguments to the sub. [c=orange]Direct usage obsolete. Use `@subName() async` syntax instead.[/c]",
+        description: "Asynchronously calls a given sub. Can take additional parameters to pass as arguments to the sub. [c=orange]Direct usage obsolete. Use `@subName() async` syntax instead.[/c]",
         documented: true
     },
     16: {
@@ -2722,7 +2722,7 @@ const INS_13 = {
         game: 13,
         args: "mS",
         argnames: ["sub", "id"],
-        description: "Asynchronously calls a given sub and assigns it ID %2. Can take additational parameters to pass as arguments to the sub. [c=orange]Direct usage obsolete, use, `@subName() async id` syntax instead.[/c]",
+        description: "Asynchronously calls a given sub and assigns it ID %2. Can take additional parameters to pass as arguments to the sub. [c=orange]Direct usage obsolete, use, `@subName() async id` syntax instead.[/c]",
         documented: true
     },
     17: {
@@ -2799,7 +2799,7 @@ const INS_13 = {
         game: 13,
         args: "m",
         argnames: ["formatString"],
-        description: "Some sort of `printf` debug instruction, which can take additational float/int arguments after %1. Its code does not exist in the release builds.",
+        description: "Some sort of `printf` debug instruction, which can take additional float/int arguments after %1. Its code does not exist in the release builds.",
         documented: true
     },
     31: null,
@@ -2833,7 +2833,7 @@ const INS_13 = {
         game: 13,
         args: "S",
         argnames: ["var"],
-        description: "Pops an integer from the stack into variable %1. [c=orange]Obsolete, use assignement syntax instead.[/c]",
+        description: "Pops an integer from the stack into variable %1. [c=orange]Obsolete, use assignment syntax instead.[/c]",
         documented: true
     },
     44: {
@@ -2849,7 +2849,7 @@ const INS_13 = {
         game: 13,
         args: "f",
         argnames: ["var"],
-        description: "Pops a float from the stack into variable %1. [c=orange]Obsolete, use assignement syntax instead.[/c]",
+        description: "Pops a float from the stack into variable %1. [c=orange]Obsolete, use assignment syntax instead.[/c]",
         documented: true
     },
     46: null,
@@ -3636,7 +3636,7 @@ const INS_13 = {
         argnames: [
             "a"
         ],
-        description: "[c=red]Hard to tell?[/c] THBWiki Google translate gives this: 'The animation effect of the playing unit (enemy), the lightning effect near the evil spirit ball of the god temple', which might be refering to lightning around Nue in [game=13]TD[/game] extra stage.",
+        description: "[c=red]Hard to tell?[/c] THBWiki Google translate gives this: 'The animation effect of the playing unit (enemy), the lightning effect near the evil spirit ball of the god temple', which might be referring to lightning around Nue in [game=13]TD[/game] extra stage.",
         documented: false
     },
     335: {
@@ -4160,7 +4160,7 @@ const INS_13 = {
         game: 13,
         args: "S",
         argnames: ["hp"],
-        description: "Sets caller's curent HP and max HP to %1.",
+        description: "Sets caller's current HP and max HP to %1.",
         documented: true
     },
     512: {
@@ -4462,7 +4462,7 @@ const INS_13 = {
         game: 13,
         args: "SSSS",
         argnames: ["e", "n", "h", "l"],
-        description: "Same as [ins=23,13], but the wait time is choosen from the given 4 based on the difficulty.",
+        description: "Same as [ins=23,13], but the wait time is chosen from the given 4 based on the difficulty.",
         documented: true
     },
     549: {
@@ -4550,7 +4550,7 @@ const INS_13 = {
         game: 13,
         args: "S",
         argnames: ["limit"],
-        description: "Set the maximum amount of enemies that can be present. New enemies will fail to spawn if the cap is reached. Default is 99999.",
+        description: "Set the maximum number of enemies that can be present. New enemies will fail to spawn if the cap is reached. Default is 99999.",
         documented: true
     },
     560: {
@@ -4722,7 +4722,7 @@ const INS_13 = {
         game: 13,
         args: "Sffffff",
         argnames: ["etId", "spd1l", "spd1m", "spd1h", "spd2l", "spd2m", "spd2h"],
-        description: "Sets speed1 and speed2 of bullet manager %1 to two of the values provided, based on ingame rank (l=low, m=mediumn, h=high)",
+        description: "Sets speed1 and speed2 of bullet manager %1 to two of the values provided, based on ingame rank (l=low, m=medium, h=high)",
         documented: true
     },
     618: {
@@ -4730,7 +4730,7 @@ const INS_13 = {
         game: 13,
         args: "Sffffffffff",
         argnames: ["etId", "spd1l", "spd1ml", "spd1m", "spd1mh", "spd1h", "spd2l", "spd2ml", "spd2m", "spd2mh", "spd2h"],
-        description: "Sets speed1 and speed2 of bullet manager %1 to two of the values provided, based on ingame rank (l=low, ml=medium-low, m=mediumn, mh=medium-high, h=high)",
+        description: "Sets speed1 and speed2 of bullet manager %1 to two of the values provided, based on ingame rank (l=low, ml=medium-low, m=medium, mh=medium-high, h=high)",
         documented: true
     },
     619: {
@@ -4746,7 +4746,7 @@ const INS_13 = {
         game: 13,
         args: "SSSSSSS",
         argnames: ["etId", "cnt1l", "cnt1m", "cnt1h", "cnt2l", "cnt2m", "cnt2h"],
-        description: "Sets count1 and count2 of bullet manager %1 to two of the values provided, based on ingame rank (l=low, m=mediumn, h=high)",
+        description: "Sets count1 and count2 of bullet manager %1 to two of the values provided, based on ingame rank (l=low, m=medium, h=high)",
         documented: true
     },
     621: {
@@ -4754,7 +4754,7 @@ const INS_13 = {
         game: 13,
         args: "SSSSSSSSSSS",
         argnames: ["etId", "cnt1l", "cnt1ml", "cnt1m", "cnt1mh", "cnt1h", "cnt2l", "cnt2ml", "cnt2m", "cnt2mh", "cnt2h"],
-        description: "Sets count1 and count2 of bullet manager %1 to two of the values provided, based on ingame rank (l=low, ml=medium-low, m=mediumn, mh=medium-high, h=high)",
+        description: "Sets count1 and count2 of bullet manager %1 to two of the values provided, based on ingame rank (l=low, ml=medium-low, m=medium, mh=medium-high, h=high)",
         documented: true
     },
     622: {
@@ -4802,7 +4802,7 @@ const INS_13 = {
         game: 13,
         args: "Sf",
         argnames: ["etId", "dist"],
-        description: "Sets distance of bullets spawned by bullet manager %1 to %2 (that is, when aa bullet is spawned it moves by %2 using its current angle).",
+        description: "Sets distance of bullets spawned by bullet manager %1 to %2 (that is, when a bullet is spawned it moves by %2 using its current angle).",
         documented: true
     },
     628: {
@@ -5308,7 +5308,7 @@ const INS_165 = {
         game: 165,
         args: "",
         argnames: [],
-        description: "`th165.exe+1F54F`: calls a pretty invloved method on `photoManager`.",
+        description: "`th165.exe+1F54F`: calls a pretty involved method on `photoManager`.",
         documented: false,
         noInherit: true
     },
@@ -5454,7 +5454,7 @@ const INS_ECLPLUS = {
         game: GAME_ECLPLUS,
         args: "m",
         argnames: ["format"],
-        description: "Shows a printf-formatted message box. Can take additational arguments for values of the printf format.",
+        description: "Shows a printf-formatted message box. Can take additional arguments for values of the printf format.",
         documented: true
     },
     2001: {
@@ -5462,7 +5462,7 @@ const INS_ECLPLUS = {
         game: GAME_ECLPLUS,
         args: "m",
         argnames: ["format"],
-        description: "Prints a printf-formatted string in the console. Can take additational arguments for values of the printf format.",
+        description: "Prints a printf-formatted string in the console. Can take additional arguments for values of the printf format.",
         documented: true
     },
     2002: {
@@ -5512,7 +5512,7 @@ const INS_ECLPLUS = {
         game: GAME_ECLPLUS,
         args: "",
         argnames: [],
-        description: "Immidiately kills the player, ignoring any iframes.",
+        description: "Immediately kills the player, ignoring any iframes.",
         documented: true
     },
     2102: {
@@ -5520,7 +5520,7 @@ const INS_ECLPLUS = {
         game: GAME_ECLPLUS,
         args: "",
         argnames: [],
-        description: "Immidiately makes the player bomb, even if there are no bombs left (although it does consume a bomb).",
+        description: "Immediately makes the player bomb, even if there are no bombs left (although it does consume a bomb).",
         documented: true
     },
     2103: {
