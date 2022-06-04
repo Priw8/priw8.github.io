@@ -4918,7 +4918,7 @@ const INS_13 = {
         game: 13,
         args: "Sffff",
         argnames: ["etId", "init_length", "final_length", "unknown_arg_3", "width"],
-        description: "Sets basic parameters of the laser. %3 has something to do with the length of straight line lasers (investigation needed), but doesn't do anything for other laser types. For curvy lasers, the only used argument is %4, and length is specified with [ins=701,13] instead.",
+        description: "Sets basic parameters of the laser. %4 has something to do with the length of straight line lasers (investigation needed), but doesn't do anything for other laser types. For curvy lasers, the only used argument is %5, and length is specified with [ins=701,13] instead.",
         documented: true
     },
     701: {
@@ -4926,7 +4926,7 @@ const INS_13 = {
         game: 13,
         args: "SSSSSS",
         argnames: ["edId", "startup_time", "expand_time", "duration", "shrink_time", "init_flags"],
-        description: "Sets timing for infinite lasers. %5 sets the initial flags for a laser, but these flags are unknown at the moment. For curvy lasers, the %2 argument instead specifies the length of the laser.",
+        description: "Sets timing for infinite lasers. %6 sets the initial flags for a laser, but these flags are unknown at the moment. For curvy lasers, the %2 argument instead specifies the length of the laser.",
         documented: true
     },
     702: {
@@ -4942,7 +4942,7 @@ const INS_13 = {
         game: 13,
         args: "SS",
         argnames: ["etId", "laser_id"],
-        description: "Shoots an infinite laser.",
+        description: "Shoots an infinite laser. %2 is a number that's used to identify this particular laser instance, so that it can be referred to in other instructions.",
         documented: true
     },
     704: {
