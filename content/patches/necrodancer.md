@@ -1,6 +1,6 @@
 # Crypt of the Necrodancer mods
 
-These mods are a bit unusual, as they do not use game's built-in modding capabilities and instead modify the assembly code. They are only for the latest Windows version of the game (with DLC). You'll need [Cheat Engine](https://www.cheatengine.org/downloads.php) to apply them (tested with version 7.1). Then, you'll be able to activate/disable them from the menu that looks like this:  
+These mods are a bit unusual, as they do not use the game's built-in modding capabilities and instead modify the assembly code. They are only for the latest Windows version of the game (with DLC). You'll need [Cheat Engine](https://www.cheatengine.org/downloads.php) to apply them (tested with version 7.1). Then, you'll be able to activate/disable them from the menu that looks like this:  
 [img=content/patches/files/necrodancer-menu.png]  
 **Activating any of the mods disables submitting to leaderboards until the game is restarted** (it will get stuck on "submitting scores, press [key] to skip" forever).  
   

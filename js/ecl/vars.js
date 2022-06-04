@@ -1345,7 +1345,7 @@ const VAR_10 = {
         type: "$",
         access: "ro",
         scope: "g",
-        desc: "Set to 1 if difficulty is easy, othewise it's 0.",
+        desc: "Set to 1 if difficulty is easy, otherwise it's 0.",
         documented: true
     },
     "-9952": {
@@ -1354,7 +1354,7 @@ const VAR_10 = {
         type: "$",
         access: "ro",
         scope: "g",
-        desc: "Set to 1 if difficulty is normal, othewise it's 0.",
+        desc: "Set to 1 if difficulty is normal, otherwise it's 0.",
         documented: true
     },
     "-9951": {
@@ -1363,7 +1363,7 @@ const VAR_10 = {
         type: "$",
         access: "ro",
         scope: "g",
-        desc: "Set to 1 if difficulty is hard, othewise it's 0.",
+        desc: "Set to 1 if difficulty is hard, otherwise it's 0.",
         documented: true
     },
     "-9950": {
@@ -1372,7 +1372,7 @@ const VAR_10 = {
         type: "$",
         access: "ro",
         scope: "g",
-        desc: "Set to 1 if difficulty is lunatic, othewise it's 0.",
+        desc: "Set to 1 if difficulty is lunatic, otherwise it's 0.",
         documented: true
     }
 }
