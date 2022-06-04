@@ -4913,7 +4913,102 @@ const INS_13 = {
         description: "Sets the string parameter of transform on index %2 in bullet manager %1 to %3, transformations will be explained separately later.",
         documented: true
     },
-
+    700: {
+        number: 700,
+        game: 13,
+        args: "Sffff",
+        argnames: ["etId", "init_length", "final_length", "unknown_arg_3", "width"],
+        description: "Sets basic parameters of the laser. %3 has something to do with the length of straight line lasers (investigation needed), but doesn't do anything for other laser types. For curvy lasers, the only used argument is %4, and length is specified with [ins=701,13] instead.",
+        documented: true
+    },
+    701: {
+        number: 701,
+        game: 13,
+        args: "SSSSSS",
+        argnames: ["edId", "startup_time", "expand_time", "duration", "shrink_time", "init_flags"],
+        description: "Sets timing for infinite lasers. %5 sets the initial flags for a laser, but these flags are unknown at the moment. For curvy lasers, the %2 argument instead specifies the length of the laser.",
+        documented: true
+    },
+    702: {
+        number: 702,
+        game: 13,
+        args: "S",
+        argnames: ["edId"],
+        description: "Shoots a straight line laser.",
+        documented: true
+    },
+    703: {
+        number: 703,
+        game: 13,
+        args: "SS",
+        argnames: ["etId", "laser_id"],
+        description: "Shoots an infinite laser.",
+        documented: true
+    },
+    704: {
+        number: 704,
+        game: 13,
+        args: "Sff",
+        argnames: ["laser_id", "x", "y"],
+        description: "sets the position of the infinite laser pointed to by %1.",
+        documented: true
+    },
+    705: {
+        number: 705,
+        game: 13,
+        args: "Sff",
+        argnames: ["laser_id", "x_speed", "y_speed"],
+        description: "Sets the offset velocity of the infinite laser pointed to by %1. The laser's position will change by %2 and %3 every frame.",
+        documented: true
+    },
+    706: {
+        number: 706,
+        game: 13,
+        args: "Sf",
+        argnames: ["laser_id", "speed"],
+        description: "Sets the speed of the infinite laser pointed to by %1.",
+        documented: true
+    },
+    707: {
+        number: 707,
+        game: 13,
+        args: "Sf",
+        argnames: ["laser_id", "width"],
+        description: "Sets the width of the infinite laser pointed to by %1.",
+        documented: true
+    },
+    708: {
+        number: 708,
+        game: 13,
+        args: "Sf",
+        argnames: ["laser_id", "angle"],
+        description: "Sets the angle of the infinite laser pointed to by %1.",
+        documented: true
+    },
+    709: {
+        number: 709,
+        game: 13,
+        args: "Sf",
+        argnames: ["laser_id", "angular_vel"],
+        description: "Sets the angular velocity of the infinite laser pointed to by %1. The laser's angle will change by %2 every frame.",
+        documented: true
+    },
+    710: {
+        number: 710,
+        game: 13,
+        args: "S",
+        argnames: ["laser_id"],
+        description: "Clears the laser pointed to by %1.",
+        documented: true
+    },
+    711: {
+        number: 711,
+        game: 13,
+        args: "S",
+        argnames: ["etId"],
+        description: "Shoots a curvy laser.",
+        documented: true
+    },
     712: {
         number: 712,
         game: 13,
@@ -4922,7 +5017,22 @@ const INS_13 = {
         description: "Cancels all bullets in rectangle of width %1 and height %2.",
         documented: true
     },
-
+    713: {
+        number: 713,
+        game: 13,
+        args: "SS",
+        argnames: ["etId", "laser_id"],
+        description: "Shoots a laser 'beam', a laser type used by marisa in GFW. Broken since this laser type does not exist outside of GFW.",
+        documented: true
+    },
+    714: {
+        number: 714,
+        game: 13,
+        args: "SS",
+        argnames: ["laser_id", "unknown"],
+        description: "Does something with a laser beam pointed to by %1. Broken since this laser type does not exist outside of GFW.",
+        documented: true
+    },
     800: {
         number: 800,
         game: 13,
