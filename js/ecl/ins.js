@@ -4950,7 +4950,7 @@ const INS_13 = {
         game: 13,
         args: "Sff",
         argnames: ["laser_id", "x", "y"],
-        description: "sets the position of the infinite laser pointed to by %1.",
+        description: "Sets the position of the infinite laser pointed to by %1.",
         documented: true
     },
     705: {
