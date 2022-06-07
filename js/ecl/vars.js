@@ -11,7 +11,7 @@ const VARLIMIT_15 = [-10000, -9904];
 const VARLIMIT_16 = [-10000, -9903];
 const VARLIMIT_165 = [-10000, -9903];
 const VARLIMIT_17 = [-10000, -9899];
-
+ 
 const VAR_8 = {
     10000: {
         number: 10000,
@@ -1843,7 +1843,7 @@ const VAR_17 = {
 		type: "$",
 		access: "ro",
 		scope: "g",
-		desc: "Currently active hyper. No hyper = 0, 1 = Wolf, Otter = 2, 3 = Eagle, 4 = Neutral hyper.",
+		desc: "Currently active hyper. No hyper = 0, wolf = 1, otter = 2, eagle = 3, neutral hyper = 4.",
 		documented: true
 	},
     "-9902": {
