@@ -1843,8 +1843,8 @@ const VAR_17 = {
 		type: "$",
 		access: "ro",
 		scope: "g",
-		desc: "Currently active hyper. Otter = 2, rest needs to be researched.",
-		documented: false
+		desc: "Currently active hyper. No hyper = 0, 1 = Wolf, Otter = 2, 3 = Eagle, 4 = Neutral hyper.",
+		documented: true
 	},
     "-9902": {
         number: -9902,
