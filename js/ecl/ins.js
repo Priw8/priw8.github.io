@@ -4207,9 +4207,9 @@ const INS_13 = {
         number: 517,
         game: 13,
         args: "SSS",
-        argnames: ["time", "b", "c"],
-        description: "Activates screen shake for %1 frames, %2 and %3 control the intensity, [c=red]needs investigation.[/c]",
-        documented: false
+        argnames: ["time", "startIntensity", "endIntensity"],
+        description: "Activates screen shake for %1 frames. %2 is the starting intensity and %3 is the ending intensity. The larger the intensity, the more the screen shakes.",
+        documented: true
     },
     518: {
         number: 518,
