@@ -5153,9 +5153,9 @@ const INS_14 = {
         number: 563,
         game: 14,
         args: "S",
-        argnames: ["a"],
-        description: "[c=red]Unknown.[/c]",
-        documented: false
+        argnames: ["flagState"],
+        description: "Sets [flag 12](#s=modding/flags) (decimal 4096), which controls whether the hitbox and hurtbox is a rectangle. If %1 is 1, collision is a rectangle. If %1 is 0, collision is elliptical.",
+        documented: true
     },
     564: {
         number: 564,
