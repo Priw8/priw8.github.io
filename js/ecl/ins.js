@@ -4207,9 +4207,9 @@ const INS_13 = {
         number: 517,
         game: 13,
         args: "SSS",
-        argnames: ["time", "b", "c"],
-        description: "Activates screen shake for %1 frames, %2 and %3 control the intensity, [c=red]needs investigation.[/c]",
-        documented: false
+        argnames: ["time", "startIntensity", "endIntensity"],
+        description: "Activates screen shake for %1 frames. %2 is the starting intensity and %3 is the ending intensity. The larger the intensity, the more the screen shakes.",
+        documented: true
     },
     518: {
         number: 518,
@@ -5153,9 +5153,9 @@ const INS_14 = {
         number: 563,
         game: 14,
         args: "S",
-        argnames: ["a"],
-        description: "[c=red]Unknown.[/c]",
-        documented: false
+        argnames: ["flagState"],
+        description: "Sets [flag 12](#s=modding/flags) (decimal 4096), which controls whether the hitbox and hurtbox is a rectangle. If %1 is 1, collision is a rectangle. If %1 is 0, collision is elliptical.",
+        documented: true
     },
     564: {
         number: 564,
