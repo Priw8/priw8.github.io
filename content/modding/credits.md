@@ -11,9 +11,10 @@
 - [zero318](https://www.youtube.com/channel/UCpu91i5feE6jcj1T7zHw1KQ) - reverse engineering and research
 - [Plus](https://www.youtube.com/channel/UCI1HPxKRky4Zm_mrRUH415Q) - theorycrafting, some research and testing
 - [Guy](https://github.com/guy-l/) - research and testing stuff, also made [LiveECL](https://guy-l.github.io/LiveECL/)
+- [Nylilsa](https://github.com/Nylilsa) - research/testing and contributions to this site
 - All the people from [thpatch](https://github.com/thpatch) and contributors - thcrap/thtk and other things
 - All the people from the [ZUNcode](https://discord.gg/fvPJvHJ) discord server
-- All the people that do some modding, since they obviously research things by doing that
+- All the people that do some modding, since they obviously research things by doing that (and give motivation to others, too!)
 
 ...
 - And you!
