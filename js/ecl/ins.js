@@ -4380,7 +4380,7 @@ const INS_13 = {
         game: 13,
         args: "SSSm",
         argnames: ["id", "time", "unused", "name"],
-        description: "Same as [ins=537,13], except the ID used it `id - 1 + difficulty`.",
+        description: "Same as [ins=537,13], except the ID used is `id - 1 + difficulty`.",
         documented: true
     },
     539: {
@@ -4388,7 +4388,7 @@ const INS_13 = {
         game: 13,
         args: "SSSm",
         argnames: ["id", "time", "unused", "name"],
-        description: "Same as [ins=537,13], except the ID used it `id - 2 + difficulty`.",
+        description: "Same as [ins=537,13], except the ID used is `id - 2 + difficulty`.",
         documented: true
     },
     540: {
