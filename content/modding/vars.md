@@ -18,7 +18,8 @@ Select game version:
     <option value="15">15 (Legacy of Lunatic Kingdom)</option>
     <option value="16">16 (Hidden Star in Four Seasons)</option>
     <option value="16.5">16.5 (Volcanic Disaster)</option>
-    <option value="17" selected>17 (Wily Beast and Weakest Creature)</option>
+    <option value="17">17 (Wily Beast and Weakest Creature)</option>
+    <option value="18" selected>18 (Unconnected Marketeers)</option>
 </select>
 
 Eclmap for variable names:<br><br>

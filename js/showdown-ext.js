@@ -93,7 +93,8 @@ let ext = function() {
 		15: "#f6d7ff",
 		16: "#63f863",
 		165: "violet",
-		17: "#ff6565"
+		17: "#ff6565",
+		18: "#1dd294"
 	}
 
 	let game = {
