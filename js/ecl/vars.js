@@ -1274,7 +1274,7 @@ const VAR_10 = {
         type: "$",
         access: "ro",
         scope: "l",
-        desc: "Is the current anm script of the enemy.",
+        desc: "Is the current script on anm slot 0 of the enemy.",
         documented: true
     },
     "-9960": {
