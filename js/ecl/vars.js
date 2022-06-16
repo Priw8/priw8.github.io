@@ -11,6 +11,7 @@ const VARLIMIT_15 = [-10000, -9904];
 const VARLIMIT_16 = [-10000, -9903];
 const VARLIMIT_165 = [-10000, -9903];
 const VARLIMIT_17 = [-10000, -9899];
+const VARLIMIT_18 = [-10000, -9898];
  
 const VAR_8 = {
     10000: {
@@ -1129,8 +1130,8 @@ const VAR_10 = {
         type: "%",
         access: "ro",
         scope: "l",
-        desc: "Same as [var=-9997,10]?",
-        documented: false
+        desc: "Same as [var=-9997,10].",
+        documented: true
     },
     "-9976": {
         number: -9976,
@@ -1138,8 +1139,8 @@ const VAR_10 = {
         type: "%",
         access: "ro",
         scope: "l",
-        desc: "Same as [var=-9996,10]?",
-        documented: false
+        desc: "Same as [var=-9996,10].",
+        documented: true
     },
     "-9975": {
         number: -9975,
@@ -1147,8 +1148,8 @@ const VAR_10 = {
         type: "%",
         access: "ro",
         scope: "l",
-        desc: "Same as [var=-9995,10]??",
-        documented: false
+        desc: "Same as [var=-9995,10].",
+        documented: true
     },
     "-9974": {
         number: -9974,
@@ -1156,8 +1157,8 @@ const VAR_10 = {
         type: "%",
         access: "ro",
         scope: "l",
-        desc: "Same as [var=-9994,10]?",
-        documented: false
+        desc: "Same as [var=-9994,10].",
+        documented: true
     },
     "-9973": {
         number: -9973,
@@ -1165,8 +1166,8 @@ const VAR_10 = {
         type: "%",
         access: "ro",
         scope: "l",
-        desc: "Same as [var=-9993,10]?",
-        documented: false
+        desc: "Same as [var=-9993,10].",
+        documented: true
     },
     "-9972": {
         number: -9972,
@@ -1174,8 +1175,8 @@ const VAR_10 = {
         type: "%",
         access: "ro",
         scope: "l",
-        desc: "Same as [var=-9992,10]?",
-        documented: false
+        desc: "Same as [var=-9992,10].",
+        documented: true
     },
     "-9971": {
         number: -9971,
@@ -1237,8 +1238,8 @@ const VAR_10 = {
         type: "%",
         access: "ro",
         scope: "g",
-        desc: "Same as [var=-9991,10]?",
-        documented: false
+        desc: "Same as [var=-9991,10].",
+        documented: true
     },
     "-9964": {
         number: -9964,
@@ -1246,8 +1247,8 @@ const VAR_10 = {
         type: "%",
         access: "ro",
         scope: "g",
-        desc: "Same as [var=-9990,10]?",
-        documented: false
+        desc: "Same as [var=-9990,10].",
+        documented: true
     },
     "-9963": {
         number: -9963,
@@ -1273,8 +1274,8 @@ const VAR_10 = {
         type: "$",
         access: "ro",
         scope: "l",
-        desc: "Some sort of ANM ID of the enemy (what's the purpose?).",
-        documented: false
+        desc: "Is the current anm script of the enemy.",
+        documented: true
     },
     "-9960": {
         number: -9960,
@@ -1309,8 +1310,8 @@ const VAR_10 = {
         type: "$",
         access: "ro",
         scope: "g",
-        desc: "Always set to 1?",
-        documented: false
+        desc: "Always returns 1.",
+        documented: true
     },
     "-9956": {
         number: -9956,
@@ -1438,8 +1439,8 @@ const VAR_11 = {
         type: "$",
         access: "rw",
         scope: "l",
-        desc: "Local integer variable of the boss (TODO: how does it work exactly?)",
-        documented: false
+        desc: "Is the same as the I0 variable of boss 0.",
+        documented: true
     },
     "-9942": {
         number: -9942,
@@ -1447,8 +1448,8 @@ const VAR_11 = {
         type: "$",
         access: "rw",
         scope: "l",
-        desc: "Local integer variable of the boss (TODO: how does it work exactly?)",
-        documented: false
+        desc: "Is the same as the I1 variable of boss 0.",
+        documented: true
     },
     "-9941": {
         number: -9941,
@@ -1456,8 +1457,8 @@ const VAR_11 = {
         type: "$",
         access: "rw",
         scope: "l",
-        desc: "Local integer variable of the boss (TODO: how does it work exactly?)",
-        documented: false
+        desc: "Is the same as the I2 variable of boss 0.",
+        documented: true
     },
     "-9940": {
         number: -9940,
@@ -1465,8 +1466,8 @@ const VAR_11 = {
         type: "$",
         access: "rw",
         scope: "l",
-        desc: "Local integer variable of the boss (TODO: how does it work exactly?)",
-        documented: false
+        desc: "Is the same as the I3 variable of boss 0.",
+        documented: true
     },
     "-9939": {
         number: -9939,
@@ -1474,8 +1475,8 @@ const VAR_11 = {
         type: "%",
         access: "rw",
         scope: "l",
-        desc: "Local float variable of the boss (TODO: how does it work exactly?)",
-        documented: false
+        desc: "Is the same as the F0 variable of boss 0.",
+        documented: true
     },
     "-9938": {
         number: -9938,
@@ -1483,8 +1484,8 @@ const VAR_11 = {
         type: "%",
         access: "rw",
         scope: "l",
-        desc: "Local float variable of the boss (TODO: how does it work exactly?)",
-        documented: false
+        desc: "Is the same as the F1 variable of boss 0.",
+        documented: true
     },
     "-9937": {
         number: -9937,
@@ -1492,8 +1493,8 @@ const VAR_11 = {
         type: "%",
         access: "rw",
         scope: "l",
-        desc: "Local float variable of the boss (TODO: how does it work exactly?)",
-        documented: false
+        desc: "Is the same as the F2 variable of boss 0.",
+        documented: true
     },
     "-9936": {
         number: -9936,
@@ -1501,8 +1502,8 @@ const VAR_11 = {
         type: "%",
         access: "rw",
         scope: "l",
-        desc: "Local float variable of the boss (TODO: how does it work exactly?)",
-        documented: false
+        desc: "Is the same as the F3 variable of boss 0.",
+        documented: true
     },
     "-9935": {
         number: -9935,
@@ -1510,8 +1511,8 @@ const VAR_11 = {
         type: "%",
         access: "rw",
         scope: "l",
-        desc: "Local float variable (TODO: is it inherited by spawned enemies?)",
-        documented: false
+        desc: "Local float variable inherited by spawned enemies, just like F0-F3 and I0-I3.",
+        documented: true
     },
     "-9934": {
         number: -9934,
@@ -1519,8 +1520,8 @@ const VAR_11 = {
         type: "%",
         access: "rw",
         scope: "l",
-        desc: "Local float variable (TODO: is it inherited by spawned enemies?)",
-        documented: false
+        desc: "Local float variable inherited by spawned enemies, just like F0-F3 and I0-I3.",
+        documented: true
     },
     "-9933": {
         number: -9933,
@@ -1528,8 +1529,8 @@ const VAR_11 = {
         type: "%",
         access: "rw",
         scope: "l",
-        desc: "Local float variable (TODO: is it inherited by spawned enemies?)",
-        documented: false
+        desc: "Local float variable inherited by spawned enemies, just like F0-F3 and I0-I3.",
+        documented: true
     },
     "-9932": {
         number: -9932,
@@ -1537,8 +1538,8 @@ const VAR_11 = {
         type: "%",
         access: "rw",
         scope: "l",
-        desc: "Local float variable (TODO: is it inherited by spawned enemies?)",
-        documented: false
+        desc: "Local float variable inherited by spawned enemies, just like F0-F3 and I0-I3.",
+        documented: true
     }
 }
 
@@ -1753,10 +1754,10 @@ const VAR_128 = {
         type: "$",
         access: "ro",
         scope: "l",
-        desc: "[c=red]Unknown.[/c]",
-        documented: false
+        desc: "Enemy ID of the parent enemy.",
+        documented: true
     }
-}
+};
 
 const VAR_13 = {
 	"-9959": {
@@ -1786,7 +1787,7 @@ const VAR_13 = {
         desc: "Spellcard ID, used by spell practice. Unknown meaning in LoLK.",
         documented: true
     }
-}
+};
 
 const VAR_14 = {};
 
@@ -1832,7 +1833,7 @@ const VAR_16 = {
         desc: "Selected subseason. Spring = 0, summer = 1, autumn = 2, winter = 3, extra subseason = 4.",
         documented: true
     }
-}
+};
 
 const VAR_165 = {};
 
@@ -1880,6 +1881,18 @@ const VAR_17 = {
         access: "ro",
         scope: "g",
         desc: "Set to 1 when the stage was loaded through the achievement menu, otherwise -1.",
+        documented: true
+    }
+};
+
+const VAR_18 = {
+    "-9898": {
+        number: -9898,
+        game: 18,
+        type: "$",
+        access: "ro",
+        scope: "g",
+        desc: "The current number of active bullets on-screen.",
         documented: true
     }
 };
