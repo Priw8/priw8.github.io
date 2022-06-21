@@ -10,3 +10,4 @@
 [game=16]TH16 - Hidden Star in Four Seasons[/game]  
 [game=165]TH16.5 - Violet Detector[/game]  
 [game=17]TH17 - Wily Beast and Weakest Creature[/game]
+[game=18]TH18 - Unconnected Marketeers[/game]

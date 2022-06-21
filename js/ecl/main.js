@@ -51,6 +51,7 @@ function getVarLimits(game) {
 		case 16: return VARLIMIT_16;
 		case 165: return VARLIMIT_165;
 		case 17: return VARLIMIT_17;
+		case 18: return VARLIMIT_18;
 	}
 }
 
@@ -70,8 +71,10 @@ function getVar(game, id) {
 function getVarNoCheck(game, id) {
 	let ret = null;
 	switch(game) {
+		case 18:
+			ret = getVarFromList(VAR_18, id);
 		case 17:
-			ret = getVarFromList(VAR_17, id);
+			if (!ret) ret = getVarFromList(VAR_17, id);
 		case 165:
 			if (!ret) ret = getVarFromList(VAR_165, id);
 		case 16:
