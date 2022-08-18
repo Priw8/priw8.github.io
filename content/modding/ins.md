@@ -11,8 +11,10 @@ Select game version:
     <option value="15">15 (Legacy of Lunatic Kingdom)</option>
     <option value="16">16 (Hidden Star in Four Seasons)</option>
     <option value="16.5">16.5 (Violent Disease)</option>
-    <option selected value="17">17 (Wily Beast and Weakest Creature)</option>
-    <option value="2000">ECLplus</option>
+    <option value="17">17 (Wily Beast and Weakest Creature)</option>
+    <option value="18">18 (Unconnected Marketeers)</option>
+    <option selected value="18.5">18.5 (100th Black Market)</option>
+    <option style="display:none" value="2000">ECLplus</option>
 </select>
 
 Eclmap for instruction names:<br><br>

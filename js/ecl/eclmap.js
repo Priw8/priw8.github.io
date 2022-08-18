@@ -36,7 +36,7 @@ async function autoEclmap(game) {
         [7],
         [8, 9, 9.5],
         [10, 10.3, 11, 12, 12.5, 12.8],
-        [13, 14, 14.3, 15, 16, 16.5, 17, 18],
+        [13, 14, 14.3, 15, 16, 16.5, 17, 18, 18.5],
         [GAME_ECLPLUS]
     ];
 
@@ -47,6 +47,8 @@ async function autoEclmap(game) {
             break;
         }
     }
+
+    if (group == null) return "!eclmap";
     
     if (group[0] == GAME_ECLPLUS) {
         const res = await fetch("eclplus/ECLinclude/ECLplus.eclm");
@@ -55,8 +57,6 @@ async function autoEclmap(game) {
             return txt;
         } else return "!eclmap";
     }
-
-    if (group == null) return "!eclmap";
 
     // Generally prioritize getting eclmap for the exact same version
     // if not found, try the earlier versions, and if there are no earlier versions,

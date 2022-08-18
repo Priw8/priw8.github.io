@@ -306,6 +306,56 @@ const GROUPS_165 =
     }
 ];
 
+const GROUPS_18 = 
+[
+    {
+        min: 0,
+        max: 93,
+        title: "System"
+    },
+    {
+        min: 300,
+        max: 340,
+        title: "Enemy creation and ANM script management"
+    },
+    {
+        min: 400,
+        max: 447,
+        title: "Movement management"
+    },
+    {
+        min: 500,
+        max: 572,
+        title: "Enemy property management and other miscellaneous things"
+    },
+    {
+        min: 600,
+        max: 641,
+        title: "Bullet creation and deletion"
+    },
+    {
+        min: 700,
+        max: 714,
+        title: "Laser creation"
+    },
+    {
+        min: 800,
+        max: 802,
+        title: "Enemy interaction"
+    },
+    {
+        min: 900,
+        max: 904,
+        title: "Debug"
+    },
+    {
+        // TODO: verify amount
+        min: 1000,
+        max: 1003,
+        title: "Game specific"
+    }
+];
+
 const GROUPS_17 = 
 [
     {
@@ -350,10 +400,61 @@ const GROUPS_17 =
     },
     {
         min: 1000,
-        max: 1003,
+        max: 1025,
         title: "Game specific"
     }
 ];
+
+
+const GROUPS_185 = 
+[
+    {
+        min: 0,
+        max: 93,
+        title: "System"
+    },
+    {
+        min: 300,
+        max: 340,
+        title: "Enemy creation and ANM script management"
+    },
+    {
+        min: 400,
+        max: 447,
+        title: "Movement management"
+    },
+    {
+        min: 500,
+        max: 572,
+        title: "Enemy property management and other miscellaneous things"
+    },
+    {
+        min: 600,
+        max: 641,
+        title: "Bullet creation and deletion"
+    },
+    {
+        min: 700,
+        max: 714,
+        title: "Laser creation"
+    },
+    {
+        min: 800,
+        max: 802,
+        title: "Enemy interaction"
+    },
+    {
+        min: 900,
+        max: 904,
+        title: "Debug"
+    },
+    {
+        min: 1000,
+        max: 1025,
+        title: "Game specific"
+    }
+];
+
 
 const INS_8 = {
     0: {
@@ -5530,6 +5631,118 @@ const INS_165 = {
 };
 
 const INS_17 = {};
+const INS_18 = {};
+
+const INS_185 = {
+    1002: {
+        number: 1002,
+        game: 185,
+        args: "",
+        argnames: [],
+        description: "Opens the shop.",
+        documented: true,
+        noInherit: true
+    },
+    1004: {
+        number: 1004,
+        game: 185,
+        args: "S",
+        argnames: ["wave"],
+        description: "Sets the current wave number to %1.",
+        documented: true,
+        noInherit: true
+    },
+    1005: {
+        number: 1005,
+        game: 185,
+        args: "",
+        argnames: [],
+        description: "Increments the current wave number by 1.",
+        documented: true,
+        noInherit: true
+    },
+    1006: {
+        number: 1006,
+        game: 185,
+        args: "m",
+        argnames: ["name"],
+        description: "Sets the current wave name to %1. Expected to be used by enemies spawned by [ins=1012,185].",
+        documented: true,
+        noInherit: true
+    },
+    1008: {
+        number: 1008,
+        game: 185,
+        args: "",
+        argnames: [],
+        description: "Increments the difficulty number by 1 if it's less than 7.",
+        documented: true,
+        noInherit: true
+    },
+    1010: {
+        number: 1010,
+        game: 185,
+        args: "",
+        argnames: [],
+        description: "Clears weighted picker data.",
+        documented: true,
+        noInherit: true
+    },
+    1011: {
+        number: 1011,
+        game: 185,
+        args: "SS",
+        argnames: ["subID", "weight"],
+        description: "Adds the given subID with weight %2 to the weighted picker data. %1 refers to a hardcoded sub name.",
+        documented: true,
+        noInherit: true
+    },
+    1012: {
+        number: 1012,
+        game: 185,
+        args: "S",
+        argnames: ["flags"],
+        description: "Invokes the weighted picker using values set by [ins=1011,185]. Based on the chosen subID, the game picks a sub name from a hardcoded list and spawns an enemy using that sub. Also makes the wave intro text show up. Effect of %1 is unknown.",
+        documented: false,
+        noInherit: true
+    },
+    1013: {
+        number: 1013,
+        game: 185,
+        args: "SSSSSSSSS",
+        argnames: ["slot", "d0", "d1", "d2", "d3", "d4", "d5", "d6", "d7"],
+        description: "Writes a bunch of numbers (%2-%9) to storage slot specified by %1.",
+        documented: true,
+        noInherit: true
+    },
+    1015: {
+        number: 1015,
+        game: 185,
+        args: "SS",
+        argnames: ["&var", "slot"],
+        description: "Retrieve one of the numbers stored by [ins=1013,185] in the given slot based on the current difficulty number into %1.",
+        documented: true,
+        noInherit: true
+    },
+    1017: {
+        number: 1017,
+        game: 185,
+        args: "",
+        argnames: [],
+        description: "Finishes the stage and shows a selection of cards you can choose from to unlock one.",
+        documented: true,
+        noInherit: true
+    },
+    1019: {
+        number: 1019,
+        game: 185,
+        args: "",
+        argnames: [],
+        description: "Finishes the stage as \"failed\", not letting you choose anything.",
+        documented: true,
+        noInherit: true
+    },
+};
 
 const ARGTYPES = {
     "S": "int",

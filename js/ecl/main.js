@@ -141,6 +141,8 @@ function getGroups(game) {
 		case 16:  return GROUPS_16;
 		case 165: return GROUPS_165;
 		case 17:  return GROUPS_17;
+		case 18:  return GROUPS_18;
+		case 185: return GROUPS_185;
 		case GAME_ECLPLUS: return GROUPS_ECLPLUS;
 	}
 }
@@ -168,6 +170,22 @@ function getOpcodeNoCheck(game, num, timeline) {
 				ret = getOpcodeFromList(INS_ECLPLUS, num);
 				break;
 			// Inherits ins from previous versions.
+			case 185:
+				ret = getOpcodeFromList(INS_185, num);
+				if (ret) {
+					if (ret.noInherit && ret.game != 185)
+						ret = null;
+					else
+						break;
+				}
+			case 18:
+				ret = getOpcodeFromList(INS_18, num);
+				if (ret) {
+					if (ret.noInherit && ret.game != 18)
+						ret = null;
+					else
+						break;
+				}
 			case 17:
 				ret = getOpcodeFromList(INS_17, num);
 				if (ret) {
