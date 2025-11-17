@@ -12,7 +12,7 @@ const GROUPS_8 = [
     }
 ]
 
-const GROUPS_13 = 
+const GROUPS_13 =
 [
     {
         min: 0,
@@ -61,7 +61,7 @@ const GROUPS_13 =
     }
 ];
 
-const GROUPS_14 = 
+const GROUPS_14 =
 [
     {
         min: 0,
@@ -110,7 +110,7 @@ const GROUPS_14 =
     }
 ];
 
-const GROUPS_143 = 
+const GROUPS_143 =
 [
     {
         min: 0,
@@ -159,7 +159,7 @@ const GROUPS_143 =
     }
 ];
 
-const GROUPS_15 = 
+const GROUPS_15 =
 [
     {
         min: 0,
@@ -208,7 +208,7 @@ const GROUPS_15 =
     }
 ];
 
-const GROUPS_16 = 
+const GROUPS_16 =
 [
     {
         min: 0,
@@ -257,7 +257,7 @@ const GROUPS_16 =
     }
 ];
 
-const GROUPS_165 = 
+const GROUPS_165 =
 [
     {
         min: 0,
@@ -306,7 +306,7 @@ const GROUPS_165 =
     }
 ];
 
-const GROUPS_18 = 
+const GROUPS_18 =
 [
     {
         min: 0,
@@ -356,7 +356,7 @@ const GROUPS_18 =
     }
 ];
 
-const GROUPS_17 = 
+const GROUPS_17 =
 [
     {
         min: 0,
@@ -406,7 +406,7 @@ const GROUPS_17 =
 ];
 
 
-const GROUPS_185 = 
+const GROUPS_185 =
 [
     {
         min: 0,
@@ -4471,8 +4471,8 @@ const INS_13 = {
         argnames: ["id", "time", "unused", "name"],
         description: "Declares a spellcard with id %1 and name %4. The actual ID passed to the spell-creating function is `id + difficulty`, with easy=0, normal=1, hard=2, lunatic=3, ex=4, overdrive=5.  \n" +
             "%2 determines how much time the spell circle takes to shrink (in frames), as well as how fast the spell bonus decreases. The exact formula is as follows:  \n" +
-            "[code] int factor = maxSCB >> 2; // maxSCB is hardcoded\n currSCB -= (maxSCB - factor) / (%2 - 300);\n currSCB -= currSCB % 10; [/code]  \n" + 
-            "As you can guess, setting %2 to 300 causes a division by 0 error and crashes the game, while setting it to a value smaller than 300 causes the SCB to increase over time, instead of decreasing. " + 
+            "[code] int factor = maxSCB >> 2; // maxSCB is hardcoded\n currSCB -= (maxSCB - factor) / (%2 - 300);\n currSCB -= currSCB % 10; [/code]  \n" +
+            "As you can guess, setting %2 to 300 causes a division by 0 error and crashes the game, while setting it to a value smaller than 300 causes the SCB to increase over time, instead of decreasing. " +
             "%3 is unused.",
         documented: true
     },
@@ -5425,8 +5425,8 @@ const INS_16 = {
         argnames: ["id", "time", "mode", "name"],
         description: "Declares a spellcard with id %1 and name %4. The actual ID passed to the spell-creating function is `id + difficulty`, with easy=0, normal=1, hard=2, lunatic=3, ex=4, overdrive=5.  \n" +
             "%2 determines how much time the spell circle takes to shrink (in frames), as well as how fast the spell bonus decreases. The exact formula is as follows:  \n" +
-            "[code] int factor = maxSCB >> 2; // maxSCB is hardcoded\n currSCB -= (maxSCB - factor) / (%2 - 300);\n currSCB -= currSCB % 10; [/code]  \n" + 
-            "As you can guess, setting %2 to 300 causes a division by 0 error and crashes the game, while setting it to a value smaller than 300 causes the SCB to increase over time, instead of decreasing. " + 
+            "[code] int factor = maxSCB >> 2; // maxSCB is hardcoded\n currSCB -= (maxSCB - factor) / (%2 - 300);\n currSCB -= currSCB % 10; [/code]  \n" +
+            "As you can guess, setting %2 to 300 causes a division by 0 error and crashes the game, while setting it to a value smaller than 300 causes the SCB to increase over time, instead of decreasing. " +
             "%3 TBD, it's not unused.",
         documented: true
     },
@@ -5591,24 +5591,24 @@ const INS_165 = {
         game: 165,
         args: "S",
         argnames: ["bonus"],
-        description: 
+        description:
             "Sets the additional bonus for taking picture of the enemy (in form of a #hashtag)." +
-            "\n  With English patch, they are as follows:\n  " + 
-            "- 0 - nothing\n" + 
-            "- 1 - #GiantBulletslel\n" + 
+            "\n  With English patch, they are as follows:\n  " +
+            "- 0 - nothing\n" +
+            "- 1 - #GiantBulletslel\n" +
             "- 2 - #SuperMoon!\n" +
-            "- 3 - #DanmakuDestroyingRod?\n" + 
-            "- 4 - #StoneDanmakuROFL\n" + 
-            "- 5 - #FluffyFluff\n" + 
+            "- 3 - #DanmakuDestroyingRod?\n" +
+            "- 4 - #StoneDanmakuROFL\n" +
+            "- 5 - #FluffyFluff\n" +
             "- 6 - #DoggiePhoto\n" +
-            "- 7 - #AnimalPhoto\n" + 
+            "- 7 - #AnimalPhoto\n" +
             "- 8 - #BanginDrum\n" +
-            "- 9 - #BodyOfMist?!\n" + 
-            "- 10 - #TheyrePissed...\n" + 
-            "- 11 - #ImTheRealSumirekoUsami!\n\n" + 
+            "- 9 - #BodyOfMist?!\n" +
+            "- 10 - #TheyrePissed...\n" +
+            "- 11 - #ImTheRealSumirekoUsami!\n\n" +
             "~~Using other values will corrupt the stack~~",
         documented: true,
-        noInherit: true        
+        noInherit: true
     },
     1013: {
         number: 1013,
