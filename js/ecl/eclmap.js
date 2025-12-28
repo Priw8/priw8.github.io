@@ -10,7 +10,7 @@ async function loadEclmap(file, name, game) {
     let txt;
     if (file == null) txt = await autoEclmap(game);
     else txt = await fileEclmap(file);
-    
+
     const map = parseEclmap(txt);
     if (!cachedMaps[name]) cachedMaps[name] = map;
 }
@@ -26,7 +26,7 @@ async function fileEclmap(file) {
 
 function parseEclmap(txt, name) {
     const map = new Eclmap(txt);
-    currentMap = map; 
+    currentMap = map;
     return map;
 }
 
@@ -49,7 +49,7 @@ async function autoEclmap(game) {
     }
 
     if (group == null) return "!eclmap";
-    
+
     if (group[0] == GAME_ECLPLUS) {
         const res = await fetch("eclplus/ECLinclude/ECLplus.eclm");
         if (res.ok) {
@@ -69,7 +69,7 @@ async function autoEclmap(game) {
         else if (a > game && b > game) return a - b;
         else return b - a;
     });
-    
+
     for (let i=0; i<group.length; ++i) {
         const ver = normalizeGameVersion(group[i]);
         const strver = ver < 10 ? `0${ver}` : `${ver}`;
@@ -124,6 +124,7 @@ class Eclmap {
     }
     err(txt) {
         alert(`eclmap parse error at line ${this.line}: ${txt}`);
+        console.error(`eclmap parse error at line ${this.line}: ${txt}`);
     }
     fgets() {
         ++this.line;
@@ -138,7 +139,7 @@ class Eclmap {
         this.strtok_tmp = this.strtok_tmp.substring(pos);
         pos = 0;
         while(this.strtok_tmp.length > pos && delim.indexOf(this.strtok_tmp[pos]) == -1) ++pos;
-        
+
         const ret = this.strtok_tmp.substring(0, pos);
         this.strtok_tmp = this.strtok_tmp.substring(pos);
         return ret;
@@ -262,13 +263,13 @@ class Eclmap {
             }
 
             token = this.strtok(null, " \t\n");
-            if (!token) {
-                this.err("not enough tokens");
-                return;
-            }
+            // if (!token) {
+            //     this.err("not enough tokens");
+            //     return;
+            // }
 
-            if (token == "_")
-                token = ""; // specify empty strings with _
+            if (token == "_" || token == " ")
+                token = ""; // specify empty strings with _ or space
 
             set(num, token);
         }

@@ -1,7 +1,8 @@
 let MD = new showdown.Converter({
 	extensions: [ext],
 	tables: true,
-	strikethrough: true
+	strikethrough: true,
+	literalMidWordUnderscores: true
 });
 let $content = document.querySelector(".content-wrapper");
 let $scriptContent = document.querySelector(".script-wrapper");
@@ -14,7 +15,7 @@ let $activeTipTarget = null;
 let contentLoadListeners = [];
 
 function contentLoaded() {
-	for (let i=0; i<contentLoadListeners.length; ++i) 
+	for (let i=0; i<contentLoadListeners.length; ++i)
 		contentLoadListeners[i]();
 	contentLoadListeners.splice(0, contentLoadListeners.length);
 }
@@ -300,7 +301,7 @@ function getErrorStringFromList(group, list) {
 			str += "- `" + path + ".md` - ["+entry.name+"]("+url+")  \n";
 		} else {
 			let url = entry.url;
-			str += "- `"+entry.url+"` - ["+entry.name+"]("+url+")  \n";	
+			str += "- `"+entry.url+"` - ["+entry.name+"]("+url+")  \n";
 		}
 	}
 	return str;

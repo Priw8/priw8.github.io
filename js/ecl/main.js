@@ -57,13 +57,13 @@ function getVarLimits(game) {
 
 function getVar(game, id) {
 	let lim = getVarLimits(game);
-	if (lim[0] <= id && lim[1] >= id) 
+	if (lim[0] <= id && lim[1] >= id)
 		return getVarNoCheck(game, id);
 	return null;
 	/*const variable = VARS[id];
 	if (typeof variable == "undefined")
 		return null;
-	if (variable == null) 
+	if (variable == null)
 		return [-1,	"$", "ro", "g", "Unkown variable."];
 	return variable;*/
 }
@@ -327,7 +327,7 @@ function generateOpcodeTableEntry(ins, num, timeline) {
 
 function getOpcodeName(num, documented, timeline) {
 	let name;
-	if (currentMap != null) 
+	if (currentMap != null)
 		name = timeline ? currentMap.getTimelineMnemonic(num) : currentMap.getMnemonic(num);
 	else
 		name = `ins_${num}`;
@@ -356,7 +356,7 @@ function generateOpcodeDesc(ins, notip=false) {
 	for (let i=0; i<ins.args.length; i++) {
 		ret = ret.replace(new RegExp("%"+(i+1)+"(?=[^0-9])", "g"), "[tip=Parameter "+(i+1)+", "+ARGTYPES[ins.args[i]]+"]`"+ins.argnames[i]+"`[/tip]");
 	}
-	if (notip) 
+	if (notip)
 		ret = ret.replace(/\[ins=/g, "[ins_notip=");
 	return MD.makeHtml(ret);
 }
